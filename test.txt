@@ -1,0 +1,8 @@
+a test file with random content
+here are some more lines
+ver = 1
+
+version                         = 0.2.1
+
+new stuff addded here
+whatever

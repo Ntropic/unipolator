@@ -9,17 +9,17 @@ dist:
 redist: clean dist
 
 install:
-	pip install . --user
+	CYTHONIZE=1  pip install .
 
 install-from-source: dist
-	pip install dist/c_unipolator
+	pip install dist\c_unipolator
 
 clean:
-	$(RM) -r build dist src/*.egg-info
-	$(RM) -r src/unipolator/{unipolator.c} 
-	$(RM) -r .pytest_cache
-	find . -name __pycache__ -exec rm -r {} +
-	#git clean -fdX
+	rd /s /q build
+	rd /s /q dist 
+	rd /s /q src\unipolator.egg-info
+	del  src\unipolator\*.c
+	git clean -fdX
 
 uninstall:
 	pip uninstall unipolator

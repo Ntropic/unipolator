@@ -1,3 +1,4 @@
+#cython: language_level=3
 from libc.math cimport fabs
 import numpy as np
 cimport numpy as npc
@@ -90,7 +91,7 @@ cpdef flat_index_sizes_E(long[::1] c_bins):   # For eigene-enery vectors
         d_bins[i] = c_bins[i] # Should copy data
         if i > 0:
             d_bins[i-1] = c_bins[i-1]+1
-        tot_prods[i] = tot_prod0/(c_bins[i]+1)*c_bins[i]
+        tot_prods[i] =  (tot_prod0*c_bins[i]) // (c_bins[i]+1)
         curr_cum_prod, _ = reverse_cum_prod(d_bins, l)
         for j in range(l):
             array_strides[i,j] = curr_cum_prod[j]
@@ -124,12 +125,11 @@ cpdef flat_index_sizes_V(long[::1] c_bins): # For orthonormal matrices and their
         tot_prod0 = tot_prod0*d_bins[i]
     # Construct the total sizes of the caches for every dimensions
     for i in range(l): # One arrow cache for every direction in grid
-        tot_prod0 = tot_prod0/(c_bins[i]+1)*c_bins[i]
+        tot_prod0 = (tot_prod0 * c_bins[i]) // (c_bins[i]+1)
         d_bins[i] = c_bins[i] # Should copy data
         if i > 1:
             d_bins[i-2] = c_bins[i-2]+1
-            tot_prod0 = tot_prod0/(c_bins[i-2])
-            tot_prod0 = tot_prod0*(c_bins[i-2]+1)
+            tot_prod0 = (tot_prod0 * (c_bins[i-2]+1)) // (c_bins[i-2])
         if i == 0: # R
             tot_ind_R = tot_prod0
             curr_cum_prod, _ = reverse_cum_prod(d_bins, l)
@@ -144,8 +144,7 @@ cpdef flat_index_sizes_V(long[::1] c_bins): # For orthonormal matrices and their
                 array_sizes_C[i-1, j] = d_bins[j]
         if i == l - 1: # L
             if i > 0:
-                tot_prod0 = tot_prod0/(c_bins[i-1])
-                tot_prod0 = tot_prod0*(c_bins[i-1]+1)
+                tot_prod0 = ( tot_prod0 * (c_bins[i-1]+1) ) // (c_bins[i-1])
                 d_bins[i-1] = c_bins[i-1]+1
             tot_ind_L = tot_prod0
             curr_cum_prod, _ = reverse_cum_prod(d_bins, l)
@@ -317,50 +316,3 @@ cpdef int c_argmax(double[::1] c, int max_ind, double c_max, int n) nogil:
             c_max = c[i]
             max_ind = i
     return max_ind
-
-
-##### Get Interpolation Parameters from absolute parameters
-#cpdef Parameters2OddGrid(int[::1] location, double[::1] abs_alpha_rest, int[::1] d_location, double[::1] alpha, double[::1] c, double[::1] c_min, double[::1] dc, int[::1] c_bins):
-#    cdef int n = alpha.shape[0]
-#    cdef int sum_location = 0
-#    cdef double[::1] alpha_rest = np.empty(n, dtype=np.double)
-#    cdef double alpha_max = 0.0
-#    cdef int i, max_alpha_ind = 0
-#    cdef int max_vals
-#    for i in range(n):
-#        # Transform
-#        alpha[i] = (c[i] - c_min[i]) / dc[i]
-#        # Round
-#        location[i] = <int> alpha[i]
-#        if alpha[i] - location[i] > 0.5:
-#            location[i] += 1
-#        sum_location += location[i]
-#        alpha_rest[i] = alpha[i] - location[i]
-#        abs_alpha_rest[i] = fabs(alpha_rest[i])
-#        d_location[i] = 1 if alpha_rest[i] >= 0 else -1
-#        if alpha[i] < 0 or alpha[i] > c_bins[i]:
-#            inside = 0
-#            break
-#    #elementwise_grid_parameters(c, c_min, dc, c_bins, alpha, sum_location, location, alpha_rest, abs_alpha_rest, d_location)
-#    if not is_in_interval(alpha, c_bins, n):
-#        print('Warning: These parameters lie outside of interpolation grid!')
-#
-#    if is_even(sum_location):
-#        c_argmax(abs_alpha_rest, max_alpha_ind, alpha_max, n)
-#        if location[max_alpha_ind] + d_location[max_alpha_ind] > c_bins[max_alpha_ind]:
-#            d_location[max_alpha_ind] = -1
-#        location[max_alpha_ind] += d_location[max_alpha_ind]
-#        d_location[max_alpha_ind] = - d_location[max_alpha_ind]
-#        abs_alpha_rest[max_alpha_ind] = 1-abs_alpha_rest[max_alpha_ind]
-#
-#    for i in range(n):
-#        d_location[i] -= 1
-#        d_location[i] >>= 1 # via bitshift operation
-#        #d_location[i] /= 2 #(d_location[i]-1)/2 ### in two steps with optimized in-place operations
-#
-#    for i in range(n):
-#        max_vals = location[i]+d_location[i]
-#        if max_vals > c_bins[i]-1:
-#            d_location[i] = -1
-#    return location, abs_alpha_rest, d_location # cached point, location on grid, coefficients, directions from location on grid
-

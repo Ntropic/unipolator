@@ -1,3 +1,4 @@
+#cython: language_level=3
 from libc.math cimport cos, sin, log
 import numpy as np
 #cimport numpy as np

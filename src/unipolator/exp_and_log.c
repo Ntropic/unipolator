@@ -2628,7 +2628,7 @@ static PyObject *__pyx_tuple__25;
 static PyObject *__pyx_codeobj__26;
 /* Late includes */
 
-/* "unipolator/exp_and_log.pyx":11
+/* "unipolator/exp_and_log.pyx":12
  * 
  * ##### Basic complex number functions to avoid using complex.h #########################
  * cpdef double creal(double complex dc) nogil:             # <<<<<<<<<<<<<<
@@ -2641,7 +2641,7 @@ static double __pyx_f_10unipolator_11exp_and_log_creal(__pyx_t_double_complex __
   __pyx_t_double_complex *__pyx_v_dcptr;
   double __pyx_r;
 
-  /* "unipolator/exp_and_log.pyx":12
+  /* "unipolator/exp_and_log.pyx":13
  * ##### Basic complex number functions to avoid using complex.h #########################
  * cpdef double creal(double complex dc) nogil:
  *     cdef double complex* dcptr = &dc             # <<<<<<<<<<<<<<
@@ -2650,7 +2650,7 @@ static double __pyx_f_10unipolator_11exp_and_log_creal(__pyx_t_double_complex __
  */
   __pyx_v_dcptr = (&__pyx_v_dc);
 
-  /* "unipolator/exp_and_log.pyx":13
+  /* "unipolator/exp_and_log.pyx":14
  * cpdef double creal(double complex dc) nogil:
  *     cdef double complex* dcptr = &dc
  *     return (<double *>dcptr)[0]             # <<<<<<<<<<<<<<
@@ -2660,7 +2660,7 @@ static double __pyx_f_10unipolator_11exp_and_log_creal(__pyx_t_double_complex __
   __pyx_r = (((double *)__pyx_v_dcptr)[0]);
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":11
+  /* "unipolator/exp_and_log.pyx":12
  * 
  * ##### Basic complex number functions to avoid using complex.h #########################
  * cpdef double creal(double complex dc) nogil:             # <<<<<<<<<<<<<<
@@ -2685,7 +2685,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_1creal(PyObject *__pyx_self
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("creal (wrapper)", 0);
   assert(__pyx_arg_dc); {
-    __pyx_v_dc = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_dc); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_dc = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_dc); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2709,7 +2709,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_creal(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("creal", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_10unipolator_11exp_and_log_creal(__pyx_v_dc, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_10unipolator_11exp_and_log_creal(__pyx_v_dc, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2726,7 +2726,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_creal(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":15
+/* "unipolator/exp_and_log.pyx":16
  *     return (<double *>dcptr)[0]
  * 
  * cpdef double cimag(double complex dc) nogil:             # <<<<<<<<<<<<<<
@@ -2739,7 +2739,7 @@ static double __pyx_f_10unipolator_11exp_and_log_cimag(__pyx_t_double_complex __
   __pyx_t_double_complex *__pyx_v_dcptr;
   double __pyx_r;
 
-  /* "unipolator/exp_and_log.pyx":16
+  /* "unipolator/exp_and_log.pyx":17
  * 
  * cpdef double cimag(double complex dc) nogil:
  *     cdef double complex* dcptr = &dc             # <<<<<<<<<<<<<<
@@ -2748,7 +2748,7 @@ static double __pyx_f_10unipolator_11exp_and_log_cimag(__pyx_t_double_complex __
  */
   __pyx_v_dcptr = (&__pyx_v_dc);
 
-  /* "unipolator/exp_and_log.pyx":17
+  /* "unipolator/exp_and_log.pyx":18
  * cpdef double cimag(double complex dc) nogil:
  *     cdef double complex* dcptr = &dc
  *     return (<double *>dcptr)[1]             # <<<<<<<<<<<<<<
@@ -2758,7 +2758,7 @@ static double __pyx_f_10unipolator_11exp_and_log_cimag(__pyx_t_double_complex __
   __pyx_r = (((double *)__pyx_v_dcptr)[1]);
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":15
+  /* "unipolator/exp_and_log.pyx":16
  *     return (<double *>dcptr)[0]
  * 
  * cpdef double cimag(double complex dc) nogil:             # <<<<<<<<<<<<<<
@@ -2783,7 +2783,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_3cimag(PyObject *__pyx_self
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("cimag (wrapper)", 0);
   assert(__pyx_arg_dc); {
-    __pyx_v_dc = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_dc); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 15, __pyx_L3_error)
+    __pyx_v_dc = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_dc); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2807,7 +2807,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_2cimag(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cimag", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_10unipolator_11exp_and_log_cimag(__pyx_v_dc, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_10unipolator_11exp_and_log_cimag(__pyx_v_dc, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2824,7 +2824,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_2cimag(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":19
+/* "unipolator/exp_and_log.pyx":20
  *     return (<double *>dcptr)[1]
  * 
  * cpdef double complex cconj(double complex dc) nogil:             # <<<<<<<<<<<<<<
@@ -2836,7 +2836,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_5cconj(PyObject *__pyx_self
 static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_cconj(__pyx_t_double_complex __pyx_v_dc, CYTHON_UNUSED int __pyx_skip_dispatch) {
   __pyx_t_double_complex __pyx_r;
 
-  /* "unipolator/exp_and_log.pyx":20
+  /* "unipolator/exp_and_log.pyx":21
  * 
  * cpdef double complex cconj(double complex dc) nogil:
  *     dc.imag = -dc.imag             # <<<<<<<<<<<<<<
@@ -2845,7 +2845,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_cconj(__pyx_t_d
  */
   __Pyx_SET_CIMAG(__pyx_v_dc, (-__Pyx_CIMAG(__pyx_v_dc)));
 
-  /* "unipolator/exp_and_log.pyx":22
+  /* "unipolator/exp_and_log.pyx":23
  *     dc.imag = -dc.imag
  *     #a =  (<double *>dcptr)[0] -1j*(<double *>dcptr)[1]
  *     return dc             # <<<<<<<<<<<<<<
@@ -2855,7 +2855,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_cconj(__pyx_t_d
   __pyx_r = __pyx_v_dc;
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":19
+  /* "unipolator/exp_and_log.pyx":20
  *     return (<double *>dcptr)[1]
  * 
  * cpdef double complex cconj(double complex dc) nogil:             # <<<<<<<<<<<<<<
@@ -2880,7 +2880,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_5cconj(PyObject *__pyx_self
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("cconj (wrapper)", 0);
   assert(__pyx_arg_dc); {
-    __pyx_v_dc = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_dc); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 19, __pyx_L3_error)
+    __pyx_v_dc = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_dc); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2906,7 +2906,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_4cconj(CYTHON_UNUSED PyObje
   __Pyx_RefNannySetupContext("cconj", 0);
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_f_10unipolator_11exp_and_log_cconj(__pyx_v_dc, 0);
-  __pyx_t_2 = __pyx_PyComplex_FromComplex(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyComplex_FromComplex(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -2923,7 +2923,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_4cconj(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":24
+/* "unipolator/exp_and_log.pyx":25
  *     return dc
  * 
  * cpdef void cdiag(double complex[:,::1] A, double complex[::1] diagA) nogil:             # <<<<<<<<<<<<<<
@@ -2942,7 +2942,7 @@ static void __pyx_f_10unipolator_11exp_and_log_cdiag(__Pyx_memviewslice __pyx_v_
   Py_ssize_t __pyx_t_5;
   Py_ssize_t __pyx_t_6;
 
-  /* "unipolator/exp_and_log.pyx":25
+  /* "unipolator/exp_and_log.pyx":26
  * 
  * cpdef void cdiag(double complex[:,::1] A, double complex[::1] diagA) nogil:
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -2951,7 +2951,7 @@ static void __pyx_f_10unipolator_11exp_and_log_cdiag(__Pyx_memviewslice __pyx_v_
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":27
+  /* "unipolator/exp_and_log.pyx":28
  *     cdef int n = A.shape[0]
  *     cdef int i
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -2963,7 +2963,7 @@ static void __pyx_f_10unipolator_11exp_and_log_cdiag(__Pyx_memviewslice __pyx_v_
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":28
+    /* "unipolator/exp_and_log.pyx":29
  *     cdef int i
  *     for i in range(n):
  *         diagA[i] = A[i,i]             # <<<<<<<<<<<<<<
@@ -2976,7 +2976,7 @@ static void __pyx_f_10unipolator_11exp_and_log_cdiag(__Pyx_memviewslice __pyx_v_
     *((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_diagA.data) + __pyx_t_6)) )) = (*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_4 * __pyx_v_A.strides[0]) )) + __pyx_t_5)) )));
   }
 
-  /* "unipolator/exp_and_log.pyx":24
+  /* "unipolator/exp_and_log.pyx":25
  *     return dc
  * 
  * cpdef void cdiag(double complex[:,::1] A, double complex[::1] diagA) nogil:             # <<<<<<<<<<<<<<
@@ -3022,11 +3022,11 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_7cdiag(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_diagA)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("cdiag", 1, 2, 2, 1); __PYX_ERR(0, 24, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("cdiag", 1, 2, 2, 1); __PYX_ERR(0, 25, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cdiag") < 0)) __PYX_ERR(0, 24, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cdiag") < 0)) __PYX_ERR(0, 25, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3034,12 +3034,12 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_7cdiag(PyObject *__pyx_self
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
-    __pyx_v_diagA = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_diagA.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 25, __pyx_L3_error)
+    __pyx_v_diagA = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_diagA.memview)) __PYX_ERR(0, 25, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("cdiag", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 24, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("cdiag", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 25, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.cdiag", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3061,7 +3061,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_6cdiag(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cdiag", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_cdiag(__pyx_v_A, __pyx_v_diagA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_cdiag(__pyx_v_A, __pyx_v_diagA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3080,7 +3080,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_6cdiag(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":30
+/* "unipolator/exp_and_log.pyx":31
  *         diagA[i] = A[i,i]
  * 
  * cpdef void Conj_mat_copy(double complex[:,::1] A, double complex[:,::1] ConjA) nogil:             # <<<<<<<<<<<<<<
@@ -3105,7 +3105,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__Pyx_memviewslice 
   Py_ssize_t __pyx_t_10;
   Py_ssize_t __pyx_t_11;
 
-  /* "unipolator/exp_and_log.pyx":31
+  /* "unipolator/exp_and_log.pyx":32
  * 
  * cpdef void Conj_mat_copy(double complex[:,::1] A, double complex[:,::1] ConjA) nogil:
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3114,7 +3114,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__Pyx_memviewslice 
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":33
+  /* "unipolator/exp_and_log.pyx":34
  *     cdef int n = A.shape[0]
  *     cdef int i,j
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3126,7 +3126,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__Pyx_memviewslice 
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":34
+    /* "unipolator/exp_and_log.pyx":35
  *     cdef int i,j
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3138,7 +3138,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__Pyx_memviewslice 
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/exp_and_log.pyx":35
+      /* "unipolator/exp_and_log.pyx":36
  *     for i in range(n):
  *         for j in range(n):
  *             ConjA[i,j].real =  A[i,j].real             # <<<<<<<<<<<<<<
@@ -3152,7 +3152,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__Pyx_memviewslice 
       __pyx_t_7 = __pyx_v_j;
       __Pyx_SET_CREAL((*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_ConjA.data + __pyx_t_8 * __pyx_v_ConjA.strides[0]) )) + __pyx_t_7)) ))), __pyx_t_9);
 
-      /* "unipolator/exp_and_log.pyx":36
+      /* "unipolator/exp_and_log.pyx":37
  *         for j in range(n):
  *             ConjA[i,j].real =  A[i,j].real
  *             ConjA[i,j].imag = -A[i,j].imag             # <<<<<<<<<<<<<<
@@ -3167,7 +3167,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__Pyx_memviewslice 
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":30
+  /* "unipolator/exp_and_log.pyx":31
  *         diagA[i] = A[i,i]
  * 
  * cpdef void Conj_mat_copy(double complex[:,::1] A, double complex[:,::1] ConjA) nogil:             # <<<<<<<<<<<<<<
@@ -3213,11 +3213,11 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_9Conj_mat_copy(PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ConjA)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Conj_mat_copy", 1, 2, 2, 1); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Conj_mat_copy", 1, 2, 2, 1); __PYX_ERR(0, 31, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Conj_mat_copy") < 0)) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Conj_mat_copy") < 0)) __PYX_ERR(0, 31, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3225,12 +3225,12 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_9Conj_mat_copy(PyObject *__
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
-    __pyx_v_ConjA = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ConjA.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 31, __pyx_L3_error)
+    __pyx_v_ConjA = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ConjA.memview)) __PYX_ERR(0, 31, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Conj_mat_copy", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 30, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Conj_mat_copy", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 31, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.Conj_mat_copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3252,7 +3252,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_8Conj_mat_copy(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Conj_mat_copy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__pyx_v_A, __pyx_v_ConjA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_mat_copy(__pyx_v_A, __pyx_v_ConjA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3271,7 +3271,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_8Conj_mat_copy(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":38
+/* "unipolator/exp_and_log.pyx":39
  *             ConjA[i,j].imag = -A[i,j].imag
  * 
  * cpdef void Conj_mat(double complex[:,::1] A) nogil:             # <<<<<<<<<<<<<<
@@ -3295,7 +3295,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat(__Pyx_memviewslice __pyx
   Py_ssize_t __pyx_t_9;
   Py_ssize_t __pyx_t_10;
 
-  /* "unipolator/exp_and_log.pyx":39
+  /* "unipolator/exp_and_log.pyx":40
  * 
  * cpdef void Conj_mat(double complex[:,::1] A) nogil:
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3304,7 +3304,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat(__Pyx_memviewslice __pyx
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":41
+  /* "unipolator/exp_and_log.pyx":42
  *     cdef int n = A.shape[0]
  *     cdef int i,j
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3316,7 +3316,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat(__Pyx_memviewslice __pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":42
+    /* "unipolator/exp_and_log.pyx":43
  *     cdef int i,j
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3328,7 +3328,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat(__Pyx_memviewslice __pyx
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/exp_and_log.pyx":43
+      /* "unipolator/exp_and_log.pyx":44
  *     for i in range(n):
  *         for j in range(n):
  *             A[i,j].imag = -A[i,j].imag             # <<<<<<<<<<<<<<
@@ -3343,7 +3343,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_mat(__Pyx_memviewslice __pyx
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":38
+  /* "unipolator/exp_and_log.pyx":39
  *             ConjA[i,j].imag = -A[i,j].imag
  * 
  * cpdef void Conj_mat(double complex[:,::1] A) nogil:             # <<<<<<<<<<<<<<
@@ -3366,7 +3366,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_11Conj_mat(PyObject *__pyx_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Conj_mat (wrapper)", 0);
   assert(__pyx_arg_A); {
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 38, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 39, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3390,7 +3390,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_10Conj_mat(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Conj_mat", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_mat(__pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_mat(__pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3408,7 +3408,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_10Conj_mat(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":45
+/* "unipolator/exp_and_log.pyx":46
  *             A[i,j].imag = -A[i,j].imag
  * 
  * cpdef void Conj_vec_copy(double complex[::1] A, double complex[::1] ConjA) nogil:             # <<<<<<<<<<<<<<
@@ -3427,7 +3427,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__Pyx_memviewslice 
   double __pyx_t_5;
   Py_ssize_t __pyx_t_6;
 
-  /* "unipolator/exp_and_log.pyx":46
+  /* "unipolator/exp_and_log.pyx":47
  * 
  * cpdef void Conj_vec_copy(double complex[::1] A, double complex[::1] ConjA) nogil:
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3436,7 +3436,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__Pyx_memviewslice 
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":48
+  /* "unipolator/exp_and_log.pyx":49
  *     cdef int n = A.shape[0]
  *     cdef int i
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3448,7 +3448,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__Pyx_memviewslice 
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":49
+    /* "unipolator/exp_and_log.pyx":50
  *     cdef int i
  *     for i in range(n):
  *         ConjA[i].real =  A[i].real             # <<<<<<<<<<<<<<
@@ -3460,7 +3460,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__Pyx_memviewslice 
     __pyx_t_4 = __pyx_v_i;
     __Pyx_SET_CREAL((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_ConjA.data) + __pyx_t_4)) ))), __pyx_t_5);
 
-    /* "unipolator/exp_and_log.pyx":50
+    /* "unipolator/exp_and_log.pyx":51
  *     for i in range(n):
  *         ConjA[i].real =  A[i].real
  *         ConjA[i].imag = -A[i].imag             # <<<<<<<<<<<<<<
@@ -3472,7 +3472,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__Pyx_memviewslice 
     __Pyx_SET_CIMAG((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_ConjA.data) + __pyx_t_6)) ))), (-__Pyx_CIMAG((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_A.data) + __pyx_t_4)) ))))));
   }
 
-  /* "unipolator/exp_and_log.pyx":45
+  /* "unipolator/exp_and_log.pyx":46
  *             A[i,j].imag = -A[i,j].imag
  * 
  * cpdef void Conj_vec_copy(double complex[::1] A, double complex[::1] ConjA) nogil:             # <<<<<<<<<<<<<<
@@ -3518,11 +3518,11 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_13Conj_vec_copy(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ConjA)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Conj_vec_copy", 1, 2, 2, 1); __PYX_ERR(0, 45, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Conj_vec_copy", 1, 2, 2, 1); __PYX_ERR(0, 46, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Conj_vec_copy") < 0)) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Conj_vec_copy") < 0)) __PYX_ERR(0, 46, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3530,12 +3530,12 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_13Conj_vec_copy(PyObject *_
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 45, __pyx_L3_error)
-    __pyx_v_ConjA = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ConjA.memview)) __PYX_ERR(0, 45, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_ConjA = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ConjA.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Conj_vec_copy", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 45, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Conj_vec_copy", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 46, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.Conj_vec_copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3557,7 +3557,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_12Conj_vec_copy(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Conj_vec_copy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__pyx_v_A, __pyx_v_ConjA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_vec_copy(__pyx_v_A, __pyx_v_ConjA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3576,7 +3576,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_12Conj_vec_copy(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":52
+/* "unipolator/exp_and_log.pyx":53
  *         ConjA[i].imag = -A[i].imag
  * 
  * cpdef void Conj_vec(double complex[::1] A) nogil:             # <<<<<<<<<<<<<<
@@ -3594,7 +3594,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec(__Pyx_memviewslice __pyx
   Py_ssize_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
 
-  /* "unipolator/exp_and_log.pyx":53
+  /* "unipolator/exp_and_log.pyx":54
  * 
  * cpdef void Conj_vec(double complex[::1] A) nogil:
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3603,7 +3603,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec(__Pyx_memviewslice __pyx
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":55
+  /* "unipolator/exp_and_log.pyx":56
  *     cdef int n = A.shape[0]
  *     cdef int i
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3615,7 +3615,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec(__Pyx_memviewslice __pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":56
+    /* "unipolator/exp_and_log.pyx":57
  *     cdef int i
  *     for i in range(n):
  *         A[i].imag = -A[i].imag             # <<<<<<<<<<<<<<
@@ -3627,7 +3627,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Conj_vec(__Pyx_memviewslice __pyx
     __Pyx_SET_CIMAG((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_A.data) + __pyx_t_5)) ))), (-__Pyx_CIMAG((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_A.data) + __pyx_t_4)) ))))));
   }
 
-  /* "unipolator/exp_and_log.pyx":52
+  /* "unipolator/exp_and_log.pyx":53
  *         ConjA[i].imag = -A[i].imag
  * 
  * cpdef void Conj_vec(double complex[::1] A) nogil:             # <<<<<<<<<<<<<<
@@ -3650,7 +3650,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_15Conj_vec(PyObject *__pyx_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Conj_vec (wrapper)", 0);
   assert(__pyx_arg_A); {
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 52, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 53, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3674,7 +3674,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_14Conj_vec(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Conj_vec", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_vec(__pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Conj_vec(__pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3692,7 +3692,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_14Conj_vec(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":59
+/* "unipolator/exp_and_log.pyx":60
  * 
  * 
  * cpdef Dag(double complex[:,::1] A):             # <<<<<<<<<<<<<<
@@ -3730,7 +3730,7 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Dag", 0);
 
-  /* "unipolator/exp_and_log.pyx":60
+  /* "unipolator/exp_and_log.pyx":61
  * 
  * cpdef Dag(double complex[:,::1] A):
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3739,23 +3739,23 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":62
+  /* "unipolator/exp_and_log.pyx":63
  *     cdef int n = A.shape[0]
  *     cdef int i, j
  *     cdef double complex[:,::1] DagA = np.empty([n,n], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *     for i in range(n):
  *         for j in range(n):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -3763,32 +3763,32 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
   PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex128); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex128); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_DagA = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "unipolator/exp_and_log.pyx":63
+  /* "unipolator/exp_and_log.pyx":64
  *     cdef int i, j
  *     cdef double complex[:,::1] DagA = np.empty([n,n], dtype=np.complex128)
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3800,7 +3800,7 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
     __pyx_v_i = __pyx_t_9;
 
-    /* "unipolator/exp_and_log.pyx":64
+    /* "unipolator/exp_and_log.pyx":65
  *     cdef double complex[:,::1] DagA = np.empty([n,n], dtype=np.complex128)
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3812,7 +3812,7 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_v_j = __pyx_t_12;
 
-      /* "unipolator/exp_and_log.pyx":65
+      /* "unipolator/exp_and_log.pyx":66
  *     for i in range(n):
  *         for j in range(n):
  *             DagA[i,j].real =  A[j,i].real             # <<<<<<<<<<<<<<
@@ -3826,7 +3826,7 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
       __pyx_t_13 = __pyx_v_j;
       __Pyx_SET_CREAL((*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_DagA.data + __pyx_t_14 * __pyx_v_DagA.strides[0]) )) + __pyx_t_13)) ))), __pyx_t_15);
 
-      /* "unipolator/exp_and_log.pyx":66
+      /* "unipolator/exp_and_log.pyx":67
  *         for j in range(n):
  *             DagA[i,j].real =  A[j,i].real
  *             DagA[i,j].imag = -A[j,i].imag             # <<<<<<<<<<<<<<
@@ -3841,7 +3841,7 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":67
+  /* "unipolator/exp_and_log.pyx":68
  *             DagA[i,j].real =  A[j,i].real
  *             DagA[i,j].imag = -A[j,i].imag
  *     return DagA             # <<<<<<<<<<<<<<
@@ -3849,13 +3849,13 @@ static PyObject *__pyx_f_10unipolator_11exp_and_log_Dag(__Pyx_memviewslice __pyx
  * cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) nogil:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __pyx_memoryview_fromslice(__pyx_v_DagA, 2, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_5 = __pyx_memoryview_fromslice(__pyx_v_DagA, 2, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":59
+  /* "unipolator/exp_and_log.pyx":60
  * 
  * 
  * cpdef Dag(double complex[:,::1] A):             # <<<<<<<<<<<<<<
@@ -3892,7 +3892,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_17Dag(PyObject *__pyx_self,
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Dag (wrapper)", 0);
   assert(__pyx_arg_A); {
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 59, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 60, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3916,7 +3916,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_16Dag(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Dag", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_10unipolator_11exp_and_log_Dag(__pyx_v_A, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_10unipolator_11exp_and_log_Dag(__pyx_v_A, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3934,7 +3934,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_16Dag(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":69
+/* "unipolator/exp_and_log.pyx":70
  *     return DagA
  * 
  * cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) nogil:             # <<<<<<<<<<<<<<
@@ -3959,7 +3959,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Dag_fast(__Pyx_memviewslice __pyx
   Py_ssize_t __pyx_t_10;
   Py_ssize_t __pyx_t_11;
 
-  /* "unipolator/exp_and_log.pyx":70
+  /* "unipolator/exp_and_log.pyx":71
  * 
  * cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) nogil:
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3968,7 +3968,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Dag_fast(__Pyx_memviewslice __pyx
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":72
+  /* "unipolator/exp_and_log.pyx":73
  *     cdef int n = A.shape[0]
  *     cdef int i, j
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3980,7 +3980,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Dag_fast(__Pyx_memviewslice __pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":73
+    /* "unipolator/exp_and_log.pyx":74
  *     cdef int i, j
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3992,7 +3992,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Dag_fast(__Pyx_memviewslice __pyx
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/exp_and_log.pyx":74
+      /* "unipolator/exp_and_log.pyx":75
  *     for i in range(n):
  *         for j in range(n):
  *             DagA[i,j].real =  A[j,i].real             # <<<<<<<<<<<<<<
@@ -4006,7 +4006,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Dag_fast(__Pyx_memviewslice __pyx
       __pyx_t_7 = __pyx_v_j;
       __Pyx_SET_CREAL((*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_DagA.data + __pyx_t_8 * __pyx_v_DagA.strides[0]) )) + __pyx_t_7)) ))), __pyx_t_9);
 
-      /* "unipolator/exp_and_log.pyx":75
+      /* "unipolator/exp_and_log.pyx":76
  *         for j in range(n):
  *             DagA[i,j].real =  A[j,i].real
  *             DagA[i,j].imag = -A[j,i].imag             # <<<<<<<<<<<<<<
@@ -4021,7 +4021,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Dag_fast(__Pyx_memviewslice __pyx
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":69
+  /* "unipolator/exp_and_log.pyx":70
  *     return DagA
  * 
  * cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) nogil:             # <<<<<<<<<<<<<<
@@ -4067,11 +4067,11 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_19Dag_fast(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DagA)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Dag_fast", 1, 2, 2, 1); __PYX_ERR(0, 69, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Dag_fast", 1, 2, 2, 1); __PYX_ERR(0, 70, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Dag_fast") < 0)) __PYX_ERR(0, 69, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Dag_fast") < 0)) __PYX_ERR(0, 70, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4079,12 +4079,12 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_19Dag_fast(PyObject *__pyx_
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 69, __pyx_L3_error)
-    __pyx_v_DagA = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_DagA.memview)) __PYX_ERR(0, 69, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 70, __pyx_L3_error)
+    __pyx_v_DagA = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_DagA.memview)) __PYX_ERR(0, 70, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Dag_fast", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 69, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Dag_fast", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 70, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.Dag_fast", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4106,7 +4106,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_18Dag_fast(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Dag_fast", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Dag_fast(__pyx_v_A, __pyx_v_DagA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Dag_fast(__pyx_v_A, __pyx_v_DagA, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4125,7 +4125,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_18Dag_fast(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":77
+/* "unipolator/exp_and_log.pyx":78
  *             DagA[i,j].imag = -A[j,i].imag
  * 
  * cdef double complex conj(double complex A) nogil:             # <<<<<<<<<<<<<<
@@ -4138,7 +4138,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_conj(__pyx_t_do
   __pyx_t_double_complex __pyx_r;
   double __pyx_t_1;
 
-  /* "unipolator/exp_and_log.pyx":79
+  /* "unipolator/exp_and_log.pyx":80
  * cdef double complex conj(double complex A) nogil:
  *     cdef double complex conjA
  *     conjA.real = A.real             # <<<<<<<<<<<<<<
@@ -4148,7 +4148,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_conj(__pyx_t_do
   __pyx_t_1 = __Pyx_CREAL(__pyx_v_A);
   __Pyx_SET_CREAL(__pyx_v_conjA, __pyx_t_1);
 
-  /* "unipolator/exp_and_log.pyx":80
+  /* "unipolator/exp_and_log.pyx":81
  *     cdef double complex conjA
  *     conjA.real = A.real
  *     conjA.imag = -A.imag             # <<<<<<<<<<<<<<
@@ -4157,7 +4157,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_conj(__pyx_t_do
  */
   __Pyx_SET_CIMAG(__pyx_v_conjA, (-__Pyx_CIMAG(__pyx_v_A)));
 
-  /* "unipolator/exp_and_log.pyx":81
+  /* "unipolator/exp_and_log.pyx":82
  *     conjA.real = A.real
  *     conjA.imag = -A.imag
  *     return conjA             # <<<<<<<<<<<<<<
@@ -4167,7 +4167,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_conj(__pyx_t_do
   __pyx_r = __pyx_v_conjA;
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":77
+  /* "unipolator/exp_and_log.pyx":78
  *             DagA[i,j].imag = -A[j,i].imag
  * 
  * cdef double complex conj(double complex A) nogil:             # <<<<<<<<<<<<<<
@@ -4180,7 +4180,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_conj(__pyx_t_do
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":83
+/* "unipolator/exp_and_log.pyx":84
  *     return conjA
  * 
  * cpdef double abs_2(double complex A) nogil: #c_dagc             # <<<<<<<<<<<<<<
@@ -4193,7 +4193,7 @@ static double __pyx_f_10unipolator_11exp_and_log_abs_2(__pyx_t_double_complex __
   double __pyx_v_absA_2;
   double __pyx_r;
 
-  /* "unipolator/exp_and_log.pyx":85
+  /* "unipolator/exp_and_log.pyx":86
  * cpdef double abs_2(double complex A) nogil: #c_dagc
  *     cdef double absA_2
  *     absA_2 = A.real * A.real + A.imag * A.imag             # <<<<<<<<<<<<<<
@@ -4202,7 +4202,7 @@ static double __pyx_f_10unipolator_11exp_and_log_abs_2(__pyx_t_double_complex __
  */
   __pyx_v_absA_2 = ((__Pyx_CREAL(__pyx_v_A) * __Pyx_CREAL(__pyx_v_A)) + (__Pyx_CIMAG(__pyx_v_A) * __Pyx_CIMAG(__pyx_v_A)));
 
-  /* "unipolator/exp_and_log.pyx":86
+  /* "unipolator/exp_and_log.pyx":87
  *     cdef double absA_2
  *     absA_2 = A.real * A.real + A.imag * A.imag
  *     return absA_2             # <<<<<<<<<<<<<<
@@ -4212,7 +4212,7 @@ static double __pyx_f_10unipolator_11exp_and_log_abs_2(__pyx_t_double_complex __
   __pyx_r = __pyx_v_absA_2;
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":83
+  /* "unipolator/exp_and_log.pyx":84
  *     return conjA
  * 
  * cpdef double abs_2(double complex A) nogil: #c_dagc             # <<<<<<<<<<<<<<
@@ -4237,7 +4237,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_21abs_2(PyObject *__pyx_sel
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("abs_2 (wrapper)", 0);
   assert(__pyx_arg_A); {
-    __pyx_v_A = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_A); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_A); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 84, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4261,7 +4261,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_20abs_2(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("abs_2", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_10unipolator_11exp_and_log_abs_2(__pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_10unipolator_11exp_and_log_abs_2(__pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4278,7 +4278,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_20abs_2(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":93
+/* "unipolator/exp_and_log.pyx":94
  * 
  * # Old skripts for this
  * cpdef void copy_v_exp_blas(double[::1] E, double complex[:,::1] V, double complex[:,::1] A, double t, int n) nogil:             # <<<<<<<<<<<<<<
@@ -4302,7 +4302,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "unipolator/exp_and_log.pyx":98
+  /* "unipolator/exp_and_log.pyx":99
  *     cdef double ei
  *     cdef double complex *vi0
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -4311,16 +4311,16 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":100
+  /* "unipolator/exp_and_log.pyx":101
  *     cdef int incz = 1
  *     cdef int i
  *     A[:,:] = V             # <<<<<<<<<<<<<<
  *     for i in range(n):
  *         ei = E[i]*t
  */
-  if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_V, __pyx_v_A, 2, 2, 0) < 0)) __PYX_ERR(0, 100, __pyx_L1_error)
+  if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_V, __pyx_v_A, 2, 2, 0) < 0)) __PYX_ERR(0, 101, __pyx_L1_error)
 
-  /* "unipolator/exp_and_log.pyx":101
+  /* "unipolator/exp_and_log.pyx":102
  *     cdef int i
  *     A[:,:] = V
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4332,7 +4332,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":102
+    /* "unipolator/exp_and_log.pyx":103
  *     A[:,:] = V
  *     for i in range(n):
  *         ei = E[i]*t             # <<<<<<<<<<<<<<
@@ -4342,7 +4342,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
     __pyx_t_4 = __pyx_v_i;
     __pyx_v_ei = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_4)) ))) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":103
+    /* "unipolator/exp_and_log.pyx":104
  *     for i in range(n):
  *         ei = E[i]*t
  *         c = cos(ei)-1j*sin(ei) #cexp(ei)             # <<<<<<<<<<<<<<
@@ -4351,7 +4351,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
  */
     __pyx_v_c = __Pyx_c_diff_double(__pyx_t_double_complex_from_parts(cos(__pyx_v_ei), 0), __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0, 1.0), __pyx_t_double_complex_from_parts(sin(__pyx_v_ei), 0)));
 
-    /* "unipolator/exp_and_log.pyx":104
+    /* "unipolator/exp_and_log.pyx":105
  *         ei = E[i]*t
  *         c = cos(ei)-1j*sin(ei) #cexp(ei)
  *         vi0=&A[i,0]             # <<<<<<<<<<<<<<
@@ -4362,7 +4362,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
     __pyx_t_5 = 0;
     __pyx_v_vi0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_4 * __pyx_v_A.strides[0]) )) + __pyx_t_5)) ))));
 
-    /* "unipolator/exp_and_log.pyx":105
+    /* "unipolator/exp_and_log.pyx":106
  *         c = cos(ei)-1j*sin(ei) #cexp(ei)
  *         vi0=&A[i,0]
  *         zscal(&n, &c, vi0, &incz)             # <<<<<<<<<<<<<<
@@ -4372,7 +4372,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__Pyx_memviewslic
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_vi0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/exp_and_log.pyx":93
+  /* "unipolator/exp_and_log.pyx":94
  * 
  * # Old skripts for this
  * cpdef void copy_v_exp_blas(double[::1] E, double complex[:,::1] V, double complex[:,::1] A, double t, int n) nogil:             # <<<<<<<<<<<<<<
@@ -4431,29 +4431,29 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_23copy_v_exp_blas(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 1); __PYX_ERR(0, 93, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 1); __PYX_ERR(0, 94, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 2); __PYX_ERR(0, 93, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 2); __PYX_ERR(0, 94, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 3); __PYX_ERR(0, 93, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 3); __PYX_ERR(0, 94, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 4); __PYX_ERR(0, 93, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, 4); __PYX_ERR(0, 94, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "copy_v_exp_blas") < 0)) __PYX_ERR(0, 93, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "copy_v_exp_blas") < 0)) __PYX_ERR(0, 94, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -4464,15 +4464,15 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_23copy_v_exp_blas(PyObject 
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 93, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 93, __pyx_L3_error)
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 93, __pyx_L3_error)
-    __pyx_v_t = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 93, __pyx_L3_error)
-    __pyx_v_n = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 93, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 94, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 94, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 94, __pyx_L3_error)
+    __pyx_v_t = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 93, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("copy_v_exp_blas", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 94, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.copy_v_exp_blas", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4494,7 +4494,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_22copy_v_exp_blas(CYTHON_UN
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("copy_v_exp_blas", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__pyx_v_E, __pyx_v_V, __pyx_v_A, __pyx_v_t, __pyx_v_n, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__pyx_v_E, __pyx_v_V, __pyx_v_A, __pyx_v_t, __pyx_v_n, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4514,7 +4514,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_22copy_v_exp_blas(CYTHON_UN
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":106
+/* "unipolator/exp_and_log.pyx":107
  *         vi0=&A[i,0]
  *         zscal(&n, &c, vi0, &incz)
  * cpdef void v_exp_blas(double[::1] E, double complex[:,::1] V, double t) nogil:             # <<<<<<<<<<<<<<
@@ -4536,7 +4536,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
   Py_ssize_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
 
-  /* "unipolator/exp_and_log.pyx":107
+  /* "unipolator/exp_and_log.pyx":108
  *         zscal(&n, &c, vi0, &incz)
  * cpdef void v_exp_blas(double[::1] E, double complex[:,::1] V, double t) nogil:
  *     cdef int n = V.shape[0]             # <<<<<<<<<<<<<<
@@ -4545,7 +4545,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
  */
   __pyx_v_n = (__pyx_v_V.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":111
+  /* "unipolator/exp_and_log.pyx":112
  *     cdef double ei
  *     cdef double complex *vi0
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -4554,7 +4554,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":113
+  /* "unipolator/exp_and_log.pyx":114
  *     cdef int incz = 1
  *     cdef int i
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4566,7 +4566,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":114
+    /* "unipolator/exp_and_log.pyx":115
  *     cdef int i
  *     for i in range(n):
  *         ei = E[i]*t             # <<<<<<<<<<<<<<
@@ -4576,7 +4576,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
     __pyx_t_4 = __pyx_v_i;
     __pyx_v_ei = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_4)) ))) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":115
+    /* "unipolator/exp_and_log.pyx":116
  *     for i in range(n):
  *         ei = E[i]*t
  *         c = cos(ei)-1j*sin(ei) #cexp(ei)             # <<<<<<<<<<<<<<
@@ -4585,7 +4585,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
  */
     __pyx_v_c = __Pyx_c_diff_double(__pyx_t_double_complex_from_parts(cos(__pyx_v_ei), 0), __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0, 1.0), __pyx_t_double_complex_from_parts(sin(__pyx_v_ei), 0)));
 
-    /* "unipolator/exp_and_log.pyx":116
+    /* "unipolator/exp_and_log.pyx":117
  *         ei = E[i]*t
  *         c = cos(ei)-1j*sin(ei) #cexp(ei)
  *         vi0=&V[i,0]             # <<<<<<<<<<<<<<
@@ -4596,7 +4596,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
     __pyx_t_5 = 0;
     __pyx_v_vi0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_4 * __pyx_v_V.strides[0]) )) + __pyx_t_5)) ))));
 
-    /* "unipolator/exp_and_log.pyx":117
+    /* "unipolator/exp_and_log.pyx":118
  *         c = cos(ei)-1j*sin(ei) #cexp(ei)
  *         vi0=&V[i,0]
  *         zscal(&n, &c, vi0, &incz)             # <<<<<<<<<<<<<<
@@ -4606,7 +4606,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_blas(__Pyx_memviewslice __p
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_vi0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/exp_and_log.pyx":106
+  /* "unipolator/exp_and_log.pyx":107
  *         vi0=&A[i,0]
  *         zscal(&n, &c, vi0, &incz)
  * cpdef void v_exp_blas(double[::1] E, double complex[:,::1] V, double t) nogil:             # <<<<<<<<<<<<<<
@@ -4655,17 +4655,17 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_25v_exp_blas(PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_blas", 1, 3, 3, 1); __PYX_ERR(0, 106, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_blas", 1, 3, 3, 1); __PYX_ERR(0, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_blas", 1, 3, 3, 2); __PYX_ERR(0, 106, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_blas", 1, 3, 3, 2); __PYX_ERR(0, 107, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "v_exp_blas") < 0)) __PYX_ERR(0, 106, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "v_exp_blas") < 0)) __PYX_ERR(0, 107, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4674,13 +4674,13 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_25v_exp_blas(PyObject *__py
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 106, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 106, __pyx_L3_error)
-    __pyx_v_t = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 107, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 107, __pyx_L3_error)
+    __pyx_v_t = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 107, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("v_exp_blas", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 106, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("v_exp_blas", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 107, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.v_exp_blas", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4702,7 +4702,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_24v_exp_blas(CYTHON_UNUSED 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("v_exp_blas", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_v_exp_blas(__pyx_v_E, __pyx_v_V, __pyx_v_t, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_v_exp_blas(__pyx_v_E, __pyx_v_V, __pyx_v_t, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4721,7 +4721,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_24v_exp_blas(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":119
+/* "unipolator/exp_and_log.pyx":120
  *         zscal(&n, &c, vi0, &incz)
  * 
  * cdef void copy_pointer(double complex *v0, double complex *a0, int n2) nogil:             # <<<<<<<<<<<<<<
@@ -4732,7 +4732,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_24v_exp_blas(CYTHON_UNUSED 
 static void __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_t_double_complex *__pyx_v_v0, __pyx_t_double_complex *__pyx_v_a0, int __pyx_v_n2) {
   int __pyx_v_incz;
 
-  /* "unipolator/exp_and_log.pyx":121
+  /* "unipolator/exp_and_log.pyx":122
  * cdef void copy_pointer(double complex *v0, double complex *a0, int n2) nogil:
  *     #cdef int n2 = n*n
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -4741,7 +4741,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_t_double_compl
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":122
+  /* "unipolator/exp_and_log.pyx":123
  *     #cdef int n2 = n*n
  *     cdef int incz = 1
  *     zcopy(&n2, v0, &incz, a0, &incz)             # <<<<<<<<<<<<<<
@@ -4750,7 +4750,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_t_double_compl
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zcopy((&__pyx_v_n2), __pyx_v_v0, (&__pyx_v_incz), __pyx_v_a0, (&__pyx_v_incz));
 
-  /* "unipolator/exp_and_log.pyx":119
+  /* "unipolator/exp_and_log.pyx":120
  *         zscal(&n, &c, vi0, &incz)
  * 
  * cdef void copy_pointer(double complex *v0, double complex *a0, int n2) nogil:             # <<<<<<<<<<<<<<
@@ -4761,7 +4761,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_t_double_compl
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":125
+/* "unipolator/exp_and_log.pyx":126
  * 
  * 
  * cdef void copy_pointer_d(double *v0, double *a0, int n2) nogil:             # <<<<<<<<<<<<<<
@@ -4772,7 +4772,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_t_double_compl
 static void __pyx_f_10unipolator_11exp_and_log_copy_pointer_d(double *__pyx_v_v0, double *__pyx_v_a0, int __pyx_v_n2) {
   int __pyx_v_incz;
 
-  /* "unipolator/exp_and_log.pyx":127
+  /* "unipolator/exp_and_log.pyx":128
  * cdef void copy_pointer_d(double *v0, double *a0, int n2) nogil:
  *     #cdef int n2 = n*n
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -4781,7 +4781,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer_d(double *__pyx_v_v0
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":128
+  /* "unipolator/exp_and_log.pyx":129
  *     #cdef int n2 = n*n
  *     cdef int incz = 1
  *     dcopy(&n2, v0, &incz, a0, &incz)             # <<<<<<<<<<<<<<
@@ -4790,7 +4790,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer_d(double *__pyx_v_v0
  */
   __pyx_f_5scipy_6linalg_11cython_blas_dcopy((&__pyx_v_n2), __pyx_v_v0, (&__pyx_v_incz), __pyx_v_a0, (&__pyx_v_incz));
 
-  /* "unipolator/exp_and_log.pyx":125
+  /* "unipolator/exp_and_log.pyx":126
  * 
  * 
  * cdef void copy_pointer_d(double *v0, double *a0, int n2) nogil:             # <<<<<<<<<<<<<<
@@ -4801,7 +4801,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_pointer_d(double *__pyx_v_v0
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":131
+/* "unipolator/exp_and_log.pyx":132
  * 
  * # New skripts for this
  * cdef void expE_V_expE_pointer(double *e0, double complex *v0, double t, double complex *expe0, int n) nogil:             # <<<<<<<<<<<<<<
@@ -4824,7 +4824,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
   int __pyx_t_5;
   int __pyx_t_6;
 
-  /* "unipolator/exp_and_log.pyx":136
+  /* "unipolator/exp_and_log.pyx":137
  *     cdef double complex c, d
  *     cdef double ei
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -4833,7 +4833,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":138
+  /* "unipolator/exp_and_log.pyx":139
  *     cdef int incz = 1
  *     cdef int i, j
  *     cdef double complex *expe0_0 = expe0 # .copy()             # <<<<<<<<<<<<<<
@@ -4842,7 +4842,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
   __pyx_v_expe0_0 = __pyx_v_expe0;
 
-  /* "unipolator/exp_and_log.pyx":139
+  /* "unipolator/exp_and_log.pyx":140
  *     cdef int i, j
  *     cdef double complex *expe0_0 = expe0 # .copy()
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4854,7 +4854,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":140
+    /* "unipolator/exp_and_log.pyx":141
  *     cdef double complex *expe0_0 = expe0 # .copy()
  *     for i in range(n):
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -4863,7 +4863,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":141
+    /* "unipolator/exp_and_log.pyx":142
  *     for i in range(n):
  *         ei = dereference(e0) * t
  *         c = cos(ei) -1j*sin(ei) #cexp(ei)             # <<<<<<<<<<<<<<
@@ -4872,7 +4872,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     __pyx_v_c = __Pyx_c_diff_double(__pyx_t_double_complex_from_parts(cos(__pyx_v_ei), 0), __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0, 1.0), __pyx_t_double_complex_from_parts(sin(__pyx_v_ei), 0)));
 
-    /* "unipolator/exp_and_log.pyx":142
+    /* "unipolator/exp_and_log.pyx":143
  *         ei = dereference(e0) * t
  *         c = cos(ei) -1j*sin(ei) #cexp(ei)
  *         expe0[0] = c             # <<<<<<<<<<<<<<
@@ -4881,7 +4881,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     (__pyx_v_expe0[0]) = __pyx_v_c;
 
-    /* "unipolator/exp_and_log.pyx":143
+    /* "unipolator/exp_and_log.pyx":144
  *         c = cos(ei) -1j*sin(ei) #cexp(ei)
  *         expe0[0] = c
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -4890,7 +4890,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":144
+    /* "unipolator/exp_and_log.pyx":145
  *         expe0[0] = c
  *         e0 += 1
  *         expe0 += 1             # <<<<<<<<<<<<<<
@@ -4900,7 +4900,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
     __pyx_v_expe0 = (__pyx_v_expe0 + 1);
   }
 
-  /* "unipolator/exp_and_log.pyx":145
+  /* "unipolator/exp_and_log.pyx":146
  *         e0 += 1
  *         expe0 += 1
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4912,7 +4912,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":146
+    /* "unipolator/exp_and_log.pyx":147
  *         expe0 += 1
  *     for i in range(n):
  *         c = expe0_0[0]             # <<<<<<<<<<<<<<
@@ -4921,7 +4921,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     __pyx_v_c = (__pyx_v_expe0_0[0]);
 
-    /* "unipolator/exp_and_log.pyx":147
+    /* "unipolator/exp_and_log.pyx":148
  *     for i in range(n):
  *         c = expe0_0[0]
  *         expe0_0 += 1             # <<<<<<<<<<<<<<
@@ -4930,7 +4930,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     __pyx_v_expe0_0 = (__pyx_v_expe0_0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":148
+    /* "unipolator/exp_and_log.pyx":149
  *         c = expe0_0[0]
  *         expe0_0 += 1
  *         expe0 -= n             # <<<<<<<<<<<<<<
@@ -4939,7 +4939,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
     __pyx_v_expe0 = (__pyx_v_expe0 - __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":149
+    /* "unipolator/exp_and_log.pyx":150
  *         expe0_0 += 1
  *         expe0 -= n
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -4951,7 +4951,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/exp_and_log.pyx":150
+      /* "unipolator/exp_and_log.pyx":151
  *         expe0 -= n
  *         for j in range(n):
  *             d = c * expe0[0]             # <<<<<<<<<<<<<<
@@ -4960,7 +4960,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
       __pyx_v_d = __Pyx_c_prod_double(__pyx_v_c, (__pyx_v_expe0[0]));
 
-      /* "unipolator/exp_and_log.pyx":151
+      /* "unipolator/exp_and_log.pyx":152
  *         for j in range(n):
  *             d = c * expe0[0]
  *             v0[0] = d * v0[0]             # <<<<<<<<<<<<<<
@@ -4969,7 +4969,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
       (__pyx_v_v0[0]) = __Pyx_c_prod_double(__pyx_v_d, (__pyx_v_v0[0]));
 
-      /* "unipolator/exp_and_log.pyx":152
+      /* "unipolator/exp_and_log.pyx":153
  *             d = c * expe0[0]
  *             v0[0] = d * v0[0]
  *             expe0 += 1             # <<<<<<<<<<<<<<
@@ -4978,7 +4978,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
  */
       __pyx_v_expe0 = (__pyx_v_expe0 + 1);
 
-      /* "unipolator/exp_and_log.pyx":153
+      /* "unipolator/exp_and_log.pyx":154
  *             v0[0] = d * v0[0]
  *             expe0 += 1
  *             v0 += 1             # <<<<<<<<<<<<<<
@@ -4989,7 +4989,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":131
+  /* "unipolator/exp_and_log.pyx":132
  * 
  * # New skripts for this
  * cdef void expE_V_expE_pointer(double *e0, double complex *v0, double t, double complex *expe0, int n) nogil:             # <<<<<<<<<<<<<<
@@ -5000,7 +5000,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(double *__pyx
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":154
+/* "unipolator/exp_and_log.pyx":155
  *             expe0 += 1
  *             v0 += 1
  * cdef void expE_V_expE(double[::1] E, double complex[:,::1] V, double t, double complex[::1] expE) nogil:             # <<<<<<<<<<<<<<
@@ -5016,7 +5016,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
 
-  /* "unipolator/exp_and_log.pyx":155
+  /* "unipolator/exp_and_log.pyx":156
  *             v0 += 1
  * cdef void expE_V_expE(double[::1] E, double complex[:,::1] V, double t, double complex[::1] expE) nogil:
  *     cdef int n = V.shape[0]             # <<<<<<<<<<<<<<
@@ -5025,7 +5025,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
  */
   __pyx_v_n = (__pyx_v_V.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":156
+  /* "unipolator/exp_and_log.pyx":157
  * cdef void expE_V_expE(double[::1] E, double complex[:,::1] V, double t, double complex[::1] expE) nogil:
  *     cdef int n = V.shape[0]
  *     cdef double *e0 = &E[0]             # <<<<<<<<<<<<<<
@@ -5035,7 +5035,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
   __pyx_t_1 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":157
+  /* "unipolator/exp_and_log.pyx":158
  *     cdef int n = V.shape[0]
  *     cdef double *e0 = &E[0]
  *     cdef double complex *expe0 = &expE[0]             # <<<<<<<<<<<<<<
@@ -5045,7 +5045,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
   __pyx_t_1 = 0;
   __pyx_v_expe0 = (&(*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_expE.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":158
+  /* "unipolator/exp_and_log.pyx":159
  *     cdef double *e0 = &E[0]
  *     cdef double complex *expe0 = &expE[0]
  *     cdef double complex *v0 = &V[0,0]             # <<<<<<<<<<<<<<
@@ -5056,7 +5056,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
   __pyx_t_2 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_1 * __pyx_v_V.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":159
+  /* "unipolator/exp_and_log.pyx":160
  *     cdef double complex *expe0 = &expE[0]
  *     cdef double complex *v0 = &V[0,0]
  *     expE_V_expE_pointer(e0, v0, t, expe0, n)             # <<<<<<<<<<<<<<
@@ -5065,7 +5065,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
  */
   __pyx_f_10unipolator_11exp_and_log_expE_V_expE_pointer(__pyx_v_e0, __pyx_v_v0, __pyx_v_t, __pyx_v_expe0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":154
+  /* "unipolator/exp_and_log.pyx":155
  *             expe0 += 1
  *             v0 += 1
  * cdef void expE_V_expE(double[::1] E, double complex[:,::1] V, double t, double complex[::1] expE) nogil:             # <<<<<<<<<<<<<<
@@ -5076,7 +5076,7 @@ static void __pyx_f_10unipolator_11exp_and_log_expE_V_expE(__Pyx_memviewslice __
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":161
+/* "unipolator/exp_and_log.pyx":162
  *     expE_V_expE_pointer(e0, v0, t, expe0, n)
  * 
  * cdef void d_dt_expE_V_expE_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, double complex *expe0, int n) nogil:             # <<<<<<<<<<<<<<
@@ -5103,7 +5103,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
   int __pyx_t_5;
   int __pyx_t_6;
 
-  /* "unipolator/exp_and_log.pyx":166
+  /* "unipolator/exp_and_log.pyx":167
  *     cdef double complex c, d, ec, s
  *     cdef double ei
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -5112,7 +5112,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":168
+  /* "unipolator/exp_and_log.pyx":169
  *     cdef int incz = 1
  *     cdef int i, j
  *     cdef double complex *expe0_0 = expe0 # .copy()             # <<<<<<<<<<<<<<
@@ -5121,7 +5121,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
   __pyx_v_expe0_0 = __pyx_v_expe0;
 
-  /* "unipolator/exp_and_log.pyx":169
+  /* "unipolator/exp_and_log.pyx":170
  *     cdef int i, j
  *     cdef double complex *expe0_0 = expe0 # .copy()
  *     cdef double *e0_0 = e0 # .copy()             # <<<<<<<<<<<<<<
@@ -5130,7 +5130,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
   __pyx_v_e0_0 = __pyx_v_e0;
 
-  /* "unipolator/exp_and_log.pyx":170
+  /* "unipolator/exp_and_log.pyx":171
  *     cdef double complex *expe0_0 = expe0 # .copy()
  *     cdef double *e0_0 = e0 # .copy()
  *     cdef double complex iamp = -1j * amp             # <<<<<<<<<<<<<<
@@ -5139,7 +5139,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
   __pyx_v_iamp = __Pyx_c_prod_double(__Pyx_c_neg_double(__pyx_t_double_complex_from_parts(0, 1.0)), __pyx_t_double_complex_from_parts(__pyx_v_amp, 0));
 
-  /* "unipolator/exp_and_log.pyx":171
+  /* "unipolator/exp_and_log.pyx":172
  *     cdef double *e0_0 = e0 # .copy()
  *     cdef double complex iamp = -1j * amp
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5151,7 +5151,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":172
+    /* "unipolator/exp_and_log.pyx":173
  *     cdef double complex iamp = -1j * amp
  *     for i in range(n):
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5160,7 +5160,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":173
+    /* "unipolator/exp_and_log.pyx":174
  *     for i in range(n):
  *         ei = dereference(e0) * t
  *         c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -5169,7 +5169,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-    /* "unipolator/exp_and_log.pyx":174
+    /* "unipolator/exp_and_log.pyx":175
  *         ei = dereference(e0) * t
  *         c.real = cos(ei)
  *         c.imag = -sin(ei) #cexp(ei)             # <<<<<<<<<<<<<<
@@ -5178,7 +5178,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-    /* "unipolator/exp_and_log.pyx":175
+    /* "unipolator/exp_and_log.pyx":176
  *         c.real = cos(ei)
  *         c.imag = -sin(ei) #cexp(ei)
  *         expe0[0] = c             # <<<<<<<<<<<<<<
@@ -5187,7 +5187,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     (__pyx_v_expe0[0]) = __pyx_v_c;
 
-    /* "unipolator/exp_and_log.pyx":176
+    /* "unipolator/exp_and_log.pyx":177
  *         c.imag = -sin(ei) #cexp(ei)
  *         expe0[0] = c
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -5196,7 +5196,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":177
+    /* "unipolator/exp_and_log.pyx":178
  *         expe0[0] = c
  *         e0 += 1
  *         expe0 += 1             # <<<<<<<<<<<<<<
@@ -5206,7 +5206,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
     __pyx_v_expe0 = (__pyx_v_expe0 + 1);
   }
 
-  /* "unipolator/exp_and_log.pyx":178
+  /* "unipolator/exp_and_log.pyx":179
  *         e0 += 1
  *         expe0 += 1
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5218,7 +5218,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":179
+    /* "unipolator/exp_and_log.pyx":180
  *         expe0 += 1
  *     for i in range(n):
  *         c = expe0_0[0]             # <<<<<<<<<<<<<<
@@ -5227,7 +5227,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_c = (__pyx_v_expe0_0[0]);
 
-    /* "unipolator/exp_and_log.pyx":180
+    /* "unipolator/exp_and_log.pyx":181
  *     for i in range(n):
  *         c = expe0_0[0]
  *         expe0_0 += 1             # <<<<<<<<<<<<<<
@@ -5236,7 +5236,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_expe0_0 = (__pyx_v_expe0_0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":181
+    /* "unipolator/exp_and_log.pyx":182
  *         c = expe0_0[0]
  *         expe0_0 += 1
  *         ec = e0_0[0]             # <<<<<<<<<<<<<<
@@ -5245,7 +5245,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_ec = __pyx_t_double_complex_from_parts((__pyx_v_e0_0[0]), 0);
 
-    /* "unipolator/exp_and_log.pyx":182
+    /* "unipolator/exp_and_log.pyx":183
  *         expe0_0 += 1
  *         ec = e0_0[0]
  *         e0_0 += 1             # <<<<<<<<<<<<<<
@@ -5254,7 +5254,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_e0_0 = (__pyx_v_e0_0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":183
+    /* "unipolator/exp_and_log.pyx":184
  *         ec = e0_0[0]
  *         e0_0 += 1
  *         expe0 -= n             # <<<<<<<<<<<<<<
@@ -5263,7 +5263,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_expe0 = (__pyx_v_expe0 - __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":184
+    /* "unipolator/exp_and_log.pyx":185
  *         e0_0 += 1
  *         expe0 -= n
  *         e0 -= n             # <<<<<<<<<<<<<<
@@ -5272,7 +5272,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
     __pyx_v_e0 = (__pyx_v_e0 - __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":185
+    /* "unipolator/exp_and_log.pyx":186
  *         expe0 -= n
  *         e0 -= n
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -5284,7 +5284,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/exp_and_log.pyx":186
+      /* "unipolator/exp_and_log.pyx":187
  *         e0 -= n
  *         for j in range(n):
  *             d = c * expe0[0]             # <<<<<<<<<<<<<<
@@ -5293,7 +5293,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       __pyx_v_d = __Pyx_c_prod_double(__pyx_v_c, (__pyx_v_expe0[0]));
 
-      /* "unipolator/exp_and_log.pyx":187
+      /* "unipolator/exp_and_log.pyx":188
  *         for j in range(n):
  *             d = c * expe0[0]
  *             s = iamp * (ec + e0[0])             # <<<<<<<<<<<<<<
@@ -5302,7 +5302,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       __pyx_v_s = __Pyx_c_prod_double(__pyx_v_iamp, __Pyx_c_sum_double(__pyx_v_ec, __pyx_t_double_complex_from_parts((__pyx_v_e0[0]), 0)));
 
-      /* "unipolator/exp_and_log.pyx":188
+      /* "unipolator/exp_and_log.pyx":189
  *             d = c * expe0[0]
  *             s = iamp * (ec + e0[0])
  *             v0[0] = d * v0[0]             # <<<<<<<<<<<<<<
@@ -5311,7 +5311,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       (__pyx_v_v0[0]) = __Pyx_c_prod_double(__pyx_v_d, (__pyx_v_v0[0]));
 
-      /* "unipolator/exp_and_log.pyx":189
+      /* "unipolator/exp_and_log.pyx":190
  *             s = iamp * (ec + e0[0])
  *             v0[0] = d * v0[0]
  *             dv0[0] = s * v0[0]             # <<<<<<<<<<<<<<
@@ -5320,7 +5320,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       (__pyx_v_dv0[0]) = __Pyx_c_prod_double(__pyx_v_s, (__pyx_v_v0[0]));
 
-      /* "unipolator/exp_and_log.pyx":190
+      /* "unipolator/exp_and_log.pyx":191
  *             v0[0] = d * v0[0]
  *             dv0[0] = s * v0[0]
  *             expe0 += 1             # <<<<<<<<<<<<<<
@@ -5329,7 +5329,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       __pyx_v_expe0 = (__pyx_v_expe0 + 1);
 
-      /* "unipolator/exp_and_log.pyx":191
+      /* "unipolator/exp_and_log.pyx":192
  *             dv0[0] = s * v0[0]
  *             expe0 += 1
  *             e0 += 1             # <<<<<<<<<<<<<<
@@ -5338,7 +5338,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-      /* "unipolator/exp_and_log.pyx":192
+      /* "unipolator/exp_and_log.pyx":193
  *             expe0 += 1
  *             e0 += 1
  *             v0 += 1             # <<<<<<<<<<<<<<
@@ -5347,7 +5347,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
  */
       __pyx_v_v0 = (__pyx_v_v0 + 1);
 
-      /* "unipolator/exp_and_log.pyx":193
+      /* "unipolator/exp_and_log.pyx":194
  *             e0 += 1
  *             v0 += 1
  *             dv0 += 1             # <<<<<<<<<<<<<<
@@ -5358,7 +5358,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":161
+  /* "unipolator/exp_and_log.pyx":162
  *     expE_V_expE_pointer(e0, v0, t, expe0, n)
  * 
  * cdef void d_dt_expE_V_expE_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, double complex *expe0, int n) nogil:             # <<<<<<<<<<<<<<
@@ -5369,7 +5369,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(double _
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":194
+/* "unipolator/exp_and_log.pyx":195
  *             v0 += 1
  *             dv0 += 1
  * cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, double complex[:,::1] dV, double t, double complex[::1] expE) nogil:             # <<<<<<<<<<<<<<
@@ -5386,7 +5386,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
 
-  /* "unipolator/exp_and_log.pyx":195
+  /* "unipolator/exp_and_log.pyx":196
  *             dv0 += 1
  * cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, double complex[:,::1] dV, double t, double complex[::1] expE) nogil:
  *     cdef int n = V.shape[0]             # <<<<<<<<<<<<<<
@@ -5395,7 +5395,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
  */
   __pyx_v_n = (__pyx_v_V.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":196
+  /* "unipolator/exp_and_log.pyx":197
  * cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, double complex[:,::1] dV, double t, double complex[::1] expE) nogil:
  *     cdef int n = V.shape[0]
  *     cdef double *e0 = &E[0]             # <<<<<<<<<<<<<<
@@ -5405,7 +5405,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
   __pyx_t_1 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":197
+  /* "unipolator/exp_and_log.pyx":198
  *     cdef int n = V.shape[0]
  *     cdef double *e0 = &E[0]
  *     cdef double complex *expe0 = &expE[0]             # <<<<<<<<<<<<<<
@@ -5415,7 +5415,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
   __pyx_t_1 = 0;
   __pyx_v_expe0 = (&(*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_expE.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":198
+  /* "unipolator/exp_and_log.pyx":199
  *     cdef double *e0 = &E[0]
  *     cdef double complex *expe0 = &expE[0]
  *     cdef double complex *v0 = &V[0,0]             # <<<<<<<<<<<<<<
@@ -5426,7 +5426,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
   __pyx_t_2 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_1 * __pyx_v_V.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":199
+  /* "unipolator/exp_and_log.pyx":200
  *     cdef double complex *expe0 = &expE[0]
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *dv0 = &dV[0,0]             # <<<<<<<<<<<<<<
@@ -5437,7 +5437,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
   __pyx_t_1 = 0;
   __pyx_v_dv0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_dV.data + __pyx_t_2 * __pyx_v_dV.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":200
+  /* "unipolator/exp_and_log.pyx":201
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *dv0 = &dV[0,0]
  *     d_dt_expE_V_expE_pointer(amp, e0, v0, dv0, t, expe0, n)             # <<<<<<<<<<<<<<
@@ -5446,7 +5446,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
  */
   __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE_pointer(__pyx_v_amp, __pyx_v_e0, __pyx_v_v0, __pyx_v_dv0, __pyx_v_t, __pyx_v_expe0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":194
+  /* "unipolator/exp_and_log.pyx":195
  *             v0 += 1
  *             dv0 += 1
  * cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, double complex[:,::1] dV, double t, double complex[::1] expE) nogil:             # <<<<<<<<<<<<<<
@@ -5457,7 +5457,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_expE_V_expE(double __pyx_v_a
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":202
+/* "unipolator/exp_and_log.pyx":203
  *     d_dt_expE_V_expE_pointer(amp, e0, v0, dv0, t, expe0, n)
  * 
  * cdef void v_exp_pointer(double *e0, double complex *v0, double t, int n) nogil:             # <<<<<<<<<<<<<<
@@ -5474,7 +5474,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
   int __pyx_t_2;
   int __pyx_t_3;
 
-  /* "unipolator/exp_and_log.pyx":205
+  /* "unipolator/exp_and_log.pyx":206
  *     cdef double complex c
  *     cdef double ei
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -5483,7 +5483,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":208
+  /* "unipolator/exp_and_log.pyx":209
  *     cdef int i
  * 
  *     ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5492,7 +5492,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
   __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-  /* "unipolator/exp_and_log.pyx":209
+  /* "unipolator/exp_and_log.pyx":210
  * 
  *     ei = dereference(e0) * t
  *     c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -5501,7 +5501,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
   __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-  /* "unipolator/exp_and_log.pyx":210
+  /* "unipolator/exp_and_log.pyx":211
  *     ei = dereference(e0) * t
  *     c.real = cos(ei)
  *     c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -5510,7 +5510,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
   __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-  /* "unipolator/exp_and_log.pyx":211
+  /* "unipolator/exp_and_log.pyx":212
  *     c.real = cos(ei)
  *     c.imag = -sin(ei)
  *     zscal(&n, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -5519,7 +5519,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
 
-  /* "unipolator/exp_and_log.pyx":212
+  /* "unipolator/exp_and_log.pyx":213
  *     c.imag = -sin(ei)
  *     zscal(&n, &c, v0, &incz)
  *     for i in range(1, n):             # <<<<<<<<<<<<<<
@@ -5531,7 +5531,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":213
+    /* "unipolator/exp_and_log.pyx":214
  *     zscal(&n, &c, v0, &incz)
  *     for i in range(1, n):
  *         v0 += n             # <<<<<<<<<<<<<<
@@ -5540,7 +5540,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":214
+    /* "unipolator/exp_and_log.pyx":215
  *     for i in range(1, n):
  *         v0 += n
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -5549,7 +5549,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":215
+    /* "unipolator/exp_and_log.pyx":216
  *         v0 += n
  *         e0 += 1
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5558,7 +5558,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":216
+    /* "unipolator/exp_and_log.pyx":217
  *         e0 += 1
  *         ei = dereference(e0) * t
  *         c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -5567,7 +5567,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
     __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-    /* "unipolator/exp_and_log.pyx":217
+    /* "unipolator/exp_and_log.pyx":218
  *         ei = dereference(e0) * t
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -5576,7 +5576,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-    /* "unipolator/exp_and_log.pyx":218
+    /* "unipolator/exp_and_log.pyx":219
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)
  *         zscal(&n, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -5586,7 +5586,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/exp_and_log.pyx":202
+  /* "unipolator/exp_and_log.pyx":203
  *     d_dt_expE_V_expE_pointer(amp, e0, v0, dv0, t, expe0, n)
  * 
  * cdef void v_exp_pointer(double *e0, double complex *v0, double t, int n) nogil:             # <<<<<<<<<<<<<<
@@ -5597,7 +5597,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(double *__pyx_v_e0,
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":219
+/* "unipolator/exp_and_log.pyx":220
  *         c.imag = -sin(ei)
  *         zscal(&n, &c, v0, &incz)
  * cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, int n) nogil: # -i*E*amp*exp(-i*E*t)             # <<<<<<<<<<<<<<
@@ -5615,7 +5615,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
   int __pyx_t_2;
   int __pyx_t_3;
 
-  /* "unipolator/exp_and_log.pyx":222
+  /* "unipolator/exp_and_log.pyx":223
  *     cdef double complex c
  *     cdef double ei, f
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -5624,7 +5624,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":225
+  /* "unipolator/exp_and_log.pyx":226
  *     cdef int i
  * 
  *     ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5633,7 +5633,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
   __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-  /* "unipolator/exp_and_log.pyx":226
+  /* "unipolator/exp_and_log.pyx":227
  * 
  *     ei = dereference(e0) * t
  *     f = -dereference(e0) * amp             # <<<<<<<<<<<<<<
@@ -5642,7 +5642,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
   __pyx_v_f = ((-(*__pyx_v_e0)) * __pyx_v_amp);
 
-  /* "unipolator/exp_and_log.pyx":227
+  /* "unipolator/exp_and_log.pyx":228
  *     ei = dereference(e0) * t
  *     f = -dereference(e0) * amp
  *     c.real = f * sin(ei)             # <<<<<<<<<<<<<<
@@ -5651,7 +5651,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
   __Pyx_SET_CREAL(__pyx_v_c, (__pyx_v_f * sin(__pyx_v_ei)));
 
-  /* "unipolator/exp_and_log.pyx":228
+  /* "unipolator/exp_and_log.pyx":229
  *     f = -dereference(e0) * amp
  *     c.real = f * sin(ei)
  *     c.imag = f * cos(ei)             # <<<<<<<<<<<<<<
@@ -5660,7 +5660,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
   __Pyx_SET_CIMAG(__pyx_v_c, (__pyx_v_f * cos(__pyx_v_ei)));
 
-  /* "unipolator/exp_and_log.pyx":229
+  /* "unipolator/exp_and_log.pyx":230
  *     c.real = f * sin(ei)
  *     c.imag = f * cos(ei)
  *     zscal(&n, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -5669,7 +5669,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
 
-  /* "unipolator/exp_and_log.pyx":230
+  /* "unipolator/exp_and_log.pyx":231
  *     c.imag = f * cos(ei)
  *     zscal(&n, &c, v0, &incz)
  *     for i in range(1, n):             # <<<<<<<<<<<<<<
@@ -5681,7 +5681,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":231
+    /* "unipolator/exp_and_log.pyx":232
  *     zscal(&n, &c, v0, &incz)
  *     for i in range(1, n):
  *         v0 += n             # <<<<<<<<<<<<<<
@@ -5690,7 +5690,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":232
+    /* "unipolator/exp_and_log.pyx":233
  *     for i in range(1, n):
  *         v0 += n
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -5699,7 +5699,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":233
+    /* "unipolator/exp_and_log.pyx":234
  *         v0 += n
  *         e0 += 1
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5708,7 +5708,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":234
+    /* "unipolator/exp_and_log.pyx":235
  *         e0 += 1
  *         ei = dereference(e0) * t
  *         f = -dereference(e0) * amp             # <<<<<<<<<<<<<<
@@ -5717,7 +5717,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
     __pyx_v_f = ((-(*__pyx_v_e0)) * __pyx_v_amp);
 
-    /* "unipolator/exp_and_log.pyx":235
+    /* "unipolator/exp_and_log.pyx":236
  *         ei = dereference(e0) * t
  *         f = -dereference(e0) * amp
  *         c.real = f * sin(ei)             # <<<<<<<<<<<<<<
@@ -5726,7 +5726,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
     __Pyx_SET_CREAL(__pyx_v_c, (__pyx_v_f * sin(__pyx_v_ei)));
 
-    /* "unipolator/exp_and_log.pyx":236
+    /* "unipolator/exp_and_log.pyx":237
  *         f = -dereference(e0) * amp
  *         c.real = f * sin(ei)
  *         c.imag = f * cos(ei)             # <<<<<<<<<<<<<<
@@ -5735,7 +5735,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (__pyx_v_f * cos(__pyx_v_ei)));
 
-    /* "unipolator/exp_and_log.pyx":237
+    /* "unipolator/exp_and_log.pyx":238
  *         c.real = f * sin(ei)
  *         c.imag = f * cos(ei)
  *         zscal(&n, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -5745,7 +5745,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/exp_and_log.pyx":219
+  /* "unipolator/exp_and_log.pyx":220
  *         c.imag = -sin(ei)
  *         zscal(&n, &c, v0, &incz)
  * cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, int n) nogil: # -i*E*amp*exp(-i*E*t)             # <<<<<<<<<<<<<<
@@ -5756,7 +5756,7 @@ static void __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(double __pyx_v_am
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":238
+/* "unipolator/exp_and_log.pyx":239
  *         c.imag = f * cos(ei)
  *         zscal(&n, &c, v0, &incz)
  * cdef void d_dt_exp_v_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, int n, int n_2) nogil: # -i*E*amp*exp(-i*E*t)             # <<<<<<<<<<<<<<
@@ -5775,7 +5775,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
   int __pyx_t_2;
   int __pyx_t_3;
 
-  /* "unipolator/exp_and_log.pyx":241
+  /* "unipolator/exp_and_log.pyx":242
  *     cdef double complex c, dc
  *     cdef double ei, f
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -5784,7 +5784,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":243
+  /* "unipolator/exp_and_log.pyx":244
  *     cdef int incz = 1
  *     cdef int i
  *     copy_pointer(v0, dv0, n_2)             # <<<<<<<<<<<<<<
@@ -5793,7 +5793,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_v0, __pyx_v_dv0, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":244
+  /* "unipolator/exp_and_log.pyx":245
  *     cdef int i
  *     copy_pointer(v0, dv0, n_2)
  *     ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5802,7 +5802,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-  /* "unipolator/exp_and_log.pyx":245
+  /* "unipolator/exp_and_log.pyx":246
  *     copy_pointer(v0, dv0, n_2)
  *     ei = dereference(e0) * t
  *     f = -dereference(e0) * amp             # <<<<<<<<<<<<<<
@@ -5811,7 +5811,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __pyx_v_f = ((-(*__pyx_v_e0)) * __pyx_v_amp);
 
-  /* "unipolator/exp_and_log.pyx":246
+  /* "unipolator/exp_and_log.pyx":247
  *     ei = dereference(e0) * t
  *     f = -dereference(e0) * amp
  *     c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -5820,7 +5820,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-  /* "unipolator/exp_and_log.pyx":247
+  /* "unipolator/exp_and_log.pyx":248
  *     f = -dereference(e0) * amp
  *     c.real = cos(ei)
  *     c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -5829,7 +5829,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-  /* "unipolator/exp_and_log.pyx":248
+  /* "unipolator/exp_and_log.pyx":249
  *     c.real = cos(ei)
  *     c.imag = -sin(ei)
  *     dc.real = f * c.real             # <<<<<<<<<<<<<<
@@ -5838,7 +5838,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __Pyx_SET_CREAL(__pyx_v_dc, (__pyx_v_f * __Pyx_CREAL(__pyx_v_c)));
 
-  /* "unipolator/exp_and_log.pyx":249
+  /* "unipolator/exp_and_log.pyx":250
  *     c.imag = -sin(ei)
  *     dc.real = f * c.real
  *     dc.imag = - f * c.imag             # <<<<<<<<<<<<<<
@@ -5847,7 +5847,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __Pyx_SET_CIMAG(__pyx_v_dc, ((-__pyx_v_f) * __Pyx_CIMAG(__pyx_v_c)));
 
-  /* "unipolator/exp_and_log.pyx":250
+  /* "unipolator/exp_and_log.pyx":251
  *     dc.real = f * c.real
  *     dc.imag = - f * c.imag
  *     zscal(&n, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -5856,7 +5856,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
 
-  /* "unipolator/exp_and_log.pyx":251
+  /* "unipolator/exp_and_log.pyx":252
  *     dc.imag = - f * c.imag
  *     zscal(&n, &c, v0, &incz)
  *     zscal(&n, &dc, dv0, &incz)             # <<<<<<<<<<<<<<
@@ -5865,7 +5865,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_dc), __pyx_v_dv0, (&__pyx_v_incz));
 
-  /* "unipolator/exp_and_log.pyx":252
+  /* "unipolator/exp_and_log.pyx":253
  *     zscal(&n, &c, v0, &incz)
  *     zscal(&n, &dc, dv0, &incz)
  *     for i in range(1, n):             # <<<<<<<<<<<<<<
@@ -5877,7 +5877,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":253
+    /* "unipolator/exp_and_log.pyx":254
  *     zscal(&n, &dc, dv0, &incz)
  *     for i in range(1, n):
  *         v0 += n             # <<<<<<<<<<<<<<
@@ -5886,7 +5886,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":254
+    /* "unipolator/exp_and_log.pyx":255
  *     for i in range(1, n):
  *         v0 += n
  *         dv0 += n             # <<<<<<<<<<<<<<
@@ -5895,7 +5895,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __pyx_v_dv0 = (__pyx_v_dv0 + __pyx_v_n);
 
-    /* "unipolator/exp_and_log.pyx":255
+    /* "unipolator/exp_and_log.pyx":256
  *         v0 += n
  *         dv0 += n
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -5904,7 +5904,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":256
+    /* "unipolator/exp_and_log.pyx":257
  *         dv0 += n
  *         e0 += 1
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -5913,7 +5913,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/exp_and_log.pyx":257
+    /* "unipolator/exp_and_log.pyx":258
  *         e0 += 1
  *         ei = dereference(e0) * t
  *         f = -dereference(e0) * amp             # <<<<<<<<<<<<<<
@@ -5922,7 +5922,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __pyx_v_f = ((-(*__pyx_v_e0)) * __pyx_v_amp);
 
-    /* "unipolator/exp_and_log.pyx":258
+    /* "unipolator/exp_and_log.pyx":259
  *         ei = dereference(e0) * t
  *         f = -dereference(e0) * amp
  *         c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -5931,7 +5931,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-    /* "unipolator/exp_and_log.pyx":259
+    /* "unipolator/exp_and_log.pyx":260
  *         f = -dereference(e0) * amp
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -5940,7 +5940,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-    /* "unipolator/exp_and_log.pyx":260
+    /* "unipolator/exp_and_log.pyx":261
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)
  *         dc.real = f * c.real             # <<<<<<<<<<<<<<
@@ -5949,7 +5949,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __Pyx_SET_CREAL(__pyx_v_dc, (__pyx_v_f * __Pyx_CREAL(__pyx_v_c)));
 
-    /* "unipolator/exp_and_log.pyx":261
+    /* "unipolator/exp_and_log.pyx":262
  *         c.imag = -sin(ei)
  *         dc.real = f * c.real
  *         dc.imag = - f * c.imag             # <<<<<<<<<<<<<<
@@ -5958,7 +5958,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __Pyx_SET_CIMAG(__pyx_v_dc, ((-__pyx_v_f) * __Pyx_CIMAG(__pyx_v_c)));
 
-    /* "unipolator/exp_and_log.pyx":262
+    /* "unipolator/exp_and_log.pyx":263
  *         dc.real = f * c.real
  *         dc.imag = - f * c.imag
  *         zscal(&n, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -5967,7 +5967,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
  */
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
 
-    /* "unipolator/exp_and_log.pyx":263
+    /* "unipolator/exp_and_log.pyx":264
  *         dc.imag = - f * c.imag
  *         zscal(&n, &c, v0, &incz)
  *         zscal(&n, &dc, dv0, &incz)             # <<<<<<<<<<<<<<
@@ -5977,7 +5977,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_dc), __pyx_v_dv0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/exp_and_log.pyx":238
+  /* "unipolator/exp_and_log.pyx":239
  *         c.imag = f * cos(ei)
  *         zscal(&n, &c, v0, &incz)
  * cdef void d_dt_exp_v_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, int n, int n_2) nogil: # -i*E*amp*exp(-i*E*t)             # <<<<<<<<<<<<<<
@@ -5988,7 +5988,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(double __pyx_v
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":265
+/* "unipolator/exp_and_log.pyx":266
  *         zscal(&n, &dc, dv0, &incz)
  * 
  * cdef void phase_shift_matrix_pointer(double *e0, double complex *v0, double complex *a0, double dt, int n) nogil: # Only calculates upper triangle of symmetric matrix             # <<<<<<<<<<<<<<
@@ -6011,7 +6011,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
   int __pyx_t_6;
   int __pyx_t_7;
 
-  /* "unipolator/exp_and_log.pyx":267
+  /* "unipolator/exp_and_log.pyx":268
  * cdef void phase_shift_matrix_pointer(double *e0, double complex *v0, double complex *a0, double dt, int n) nogil: # Only calculates upper triangle of symmetric matrix
  *     cdef int i, j
  *     cdef double complex idt = - 1j*dt             # <<<<<<<<<<<<<<
@@ -6020,7 +6020,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __pyx_v_idt = __Pyx_c_prod_double(__Pyx_c_neg_double(__pyx_t_double_complex_from_parts(0, 1.0)), __pyx_t_double_complex_from_parts(__pyx_v_dt, 0));
 
-  /* "unipolator/exp_and_log.pyx":269
+  /* "unipolator/exp_and_log.pyx":270
  *     cdef double complex idt = - 1j*dt
  *     cdef double ei, de
  *     cdef double complex *a1 = a0             # <<<<<<<<<<<<<<
@@ -6029,7 +6029,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __pyx_v_a1 = __pyx_v_a0;
 
-  /* "unipolator/exp_and_log.pyx":270
+  /* "unipolator/exp_and_log.pyx":271
  *     cdef double ei, de
  *     cdef double complex *a1 = a0
  *     ei = dereference(e0) * dt             # <<<<<<<<<<<<<<
@@ -6038,7 +6038,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_dt);
 
-  /* "unipolator/exp_and_log.pyx":271
+  /* "unipolator/exp_and_log.pyx":272
  *     cdef double complex *a1 = a0
  *     ei = dereference(e0) * dt
  *     v0[0].real = cos(ei)             # <<<<<<<<<<<<<<
@@ -6047,7 +6047,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __Pyx_SET_CREAL((__pyx_v_v0[0]), cos(__pyx_v_ei));
 
-  /* "unipolator/exp_and_log.pyx":272
+  /* "unipolator/exp_and_log.pyx":273
  *     ei = dereference(e0) * dt
  *     v0[0].real = cos(ei)
  *     v0[0].imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -6056,7 +6056,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __Pyx_SET_CIMAG((__pyx_v_v0[0]), (-sin(__pyx_v_ei)));
 
-  /* "unipolator/exp_and_log.pyx":273
+  /* "unipolator/exp_and_log.pyx":274
  *     v0[0].real = cos(ei)
  *     v0[0].imag = -sin(ei)
  *     for i in range(1, n):             # <<<<<<<<<<<<<<
@@ -6068,7 +6068,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":274
+    /* "unipolator/exp_and_log.pyx":275
  *     v0[0].imag = -sin(ei)
  *     for i in range(1, n):
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -6077,7 +6077,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":275
+    /* "unipolator/exp_and_log.pyx":276
  *     for i in range(1, n):
  *         e0 += 1
  *         v0 += 1             # <<<<<<<<<<<<<<
@@ -6086,7 +6086,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
     __pyx_v_v0 = (__pyx_v_v0 + 1);
 
-    /* "unipolator/exp_and_log.pyx":276
+    /* "unipolator/exp_and_log.pyx":277
  *         e0 += 1
  *         v0 += 1
  *         ei = dereference(e0) * dt             # <<<<<<<<<<<<<<
@@ -6095,7 +6095,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_dt);
 
-    /* "unipolator/exp_and_log.pyx":277
+    /* "unipolator/exp_and_log.pyx":278
  *         v0 += 1
  *         ei = dereference(e0) * dt
  *         v0[0].real = cos(ei)             # <<<<<<<<<<<<<<
@@ -6104,7 +6104,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
     __Pyx_SET_CREAL((__pyx_v_v0[0]), cos(__pyx_v_ei));
 
-    /* "unipolator/exp_and_log.pyx":278
+    /* "unipolator/exp_and_log.pyx":279
  *         ei = dereference(e0) * dt
  *         v0[0].real = cos(ei)
  *         v0[0].imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -6114,7 +6114,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
     __Pyx_SET_CIMAG((__pyx_v_v0[0]), (-sin(__pyx_v_ei)));
   }
 
-  /* "unipolator/exp_and_log.pyx":279
+  /* "unipolator/exp_and_log.pyx":280
  *         v0[0].real = cos(ei)
  *         v0[0].imag = -sin(ei)
  *     e0 -= n - 1             # <<<<<<<<<<<<<<
@@ -6123,7 +6123,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __pyx_v_e0 = (__pyx_v_e0 - (__pyx_v_n - 1));
 
-  /* "unipolator/exp_and_log.pyx":280
+  /* "unipolator/exp_and_log.pyx":281
  *         v0[0].imag = -sin(ei)
  *     e0 -= n - 1
  *     v0 -= n - 1             # <<<<<<<<<<<<<<
@@ -6132,7 +6132,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
   __pyx_v_v0 = (__pyx_v_v0 - (__pyx_v_n - 1));
 
-  /* "unipolator/exp_and_log.pyx":281
+  /* "unipolator/exp_and_log.pyx":282
  *     e0 -= n - 1
  *     v0 -= n - 1
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -6144,7 +6144,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":284
+    /* "unipolator/exp_and_log.pyx":285
  *         # Diagonal case
  *         #print(idt * v0[i])
  *         a0[0] = idt * v0[i]             # <<<<<<<<<<<<<<
@@ -6153,7 +6153,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
     (__pyx_v_a0[0]) = __Pyx_c_prod_double(__pyx_v_idt, (__pyx_v_v0[__pyx_v_i]));
 
-    /* "unipolator/exp_and_log.pyx":285
+    /* "unipolator/exp_and_log.pyx":286
  *         #print(idt * v0[i])
  *         a0[0] = idt * v0[i]
  *         for j in range(i+1, n):             # <<<<<<<<<<<<<<
@@ -6165,7 +6165,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
     for (__pyx_t_6 = (__pyx_v_i + 1); __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/exp_and_log.pyx":286
+      /* "unipolator/exp_and_log.pyx":287
  *         a0[0] = idt * v0[i]
  *         for j in range(i+1, n):
  *             a0 += 1             # <<<<<<<<<<<<<<
@@ -6174,7 +6174,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
       __pyx_v_a0 = (__pyx_v_a0 + 1);
 
-      /* "unipolator/exp_and_log.pyx":287
+      /* "unipolator/exp_and_log.pyx":288
  *         for j in range(i+1, n):
  *             a0 += 1
  *             a1 += n             # <<<<<<<<<<<<<<
@@ -6183,7 +6183,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
       __pyx_v_a1 = (__pyx_v_a1 + __pyx_v_n);
 
-      /* "unipolator/exp_and_log.pyx":288
+      /* "unipolator/exp_and_log.pyx":289
  *             a0 += 1
  *             a1 += n
  *             de = e0[i] - e0[j]             # <<<<<<<<<<<<<<
@@ -6192,7 +6192,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
       __pyx_v_de = ((__pyx_v_e0[__pyx_v_i]) - (__pyx_v_e0[__pyx_v_j]));
 
-      /* "unipolator/exp_and_log.pyx":289
+      /* "unipolator/exp_and_log.pyx":290
  *             a1 += n
  *             de = e0[i] - e0[j]
  *             if fabs(de)< 10**-14:             # <<<<<<<<<<<<<<
@@ -6202,7 +6202,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
       __pyx_t_7 = ((fabs(__pyx_v_de) < __Pyx_pow_long(10, -14L)) != 0);
       if (__pyx_t_7) {
 
-        /* "unipolator/exp_and_log.pyx":290
+        /* "unipolator/exp_and_log.pyx":291
  *             de = e0[i] - e0[j]
  *             if fabs(de)< 10**-14:
  *                 a0[0] = idt * v0[i]             # <<<<<<<<<<<<<<
@@ -6211,7 +6211,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
         (__pyx_v_a0[0]) = __Pyx_c_prod_double(__pyx_v_idt, (__pyx_v_v0[__pyx_v_i]));
 
-        /* "unipolator/exp_and_log.pyx":289
+        /* "unipolator/exp_and_log.pyx":290
  *             a1 += n
  *             de = e0[i] - e0[j]
  *             if fabs(de)< 10**-14:             # <<<<<<<<<<<<<<
@@ -6221,7 +6221,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
         goto __pyx_L9;
       }
 
-      /* "unipolator/exp_and_log.pyx":292
+      /* "unipolator/exp_and_log.pyx":293
  *                 a0[0] = idt * v0[i]
  *             else:
  *                 a0[0] = 1/de * (v0[i] - v0[j])             # <<<<<<<<<<<<<<
@@ -6233,7 +6233,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
       }
       __pyx_L9:;
 
-      /* "unipolator/exp_and_log.pyx":293
+      /* "unipolator/exp_and_log.pyx":294
  *             else:
  *                 a0[0] = 1/de * (v0[i] - v0[j])
  *             a1[0] = a0[0]             # <<<<<<<<<<<<<<
@@ -6243,7 +6243,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
       (__pyx_v_a1[0]) = (__pyx_v_a0[0]);
     }
 
-    /* "unipolator/exp_and_log.pyx":294
+    /* "unipolator/exp_and_log.pyx":295
  *                 a0[0] = 1/de * (v0[i] - v0[j])
  *             a1[0] = a0[0]
  *         a0 += i+2             # <<<<<<<<<<<<<<
@@ -6252,7 +6252,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
  */
     __pyx_v_a0 = (__pyx_v_a0 + (__pyx_v_i + 2));
 
-    /* "unipolator/exp_and_log.pyx":295
+    /* "unipolator/exp_and_log.pyx":296
  *             a1[0] = a0[0]
  *         a0 += i+2
  *         a1 = a0             # <<<<<<<<<<<<<<
@@ -6262,7 +6262,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
     __pyx_v_a1 = __pyx_v_a0;
   }
 
-  /* "unipolator/exp_and_log.pyx":265
+  /* "unipolator/exp_and_log.pyx":266
  *         zscal(&n, &dc, dv0, &incz)
  * 
  * cdef void phase_shift_matrix_pointer(double *e0, double complex *v0, double complex *a0, double dt, int n) nogil: # Only calculates upper triangle of symmetric matrix             # <<<<<<<<<<<<<<
@@ -6273,7 +6273,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(double
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":296
+/* "unipolator/exp_and_log.pyx":297
  *         a0 += i+2
  *         a1 = a0
  * cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double complex[:,::1] A, double dt) nogil: # Only calculates upper triangle of symmetric matrix             # <<<<<<<<<<<<<<
@@ -6290,7 +6290,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__Pyx_memviews
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
 
-  /* "unipolator/exp_and_log.pyx":297
+  /* "unipolator/exp_and_log.pyx":298
  *         a1 = a0
  * cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double complex[:,::1] A, double dt) nogil: # Only calculates upper triangle of symmetric matrix
  *     cdef double *e0 = &E[0]             # <<<<<<<<<<<<<<
@@ -6300,7 +6300,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__Pyx_memviews
   __pyx_t_1 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":298
+  /* "unipolator/exp_and_log.pyx":299
  * cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double complex[:,::1] A, double dt) nogil: # Only calculates upper triangle of symmetric matrix
  *     cdef double *e0 = &E[0]
  *     cdef double complex *v0 = &v[0]             # <<<<<<<<<<<<<<
@@ -6310,7 +6310,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__Pyx_memviews
   __pyx_t_1 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_v.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":299
+  /* "unipolator/exp_and_log.pyx":300
  *     cdef double *e0 = &E[0]
  *     cdef double complex *v0 = &v[0]
  *     cdef double complex *a0 = &A[0,0]             # <<<<<<<<<<<<<<
@@ -6321,7 +6321,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__Pyx_memviews
   __pyx_t_2 = 0;
   __pyx_v_a0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_1 * __pyx_v_A.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":300
+  /* "unipolator/exp_and_log.pyx":301
  *     cdef double complex *v0 = &v[0]
  *     cdef double complex *a0 = &A[0,0]
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -6330,7 +6330,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__Pyx_memviews
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":301
+  /* "unipolator/exp_and_log.pyx":302
  *     cdef double complex *a0 = &A[0,0]
  *     cdef int n = A.shape[0]
  *     phase_shift_matrix_pointer(e0, v0, a0, dt, n)             # <<<<<<<<<<<<<<
@@ -6339,7 +6339,7 @@ static void __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__Pyx_memviews
  */
   __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(__pyx_v_e0, __pyx_v_v0, __pyx_v_a0, __pyx_v_dt, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":296
+  /* "unipolator/exp_and_log.pyx":297
  *         a0 += i+2
  *         a1 = a0
  * cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double complex[:,::1] A, double dt) nogil: # Only calculates upper triangle of symmetric matrix             # <<<<<<<<<<<<<<
@@ -6391,23 +6391,23 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_27phase_shift_matrix(PyObje
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_v)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, 1); __PYX_ERR(0, 296, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, 1); __PYX_ERR(0, 297, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, 2); __PYX_ERR(0, 296, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, 2); __PYX_ERR(0, 297, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dt)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, 3); __PYX_ERR(0, 296, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, 3); __PYX_ERR(0, 297, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "phase_shift_matrix") < 0)) __PYX_ERR(0, 296, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "phase_shift_matrix") < 0)) __PYX_ERR(0, 297, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -6417,14 +6417,14 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_27phase_shift_matrix(PyObje
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 296, __pyx_L3_error)
-    __pyx_v_v = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_v.memview)) __PYX_ERR(0, 296, __pyx_L3_error)
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 296, __pyx_L3_error)
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 296, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 297, __pyx_L3_error)
+    __pyx_v_v = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_v.memview)) __PYX_ERR(0, 297, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 297, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 297, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 296, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("phase_shift_matrix", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 297, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.phase_shift_matrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6446,7 +6446,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_26phase_shift_matrix(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("phase_shift_matrix", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__pyx_v_E, __pyx_v_v, __pyx_v_A, __pyx_v_dt, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_phase_shift_matrix(__pyx_v_E, __pyx_v_v, __pyx_v_A, __pyx_v_dt, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6466,7 +6466,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_26phase_shift_matrix(CYTHON
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":309
+/* "unipolator/exp_and_log.pyx":310
  * ###### Matrix exponentials from eigenvalue decomposition of Hamiltonians and Unitary logarithms / decompositions
  * 
  * cdef void V_expE_W_pointer(double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6476,7 +6476,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_26phase_shift_matrix(CYTHON
 
 static void __pyx_f_10unipolator_11exp_and_log_V_expE_W_pointer(__pyx_t_double_complex *__pyx_v_v0, __pyx_t_double_complex *__pyx_v_w0, double *__pyx_v_e0, double __pyx_v_t, __pyx_t_double_complex *__pyx_v_a0, __pyx_t_double_complex *__pyx_v_b0, int __pyx_v_n, int __pyx_v_n_2) {
 
-  /* "unipolator/exp_and_log.pyx":311
+  /* "unipolator/exp_and_log.pyx":312
  * cdef void V_expE_W_pointer(double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:
  *     # Calculates B = V @ diag(exp(-1j*E*t)) @ W
  *     copy_pointer(w0 , a0, n_2)             # <<<<<<<<<<<<<<
@@ -6485,7 +6485,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W_pointer(__pyx_t_double_c
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_w0, __pyx_v_a0, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":312
+  /* "unipolator/exp_and_log.pyx":313
  *     # Calculates B = V @ diag(exp(-1j*E*t)) @ W
  *     copy_pointer(w0 , a0, n_2)
  *     v_exp_pointer(e0, a0, t, n)             # <<<<<<<<<<<<<<
@@ -6494,7 +6494,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W_pointer(__pyx_t_double_c
  */
   __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_e0, __pyx_v_a0, __pyx_v_t, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":313
+  /* "unipolator/exp_and_log.pyx":314
  *     copy_pointer(w0 , a0, n_2)
  *     v_exp_pointer(e0, a0, t, n)
  *     MM_cdot_pointer(v0, a0, b0, n)             # <<<<<<<<<<<<<<
@@ -6503,7 +6503,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W_pointer(__pyx_t_double_c
  */
   __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_v0, __pyx_v_a0, __pyx_v_b0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":309
+  /* "unipolator/exp_and_log.pyx":310
  * ###### Matrix exponentials from eigenvalue decomposition of Hamiltonians and Unitary logarithms / decompositions
  * 
  * cdef void V_expE_W_pointer(double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6514,7 +6514,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W_pointer(__pyx_t_double_c
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":314
+/* "unipolator/exp_and_log.pyx":315
  *     v_exp_pointer(e0, a0, t, n)
  *     MM_cdot_pointer(v0, a0, b0, n)
  * cpdef void V_expE_W(double complex[:,::1] V, double complex[:,::1] W, double[::1] E, double t, double complex[:,::1] A, double complex[:,::1] B, int n, int n_2):             # <<<<<<<<<<<<<<
@@ -6534,7 +6534,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
   Py_ssize_t __pyx_t_2;
   __Pyx_RefNannySetupContext("V_expE_W", 0);
 
-  /* "unipolator/exp_and_log.pyx":316
+  /* "unipolator/exp_and_log.pyx":317
  * cpdef void V_expE_W(double complex[:,::1] V, double complex[:,::1] W, double[::1] E, double t, double complex[:,::1] A, double complex[:,::1] B, int n, int n_2):
  *     # Calculates B = V @ diag(exp(-1j*E*t)) @ W
  *     cdef double *e0 = &E[0]             # <<<<<<<<<<<<<<
@@ -6544,7 +6544,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
   __pyx_t_1 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":317
+  /* "unipolator/exp_and_log.pyx":318
  *     # Calculates B = V @ diag(exp(-1j*E*t)) @ W
  *     cdef double *e0 = &E[0]
  *     cdef double complex *v0 = &V[0,0]             # <<<<<<<<<<<<<<
@@ -6555,7 +6555,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
   __pyx_t_2 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_1 * __pyx_v_V.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":318
+  /* "unipolator/exp_and_log.pyx":319
  *     cdef double *e0 = &E[0]
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *w0 = &W[0,0]             # <<<<<<<<<<<<<<
@@ -6566,7 +6566,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
   __pyx_t_1 = 0;
   __pyx_v_w0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_W.data + __pyx_t_2 * __pyx_v_W.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":319
+  /* "unipolator/exp_and_log.pyx":320
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *w0 = &W[0,0]
  *     cdef double complex *a0 = &A[0,0]             # <<<<<<<<<<<<<<
@@ -6577,7 +6577,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
   __pyx_t_2 = 0;
   __pyx_v_a0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_1 * __pyx_v_A.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":320
+  /* "unipolator/exp_and_log.pyx":321
  *     cdef double complex *w0 = &W[0,0]
  *     cdef double complex *a0 = &A[0,0]
  *     cdef double complex *b0 = &B[0,0]             # <<<<<<<<<<<<<<
@@ -6588,7 +6588,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
   __pyx_t_1 = 0;
   __pyx_v_b0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_2 * __pyx_v_B.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":321
+  /* "unipolator/exp_and_log.pyx":322
  *     cdef double complex *a0 = &A[0,0]
  *     cdef double complex *b0 = &B[0,0]
  *     V_expE_W_pointer(v0, w0, e0, t, a0, b0, n, n_2)             # <<<<<<<<<<<<<<
@@ -6597,7 +6597,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_expE_W(__Pyx_memviewslice __pyx
  */
   __pyx_f_10unipolator_11exp_and_log_V_expE_W_pointer(__pyx_v_v0, __pyx_v_w0, __pyx_v_e0, __pyx_v_t, __pyx_v_a0, __pyx_v_b0, __pyx_v_n, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":314
+  /* "unipolator/exp_and_log.pyx":315
  *     v_exp_pointer(e0, a0, t, n)
  *     MM_cdot_pointer(v0, a0, b0, n)
  * cpdef void V_expE_W(double complex[:,::1] V, double complex[:,::1] W, double[::1] E, double t, double complex[:,::1] A, double complex[:,::1] B, int n, int n_2):             # <<<<<<<<<<<<<<
@@ -6662,47 +6662,47 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_29V_expE_W(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_W)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 1); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 1); __PYX_ERR(0, 315, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_E)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 2); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 2); __PYX_ERR(0, 315, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 3); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 3); __PYX_ERR(0, 315, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 4); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 4); __PYX_ERR(0, 315, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_B)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 5); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 5); __PYX_ERR(0, 315, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 6); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 6); __PYX_ERR(0, 315, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n_2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 7); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, 7); __PYX_ERR(0, 315, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "V_expE_W") < 0)) __PYX_ERR(0, 314, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "V_expE_W") < 0)) __PYX_ERR(0, 315, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 8) {
       goto __pyx_L5_argtuple_error;
@@ -6716,18 +6716,18 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_29V_expE_W(PyObject *__pyx_
       values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
     }
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_W = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_W.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_t = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_B = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_B.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_n = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_n_2 = __Pyx_PyInt_As_int(values[7]); if (unlikely((__pyx_v_n_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_W = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_W.memview)) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_t = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_B = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_B.memview)) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_n_2 = __Pyx_PyInt_As_int(values[7]); if (unlikely((__pyx_v_n_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 314, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("V_expE_W", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 315, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.V_expE_W", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6749,7 +6749,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_28V_expE_W(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("V_expE_W", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_V_expE_W(__pyx_v_V, __pyx_v_W, __pyx_v_E, __pyx_v_t, __pyx_v_A, __pyx_v_B, __pyx_v_n, __pyx_v_n_2, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_V_expE_W(__pyx_v_V, __pyx_v_W, __pyx_v_E, __pyx_v_t, __pyx_v_A, __pyx_v_B, __pyx_v_n, __pyx_v_n_2, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6771,7 +6771,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_28V_expE_W(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":323
+/* "unipolator/exp_and_log.pyx":324
  *     V_expE_W_pointer(v0, w0, e0, t, a0, b0, n, n_2)
  * 
  * cdef void V_EexpE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6781,7 +6781,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_28V_expE_W(CYTHON_UNUSED Py
 
 static void __pyx_f_10unipolator_11exp_and_log_V_EexpE_W_pointer(double __pyx_v_amp, __pyx_t_double_complex *__pyx_v_v0, __pyx_t_double_complex *__pyx_v_w0, double *__pyx_v_e0, double __pyx_v_t, __pyx_t_double_complex *__pyx_v_a0, __pyx_t_double_complex *__pyx_v_b0, int __pyx_v_n, int __pyx_v_n_2) {
 
-  /* "unipolator/exp_and_log.pyx":325
+  /* "unipolator/exp_and_log.pyx":326
  * cdef void V_EexpE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:
  *     # Calculates amp*dB/dt = -1j * amp @ V @ diag(E) * diag(exp(-1j*E*t)) @ W   -> with helper variable *a0
  *     copy_pointer(w0 , a0, n_2)             # <<<<<<<<<<<<<<
@@ -6790,7 +6790,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_EexpE_W_pointer(double __pyx_v_
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_w0, __pyx_v_a0, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":326
+  /* "unipolator/exp_and_log.pyx":327
  *     # Calculates amp*dB/dt = -1j * amp @ V @ diag(E) * diag(exp(-1j*E*t)) @ W   -> with helper variable *a0
  *     copy_pointer(w0 , a0, n_2)
  *     v_exp_v_pointer(amp, e0, a0, t, n)             # <<<<<<<<<<<<<<
@@ -6799,7 +6799,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_EexpE_W_pointer(double __pyx_v_
  */
   __pyx_f_10unipolator_11exp_and_log_v_exp_v_pointer(__pyx_v_amp, __pyx_v_e0, __pyx_v_a0, __pyx_v_t, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":327
+  /* "unipolator/exp_and_log.pyx":328
  *     copy_pointer(w0 , a0, n_2)
  *     v_exp_v_pointer(amp, e0, a0, t, n)
  *     MM_cdot_pointer(v0, a0, b0, n)             # <<<<<<<<<<<<<<
@@ -6808,7 +6808,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_EexpE_W_pointer(double __pyx_v_
  */
   __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_v0, __pyx_v_a0, __pyx_v_b0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":323
+  /* "unipolator/exp_and_log.pyx":324
  *     V_expE_W_pointer(v0, w0, e0, t, a0, b0, n, n_2)
  * 
  * cdef void V_EexpE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6819,7 +6819,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_EexpE_W_pointer(double __pyx_v_
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":328
+/* "unipolator/exp_and_log.pyx":329
  *     v_exp_v_pointer(amp, e0, a0, t, n)
  *     MM_cdot_pointer(v0, a0, b0, n)
  * cdef void d_dt_V_expE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, double complex *db0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6829,7 +6829,7 @@ static void __pyx_f_10unipolator_11exp_and_log_V_EexpE_W_pointer(double __pyx_v_
 
 static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __pyx_v_amp, __pyx_t_double_complex *__pyx_v_v0, __pyx_t_double_complex *__pyx_v_w0, double *__pyx_v_e0, double __pyx_v_t, __pyx_t_double_complex *__pyx_v_a0, __pyx_t_double_complex *__pyx_v_b0, __pyx_t_double_complex *__pyx_v_db0, int __pyx_v_n, int __pyx_v_n_2) {
 
-  /* "unipolator/exp_and_log.pyx":331
+  /* "unipolator/exp_and_log.pyx":332
  *     # Calculates B = V @ diag(exp(-1j*E*t)) @ W    -> with helper variable *a0
  *     # and its derivative amp*dB/dt = -1j * amp @ V @ diag(E) * diag(exp(-1j*E*t)) @ W
  *     copy_pointer(w0, a0, n_2)             # <<<<<<<<<<<<<<
@@ -6838,7 +6838,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __py
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_w0, __pyx_v_a0, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":332
+  /* "unipolator/exp_and_log.pyx":333
  *     # and its derivative amp*dB/dt = -1j * amp @ V @ diag(E) * diag(exp(-1j*E*t)) @ W
  *     copy_pointer(w0, a0, n_2)
  *     d_dt_exp_v_pointer(amp, e0, a0, b0, t, n, n_2)             # <<<<<<<<<<<<<<
@@ -6847,7 +6847,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __py
  */
   __pyx_f_10unipolator_11exp_and_log_d_dt_exp_v_pointer(__pyx_v_amp, __pyx_v_e0, __pyx_v_a0, __pyx_v_b0, __pyx_v_t, __pyx_v_n, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":333
+  /* "unipolator/exp_and_log.pyx":334
  *     copy_pointer(w0, a0, n_2)
  *     d_dt_exp_v_pointer(amp, e0, a0, b0, t, n, n_2)
  *     MM_cdot_pointer(v0, b0, db0, n)             # <<<<<<<<<<<<<<
@@ -6856,7 +6856,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __py
  */
   __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_v0, __pyx_v_b0, __pyx_v_db0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":334
+  /* "unipolator/exp_and_log.pyx":335
  *     d_dt_exp_v_pointer(amp, e0, a0, b0, t, n, n_2)
  *     MM_cdot_pointer(v0, b0, db0, n)
  *     MM_cdot_pointer(v0, a0,  b0, n)             # <<<<<<<<<<<<<<
@@ -6865,7 +6865,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __py
  */
   __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_v0, __pyx_v_a0, __pyx_v_b0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":328
+  /* "unipolator/exp_and_log.pyx":329
  *     v_exp_v_pointer(amp, e0, a0, t, n)
  *     MM_cdot_pointer(v0, a0, b0, n)
  * cdef void d_dt_V_expE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, double complex *db0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6876,7 +6876,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __py
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":335
+/* "unipolator/exp_and_log.pyx":336
  *     MM_cdot_pointer(v0, b0, db0, n)
  *     MM_cdot_pointer(v0, a0,  b0, n)
  * cdef void DagV_expE_V_pointer(double complex *v0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6886,7 +6886,7 @@ static void __pyx_f_10unipolator_11exp_and_log_d_dt_V_expE_W_pointer(double __py
 
 static void __pyx_f_10unipolator_11exp_and_log_DagV_expE_V_pointer(__pyx_t_double_complex *__pyx_v_v0, double *__pyx_v_e0, double __pyx_v_t, __pyx_t_double_complex *__pyx_v_a0, __pyx_t_double_complex *__pyx_v_b0, int __pyx_v_n, int __pyx_v_n_2) {
 
-  /* "unipolator/exp_and_log.pyx":337
+  /* "unipolator/exp_and_log.pyx":338
  * cdef void DagV_expE_V_pointer(double complex *v0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:
  *     # Calculates B = Dag(V) @ diag(exp(-1j*E*t)) @ V
  *     copy_pointer(v0 , a0, n_2)             # <<<<<<<<<<<<<<
@@ -6895,7 +6895,7 @@ static void __pyx_f_10unipolator_11exp_and_log_DagV_expE_V_pointer(__pyx_t_doubl
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_v0, __pyx_v_a0, __pyx_v_n_2);
 
-  /* "unipolator/exp_and_log.pyx":338
+  /* "unipolator/exp_and_log.pyx":339
  *     # Calculates B = Dag(V) @ diag(exp(-1j*E*t)) @ V
  *     copy_pointer(v0 , a0, n_2)
  *     v_exp_pointer(e0, a0, t, n)             # <<<<<<<<<<<<<<
@@ -6904,7 +6904,7 @@ static void __pyx_f_10unipolator_11exp_and_log_DagV_expE_V_pointer(__pyx_t_doubl
  */
   __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_e0, __pyx_v_a0, __pyx_v_t, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":339
+  /* "unipolator/exp_and_log.pyx":340
  *     copy_pointer(v0 , a0, n_2)
  *     v_exp_pointer(e0, a0, t, n)
  *     DagM_M_cdot_pointer(v0, a0, b0, n)             # <<<<<<<<<<<<<<
@@ -6913,7 +6913,7 @@ static void __pyx_f_10unipolator_11exp_and_log_DagV_expE_V_pointer(__pyx_t_doubl
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_v0, __pyx_v_a0, __pyx_v_b0, __pyx_v_n);
 
-  /* "unipolator/exp_and_log.pyx":335
+  /* "unipolator/exp_and_log.pyx":336
  *     MM_cdot_pointer(v0, b0, db0, n)
  *     MM_cdot_pointer(v0, a0,  b0, n)
  * cdef void DagV_expE_V_pointer(double complex *v0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:             # <<<<<<<<<<<<<<
@@ -6924,7 +6924,7 @@ static void __pyx_f_10unipolator_11exp_and_log_DagV_expE_V_pointer(__pyx_t_doubl
   /* function exit code */
 }
 
-/* "unipolator/exp_and_log.pyx":341
+/* "unipolator/exp_and_log.pyx":342
  *     DagM_M_cdot_pointer(v0, a0, b0, n)
  * 
  * cpdef void c_expmH(double complex[:,::1] H, double dt, double complex[:,::1] U, int lwork, int lrwork, int liwork):             # <<<<<<<<<<<<<<
@@ -6957,7 +6957,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("c_expmH", 0);
 
-  /* "unipolator/exp_and_log.pyx":342
+  /* "unipolator/exp_and_log.pyx":343
  * 
  * cpdef void c_expmH(double complex[:,::1] H, double dt, double complex[:,::1] U, int lwork, int lrwork, int liwork):
  *     cdef int n = H.shape[0]             # <<<<<<<<<<<<<<
@@ -6966,7 +6966,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
  */
   __pyx_v_n = (__pyx_v_H.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":343
+  /* "unipolator/exp_and_log.pyx":344
  * cpdef void c_expmH(double complex[:,::1] H, double dt, double complex[:,::1] U, int lwork, int lrwork, int liwork):
  *     cdef int n = H.shape[0]
  *     cdef double complex *h0=&H[0,0]             # <<<<<<<<<<<<<<
@@ -6977,23 +6977,23 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   __pyx_t_2 = 0;
   __pyx_v_h0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_H.data + __pyx_t_1 * __pyx_v_H.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":344
+  /* "unipolator/exp_and_log.pyx":345
  *     cdef int n = H.shape[0]
  *     cdef double complex *h0=&H[0,0]
  *     cdef double complex[:,::1] V = np.empty([n, n], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *     cdef double complex[:,::1] R = np.empty([n, n], dtype=np.complex128)
  *     cdef double complex *v0=&V[0,0]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_3);
   PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
@@ -7001,48 +7001,48 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_5);
   __pyx_t_3 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_complex128); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_complex128); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_V = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "unipolator/exp_and_log.pyx":345
+  /* "unipolator/exp_and_log.pyx":346
  *     cdef double complex *h0=&H[0,0]
  *     cdef double complex[:,::1] V = np.empty([n, n], dtype=np.complex128)
  *     cdef double complex[:,::1] R = np.empty([n, n], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *     cdef double complex *v0=&V[0,0]
  *     cdef double complex *r0=&V[0,0]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_empty); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_empty); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_7);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_7);
@@ -7050,32 +7050,32 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_5);
   __pyx_t_7 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_complex128); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_complex128); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 345, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_R = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "unipolator/exp_and_log.pyx":346
+  /* "unipolator/exp_and_log.pyx":347
  *     cdef double complex[:,::1] V = np.empty([n, n], dtype=np.complex128)
  *     cdef double complex[:,::1] R = np.empty([n, n], dtype=np.complex128)
  *     cdef double complex *v0=&V[0,0]             # <<<<<<<<<<<<<<
@@ -7086,7 +7086,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   __pyx_t_1 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_2 * __pyx_v_V.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/exp_and_log.pyx":347
+  /* "unipolator/exp_and_log.pyx":348
  *     cdef double complex[:,::1] R = np.empty([n, n], dtype=np.complex128)
  *     cdef double complex *v0=&V[0,0]
  *     cdef double complex *r0=&V[0,0]             # <<<<<<<<<<<<<<
@@ -7097,51 +7097,51 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   __pyx_t_2 = 0;
   __pyx_v_r0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_1 * __pyx_v_V.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":348
+  /* "unipolator/exp_and_log.pyx":349
  *     cdef double complex *v0=&V[0,0]
  *     cdef double complex *r0=&V[0,0]
  *     cdef double[::1] E = np.empty([n], dtype=np.double)             # <<<<<<<<<<<<<<
  *     cdef double *e0=&E[0]
  *     c_eigh_lapack(H, V, E , lwork, lrwork, liwork)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_3);
   PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_5);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5);
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_double); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_double); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_E = __pyx_t_9;
   __pyx_t_9.memview = NULL;
   __pyx_t_9.data = NULL;
 
-  /* "unipolator/exp_and_log.pyx":349
+  /* "unipolator/exp_and_log.pyx":350
  *     cdef double complex *r0=&V[0,0]
  *     cdef double[::1] E = np.empty([n], dtype=np.double)
  *     cdef double *e0=&E[0]             # <<<<<<<<<<<<<<
@@ -7151,7 +7151,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
   __pyx_t_2 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_2)) ))));
 
-  /* "unipolator/exp_and_log.pyx":350
+  /* "unipolator/exp_and_log.pyx":351
  *     cdef double[::1] E = np.empty([n], dtype=np.double)
  *     cdef double *e0=&E[0]
  *     c_eigh_lapack(H, V, E , lwork, lrwork, liwork)             # <<<<<<<<<<<<<<
@@ -7160,7 +7160,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
  */
   __pyx_f_10unipolator_14blas_functions_c_eigh_lapack(__pyx_v_H, __pyx_v_V, __pyx_v_E, __pyx_v_lwork, __pyx_v_lrwork, __pyx_v_liwork, 0);
 
-  /* "unipolator/exp_and_log.pyx":351
+  /* "unipolator/exp_and_log.pyx":352
  *     cdef double *e0=&E[0]
  *     c_eigh_lapack(H, V, E , lwork, lrwork, liwork)
  *     copy_v_exp_blas(E, V, R, dt, n)             # <<<<<<<<<<<<<<
@@ -7169,7 +7169,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
  */
   __pyx_f_10unipolator_11exp_and_log_copy_v_exp_blas(__pyx_v_E, __pyx_v_V, __pyx_v_R, __pyx_v_dt, __pyx_v_n, 0);
 
-  /* "unipolator/exp_and_log.pyx":352
+  /* "unipolator/exp_and_log.pyx":353
  *     c_eigh_lapack(H, V, E , lwork, lrwork, liwork)
  *     copy_v_exp_blas(E, V, R, dt, n)
  *     DagM_M_cdot(V, R, U)             # <<<<<<<<<<<<<<
@@ -7178,7 +7178,7 @@ static void __pyx_f_10unipolator_11exp_and_log_c_expmH(__Pyx_memviewslice __pyx_
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot(__pyx_v_V, __pyx_v_R, __pyx_v_U, 0);
 
-  /* "unipolator/exp_and_log.pyx":341
+  /* "unipolator/exp_and_log.pyx":342
  *     DagM_M_cdot_pointer(v0, a0, b0, n)
  * 
  * cpdef void c_expmH(double complex[:,::1] H, double dt, double complex[:,::1] U, int lwork, int lrwork, int liwork):             # <<<<<<<<<<<<<<
@@ -7251,35 +7251,35 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_31c_expmH(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dt)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 1); __PYX_ERR(0, 341, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 1); __PYX_ERR(0, 342, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 2); __PYX_ERR(0, 341, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 2); __PYX_ERR(0, 342, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_lwork)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 3); __PYX_ERR(0, 341, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 3); __PYX_ERR(0, 342, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_lrwork)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 4); __PYX_ERR(0, 341, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 4); __PYX_ERR(0, 342, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_liwork)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 5); __PYX_ERR(0, 341, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, 5); __PYX_ERR(0, 342, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "c_expmH") < 0)) __PYX_ERR(0, 341, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "c_expmH") < 0)) __PYX_ERR(0, 342, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -7291,16 +7291,16 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_31c_expmH(PyObject *__pyx_s
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_H = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_H.memview)) __PYX_ERR(0, 341, __pyx_L3_error)
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 341, __pyx_L3_error)
-    __pyx_v_lwork = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_lwork == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
-    __pyx_v_lrwork = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_lrwork == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
-    __pyx_v_liwork = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_liwork == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
+    __pyx_v_H = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_H.memview)) __PYX_ERR(0, 342, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 342, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 342, __pyx_L3_error)
+    __pyx_v_lwork = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_lwork == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 342, __pyx_L3_error)
+    __pyx_v_lrwork = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_lrwork == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 342, __pyx_L3_error)
+    __pyx_v_liwork = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_liwork == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 342, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 341, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("c_expmH", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 342, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.c_expmH", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -7322,7 +7322,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_30c_expmH(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("c_expmH", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_c_expmH(__pyx_v_H, __pyx_v_dt, __pyx_v_U, __pyx_v_lwork, __pyx_v_lrwork, __pyx_v_liwork, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_c_expmH(__pyx_v_H, __pyx_v_dt, __pyx_v_U, __pyx_v_lwork, __pyx_v_lrwork, __pyx_v_liwork, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7341,7 +7341,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_30c_expmH(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":354
+/* "unipolator/exp_and_log.pyx":355
  *     DagM_M_cdot(V, R, U)
  * 
  * cpdef void eigU(double complex[:,::1] U, double complex[::1] Ec, double complex[:,::1] V): # alternative to np.eig returning unitary matrices V             # <<<<<<<<<<<<<<
@@ -7377,7 +7377,7 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("eigU", 0);
 
-  /* "unipolator/exp_and_log.pyx":355
+  /* "unipolator/exp_and_log.pyx":356
  * 
  * cpdef void eigU(double complex[:,::1] U, double complex[::1] Ec, double complex[:,::1] V): # alternative to np.eig returning unitary matrices V
  *     cdef int n = U.shape[0]             # <<<<<<<<<<<<<<
@@ -7386,26 +7386,26 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
  */
   __pyx_v_n = (__pyx_v_U.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":357
+  /* "unipolator/exp_and_log.pyx":358
  *     cdef int n = U.shape[0]
  *     cdef int i, j
  *     Emat, Vmat = schur(U, output='complex')             # <<<<<<<<<<<<<<
  *     for i in range(n):
  *         Ec[i] = Emat[i, i]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_schur); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_schur); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_U, 2, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_U, 2, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_output, __pyx_n_u_complex) < 0) __PYX_ERR(0, 357, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 357, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_output, __pyx_n_u_complex) < 0) __PYX_ERR(0, 358, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7416,7 +7416,7 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 357, __pyx_L1_error)
+      __PYX_ERR(0, 358, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -7429,15 +7429,15 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_1 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_1 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_5 = Py_TYPE(__pyx_t_1)->tp_iternext;
@@ -7445,7 +7445,7 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     __Pyx_GOTREF(__pyx_t_2);
     index = 1; __pyx_t_3 = __pyx_t_5(__pyx_t_1); if (unlikely(!__pyx_t_3)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_1), 2) < 0) __PYX_ERR(0, 357, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_1), 2) < 0) __PYX_ERR(0, 358, __pyx_L1_error)
     __pyx_t_5 = NULL;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     goto __pyx_L4_unpacking_done;
@@ -7453,7 +7453,7 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_5 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 357, __pyx_L1_error)
+    __PYX_ERR(0, 358, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
   __pyx_v_Emat = __pyx_t_2;
@@ -7461,7 +7461,7 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
   __pyx_v_Vmat = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "unipolator/exp_and_log.pyx":358
+  /* "unipolator/exp_and_log.pyx":359
  *     cdef int i, j
  *     Emat, Vmat = schur(U, output='complex')
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -7473,18 +7473,18 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "unipolator/exp_and_log.pyx":359
+    /* "unipolator/exp_and_log.pyx":360
  *     Emat, Vmat = schur(U, output='complex')
  *     for i in range(n):
  *         Ec[i] = Emat[i, i]             # <<<<<<<<<<<<<<
  *         for j in range(n):
  *             V[i,j].real =  Vmat[j,i].real
  */
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 359, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 359, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_4);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4);
@@ -7492,15 +7492,15 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
     __pyx_t_4 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_Emat, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_Emat, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_9 = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 359, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_10 = __pyx_v_i;
     *((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_Ec.data) + __pyx_t_10)) )) = __pyx_t_9;
 
-    /* "unipolator/exp_and_log.pyx":360
+    /* "unipolator/exp_and_log.pyx":361
  *     for i in range(n):
  *         Ec[i] = Emat[i, i]
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -7512,18 +7512,18 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
       __pyx_v_j = __pyx_t_13;
 
-      /* "unipolator/exp_and_log.pyx":361
+      /* "unipolator/exp_and_log.pyx":362
  *         Ec[i] = Emat[i, i]
  *         for j in range(n):
  *             V[i,j].real =  Vmat[j,i].real             # <<<<<<<<<<<<<<
  *             V[i,j].imag = -Vmat[j,i].imag
  * 
  */
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 362, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 362, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
@@ -7531,30 +7531,30 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
       PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
       __pyx_t_3 = 0;
       __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_Vmat, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_Vmat, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 362, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_14 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_14 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 361, __pyx_L1_error)
+      __pyx_t_14 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_14 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 362, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_10 = __pyx_v_i;
       __pyx_t_15 = __pyx_v_j;
       __Pyx_SET_CREAL((*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_10 * __pyx_v_V.strides[0]) )) + __pyx_t_15)) ))), __pyx_t_14);
 
-      /* "unipolator/exp_and_log.pyx":362
+      /* "unipolator/exp_and_log.pyx":363
  *         for j in range(n):
  *             V[i,j].real =  Vmat[j,i].real
  *             V[i,j].imag = -Vmat[j,i].imag             # <<<<<<<<<<<<<<
  * 
  * cpdef double complex clog(double complex c) nogil:   # logarithm of complex number
  */
-      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_4);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
@@ -7562,16 +7562,16 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
       __pyx_t_4 = 0;
       __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_Vmat, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_Vmat, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imag); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imag); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = PyNumber_Negative(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_2 = PyNumber_Negative(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_14 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_14 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_14 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_14 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 363, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_15 = __pyx_v_i;
       __pyx_t_10 = __pyx_v_j;
@@ -7579,7 +7579,7 @@ static void __pyx_f_10unipolator_11exp_and_log_eigU(__Pyx_memviewslice __pyx_v_U
     }
   }
 
-  /* "unipolator/exp_and_log.pyx":354
+  /* "unipolator/exp_and_log.pyx":355
  *     DagM_M_cdot(V, R, U)
  * 
  * cpdef void eigU(double complex[:,::1] U, double complex[::1] Ec, double complex[:,::1] V): # alternative to np.eig returning unitary matrices V             # <<<<<<<<<<<<<<
@@ -7639,17 +7639,17 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_33eigU(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Ec)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("eigU", 1, 3, 3, 1); __PYX_ERR(0, 354, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("eigU", 1, 3, 3, 1); __PYX_ERR(0, 355, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("eigU", 1, 3, 3, 2); __PYX_ERR(0, 354, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("eigU", 1, 3, 3, 2); __PYX_ERR(0, 355, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "eigU") < 0)) __PYX_ERR(0, 354, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "eigU") < 0)) __PYX_ERR(0, 355, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -7658,13 +7658,13 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_33eigU(PyObject *__pyx_self
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 354, __pyx_L3_error)
-    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 354, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 354, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 355, __pyx_L3_error)
+    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 355, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 355, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("eigU", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 354, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("eigU", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 355, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.eigU", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -7686,7 +7686,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_32eigU(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("eigU", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_eigU(__pyx_v_U, __pyx_v_Ec, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_eigU(__pyx_v_U, __pyx_v_Ec, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7706,7 +7706,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_32eigU(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":364
+/* "unipolator/exp_and_log.pyx":365
  *             V[i,j].imag = -Vmat[j,i].imag
  * 
  * cpdef double complex clog(double complex c) nogil:   # logarithm of complex number             # <<<<<<<<<<<<<<
@@ -7724,7 +7724,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
   __pyx_t_double_complex __pyx_r;
   double __pyx_t_1;
 
-  /* "unipolator/exp_and_log.pyx":365
+  /* "unipolator/exp_and_log.pyx":366
  * 
  * cpdef double complex clog(double complex c) nogil:   # logarithm of complex number
  *     cdef double x = c.real             # <<<<<<<<<<<<<<
@@ -7734,7 +7734,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
   __pyx_t_1 = __Pyx_CREAL(__pyx_v_c);
   __pyx_v_x = __pyx_t_1;
 
-  /* "unipolator/exp_and_log.pyx":366
+  /* "unipolator/exp_and_log.pyx":367
  * cpdef double complex clog(double complex c) nogil:   # logarithm of complex number
  *     cdef double x = c.real
  *     cdef double y = c.imag             # <<<<<<<<<<<<<<
@@ -7744,7 +7744,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
   __pyx_t_1 = __Pyx_CIMAG(__pyx_v_c);
   __pyx_v_y = __pyx_t_1;
 
-  /* "unipolator/exp_and_log.pyx":368
+  /* "unipolator/exp_and_log.pyx":369
  *     cdef double y = c.imag
  *     cdef double complex d
  *     cdef double squares = x*x + y*y             # <<<<<<<<<<<<<<
@@ -7753,7 +7753,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
  */
   __pyx_v_squares = ((__pyx_v_x * __pyx_v_x) + (__pyx_v_y * __pyx_v_y));
 
-  /* "unipolator/exp_and_log.pyx":369
+  /* "unipolator/exp_and_log.pyx":370
  *     cdef double complex d
  *     cdef double squares = x*x + y*y
  *     cdef double abs_val = sqrt(squares)             # <<<<<<<<<<<<<<
@@ -7762,7 +7762,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
  */
   __pyx_v_abs_val = sqrt(__pyx_v_squares);
 
-  /* "unipolator/exp_and_log.pyx":370
+  /* "unipolator/exp_and_log.pyx":371
  *     cdef double squares = x*x + y*y
  *     cdef double abs_val = sqrt(squares)
  *     d.real = log(abs_val)             # <<<<<<<<<<<<<<
@@ -7771,7 +7771,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
  */
   __Pyx_SET_CREAL(__pyx_v_d, log(__pyx_v_abs_val));
 
-  /* "unipolator/exp_and_log.pyx":371
+  /* "unipolator/exp_and_log.pyx":372
  *     cdef double abs_val = sqrt(squares)
  *     d.real = log(abs_val)
  *     d.imag = atan2(y,x)             # <<<<<<<<<<<<<<
@@ -7780,7 +7780,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
  */
   __Pyx_SET_CIMAG(__pyx_v_d, atan2(__pyx_v_y, __pyx_v_x));
 
-  /* "unipolator/exp_and_log.pyx":372
+  /* "unipolator/exp_and_log.pyx":373
  *     d.real = log(abs_val)
  *     d.imag = atan2(y,x)
  *     return d             # <<<<<<<<<<<<<<
@@ -7790,7 +7790,7 @@ static __pyx_t_double_complex __pyx_f_10unipolator_11exp_and_log_clog(__pyx_t_do
   __pyx_r = __pyx_v_d;
   goto __pyx_L0;
 
-  /* "unipolator/exp_and_log.pyx":364
+  /* "unipolator/exp_and_log.pyx":365
  *             V[i,j].imag = -Vmat[j,i].imag
  * 
  * cpdef double complex clog(double complex c) nogil:   # logarithm of complex number             # <<<<<<<<<<<<<<
@@ -7815,7 +7815,7 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_35clog(PyObject *__pyx_self
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("clog (wrapper)", 0);
   assert(__pyx_arg_c); {
-    __pyx_v_c = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_c); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 364, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyComplex_As___pyx_t_double_complex(__pyx_arg_c); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 365, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7841,7 +7841,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_34clog(CYTHON_UNUSED PyObje
   __Pyx_RefNannySetupContext("clog", 0);
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_f_10unipolator_11exp_and_log_clog(__pyx_v_c, 0);
-  __pyx_t_2 = __pyx_PyComplex_FromComplex(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyComplex_FromComplex(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -7858,7 +7858,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_34clog(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":374
+/* "unipolator/exp_and_log.pyx":375
  *     return d
  * 
  * cpdef void copy_v_log_blas(double complex[::1] E, double complex[:,::1] V, double complex[:,::1] A):             # <<<<<<<<<<<<<<
@@ -7884,7 +7884,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("copy_v_log_blas", 0);
 
-  /* "unipolator/exp_and_log.pyx":375
+  /* "unipolator/exp_and_log.pyx":376
  * 
  * cpdef void copy_v_log_blas(double complex[::1] E, double complex[:,::1] V, double complex[:,::1] A):
  *     cdef int n = E.shape[0]             # <<<<<<<<<<<<<<
@@ -7893,7 +7893,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
  */
   __pyx_v_n = (__pyx_v_E.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":379
+  /* "unipolator/exp_and_log.pyx":380
  *     cdef int i
  *     cdef double complex *vi0
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -7902,16 +7902,16 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/exp_and_log.pyx":380
+  /* "unipolator/exp_and_log.pyx":381
  *     cdef double complex *vi0
  *     cdef int incz = 1
  *     A[:,:] = V             # <<<<<<<<<<<<<<
  *     for i in range(n):
  *         c = 1j*clog(E[i])
  */
-  if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_V, __pyx_v_A, 2, 2, 0) < 0)) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_V, __pyx_v_A, 2, 2, 0) < 0)) __PYX_ERR(0, 381, __pyx_L1_error)
 
-  /* "unipolator/exp_and_log.pyx":381
+  /* "unipolator/exp_and_log.pyx":382
  *     cdef int incz = 1
  *     A[:,:] = V
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -7923,7 +7923,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":382
+    /* "unipolator/exp_and_log.pyx":383
  *     A[:,:] = V
  *     for i in range(n):
  *         c = 1j*clog(E[i])             # <<<<<<<<<<<<<<
@@ -7933,7 +7933,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
     __pyx_t_4 = __pyx_v_i;
     __pyx_v_c = __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0, 1.0), __pyx_f_10unipolator_11exp_and_log_clog((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_E.data) + __pyx_t_4)) ))), 0));
 
-    /* "unipolator/exp_and_log.pyx":383
+    /* "unipolator/exp_and_log.pyx":384
  *     for i in range(n):
  *         c = 1j*clog(E[i])
  *         vi0=&A[i,0]             # <<<<<<<<<<<<<<
@@ -7944,7 +7944,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
     __pyx_t_5 = 0;
     __pyx_v_vi0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_4 * __pyx_v_A.strides[0]) )) + __pyx_t_5)) ))));
 
-    /* "unipolator/exp_and_log.pyx":384
+    /* "unipolator/exp_and_log.pyx":385
  *         c = 1j*clog(E[i])
  *         vi0=&A[i,0]
  *         zscal(&n, &c, vi0, &incz)             # <<<<<<<<<<<<<<
@@ -7954,7 +7954,7 @@ static void __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__Pyx_memviewslic
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_n), (&__pyx_v_c), __pyx_v_vi0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/exp_and_log.pyx":374
+  /* "unipolator/exp_and_log.pyx":375
  *     return d
  * 
  * cpdef void copy_v_log_blas(double complex[::1] E, double complex[:,::1] V, double complex[:,::1] A):             # <<<<<<<<<<<<<<
@@ -8008,17 +8008,17 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_37copy_v_log_blas(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("copy_v_log_blas", 1, 3, 3, 1); __PYX_ERR(0, 374, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("copy_v_log_blas", 1, 3, 3, 1); __PYX_ERR(0, 375, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("copy_v_log_blas", 1, 3, 3, 2); __PYX_ERR(0, 374, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("copy_v_log_blas", 1, 3, 3, 2); __PYX_ERR(0, 375, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "copy_v_log_blas") < 0)) __PYX_ERR(0, 374, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "copy_v_log_blas") < 0)) __PYX_ERR(0, 375, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -8027,13 +8027,13 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_37copy_v_log_blas(PyObject 
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 374, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 374, __pyx_L3_error)
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 374, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 375, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 375, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 375, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("copy_v_log_blas", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 374, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("copy_v_log_blas", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 375, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.copy_v_log_blas", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8055,7 +8055,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_36copy_v_log_blas(CYTHON_UN
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("copy_v_log_blas", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__pyx_v_E, __pyx_v_V, __pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__pyx_v_E, __pyx_v_V, __pyx_v_A, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 375, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8075,7 +8075,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_36copy_v_log_blas(CYTHON_UN
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":386
+/* "unipolator/exp_and_log.pyx":387
  *         zscal(&n, &c, vi0, &incz)
  * 
  * cpdef void logmU(double complex[:,::1] U, double complex[:,::1] logU, double complex[:,::1] Emat, double complex[::1] E, double complex[:,::1] V):# Helper variables Emat, E, V             # <<<<<<<<<<<<<<
@@ -8089,7 +8089,7 @@ static void __pyx_f_10unipolator_11exp_and_log_logmU(__Pyx_memviewslice __pyx_v_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("logmU", 0);
 
-  /* "unipolator/exp_and_log.pyx":387
+  /* "unipolator/exp_and_log.pyx":388
  * 
  * cpdef void logmU(double complex[:,::1] U, double complex[:,::1] logU, double complex[:,::1] Emat, double complex[::1] E, double complex[:,::1] V):# Helper variables Emat, E, V
  *     cdef double dt = 1.0             # <<<<<<<<<<<<<<
@@ -8098,7 +8098,7 @@ static void __pyx_f_10unipolator_11exp_and_log_logmU(__Pyx_memviewslice __pyx_v_
  */
   __pyx_v_dt = 1.0;
 
-  /* "unipolator/exp_and_log.pyx":388
+  /* "unipolator/exp_and_log.pyx":389
  * cpdef void logmU(double complex[:,::1] U, double complex[:,::1] logU, double complex[:,::1] Emat, double complex[::1] E, double complex[:,::1] V):# Helper variables Emat, E, V
  *     cdef double dt = 1.0
  *     eigU(U, E, V)             # <<<<<<<<<<<<<<
@@ -8107,7 +8107,7 @@ static void __pyx_f_10unipolator_11exp_and_log_logmU(__Pyx_memviewslice __pyx_v_
  */
   __pyx_f_10unipolator_11exp_and_log_eigU(__pyx_v_U, __pyx_v_E, __pyx_v_V, 0);
 
-  /* "unipolator/exp_and_log.pyx":389
+  /* "unipolator/exp_and_log.pyx":390
  *     cdef double dt = 1.0
  *     eigU(U, E, V)
  *     copy_v_log_blas(E, V, Emat)             # <<<<<<<<<<<<<<
@@ -8116,7 +8116,7 @@ static void __pyx_f_10unipolator_11exp_and_log_logmU(__Pyx_memviewslice __pyx_v_
  */
   __pyx_f_10unipolator_11exp_and_log_copy_v_log_blas(__pyx_v_E, __pyx_v_V, __pyx_v_Emat, 0);
 
-  /* "unipolator/exp_and_log.pyx":390
+  /* "unipolator/exp_and_log.pyx":391
  *     eigU(U, E, V)
  *     copy_v_log_blas(E, V, Emat)
  *     DagM_M_cdot(V, Emat, logU)             # <<<<<<<<<<<<<<
@@ -8125,7 +8125,7 @@ static void __pyx_f_10unipolator_11exp_and_log_logmU(__Pyx_memviewslice __pyx_v_
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot(__pyx_v_V, __pyx_v_Emat, __pyx_v_logU, 0);
 
-  /* "unipolator/exp_and_log.pyx":386
+  /* "unipolator/exp_and_log.pyx":387
  *         zscal(&n, &c, vi0, &incz)
  * 
  * cpdef void logmU(double complex[:,::1] U, double complex[:,::1] logU, double complex[:,::1] Emat, double complex[::1] E, double complex[:,::1] V):# Helper variables Emat, E, V             # <<<<<<<<<<<<<<
@@ -8181,29 +8181,29 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_39logmU(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logU)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 1); __PYX_ERR(0, 386, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 1); __PYX_ERR(0, 387, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Emat)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 2); __PYX_ERR(0, 386, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 2); __PYX_ERR(0, 387, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_E)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 3); __PYX_ERR(0, 386, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 3); __PYX_ERR(0, 387, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 4); __PYX_ERR(0, 386, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, 4); __PYX_ERR(0, 387, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "logmU") < 0)) __PYX_ERR(0, 386, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "logmU") < 0)) __PYX_ERR(0, 387, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -8214,15 +8214,15 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_39logmU(PyObject *__pyx_sel
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
-    __pyx_v_logU = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logU.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
-    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_logU = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logU.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 386, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("logmU", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 387, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.logmU", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8244,7 +8244,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_38logmU(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("logmU", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_logmU(__pyx_v_U, __pyx_v_logU, __pyx_v_Emat, __pyx_v_E, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_logmU(__pyx_v_U, __pyx_v_logU, __pyx_v_Emat, __pyx_v_E, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 387, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8266,7 +8266,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_38logmU(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":392
+/* "unipolator/exp_and_log.pyx":393
  *     DagM_M_cdot(V, Emat, logU)
  * 
  * cpdef void ilogmU_eig(double complex[:,::1] U, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):# Helper variables E, output variables: logE, V             # <<<<<<<<<<<<<<
@@ -8298,7 +8298,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ilogmU_eig", 0);
 
-  /* "unipolator/exp_and_log.pyx":393
+  /* "unipolator/exp_and_log.pyx":394
  * 
  * cpdef void ilogmU_eig(double complex[:,::1] U, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):# Helper variables E, output variables: logE, V
  *     cdef int s = Ec.shape[0]             # <<<<<<<<<<<<<<
@@ -8307,7 +8307,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
  */
   __pyx_v_s = (__pyx_v_Ec.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":395
+  /* "unipolator/exp_and_log.pyx":396
  *     cdef int s = Ec.shape[0]
  *     cdef int i, j
  *     eigU(U, Ec, V_tmp)             # <<<<<<<<<<<<<<
@@ -8316,7 +8316,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
  */
   __pyx_f_10unipolator_11exp_and_log_eigU(__pyx_v_U, __pyx_v_Ec, __pyx_v_V_tmp, 0);
 
-  /* "unipolator/exp_and_log.pyx":396
+  /* "unipolator/exp_and_log.pyx":397
  *     cdef int i, j
  *     eigU(U, Ec, V_tmp)
  *     for i in range( s ):             # <<<<<<<<<<<<<<
@@ -8328,7 +8328,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":397
+    /* "unipolator/exp_and_log.pyx":398
  *     eigU(U, Ec, V_tmp)
  *     for i in range( s ):
  *         logE_tmp[i] = -clog(Ec[i]).imag             # <<<<<<<<<<<<<<
@@ -8340,19 +8340,19 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_logE_tmp.data) + __pyx_t_5)) )) = (-__Pyx_CIMAG(__pyx_f_10unipolator_11exp_and_log_clog((*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_Ec.data) + __pyx_t_4)) ))), 0)));
   }
 
-  /* "unipolator/exp_and_log.pyx":400
+  /* "unipolator/exp_and_log.pyx":401
  *     # Sort the values
  *     cdef long long[::1] order
  *     order = np.argsort(logE_tmp)             # <<<<<<<<<<<<<<
  *     for i in range( s ):
  *         j = order[i]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 400, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_argsort); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 400, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_argsort); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_logE_tmp, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 400, __pyx_L1_error)
+  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_logE_tmp, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
@@ -8367,16 +8367,16 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
   __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_9, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 400, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_PY_LONG_LONG(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 400, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_PY_LONG_LONG(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v_order = __pyx_t_10;
   __pyx_t_10.memview = NULL;
   __pyx_t_10.data = NULL;
 
-  /* "unipolator/exp_and_log.pyx":401
+  /* "unipolator/exp_and_log.pyx":402
  *     cdef long long[::1] order
  *     order = np.argsort(logE_tmp)
  *     for i in range( s ):             # <<<<<<<<<<<<<<
@@ -8388,7 +8388,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/exp_and_log.pyx":402
+    /* "unipolator/exp_and_log.pyx":403
  *     order = np.argsort(logE_tmp)
  *     for i in range( s ):
  *         j = order[i]             # <<<<<<<<<<<<<<
@@ -8398,7 +8398,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
     __pyx_t_4 = __pyx_v_i;
     __pyx_v_j = (*((PY_LONG_LONG *) ( /* dim=0 */ ((char *) (((PY_LONG_LONG *) __pyx_v_order.data) + __pyx_t_4)) )));
 
-    /* "unipolator/exp_and_log.pyx":403
+    /* "unipolator/exp_and_log.pyx":404
  *     for i in range( s ):
  *         j = order[i]
  *         logE[i] = logE_tmp[j]             # <<<<<<<<<<<<<<
@@ -8409,7 +8409,7 @@ static void __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__Pyx_memviewslice __p
     __pyx_t_5 = __pyx_v_i;
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_logE.data) + __pyx_t_5)) )) = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_logE_tmp.data) + __pyx_t_4)) )));
 
-    /* "unipolator/exp_and_log.pyx":404
+    /* "unipolator/exp_and_log.pyx":405
  *         j = order[i]
  *         logE[i] = logE_tmp[j]
  *         V[i,:] = V_tmp[j,:]             # <<<<<<<<<<<<<<
@@ -8442,7 +8442,7 @@ __pyx_t_12.shape[0] = __pyx_v_V.shape[1];
 __pyx_t_12.strides[0] = __pyx_v_V.strides[1];
     __pyx_t_12.suboffsets[0] = -1;
 
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_11, __pyx_t_12, 1, 1, 0) < 0)) __PYX_ERR(0, 404, __pyx_L1_error)
+if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_11, __pyx_t_12, 1, 1, 0) < 0)) __PYX_ERR(0, 405, __pyx_L1_error)
     __PYX_XDEC_MEMVIEW(&__pyx_t_12, 1);
     __pyx_t_12.memview = NULL;
     __pyx_t_12.data = NULL;
@@ -8451,7 +8451,7 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_11, __pyx_t_12, 1, 1, 0) < 0
     __pyx_t_11.data = NULL;
   }
 
-  /* "unipolator/exp_and_log.pyx":392
+  /* "unipolator/exp_and_log.pyx":393
  *     DagM_M_cdot(V, Emat, logU)
  * 
  * cpdef void ilogmU_eig(double complex[:,::1] U, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):# Helper variables E, output variables: logE, V             # <<<<<<<<<<<<<<
@@ -8522,35 +8522,35 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_41ilogmU_eig(PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Ec)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 1); __PYX_ERR(0, 392, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 1); __PYX_ERR(0, 393, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 2); __PYX_ERR(0, 392, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 2); __PYX_ERR(0, 393, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 3); __PYX_ERR(0, 392, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 3); __PYX_ERR(0, 393, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 4); __PYX_ERR(0, 392, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 4); __PYX_ERR(0, 393, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 5); __PYX_ERR(0, 392, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, 5); __PYX_ERR(0, 393, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ilogmU_eig") < 0)) __PYX_ERR(0, 392, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ilogmU_eig") < 0)) __PYX_ERR(0, 393, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -8562,16 +8562,16 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_41ilogmU_eig(PyObject *__py
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
-    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
-    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
-    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
-    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 393, __pyx_L3_error)
+    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 393, __pyx_L3_error)
+    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 393, __pyx_L3_error)
+    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 393, __pyx_L3_error)
+    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 393, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 393, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 392, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ilogmU_eig", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 393, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.ilogmU_eig", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8593,7 +8593,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_40ilogmU_eig(CYTHON_UNUSED 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ilogmU_eig", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__pyx_v_U, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 392, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__pyx_v_U, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 393, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8616,7 +8616,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_40ilogmU_eig(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":407
+/* "unipolator/exp_and_log.pyx":408
  * 
  * 
  * cpdef void Make_U_Partial(double complex[:,::1] U_1, double complex[:,::1] U_0, double complex[:,::1] Emat, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):             # <<<<<<<<<<<<<<
@@ -8630,7 +8630,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Make_U_Partial(__Pyx_memviewslice
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Make_U_Partial", 0);
 
-  /* "unipolator/exp_and_log.pyx":411
+  /* "unipolator/exp_and_log.pyx":412
  *     # Intermediate matrices (vectors):  lugU, Emat, (Ec)
  *     # Result matrices (vectors):        V, (E)
  *     cdef int s = U_1.shape[0]             # <<<<<<<<<<<<<<
@@ -8639,7 +8639,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Make_U_Partial(__Pyx_memviewslice
  */
   __pyx_v_s = (__pyx_v_U_1.shape[0]);
 
-  /* "unipolator/exp_and_log.pyx":412
+  /* "unipolator/exp_and_log.pyx":413
  *     # Result matrices (vectors):        V, (E)
  *     cdef int s = U_1.shape[0]
  *     M_DagM_cdot(U_1, U_0, Emat)             # <<<<<<<<<<<<<<
@@ -8648,7 +8648,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Make_U_Partial(__Pyx_memviewslice
  */
   __pyx_f_10unipolator_14blas_functions_M_DagM_cdot(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat, 0);
 
-  /* "unipolator/exp_and_log.pyx":413
+  /* "unipolator/exp_and_log.pyx":414
  *     cdef int s = U_1.shape[0]
  *     M_DagM_cdot(U_1, U_0, Emat)
  *     ilogmU_eig(Emat, Ec, logE_tmp, V_tmp, logE, V)             # <<<<<<<<<<<<<<
@@ -8657,7 +8657,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Make_U_Partial(__Pyx_memviewslice
  */
   __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0);
 
-  /* "unipolator/exp_and_log.pyx":407
+  /* "unipolator/exp_and_log.pyx":408
  * 
  * 
  * cpdef void Make_U_Partial(double complex[:,::1] U_1, double complex[:,::1] U_0, double complex[:,::1] Emat, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):             # <<<<<<<<<<<<<<
@@ -8722,47 +8722,47 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_43Make_U_Partial(PyObject *
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U_0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 1); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 1); __PYX_ERR(0, 408, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Emat)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 2); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 2); __PYX_ERR(0, 408, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Ec)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 3); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 3); __PYX_ERR(0, 408, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 4); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 4); __PYX_ERR(0, 408, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 5); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 5); __PYX_ERR(0, 408, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 6); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 6); __PYX_ERR(0, 408, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 7); __PYX_ERR(0, 407, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, 7); __PYX_ERR(0, 408, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Make_U_Partial") < 0)) __PYX_ERR(0, 407, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Make_U_Partial") < 0)) __PYX_ERR(0, 408, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 8) {
       goto __pyx_L5_argtuple_error;
@@ -8776,18 +8776,18 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_43Make_U_Partial(PyObject *
       values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
     }
-    __pyx_v_U_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_1.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_U_0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_0.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 407, __pyx_L3_error)
+    __pyx_v_U_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_1.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_U_0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_0.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 408, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 407, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Make_U_Partial", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 408, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.Make_U_Partial", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8809,7 +8809,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_42Make_U_Partial(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Make_U_Partial", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Make_U_Partial(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Make_U_Partial(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8834,7 +8834,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_42Make_U_Partial(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":415
+/* "unipolator/exp_and_log.pyx":416
  *     ilogmU_eig(Emat, Ec, logE_tmp, V_tmp, logE, V)
  * 
  * cpdef void Partialize_Center(double complex[:,::1] U_1, double complex[:,::1] U_0, double complex[:,::1] Emat2, double complex[:,::1] Emat, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):             # <<<<<<<<<<<<<<
@@ -8847,7 +8847,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Center(__Pyx_memviewsl
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Partialize_Center", 0);
 
-  /* "unipolator/exp_and_log.pyx":419
+  /* "unipolator/exp_and_log.pyx":420
  *     # Intermediate matrices (vectors):  lugU, Emat, (Ec)
  *     # Result matrices (vectors):        V, (E)
  *     MM_cdot(U_1, U_1, V)  # lugU = U_1 ** 2             # <<<<<<<<<<<<<<
@@ -8856,7 +8856,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Center(__Pyx_memviewsl
  */
   __pyx_f_10unipolator_14blas_functions_MM_cdot(__pyx_v_U_1, __pyx_v_U_1, __pyx_v_V, 0);
 
-  /* "unipolator/exp_and_log.pyx":420
+  /* "unipolator/exp_and_log.pyx":421
  *     # Result matrices (vectors):        V, (E)
  *     MM_cdot(U_1, U_1, V)  # lugU = U_1 ** 2
  *     DagM_M_cdot(U_0, V, Emat)             # <<<<<<<<<<<<<<
@@ -8865,7 +8865,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Center(__Pyx_memviewsl
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot(__pyx_v_U_0, __pyx_v_V, __pyx_v_Emat, 0);
 
-  /* "unipolator/exp_and_log.pyx":421
+  /* "unipolator/exp_and_log.pyx":422
  *     MM_cdot(U_1, U_1, V)  # lugU = U_1 ** 2
  *     DagM_M_cdot(U_0, V, Emat)
  *     M_DagM_cdot(Emat, U_0, Emat2)             # <<<<<<<<<<<<<<
@@ -8874,7 +8874,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Center(__Pyx_memviewsl
  */
   __pyx_f_10unipolator_14blas_functions_M_DagM_cdot(__pyx_v_Emat, __pyx_v_U_0, __pyx_v_Emat2, 0);
 
-  /* "unipolator/exp_and_log.pyx":422
+  /* "unipolator/exp_and_log.pyx":423
  *     DagM_M_cdot(U_0, V, Emat)
  *     M_DagM_cdot(Emat, U_0, Emat2)
  *     ilogmU_eig(Emat2, Ec, logE_tmp, V_tmp, logE, V)             # <<<<<<<<<<<<<<
@@ -8883,7 +8883,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Center(__Pyx_memviewsl
  */
   __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__pyx_v_Emat2, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0);
 
-  /* "unipolator/exp_and_log.pyx":415
+  /* "unipolator/exp_and_log.pyx":416
  *     ilogmU_eig(Emat, Ec, logE_tmp, V_tmp, logE, V)
  * 
  * cpdef void Partialize_Center(double complex[:,::1] U_1, double complex[:,::1] U_0, double complex[:,::1] Emat2, double complex[:,::1] Emat, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V):             # <<<<<<<<<<<<<<
@@ -8951,53 +8951,53 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_45Partialize_Center(PyObjec
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U_0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 1); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 1); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Emat2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 2); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 2); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Emat)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 3); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 3); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Ec)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 4); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 4); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 5); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 5); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 6); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 6); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 7); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 7); __PYX_ERR(0, 416, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 8); __PYX_ERR(0, 415, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, 8); __PYX_ERR(0, 416, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Partialize_Center") < 0)) __PYX_ERR(0, 415, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Partialize_Center") < 0)) __PYX_ERR(0, 416, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 9) {
       goto __pyx_L5_argtuple_error;
@@ -9012,19 +9012,19 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_45Partialize_Center(PyObjec
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
       values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
-    __pyx_v_U_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_1.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_U_0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_0.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_Emat2 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat2.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 415, __pyx_L3_error)
+    __pyx_v_U_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_1.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_U_0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_0.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_Emat2 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat2.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 416, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 415, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Partialize_Center", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 416, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.Partialize_Center", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9046,7 +9046,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_44Partialize_Center(CYTHON_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Partialize_Center", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Partialize_Center(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat2, __pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 415, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Partialize_Center(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat2, __pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9072,7 +9072,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_44Partialize_Center(CYTHON_
   return __pyx_r;
 }
 
-/* "unipolator/exp_and_log.pyx":424
+/* "unipolator/exp_and_log.pyx":425
  *     ilogmU_eig(Emat2, Ec, logE_tmp, V_tmp, logE, V)
  * 
  * cpdef void Partialize_Sides(double complex[:,::1] U_1, double complex[:,::1] U_0, double complex[:,::1] Emat, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V_L, double complex[:,::1] V_R):             # <<<<<<<<<<<<<<
@@ -9085,7 +9085,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Sides(__Pyx_memviewsli
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Partialize_Sides", 0);
 
-  /* "unipolator/exp_and_log.pyx":428
+  /* "unipolator/exp_and_log.pyx":429
  *     # Intermediate matrices (vectors):  lugU, Emat, V_tmp, (Ec)
  *     # Result matrices (vectors):        V_L, V_R, (E_L, E_R)
  *     DagM_M_cdot(U_0, U_1, Emat)             # <<<<<<<<<<<<<<
@@ -9094,7 +9094,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Sides(__Pyx_memviewsli
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot(__pyx_v_U_0, __pyx_v_U_1, __pyx_v_Emat, 0);
 
-  /* "unipolator/exp_and_log.pyx":429
+  /* "unipolator/exp_and_log.pyx":430
  *     # Result matrices (vectors):        V_L, V_R, (E_L, E_R)
  *     DagM_M_cdot(U_0, U_1, Emat)
  *     ilogmU_eig(Emat, Ec, logE, V_tmp, logE, V_L)             # <<<<<<<<<<<<<<
@@ -9103,7 +9103,7 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Sides(__Pyx_memviewsli
  */
   __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V_L, 0);
 
-  /* "unipolator/exp_and_log.pyx":430
+  /* "unipolator/exp_and_log.pyx":431
  *     DagM_M_cdot(U_0, U_1, Emat)
  *     ilogmU_eig(Emat, Ec, logE, V_tmp, logE, V_L)
  *     M_DagM_cdot(U_1, U_0, Emat)             # <<<<<<<<<<<<<<
@@ -9111,14 +9111,14 @@ static void __pyx_f_10unipolator_11exp_and_log_Partialize_Sides(__Pyx_memviewsli
  */
   __pyx_f_10unipolator_14blas_functions_M_DagM_cdot(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat, 0);
 
-  /* "unipolator/exp_and_log.pyx":431
+  /* "unipolator/exp_and_log.pyx":432
  *     ilogmU_eig(Emat, Ec, logE, V_tmp, logE, V_L)
  *     M_DagM_cdot(U_1, U_0, Emat)
  *     ilogmU_eig(Emat, Ec, logE_tmp, V_tmp, logE, V_R)             # <<<<<<<<<<<<<<
  */
   __pyx_f_10unipolator_11exp_and_log_ilogmU_eig(__pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V_R, 0);
 
-  /* "unipolator/exp_and_log.pyx":424
+  /* "unipolator/exp_and_log.pyx":425
  *     ilogmU_eig(Emat2, Ec, logE_tmp, V_tmp, logE, V)
  * 
  * cpdef void Partialize_Sides(double complex[:,::1] U_1, double complex[:,::1] U_0, double complex[:,::1] Emat, double complex[::1] Ec, double[::1] logE_tmp, double complex[:,::1] V_tmp, double[::1] logE, double complex[:,::1] V_L, double complex[:,::1] V_R):             # <<<<<<<<<<<<<<
@@ -9186,53 +9186,53 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_47Partialize_Sides(PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U_0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 1); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 1); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Emat)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 2); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 2); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Ec)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 3); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 3); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 4); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 4); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V_tmp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 5); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 5); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_logE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 6); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 6); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V_L)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 7); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 7); __PYX_ERR(0, 425, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_V_R)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 8); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, 8); __PYX_ERR(0, 425, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Partialize_Sides") < 0)) __PYX_ERR(0, 424, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Partialize_Sides") < 0)) __PYX_ERR(0, 425, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 9) {
       goto __pyx_L5_argtuple_error;
@@ -9247,19 +9247,19 @@ static PyObject *__pyx_pw_10unipolator_11exp_and_log_47Partialize_Sides(PyObject
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
       values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
-    __pyx_v_U_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_1.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_U_0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_0.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_V_L = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_L.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_V_R = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_R.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
+    __pyx_v_U_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_1.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_U_0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_0.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_Emat = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Emat.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_Ec = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Ec.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_logE_tmp = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE_tmp.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_V_tmp = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_tmp.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_logE = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_logE.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_V_L = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_L.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
+    __pyx_v_V_R = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_R.memview)) __PYX_ERR(0, 425, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 424, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Partialize_Sides", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 425, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.exp_and_log.Partialize_Sides", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9281,7 +9281,7 @@ static PyObject *__pyx_pf_10unipolator_11exp_and_log_46Partialize_Sides(CYTHON_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Partialize_Sides", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Partialize_Sides(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V_L, __pyx_v_V_R, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_11exp_and_log_Partialize_Sides(__pyx_v_U_1, __pyx_v_U_0, __pyx_v_Emat, __pyx_v_Ec, __pyx_v_logE_tmp, __pyx_v_V_tmp, __pyx_v_logE, __pyx_v_V_L, __pyx_v_V_R, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 425, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -23276,7 +23276,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 28, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 134, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 149, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 152, __pyx_L1_error)
@@ -23975,43 +23975,43 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "unipolator/exp_and_log.pyx":3
+  /* "unipolator/exp_and_log.pyx":4
  * from cython.operator import dereference
  * from libc.math cimport cos, sin, log, atan2, sqrt, fabs
  * import numpy as np             # <<<<<<<<<<<<<<
  * #cimport numpy as np
  * from scipy.linalg import schur
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unipolator/exp_and_log.pyx":5
+  /* "unipolator/exp_and_log.pyx":6
  * import numpy as np
  * #cimport numpy as np
  * from scipy.linalg import schur             # <<<<<<<<<<<<<<
  * from scipy.linalg.cython_blas cimport zgemm, zscal, zdscal, zaxpy, zcopy, dcopy
  * from scipy.linalg.cython_lapack cimport zheevd
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_schur);
   __Pyx_GIVEREF(__pyx_n_s_schur);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_schur);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_scipy_linalg, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_scipy_linalg, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_schur); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_schur); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_schur, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_schur, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "unipolator/exp_and_log.pyx":1
- * from cython.operator import dereference             # <<<<<<<<<<<<<<
+ * #cython: language_level=3             # <<<<<<<<<<<<<<
+ * from cython.operator import dereference
  * from libc.math cimport cos, sin, log, atan2, sqrt, fabs
- * import numpy as np
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);

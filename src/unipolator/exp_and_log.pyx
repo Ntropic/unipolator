@@ -1,3 +1,4 @@
+#cython: language_level=3
 from cython.operator import dereference
 from libc.math cimport cos, sin, log, atan2, sqrt, fabs
 import numpy as np
