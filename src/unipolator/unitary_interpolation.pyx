@@ -340,6 +340,13 @@ cdef class UI:
         cdef double complex *u0 = &U[0, 0]
         self.expmH_pulse_pointer(cs, u0)
 
+    def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
+        cdef double complex *u0 = &U[0, 0, 0]
+        cdef how_many = cs.shape[0]
+        for i in range(how_many):
+            self.expmH_pointer(cs[i,:], u0)
+            u0 += self.d2
+
     def grape(self, double[:,::1] cs, double complex[:,::1] U_target, int[::1] target_indexes, double complex[:,::1] U, double complex[:,:,::1] dU, double[:,::1] dI_dj):
         # Calculate fidelity for a pulse and the differentials of the fidelity at every timestep using the grape trick
         cdef int i, j

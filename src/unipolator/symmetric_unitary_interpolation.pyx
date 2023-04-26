@@ -14,7 +14,7 @@ cdef class Sym_UI:
     cdef double[::1] c_mins, c_maxs, dcs, das
     cdef long[::1] c_bins
     cdef int n_dims, d, d2, n_dims_1, n_dims_2, n_d_di_1, n_d_di, i
-    cdef double[:, ::1] E_C, E
+    cdef double[:, ::1] E
     cdef double complex[:,:,::1] Vr, Vl, CL_L, CH_L, CL_R, CH_R, dUl, dUr
     cdef double complex[:,::1] Ur, Ur1, Ur2, dUc
     cdef double complex[::1] expE
@@ -30,7 +30,7 @@ cdef class Sym_UI:
     cdef double complex *dul
     cdef double complex *dur
     cdef double complex *duc
-    cdef long[::1] strides_L, strides_EC
+    cdef long[::1] strides_L
     cdef long[:,::1] strides_E, strides_C
     cdef long[::1] location, d_location
     cdef double[::1] abs_alpha_rest, alpha
@@ -72,7 +72,7 @@ cdef class Sym_UI:
         ## Construct interpolation cache
         self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R, self.strides_E, self.strides_L, self.strides_C, self.first_elements_E, self.first_elements_C = Create_Sym_Interpolation_Cache( U_grid2, cum_prod, self.c_bins)
 
-        self.ei = &self.E_C[0, 0]
+        self.ei = &self.E[0, 0]
         self.vl = &self.Vl[0, 0, 0]
         self.vr = &self.Vr[0, 0, 0]
         self.cl = &self.CL_L[0, 0, 0]
@@ -143,7 +143,7 @@ cdef class Sym_UI:
         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
 
     def get_cache(self): # To verify interpolation grid
-        return np.asarray(self.E_C), np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_EC), np.asarray(self.strides_E), np.asarray(self.strides_R), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
+        return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
 
     cdef interpolate_single_u(self, double complex *u0):  #u0 => input the matrices for output
         cdef int i, j
@@ -181,8 +181,8 @@ cdef class Sym_UI:
                 i = k + 1
                 j = k + 2
                 self.ei = &self.E[indE, 0]
-                indE = findex_0(self.L, self.strides_E[j, :], self.n_dims) + self.first_elements_E[j]  # For E
                 self.L[j] += self.d_location[j]
+                indE = findex_0(self.L, self.strides_E[j, :], self.n_dims) + self.first_elements_E[j]  # For E
                 if self.d_location[i]:  ### Higher
                     self.L[i] += -1
                     ind = findex_0(self.L, self.strides_C[i, :], self.n_dims) + self.first_elements_C[i]
@@ -214,3 +214,10 @@ cdef class Sym_UI:
     def expmH(self, double[::1] c, double complex[:,::1] U):
         cdef double complex *u0 = &U[0, 0]
         self.expmH_pointer(c, u0)
+
+    def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
+        cdef double complex *u0 = &U[0, 0, 0]
+        cdef how_many = cs.shape[0]
+        for i in range(how_many):
+            self.expmH_pointer(cs[i,:], u0)
+            u0 += self.d2

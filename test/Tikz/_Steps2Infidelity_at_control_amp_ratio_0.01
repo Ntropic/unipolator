@@ -1,0 +1,235 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\usetikzlibrary{patterns,shapes.arrows}
+\pgfplotsset{compat=newest}
+\begin{document}
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{crimson2143940}{RGB}{214,39,40}
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{darkorange25512714}{RGB}{255,127,14}
+\definecolor{forestgreen4416044}{RGB}{44,160,44}
+\definecolor{gray}{RGB}{128,128,128}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+
+\begin{axis}[
+height=8cm,
+legend cell align={left},
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=lightgray204},
+log basis x={10},
+log basis y={10},
+tick align=outside,
+tick pos=left,
+title={Control amplitude ratio (\(\displaystyle |H_i| / |H_0|\)) of 0.01},
+width=8cm,
+x grid style={darkgray176},
+xlabel={# of Trotter Steps (Bins)},
+xmin=1, xmax=1024,
+xmode=log,
+xtick style={color=black},
+y grid style={darkgray176},
+ylabel={\(\displaystyle I_{\mathrm{mean}}\)},
+ymin=1e-15, ymax=0.000416035796678954,
+ymode=log,
+ytick style={color=black}
+]
+\path [fill=steelblue31119180, fill opacity=0.75]
+(axis cs:1,5.51668098134505e-10)
+--(axis cs:1,3.21321802234487e-10)
+--(axis cs:2,2.00851563910351e-11)
+--(axis cs:4,1.25532910344587e-12)
+--(axis cs:8,7.82710094550945e-14)
+--(axis cs:16,4.51075404283736e-15)
+--(axis cs:32,1e-15)
+--(axis cs:64,1e-15)
+--(axis cs:128,1e-15)
+--(axis cs:256,1e-15)
+--(axis cs:512,1e-15)
+--(axis cs:1024,1e-15)
+--(axis cs:1024,1.74742443001579e-15)
+--(axis cs:1024,1.74742443001579e-15)
+--(axis cs:512,1.77275044330193e-15)
+--(axis cs:256,1.96665473372164e-15)
+--(axis cs:128,1.85869901591884e-15)
+--(axis cs:64,1.88587923435921e-15)
+--(axis cs:32,1.78939077569628e-15)
+--(axis cs:16,8.59431853983799e-15)
+--(axis cs:8,1.34627578193075e-13)
+--(axis cs:4,2.15433899996983e-12)
+--(axis cs:2,3.4474535928565e-11)
+--(axis cs:1,5.51668098134505e-10)
+--cycle;
+
+\path [draw=steelblue31119180, fill=steelblue31119180, opacity=0.75]
+;
+\path [fill=darkorange25512714, fill opacity=0.75]
+(axis cs:1,8.41839563946184e-11)
+--(axis cs:1,5.06263176604233e-11)
+--(axis cs:2,3.16488468773273e-12)
+--(axis cs:4,1.97902142207824e-13)
+--(axis cs:8,1.23593739311324e-14)
+--(axis cs:16,1e-15)
+--(axis cs:32,1e-15)
+--(axis cs:64,1e-15)
+--(axis cs:128,1e-15)
+--(axis cs:256,1e-15)
+--(axis cs:512,1e-15)
+--(axis cs:1024,1e-15)
+--(axis cs:1024,2.3499115855778e-15)
+--(axis cs:1024,2.3499115855778e-15)
+--(axis cs:512,2.47585203901637e-15)
+--(axis cs:256,2.49805356897883e-15)
+--(axis cs:128,2.71752537957723e-15)
+--(axis cs:64,2.56236094266164e-15)
+--(axis cs:32,2.39444183062109e-15)
+--(axis cs:16,3.25623828845749e-15)
+--(axis cs:8,2.08851443182433e-14)
+--(axis cs:4,3.28800983350645e-13)
+--(axis cs:2,5.2615992673158e-12)
+--(axis cs:1,8.41839563946184e-11)
+--cycle;
+
+\path [draw=darkorange25512714, fill=darkorange25512714, opacity=0.75]
+;
+\path [fill=forestgreen4416044, fill opacity=0.75]
+(axis cs:1,0.000116369391086693)
+--(axis cs:1,7.61489059356887e-05)
+--(axis cs:2,1.69232634652746e-05)
+--(axis cs:4,4.1246825586258e-06)
+--(axis cs:8,1.02484564678572e-06)
+--(axis cs:16,2.55819589954544e-07)
+--(axis cs:32,6.39303221466968e-08)
+--(axis cs:64,1.59810133173868e-08)
+--(axis cs:128,3.99512416706652e-09)
+--(axis cs:256,9.98712875588344e-10)
+--(axis cs:512,2.4955338276607e-10)
+--(axis cs:1024,6.20895278824259e-11)
+--(axis cs:1024,9.43393952657294e-11)
+--(axis cs:1024,9.43393952657294e-11)
+--(axis cs:512,3.76913730974078e-10)
+--(axis cs:256,1.50757582987331e-09)
+--(axis cs:128,6.03028139420933e-09)
+--(axis cs:64,2.41216831661925e-08)
+--(axis cs:32,9.64962785082647e-08)
+--(axis cs:16,3.8614018730435e-07)
+--(axis cs:8,1.54706637151748e-06)
+--(axis cs:4,6.22900046771041e-06)
+--(axis cs:2,2.56037698824311e-05)
+--(axis cs:1,0.000116369391086693)
+--cycle;
+
+\path [draw=forestgreen4416044, fill=forestgreen4416044, opacity=0.75]
+;
+\path [fill=crimson2143940, fill opacity=0.75]
+(axis cs:1,5.40385792213136e-06)
+--(axis cs:1,3.01607439151665e-06)
+--(axis cs:2,1.40398332718882e-07)
+--(axis cs:4,8.21000437177021e-09)
+--(axis cs:8,5.04849248605109e-10)
+--(axis cs:16,3.14161176539957e-11)
+--(axis cs:32,1.93776369554797e-12)
+--(axis cs:64,5.87897532598079e-14)
+--(axis cs:128,7.95677891186638e-14)
+--(axis cs:256,1.6527289760757e-13)
+--(axis cs:512,3.21886489282675e-13)
+--(axis cs:1024,6.79479486765463e-13)
+--(axis cs:1024,3.24755032567951e-12)
+--(axis cs:1024,3.24755032567951e-12)
+--(axis cs:512,1.59399651851432e-12)
+--(axis cs:256,7.96508867733105e-13)
+--(axis cs:128,4.08552865888033e-13)
+--(axis cs:64,2.97409761068829e-13)
+--(axis cs:32,3.3366105751216e-12)
+--(axis cs:16,5.34167031141036e-11)
+--(axis cs:8,8.58510143443015e-10)
+--(axis cs:4,1.39860806248805e-08)
+--(axis cs:2,2.4101336571909e-07)
+--(axis cs:1,5.40385792213136e-06)
+--cycle;
+
+\path [draw=crimson2143940, fill=crimson2143940, opacity=0.75]
+;
+\addplot [semithick, steelblue31119180]
+table {%
+1 4.36494950184496e-10
+2 2.72798461598001e-11
+4 1.70483405170785e-12
+8 1.06449293824085e-13
+16 6.55253629133767e-15
+32 1e-15
+64 1.05138120432002e-15
+128 1.03805852802452e-15
+256 1.14797060746241e-15
+512 1e-15
+1024 1e-15
+};
+\addlegendentry{$I_{\mathrm{UI}}$}
+\addplot [semithick, darkorange25512714]
+table {%
+1 6.74051370275208e-11
+2 4.21324197752426e-12
+4 2.63351562779235e-13
+8 1.66222591246878e-14
+16 1.89737114908439e-15
+32 1.38333788868295e-15
+64 1.50657264441634e-15
+128 1.49769086021934e-15
+256 1.35336186701807e-15
+512 1.40887301824932e-15
+1024 1.27453603226968e-15
+};
+\addlegendentry{$I_{\mathrm{Sym UI}}$}
+\addplot [semithick, forestgreen4416044]
+table {%
+1 9.62591485111908e-05
+2 2.12635166738528e-05
+4 5.17684151316811e-06
+8 1.2859560091516e-06
+16 3.20979888629447e-07
+32 8.02133003274807e-08
+64 2.00513482417897e-08
+128 5.01270278063792e-09
+256 1.25314435273083e-09
+512 3.13233556870074e-10
+1024 7.82144615740776e-11
+};
+\addlegendentry{$I_{\mathrm{Trotter}}$}
+\addplot [semithick, crimson2143940]
+table {%
+1 4.20996615682401e-06
+2 1.90705849218986e-07
+4 1.10980424983254e-08
+8 6.81679696024062e-10
+16 4.24164103840496e-11
+32 2.63718713533478e-12
+64 1.78099757164318e-13
+128 2.44060327503348e-13
+256 4.80890882670337e-13
+512 9.57941503898496e-13
+1024 1.96351490622249e-12
+};
+\addlegendentry{$I_{\mathrm{Sym Trotter}}$}
+\addplot [semithick, gray, dashed, forget plot]
+table {%
+1 1.90677706758881e-15
+2 3.81355413517762e-15
+4 7.62710827035525e-15
+8 1.52542165407105e-14
+16 3.0508433081421e-14
+32 6.1016866162842e-14
+64 1.22033732325684e-13
+128 2.44067464651368e-13
+256 4.88134929302736e-13
+512 9.76269858605471e-13
+1024 1.95253971721094e-12
+};
+\end{axis}
+
+\end{tikzpicture}
+
+\end{document}

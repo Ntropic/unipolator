@@ -19,6 +19,8 @@ clean:
 	rd /s /q dist 
 	rd /s /q src\unipolator.egg-info
 	del  src\unipolator\*.c
+
+gitclean:
 	git clean -fdX
 
 uninstall:

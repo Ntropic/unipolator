@@ -98,16 +98,26 @@ cdef class Hamiltonian_System:
             self.curr_h0 += self.d2
             d_mat_add_pointer(self.v0, self.curr_h0, c[i], self.d2)
 
-    def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
-        # Construct Hamiltonian
-        if not c.shape[0] == self.n_dims_1:
-            raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
-        cdef double complex *u0 = &U[0,0]
+    cdef expmH_pointer(self, double[::1] c, double complex *u0, double dt):
         self.weighted_hamiltonian(c)
         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
         copy_pointer(self.v0, self.u1, self.d2)
         v_exp_pointer(self.e0, self.u1, dt, self.d)
         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
+
+    def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
+        # Construct Hamiltonian
+        if not c.shape[0] == self.n_dims_1:
+            raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
+        cdef double complex *u0 = &U[0,0]
+        self.expmH_pointer(c, u0, dt)
+
+    def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):
+        cdef double complex *u0 = &U[0, 0, 0]
+        cdef how_many = cs.shape[0]
+        for i in range(how_many):
+            self.expmH_pointer(cs[i,:], u0, dt)
+            u0 += self.d2
 
     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,
         # Construct Hamiltonian

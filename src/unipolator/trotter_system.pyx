@@ -142,13 +142,12 @@ cdef class Trotter_System:
             V_expE_W_pointer(self.u1, self.l1, self.e1s, c[self.n_dims_2], self.v0, u0, self.d, self.d2)
         self.l1 = self.l0  # Restore original value of pointer
         self.e1s = self.e0s
-
-    #def expmH(self, double[::1] c, double complex[:,::1] U):
-    #    # Construct Hamiltonian
-    #    if not c.shape[0] == self.n_dims_1:
-    #        raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
-    #    cdef double complex *u0 = &U[0,0]
-    #    self.expmH_pointer(c, u0)
+        for i in range(1, self.m_times, 2):
+            MM_cdot_pointer(u0, u0, self.u1, self.d)
+            MM_cdot_pointer(self.u1, self.u1, u0, self.d)
+        if self.m_times % 2:
+            MM_cdot_pointer(u0, u0, self.u1, self.d)
+            copy_pointer(self.u1, u0, self.d2)
 
     def expmH(self, double[::1] c, double complex[:,::1] U):
         # Construct Hamiltonian
@@ -156,13 +155,13 @@ cdef class Trotter_System:
             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
         cdef double complex *u0 = &U[0,0]
         self.expmH_pointer(c, u0)
-        for i in range(1, self.m_times, 2):
-            MM_cdot_pointer(u0, u0, self.u1, self.d)
-            MM_cdot_pointer(self.u1, self.u1, u0, self.d)
-        if self.m_times % 2:
-            MM_cdot_pointer(u0, u0, self.u1, self.d)
-            copy_pointer(self.u1, u0, self.d2)
             
+    def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
+        cdef double complex *u0 = &U[0, 0, 0]
+        cdef how_many = cs.shape[0]
+        for i in range(how_many):
+            self.expmH_pointer(cs[i,:], u0)
+            u0 += self.d2
     """
     def set_which_diffs(self, int[::1] which_diffs):
         self.d_di = which_diffs

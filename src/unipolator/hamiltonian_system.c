@@ -1484,8 +1484,8 @@ typedef int __pyx_t_5scipy_6linalg_13cython_lapack_zselect2(__pyx_t_double_compl
 struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_dexpmH_pointer;
 struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pulse_pointer;
 
-/* "unipolator/hamiltonian_system.pyx":112
- *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
+/* "unipolator/hamiltonian_system.pyx":122
+ *             u0 += self.d2
  * 
  *     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -1496,7 +1496,7 @@ struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_dex
   PyObject *dt;
 };
 
-/* "unipolator/hamiltonian_system.pyx":145
+/* "unipolator/hamiltonian_system.pyx":155
  *         self.dexpmH_pointer(c, u0, du0, dt)
  * 
  *     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0, double dt=1.0):             # <<<<<<<<<<<<<<
@@ -1647,6 +1647,7 @@ struct __pyx_memoryviewslice_obj {
 
 struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System {
   PyObject *(*weighted_hamiltonian)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice);
+  PyObject *(*expmH_pointer)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice, __pyx_t_double_complex *, double);
   PyObject *(*dexpmH_pointer)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice, __pyx_t_double_complex *, __pyx_t_double_complex *, struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_dexpmH_pointer *__pyx_optional_args);
   PyObject *(*expmH_pulse_pointer)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice, __pyx_t_double_complex *, struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pulse_pointer *__pyx_optional_args);
 };
@@ -2453,6 +2454,7 @@ static int __Pyx_ImportFunction(PyObject *module, const char *funcname, void (**
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_weighted_hamiltonian(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c); /* proto*/
+static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pointer(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __pyx_t_double_complex *__pyx_v_u0, double __pyx_v_dt); /* proto*/
 static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_dexpmH_pointer(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __pyx_t_double_complex *__pyx_v_u0, __pyx_t_double_complex *__pyx_v_du0, struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_dexpmH_pointer *__pyx_optional_args); /* proto*/
 static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pulse_pointer(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __pyx_t_double_complex *__pyx_v_u0, struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pulse_pointer *__pyx_optional_args); /* proto*/
 static PyObject *__pyx_array_get_memview(struct __pyx_array_obj *__pyx_v_self); /* proto*/
@@ -2825,11 +2827,12 @@ static int __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System___cin
 static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_2set_which_diffs(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_which_diffs); /* proto */
 static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_4get_which_diffs(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_6expmH(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt); /* proto */
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_8dexpmH(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, double __pyx_v_dt); /* proto */
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_10expmH_pulse(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt); /* proto */
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_12grape(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U_target, __Pyx_memviewslice __pyx_v_target_indexes, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, __Pyx_memviewslice __pyx_v_dI_dj); /* proto */
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_14__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_8expmH_pulse_no_multiply(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt); /* proto */
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_10dexpmH(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, double __pyx_v_dt); /* proto */
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_12expmH_pulse(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt); /* proto */
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_14grape(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U_target, __Pyx_memviewslice __pyx_v_target_indexes, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, __Pyx_memviewslice __pyx_v_dI_dj); /* proto */
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -4212,7 +4215,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  *             self.curr_h0 += self.d2
  *             d_mat_add_pointer(self.v0, self.curr_h0, c[i], self.d2)             # <<<<<<<<<<<<<<
  * 
- *     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
+ *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double dt):
  */
     __pyx_t_5 = __pyx_v_i;
     __pyx_f_10unipolator_14blas_functions_d_mat_add_pointer(__pyx_v_self->v0, __pyx_v_self->curr_h0, (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_c.data) + __pyx_t_5)) ))), __pyx_v_self->d2);
@@ -4235,6 +4238,91 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
 
 /* "unipolator/hamiltonian_system.pyx":101
  *             d_mat_add_pointer(self.v0, self.curr_h0, c[i], self.d2)
+ * 
+ *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double dt):             # <<<<<<<<<<<<<<
+ *         self.weighted_hamiltonian(c)
+ *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
+ */
+
+static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pointer(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __pyx_t_double_complex *__pyx_v_u0, double __pyx_v_dt) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("expmH_pointer", 0);
+
+  /* "unipolator/hamiltonian_system.pyx":102
+ * 
+ *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double dt):
+ *         self.weighted_hamiltonian(c)             # <<<<<<<<<<<<<<
+ *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
+ *         copy_pointer(self.v0, self.u1, self.d2)
+ */
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "unipolator/hamiltonian_system.pyx":103
+ *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double dt):
+ *         self.weighted_hamiltonian(c)
+ *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)             # <<<<<<<<<<<<<<
+ *         copy_pointer(self.v0, self.u1, self.d2)
+ *         v_exp_pointer(self.e0, self.u1, dt, self.d)
+ */
+  __pyx_f_5scipy_6linalg_13cython_lapack_zheevd(__pyx_v_self->jobz, __pyx_v_self->uplo, (&__pyx_v_self->d), __pyx_v_self->v0, (&__pyx_v_self->d), __pyx_v_self->e0, __pyx_v_self->work0, (&__pyx_v_self->lwork), __pyx_v_self->rwork0, (&__pyx_v_self->lrwork), __pyx_v_self->iwork0, (&__pyx_v_self->liwork), (&__pyx_v_self->info));
+
+  /* "unipolator/hamiltonian_system.pyx":104
+ *         self.weighted_hamiltonian(c)
+ *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
+ *         copy_pointer(self.v0, self.u1, self.d2)             # <<<<<<<<<<<<<<
+ *         v_exp_pointer(self.e0, self.u1, dt, self.d)
+ *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
+ */
+  __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_self->d2);
+
+  /* "unipolator/hamiltonian_system.pyx":105
+ *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
+ *         copy_pointer(self.v0, self.u1, self.d2)
+ *         v_exp_pointer(self.e0, self.u1, dt, self.d)             # <<<<<<<<<<<<<<
+ *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
+ * 
+ */
+  __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_self->e0, __pyx_v_self->u1, __pyx_v_dt, __pyx_v_self->d);
+
+  /* "unipolator/hamiltonian_system.pyx":106
+ *         copy_pointer(self.v0, self.u1, self.d2)
+ *         v_exp_pointer(self.e0, self.u1, dt, self.d)
+ *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)             # <<<<<<<<<<<<<<
+ * 
+ *     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
+ */
+  __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d);
+
+  /* "unipolator/hamiltonian_system.pyx":101
+ *             d_mat_add_pointer(self.v0, self.curr_h0, c[i], self.d2)
+ * 
+ *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double dt):             # <<<<<<<<<<<<<<
+ *         self.weighted_hamiltonian(c)
+ *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.expmH_pointer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "unipolator/hamiltonian_system.pyx":108
+ *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
  * 
  *     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -4279,7 +4367,7 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH", 0, 2, 3, 1); __PYX_ERR(0, 101, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH", 0, 2, 3, 1); __PYX_ERR(0, 108, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -4289,7 +4377,7 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH") < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH") < 0)) __PYX_ERR(0, 108, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4301,17 +4389,17 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 101, __pyx_L3_error)
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 101, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 108, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 108, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L3_error)
+      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
     } else {
       __pyx_v_dt = ((double)1.0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("expmH", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 101, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expmH", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 108, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.expmH", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4337,7 +4425,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expmH", 0);
 
-  /* "unipolator/hamiltonian_system.pyx":103
+  /* "unipolator/hamiltonian_system.pyx":110
  *     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:             # <<<<<<<<<<<<<<
@@ -4347,20 +4435,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_1 = ((!(((__pyx_v_c.shape[0]) == __pyx_v_self->n_dims_1) != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "unipolator/hamiltonian_system.pyx":104
+    /* "unipolator/hamiltonian_system.pyx":111
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &U[0,0]
- *         self.weighted_hamiltonian(c)
+ *         self.expmH_pointer(c, u0, dt)
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 104, __pyx_L1_error)
+    __PYX_ERR(0, 111, __pyx_L1_error)
 
-    /* "unipolator/hamiltonian_system.pyx":103
+    /* "unipolator/hamiltonian_system.pyx":110
  *     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:             # <<<<<<<<<<<<<<
@@ -4369,66 +4457,30 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   }
 
-  /* "unipolator/hamiltonian_system.pyx":105
+  /* "unipolator/hamiltonian_system.pyx":112
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  *         cdef double complex *u0 = &U[0,0]             # <<<<<<<<<<<<<<
- *         self.weighted_hamiltonian(c)
- *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
+ *         self.expmH_pointer(c, u0, dt)
+ * 
  */
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_U.data + __pyx_t_3 * __pyx_v_U.strides[0]) )) + __pyx_t_4)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":106
+  /* "unipolator/hamiltonian_system.pyx":113
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  *         cdef double complex *u0 = &U[0,0]
- *         self.weighted_hamiltonian(c)             # <<<<<<<<<<<<<<
- *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
- *         copy_pointer(self.v0, self.u1, self.d2)
+ *         self.expmH_pointer(c, u0, dt)             # <<<<<<<<<<<<<<
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0, __pyx_v_dt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":107
- *         cdef double complex *u0 = &U[0,0]
- *         self.weighted_hamiltonian(c)
- *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)             # <<<<<<<<<<<<<<
- *         copy_pointer(self.v0, self.u1, self.d2)
- *         v_exp_pointer(self.e0, self.u1, dt, self.d)
- */
-  __pyx_f_5scipy_6linalg_13cython_lapack_zheevd(__pyx_v_self->jobz, __pyx_v_self->uplo, (&__pyx_v_self->d), __pyx_v_self->v0, (&__pyx_v_self->d), __pyx_v_self->e0, __pyx_v_self->work0, (&__pyx_v_self->lwork), __pyx_v_self->rwork0, (&__pyx_v_self->lrwork), __pyx_v_self->iwork0, (&__pyx_v_self->liwork), (&__pyx_v_self->info));
-
   /* "unipolator/hamiltonian_system.pyx":108
- *         self.weighted_hamiltonian(c)
- *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
- *         copy_pointer(self.v0, self.u1, self.d2)             # <<<<<<<<<<<<<<
- *         v_exp_pointer(self.e0, self.u1, dt, self.d)
  *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
- */
-  __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_self->d2);
-
-  /* "unipolator/hamiltonian_system.pyx":109
- *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
- *         copy_pointer(self.v0, self.u1, self.d2)
- *         v_exp_pointer(self.e0, self.u1, dt, self.d)             # <<<<<<<<<<<<<<
- *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
- * 
- */
-  __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_self->e0, __pyx_v_self->u1, __pyx_v_dt, __pyx_v_self->d);
-
-  /* "unipolator/hamiltonian_system.pyx":110
- *         copy_pointer(self.v0, self.u1, self.d2)
- *         v_exp_pointer(self.e0, self.u1, dt, self.d)
- *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)             # <<<<<<<<<<<<<<
- * 
- *     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,
- */
-  __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d);
-
-  /* "unipolator/hamiltonian_system.pyx":101
- *             d_mat_add_pointer(self.v0, self.curr_h0, c[i], self.d2)
  * 
  *     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -4450,8 +4502,269 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   return __pyx_r;
 }
 
-/* "unipolator/hamiltonian_system.pyx":112
- *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
+/* "unipolator/hamiltonian_system.pyx":115
+ *         self.expmH_pointer(c, u0, dt)
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):             # <<<<<<<<<<<<<<
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_9expmH_pulse_no_multiply(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_8expmH_pulse_no_multiply[] = "Hamiltonian_System.expmH_pulse_no_multiply(self, double[:, ::1] cs, double complex[:, :, ::1] U, double dt=1.0)";
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_9expmH_pulse_no_multiply(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_cs = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_U = { 0, 0, { 0 }, { 0 }, { 0 } };
+  double __pyx_v_dt;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("expmH_pulse_no_multiply (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_cs,&__pyx_n_s_U,&__pyx_n_s_dt,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cs)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 0, 2, 3, 1); __PYX_ERR(0, 115, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dt);
+          if (value) { values[2] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH_pulse_no_multiply") < 0)) __PYX_ERR(0, 115, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 115, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 115, __pyx_L3_error)
+    if (values[2]) {
+      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 115, __pyx_L3_error)
+    } else {
+      __pyx_v_dt = ((double)1.0);
+    }
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 115, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.expmH_pulse_no_multiply", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_8expmH_pulse_no_multiply(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_cs, __pyx_v_U, __pyx_v_dt);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_8expmH_pulse_no_multiply(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt) {
+  __pyx_t_double_complex *__pyx_v_u0;
+  PyObject *__pyx_v_how_many = 0;
+  PyObject *__pyx_v_i = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  Py_ssize_t __pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  Py_ssize_t __pyx_t_6;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  Py_ssize_t __pyx_t_8;
+  __Pyx_memviewslice __pyx_t_9 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("expmH_pulse_no_multiply", 0);
+
+  /* "unipolator/hamiltonian_system.pyx":116
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):
+ *         cdef double complex *u0 = &U[0, 0, 0]             # <<<<<<<<<<<<<<
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):
+ */
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_U.data + __pyx_t_1 * __pyx_v_U.strides[0]) ) + __pyx_t_2 * __pyx_v_U.strides[1]) )) + __pyx_t_3)) ))));
+
+  /* "unipolator/hamiltonian_system.pyx":117
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]             # <<<<<<<<<<<<<<
+ *         for i in range(how_many):
+ *             self.expmH_pointer(cs[i,:], u0, dt)
+ */
+  __pyx_t_4 = PyInt_FromSsize_t((__pyx_v_cs.shape[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_v_how_many = __pyx_t_4;
+  __pyx_t_4 = 0;
+
+  /* "unipolator/hamiltonian_system.pyx":118
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):             # <<<<<<<<<<<<<<
+ *             self.expmH_pointer(cs[i,:], u0, dt)
+ *             u0 += self.d2
+ */
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_how_many); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
+    __pyx_t_5 = __pyx_t_4; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
+    __pyx_t_7 = NULL;
+  } else {
+    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 118, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_7)) {
+      if (likely(PyList_CheckExact(__pyx_t_5))) {
+        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 118, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      } else {
+        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 118, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      }
+    } else {
+      __pyx_t_4 = __pyx_t_7(__pyx_t_5);
+      if (unlikely(!__pyx_t_4)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 118, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "unipolator/hamiltonian_system.pyx":119
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):
+ *             self.expmH_pointer(cs[i,:], u0, dt)             # <<<<<<<<<<<<<<
+ *             u0 += self.d2
+ * 
+ */
+    __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_9.data = __pyx_v_cs.data;
+    __pyx_t_9.memview = __pyx_v_cs.memview;
+    __PYX_INC_MEMVIEW(&__pyx_t_9, 0);
+    {
+    Py_ssize_t __pyx_tmp_idx = __pyx_t_8;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_cs.strides[0];
+        __pyx_t_9.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_9.shape[0] = __pyx_v_cs.shape[1];
+__pyx_t_9.strides[0] = __pyx_v_cs.strides[1];
+    __pyx_t_9.suboffsets[0] = -1;
+
+__pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_t_9, __pyx_v_u0, __pyx_v_dt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
+    __pyx_t_9.memview = NULL;
+    __pyx_t_9.data = NULL;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "unipolator/hamiltonian_system.pyx":120
+ *         for i in range(how_many):
+ *             self.expmH_pointer(cs[i,:], u0, dt)
+ *             u0 += self.d2             # <<<<<<<<<<<<<<
+ * 
+ *     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,
+ */
+    __pyx_v_u0 = (__pyx_v_u0 + __pyx_v_self->d2);
+
+    /* "unipolator/hamiltonian_system.pyx":118
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):             # <<<<<<<<<<<<<<
+ *             self.expmH_pointer(cs[i,:], u0, dt)
+ *             u0 += self.d2
+ */
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "unipolator/hamiltonian_system.pyx":115
+ *         self.expmH_pointer(c, u0, dt)
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):             # <<<<<<<<<<<<<<
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
+  __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.expmH_pulse_no_multiply", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_how_many);
+  __Pyx_XDECREF(__pyx_v_i);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_cs, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_U, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "unipolator/hamiltonian_system.pyx":122
+ *             u0 += self.d2
  * 
  *     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -4483,18 +4796,18 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
     }
   }
 
-  /* "unipolator/hamiltonian_system.pyx":117
+  /* "unipolator/hamiltonian_system.pyx":127
  *         cdef double complex *h0
  *         cdef int curr_d_di_1
  *         self.weighted_hamiltonian(c)             # <<<<<<<<<<<<<<
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *         copy_pointer(self.v0, self.u1, self.d2)
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":118
+  /* "unipolator/hamiltonian_system.pyx":128
  *         cdef int curr_d_di_1
  *         self.weighted_hamiltonian(c)
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)             # <<<<<<<<<<<<<<
@@ -4503,7 +4816,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
   __pyx_f_5scipy_6linalg_13cython_lapack_zheevd(__pyx_v_self->jobz, __pyx_v_self->uplo, (&__pyx_v_self->d), __pyx_v_self->v0, (&__pyx_v_self->d), __pyx_v_self->e0, __pyx_v_self->work0, (&__pyx_v_self->lwork), __pyx_v_self->rwork0, (&__pyx_v_self->lrwork), __pyx_v_self->iwork0, (&__pyx_v_self->liwork), (&__pyx_v_self->info));
 
-  /* "unipolator/hamiltonian_system.pyx":119
+  /* "unipolator/hamiltonian_system.pyx":129
  *         self.weighted_hamiltonian(c)
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *         copy_pointer(self.v0, self.u1, self.d2)             # <<<<<<<<<<<<<<
@@ -4512,17 +4825,17 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_self->d2);
 
-  /* "unipolator/hamiltonian_system.pyx":120
+  /* "unipolator/hamiltonian_system.pyx":130
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *         copy_pointer(self.v0, self.u1, self.d2)
  *         v_exp_pointer(self.e0, self.u1, dt, self.d)             # <<<<<<<<<<<<<<
  *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
  *         # Calculate the differentials
  */
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_dt); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_dt); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 130, __pyx_L1_error)
   __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_self->e0, __pyx_v_self->u1, __pyx_t_2, __pyx_v_self->d);
 
-  /* "unipolator/hamiltonian_system.pyx":121
+  /* "unipolator/hamiltonian_system.pyx":131
  *         copy_pointer(self.v0, self.u1, self.d2)
  *         v_exp_pointer(self.e0, self.u1, dt, self.d)
  *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)             # <<<<<<<<<<<<<<
@@ -4531,7 +4844,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d);
 
-  /* "unipolator/hamiltonian_system.pyx":123
+  /* "unipolator/hamiltonian_system.pyx":133
  *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
  *         # Calculate the differentials
  *         for i in range(self.n_d_di): # According to https://arxiv.org/pdf/2006.00935.pdf (Daalgard, Motzoi paper --> Original source?)             # <<<<<<<<<<<<<<
@@ -4543,7 +4856,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "unipolator/hamiltonian_system.pyx":124
+    /* "unipolator/hamiltonian_system.pyx":134
  *         # Calculate the differentials
  *         for i in range(self.n_d_di): # According to https://arxiv.org/pdf/2006.00935.pdf (Daalgard, Motzoi paper --> Original source?)
  *             curr_d_di_1 = self.d_di[i] + 1             # <<<<<<<<<<<<<<
@@ -4553,7 +4866,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
     __pyx_t_6 = __pyx_v_i;
     __pyx_v_curr_d_di_1 = ((*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_self->d_di.data) + __pyx_t_6)) ))) + 1);
 
-    /* "unipolator/hamiltonian_system.pyx":125
+    /* "unipolator/hamiltonian_system.pyx":135
  *         for i in range(self.n_d_di): # According to https://arxiv.org/pdf/2006.00935.pdf (Daalgard, Motzoi paper --> Original source?)
  *             curr_d_di_1 = self.d_di[i] + 1
  *             h0 = &self.H[curr_d_di_1, 0, 0]             # <<<<<<<<<<<<<<
@@ -4565,17 +4878,17 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
     __pyx_t_8 = 0;
     __pyx_v_h0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->H.data + __pyx_t_6 * __pyx_v_self->H.strides[0]) ) + __pyx_t_7 * __pyx_v_self->H.strides[1]) )) + __pyx_t_8)) ))));
 
-    /* "unipolator/hamiltonian_system.pyx":126
+    /* "unipolator/hamiltonian_system.pyx":136
  *             curr_d_di_1 = self.d_di[i] + 1
  *             h0 = &self.H[curr_d_di_1, 0, 0]
  *             MM_cdot_scale_pointer(dt, self.v0, h0, self.u1, self.d) #self.u1, self.d)             # <<<<<<<<<<<<<<
  *             M_DagM_cdot_pointer(self.u1, self.v0, du0, self.d)
  * 
  */
-    __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_dt); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_dt); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 136, __pyx_L1_error)
     __pyx_f_10unipolator_14blas_functions_MM_cdot_scale_pointer(__pyx_t_2, __pyx_v_self->v0, __pyx_v_h0, __pyx_v_self->u1, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":127
+    /* "unipolator/hamiltonian_system.pyx":137
  *             h0 = &self.H[curr_d_di_1, 0, 0]
  *             MM_cdot_scale_pointer(dt, self.v0, h0, self.u1, self.d) #self.u1, self.d)
  *             M_DagM_cdot_pointer(self.u1, self.v0, du0, self.d)             # <<<<<<<<<<<<<<
@@ -4584,17 +4897,17 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
     __pyx_f_10unipolator_14blas_functions_M_DagM_cdot_pointer(__pyx_v_self->u1, __pyx_v_self->v0, __pyx_v_du0, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":129
+    /* "unipolator/hamiltonian_system.pyx":139
  *             M_DagM_cdot_pointer(self.u1, self.v0, du0, self.d)
  * 
  *             phase_shift_matrix_pointer(self.e0, self.c1, self.u1, dt, self.d)             # <<<<<<<<<<<<<<
  *             AxB_elementwise_pointer(du0, self.u1, self.u2, self.d2)
  * 
  */
-    __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_dt); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_dt); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 139, __pyx_L1_error)
     __pyx_f_10unipolator_11exp_and_log_phase_shift_matrix_pointer(__pyx_v_self->e0, __pyx_v_self->c1, __pyx_v_self->u1, __pyx_t_2, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":130
+    /* "unipolator/hamiltonian_system.pyx":140
  * 
  *             phase_shift_matrix_pointer(self.e0, self.c1, self.u1, dt, self.d)
  *             AxB_elementwise_pointer(du0, self.u1, self.u2, self.d2)             # <<<<<<<<<<<<<<
@@ -4603,7 +4916,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
     __pyx_f_10unipolator_14blas_functions_AxB_elementwise_pointer(__pyx_v_du0, __pyx_v_self->u1, __pyx_v_self->u2, __pyx_v_self->d2);
 
-    /* "unipolator/hamiltonian_system.pyx":132
+    /* "unipolator/hamiltonian_system.pyx":142
  *             AxB_elementwise_pointer(du0, self.u1, self.u2, self.d2)
  * 
  *             MM_cdot_pointer( self.u2, self.v0, self.u1, self.d)             # <<<<<<<<<<<<<<
@@ -4612,7 +4925,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
     __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_self->u2, __pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":133
+    /* "unipolator/hamiltonian_system.pyx":143
  * 
  *             MM_cdot_pointer( self.u2, self.v0, self.u1, self.d)
  *             DagM_M_cdot_pointer(self.v0, self.u1, du0, self.d)             # <<<<<<<<<<<<<<
@@ -4621,7 +4934,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
     __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_du0, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":134
+    /* "unipolator/hamiltonian_system.pyx":144
  *             MM_cdot_pointer( self.u2, self.v0, self.u1, self.d)
  *             DagM_M_cdot_pointer(self.v0, self.u1, du0, self.d)
  *             du0 += self.d2             # <<<<<<<<<<<<<<
@@ -4631,8 +4944,8 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
     __pyx_v_du0 = (__pyx_v_du0 + __pyx_v_self->d2);
   }
 
-  /* "unipolator/hamiltonian_system.pyx":112
- *         DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
+  /* "unipolator/hamiltonian_system.pyx":122
+ *             u0 += self.d2
  * 
  *     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -4652,7 +4965,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
   return __pyx_r;
 }
 
-/* "unipolator/hamiltonian_system.pyx":135
+/* "unipolator/hamiltonian_system.pyx":145
  *             DagM_M_cdot_pointer(self.v0, self.u1, du0, self.d)
  *             du0 += self.d2
  *     def dexpmH(self, double[::1] c, double complex[:,::1] U, double complex[:,:,::1] dU, double dt=1.0):  #int[::1] d_di,             # <<<<<<<<<<<<<<
@@ -4661,9 +4974,9 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_9dexpmH(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_8dexpmH[] = "Hamiltonian_System.dexpmH(self, double[::1] c, double complex[:, ::1] U, double complex[:, :, ::1] dU, double dt=1.0)";
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_9dexpmH(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_11dexpmH(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_10dexpmH[] = "Hamiltonian_System.dexpmH(self, double[::1] c, double complex[:, ::1] U, double complex[:, :, ::1] dU, double dt=1.0)";
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_11dexpmH(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_c = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_U = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_dU = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -4701,13 +5014,13 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("dexpmH", 0, 3, 4, 1); __PYX_ERR(0, 135, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("dexpmH", 0, 3, 4, 1); __PYX_ERR(0, 145, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dU)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("dexpmH", 0, 3, 4, 2); __PYX_ERR(0, 135, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("dexpmH", 0, 3, 4, 2); __PYX_ERR(0, 145, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -4717,7 +5030,7 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "dexpmH") < 0)) __PYX_ERR(0, 135, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "dexpmH") < 0)) __PYX_ERR(0, 145, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4730,31 +5043,31 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
-    __pyx_v_dU = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dU.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 145, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 145, __pyx_L3_error)
+    __pyx_v_dU = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dU.memview)) __PYX_ERR(0, 145, __pyx_L3_error)
     if (values[3]) {
-      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L3_error)
+      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 145, __pyx_L3_error)
     } else {
       __pyx_v_dt = ((double)1.0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("dexpmH", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 135, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("dexpmH", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 145, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.dexpmH", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_8dexpmH(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_c, __pyx_v_U, __pyx_v_dU, __pyx_v_dt);
+  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_10dexpmH(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_c, __pyx_v_U, __pyx_v_dU, __pyx_v_dt);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_8dexpmH(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, double __pyx_v_dt) {
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_10dexpmH(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, double __pyx_v_dt) {
   __pyx_t_double_complex *__pyx_v_u0;
   __pyx_t_double_complex *__pyx_v_du0;
   PyObject *__pyx_r = NULL;
@@ -4771,7 +5084,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("dexpmH", 0);
 
-  /* "unipolator/hamiltonian_system.pyx":137
+  /* "unipolator/hamiltonian_system.pyx":147
  *     def dexpmH(self, double[::1] c, double complex[:,::1] U, double complex[:,:,::1] dU, double dt=1.0):  #int[::1] d_di,
  *         # d_di contains the indexes of the derivatives that we want to calculate (needs to be in ascending order with a negative value at the end)
  *         cdef double complex *u0 = &U[0, 0]             # <<<<<<<<<<<<<<
@@ -4782,7 +5095,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_2 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_U.data + __pyx_t_1 * __pyx_v_U.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":138
+  /* "unipolator/hamiltonian_system.pyx":148
  *         # d_di contains the indexes of the derivatives that we want to calculate (needs to be in ascending order with a negative value at the end)
  *         cdef double complex *u0 = &U[0, 0]
  *         cdef double complex *du0 = &dU[0,0,0]             # <<<<<<<<<<<<<<
@@ -4794,7 +5107,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_3 = 0;
   __pyx_v_du0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dU.data + __pyx_t_2 * __pyx_v_dU.strides[0]) ) + __pyx_t_1 * __pyx_v_dU.strides[1]) )) + __pyx_t_3)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":139
+  /* "unipolator/hamiltonian_system.pyx":149
  *         cdef double complex *u0 = &U[0, 0]
  *         cdef double complex *du0 = &dU[0,0,0]
  *         if not c.shape[0] == self.n_dims_1:             # <<<<<<<<<<<<<<
@@ -4804,20 +5117,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_4 = ((!(((__pyx_v_c.shape[0]) == __pyx_v_self->n_dims_1) != 0)) != 0);
   if (unlikely(__pyx_t_4)) {
 
-    /* "unipolator/hamiltonian_system.pyx":140
+    /* "unipolator/hamiltonian_system.pyx":150
  *         cdef double complex *du0 = &dU[0,0,0]
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')             # <<<<<<<<<<<<<<
  *         if not self.d_di.shape[0] == dU.shape[0]:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')
  */
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_Raise(__pyx_t_5, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __PYX_ERR(0, 140, __pyx_L1_error)
+    __PYX_ERR(0, 150, __pyx_L1_error)
 
-    /* "unipolator/hamiltonian_system.pyx":139
+    /* "unipolator/hamiltonian_system.pyx":149
  *         cdef double complex *u0 = &U[0, 0]
  *         cdef double complex *du0 = &dU[0,0,0]
  *         if not c.shape[0] == self.n_dims_1:             # <<<<<<<<<<<<<<
@@ -4826,7 +5139,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   }
 
-  /* "unipolator/hamiltonian_system.pyx":141
+  /* "unipolator/hamiltonian_system.pyx":151
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
  *         if not self.d_di.shape[0] == dU.shape[0]:             # <<<<<<<<<<<<<<
@@ -4836,20 +5149,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_4 = ((!(((__pyx_v_self->d_di.shape[0]) == (__pyx_v_dU.shape[0])) != 0)) != 0);
   if (unlikely(__pyx_t_4)) {
 
-    /* "unipolator/hamiltonian_system.pyx":142
+    /* "unipolator/hamiltonian_system.pyx":152
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
  *         if not self.d_di.shape[0] == dU.shape[0]:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')             # <<<<<<<<<<<<<<
  *         self.dexpmH_pointer(c, u0, du0, dt)
  * 
  */
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_Raise(__pyx_t_5, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __PYX_ERR(0, 142, __pyx_L1_error)
+    __PYX_ERR(0, 152, __pyx_L1_error)
 
-    /* "unipolator/hamiltonian_system.pyx":141
+    /* "unipolator/hamiltonian_system.pyx":151
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
  *         if not self.d_di.shape[0] == dU.shape[0]:             # <<<<<<<<<<<<<<
@@ -4858,23 +5171,23 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   }
 
-  /* "unipolator/hamiltonian_system.pyx":143
+  /* "unipolator/hamiltonian_system.pyx":153
  *         if not self.d_di.shape[0] == dU.shape[0]:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')
  *         self.dexpmH_pointer(c, u0, du0, dt)             # <<<<<<<<<<<<<<
  * 
  *     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0, double dt=1.0):
  */
-  __pyx_t_5 = PyFloat_FromDouble(__pyx_v_dt); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_v_dt); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_7.__pyx_n = 1;
   __pyx_t_7.dt = __pyx_t_5;
-  __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->dexpmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0, __pyx_v_du0, &__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->dexpmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0, __pyx_v_du0, &__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":135
+  /* "unipolator/hamiltonian_system.pyx":145
  *             DagM_M_cdot_pointer(self.v0, self.u1, du0, self.d)
  *             du0 += self.d2
  *     def dexpmH(self, double[::1] c, double complex[:,::1] U, double complex[:,:,::1] dU, double dt=1.0):  #int[::1] d_di,             # <<<<<<<<<<<<<<
@@ -4899,7 +5212,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   return __pyx_r;
 }
 
-/* "unipolator/hamiltonian_system.pyx":145
+/* "unipolator/hamiltonian_system.pyx":155
  *         self.dexpmH_pointer(c, u0, du0, dt)
  * 
  *     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0, double dt=1.0):             # <<<<<<<<<<<<<<
@@ -4928,7 +5241,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
     }
   }
 
-  /* "unipolator/hamiltonian_system.pyx":147
+  /* "unipolator/hamiltonian_system.pyx":157
  *     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0, double dt=1.0):
  *         cdef int i
  *         cdef int steps = cs.shape[0]             # <<<<<<<<<<<<<<
@@ -4937,7 +5250,7 @@ static PyObject *__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_
  */
   __pyx_v_steps = (__pyx_v_cs.shape[0]);
 
-  /* "unipolator/hamiltonian_system.pyx":149
+  /* "unipolator/hamiltonian_system.pyx":159
  *         cdef int steps = cs.shape[0]
  * 
  *         self.weighted_hamiltonian(cs[0,:])             # <<<<<<<<<<<<<<
@@ -4957,14 +5270,14 @@ __pyx_t_1.shape[0] = __pyx_v_cs.shape[1];
 __pyx_t_1.strides[0] = __pyx_v_cs.strides[1];
     __pyx_t_1.suboffsets[0] = -1;
 
-__pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
+__pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":150
+  /* "unipolator/hamiltonian_system.pyx":160
  * 
  *         self.weighted_hamiltonian(cs[0,:])
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)             # <<<<<<<<<<<<<<
@@ -4973,7 +5286,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_5scipy_6linalg_13cython_lapack_zheevd(__pyx_v_self->jobz, __pyx_v_self->uplo, (&__pyx_v_self->d), __pyx_v_self->v0, (&__pyx_v_self->d), __pyx_v_self->e0, __pyx_v_self->work0, (&__pyx_v_self->lwork), __pyx_v_self->rwork0, (&__pyx_v_self->lrwork), __pyx_v_self->iwork0, (&__pyx_v_self->liwork), (&__pyx_v_self->info));
 
-  /* "unipolator/hamiltonian_system.pyx":151
+  /* "unipolator/hamiltonian_system.pyx":161
  *         self.weighted_hamiltonian(cs[0,:])
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *         copy_pointer(self.v0, self.u1, self.d2)             # <<<<<<<<<<<<<<
@@ -4982,7 +5295,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_self->d2);
 
-  /* "unipolator/hamiltonian_system.pyx":152
+  /* "unipolator/hamiltonian_system.pyx":162
  *         zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *         copy_pointer(self.v0, self.u1, self.d2)
  *         v_exp_pointer(self.e0, self.v0, dt, self.d)             # <<<<<<<<<<<<<<
@@ -4991,7 +5304,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_self->e0, __pyx_v_self->v0, __pyx_v_dt, __pyx_v_self->d);
 
-  /* "unipolator/hamiltonian_system.pyx":153
+  /* "unipolator/hamiltonian_system.pyx":163
  *         copy_pointer(self.v0, self.u1, self.d2)
  *         v_exp_pointer(self.e0, self.v0, dt, self.d)
  *         DagM_M_cdot_pointer(self.u1, self.v0, u0, self.d)             # <<<<<<<<<<<<<<
@@ -5000,7 +5313,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_self->u1, __pyx_v_self->v0, __pyx_v_u0, __pyx_v_self->d);
 
-  /* "unipolator/hamiltonian_system.pyx":155
+  /* "unipolator/hamiltonian_system.pyx":165
  *         DagM_M_cdot_pointer(self.u1, self.v0, u0, self.d)
  * 
  *         for i in range(1,steps):             # <<<<<<<<<<<<<<
@@ -5012,7 +5325,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
   for (__pyx_t_5 = 1; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "unipolator/hamiltonian_system.pyx":156
+    /* "unipolator/hamiltonian_system.pyx":166
  * 
  *         for i in range(1,steps):
  *             self.weighted_hamiltonian(cs[i, :])             # <<<<<<<<<<<<<<
@@ -5032,14 +5345,14 @@ __pyx_t_1.shape[0] = __pyx_v_cs.shape[1];
 __pyx_t_1.strides[0] = __pyx_v_cs.strides[1];
     __pyx_t_1.suboffsets[0] = -1;
 
-__pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
+__pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->weighted_hamiltonian(__pyx_v_self, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
     __pyx_t_1.memview = NULL;
     __pyx_t_1.data = NULL;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "unipolator/hamiltonian_system.pyx":157
+    /* "unipolator/hamiltonian_system.pyx":167
  *         for i in range(1,steps):
  *             self.weighted_hamiltonian(cs[i, :])
  *             zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)             # <<<<<<<<<<<<<<
@@ -5048,7 +5361,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_f_5scipy_6linalg_13cython_lapack_zheevd(__pyx_v_self->jobz, __pyx_v_self->uplo, (&__pyx_v_self->d), __pyx_v_self->v0, (&__pyx_v_self->d), __pyx_v_self->e0, __pyx_v_self->work0, (&__pyx_v_self->lwork), __pyx_v_self->rwork0, (&__pyx_v_self->lrwork), __pyx_v_self->iwork0, (&__pyx_v_self->liwork), (&__pyx_v_self->info));
 
-    /* "unipolator/hamiltonian_system.pyx":158
+    /* "unipolator/hamiltonian_system.pyx":168
  *             self.weighted_hamiltonian(cs[i, :])
  *             zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *             MM_cdot_pointer(self.v0, u0, self.u1, self.d)             # <<<<<<<<<<<<<<
@@ -5057,7 +5370,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_self->v0, __pyx_v_u0, __pyx_v_self->u1, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":159
+    /* "unipolator/hamiltonian_system.pyx":169
  *             zheevd(self.jobz, self.uplo, &self.d, self.v0, &self.d, self.e0, self.work0, &self.lwork, self.rwork0, &self.lrwork, self.iwork0, &self.liwork, &self.info)
  *             MM_cdot_pointer(self.v0, u0, self.u1, self.d)
  *             v_exp_pointer(self.e0, self.u1, dt, self.d)             # <<<<<<<<<<<<<<
@@ -5066,7 +5379,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_f_10unipolator_11exp_and_log_v_exp_pointer(__pyx_v_self->e0, __pyx_v_self->u1, __pyx_v_dt, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":160
+    /* "unipolator/hamiltonian_system.pyx":170
  *             MM_cdot_pointer(self.v0, u0, self.u1, self.d)
  *             v_exp_pointer(self.e0, self.u1, dt, self.d)
  *             DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)             # <<<<<<<<<<<<<<
@@ -5076,7 +5389,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_self->v0, __pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d);
   }
 
-  /* "unipolator/hamiltonian_system.pyx":145
+  /* "unipolator/hamiltonian_system.pyx":155
  *         self.dexpmH_pointer(c, u0, du0, dt)
  * 
  *     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0, double dt=1.0):             # <<<<<<<<<<<<<<
@@ -5098,7 +5411,7 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
   return __pyx_r;
 }
 
-/* "unipolator/hamiltonian_system.pyx":161
+/* "unipolator/hamiltonian_system.pyx":171
  *             v_exp_pointer(self.e0, self.u1, dt, self.d)
  *             DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
  *     def expmH_pulse(self, double[:,::1] cs, double complex[:,::1] U, double dt=1.0):             # <<<<<<<<<<<<<<
@@ -5107,9 +5420,9 @@ __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_11expmH_pulse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_10expmH_pulse[] = "Hamiltonian_System.expmH_pulse(self, double[:, ::1] cs, double complex[:, ::1] U, double dt=1.0)";
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_11expmH_pulse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_13expmH_pulse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_12expmH_pulse[] = "Hamiltonian_System.expmH_pulse(self, double[:, ::1] cs, double complex[:, ::1] U, double dt=1.0)";
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_13expmH_pulse(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_cs = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_U = { 0, 0, { 0 }, { 0 }, { 0 } };
   double __pyx_v_dt;
@@ -5144,7 +5457,7 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH_pulse", 0, 2, 3, 1); __PYX_ERR(0, 161, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH_pulse", 0, 2, 3, 1); __PYX_ERR(0, 171, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -5154,7 +5467,7 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH_pulse") < 0)) __PYX_ERR(0, 161, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH_pulse") < 0)) __PYX_ERR(0, 171, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5166,30 +5479,30 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 161, __pyx_L3_error)
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 161, __pyx_L3_error)
+    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 171, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 171, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L3_error)
+      __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L3_error)
     } else {
       __pyx_v_dt = ((double)1.0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("expmH_pulse", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 161, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expmH_pulse", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 171, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.expmH_pulse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_10expmH_pulse(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_cs, __pyx_v_U, __pyx_v_dt);
+  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_12expmH_pulse(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_cs, __pyx_v_U, __pyx_v_dt);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_10expmH_pulse(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt) {
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_12expmH_pulse(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U, double __pyx_v_dt) {
   __pyx_t_double_complex *__pyx_v_u0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5202,7 +5515,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expmH_pulse", 0);
 
-  /* "unipolator/hamiltonian_system.pyx":163
+  /* "unipolator/hamiltonian_system.pyx":173
  *     def expmH_pulse(self, double[:,::1] cs, double complex[:,::1] U, double dt=1.0):
  *         # Construct Hamiltonian
  *         cdef double complex *u0 = &U[0, 0]             # <<<<<<<<<<<<<<
@@ -5213,7 +5526,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_2 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_U.data + __pyx_t_1 * __pyx_v_U.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":164
+  /* "unipolator/hamiltonian_system.pyx":174
  *         # Construct Hamiltonian
  *         cdef double complex *u0 = &U[0, 0]
  *         self.expmH_pulse_pointer(cs, u0, dt)             # <<<<<<<<<<<<<<
@@ -5222,11 +5535,11 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_t_4.__pyx_n = 1;
   __pyx_t_4.dt = __pyx_v_dt;
-  __pyx_t_3 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->expmH_pulse_pointer(__pyx_v_self, __pyx_v_cs, __pyx_v_u0, &__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_3 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->expmH_pulse_pointer(__pyx_v_self, __pyx_v_cs, __pyx_v_u0, &__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":161
+  /* "unipolator/hamiltonian_system.pyx":171
  *             v_exp_pointer(self.e0, self.u1, dt, self.d)
  *             DagM_M_cdot_pointer(self.v0, self.u1, u0, self.d)
  *     def expmH_pulse(self, double[:,::1] cs, double complex[:,::1] U, double dt=1.0):             # <<<<<<<<<<<<<<
@@ -5249,7 +5562,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   return __pyx_r;
 }
 
-/* "unipolator/hamiltonian_system.pyx":166
+/* "unipolator/hamiltonian_system.pyx":176
  *         self.expmH_pulse_pointer(cs, u0, dt)
  * 
  *     def grape(self, double[:,::1] cs, double complex[:,::1] U_target, int[::1] target_indexes, double complex[:,::1] U, double complex[:,:,::1] dU, double[:,::1] dI_dj):             # <<<<<<<<<<<<<<
@@ -5258,9 +5571,9 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_13grape(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_12grape[] = "Hamiltonian_System.grape(self, double[:, ::1] cs, double complex[:, ::1] U_target, int[::1] target_indexes, double complex[:, ::1] U, double complex[:, :, ::1] dU, double[:, ::1] dI_dj)";
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_13grape(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_15grape(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_14grape[] = "Hamiltonian_System.grape(self, double[:, ::1] cs, double complex[:, ::1] U_target, int[::1] target_indexes, double complex[:, ::1] U, double complex[:, :, ::1] dU, double[:, ::1] dI_dj)";
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_15grape(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_cs = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_U_target = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_target_indexes = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5304,35 +5617,35 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U_target)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 1); __PYX_ERR(0, 166, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 1); __PYX_ERR(0, 176, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_target_indexes)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 2); __PYX_ERR(0, 166, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 2); __PYX_ERR(0, 176, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 3); __PYX_ERR(0, 166, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 3); __PYX_ERR(0, 176, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dU)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 4); __PYX_ERR(0, 166, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 4); __PYX_ERR(0, 176, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dI_dj)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 5); __PYX_ERR(0, 166, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, 5); __PYX_ERR(0, 176, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "grape") < 0)) __PYX_ERR(0, 166, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "grape") < 0)) __PYX_ERR(0, 176, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -5344,29 +5657,29 @@ static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_U_target = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_target.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_target_indexes = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_target_indexes.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_dU = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dU.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_dI_dj = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dI_dj.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
+    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 176, __pyx_L3_error)
+    __pyx_v_U_target = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U_target.memview)) __PYX_ERR(0, 176, __pyx_L3_error)
+    __pyx_v_target_indexes = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_target_indexes.memview)) __PYX_ERR(0, 176, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 176, __pyx_L3_error)
+    __pyx_v_dU = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dU.memview)) __PYX_ERR(0, 176, __pyx_L3_error)
+    __pyx_v_dI_dj = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dI_dj.memview)) __PYX_ERR(0, 176, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 166, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("grape", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 176, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.hamiltonian_system.Hamiltonian_System.grape", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_12grape(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_cs, __pyx_v_U_target, __pyx_v_target_indexes, __pyx_v_U, __pyx_v_dU, __pyx_v_dI_dj);
+  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_14grape(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), __pyx_v_cs, __pyx_v_U_target, __pyx_v_target_indexes, __pyx_v_U, __pyx_v_dU, __pyx_v_dI_dj);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_12grape(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U_target, __Pyx_memviewslice __pyx_v_target_indexes, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, __Pyx_memviewslice __pyx_v_dI_dj) {
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_14grape(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U_target, __Pyx_memviewslice __pyx_v_target_indexes, __Pyx_memviewslice __pyx_v_U, __Pyx_memviewslice __pyx_v_dU, __Pyx_memviewslice __pyx_v_dI_dj) {
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_steps;
@@ -5407,7 +5720,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("grape", 0);
 
-  /* "unipolator/hamiltonian_system.pyx":169
+  /* "unipolator/hamiltonian_system.pyx":179
  *         # Calculate fidelity for a pulse and the differentials of the fidelity at every timestep using the grape trick
  *         cdef int i, j
  *         cdef int steps = cs.shape[0]             # <<<<<<<<<<<<<<
@@ -5416,7 +5729,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_steps = (__pyx_v_cs.shape[0]);
 
-  /* "unipolator/hamiltonian_system.pyx":171
+  /* "unipolator/hamiltonian_system.pyx":181
  *         cdef int steps = cs.shape[0]
  * 
  *         cdef double complex *new_p0 = self.u1             # <<<<<<<<<<<<<<
@@ -5426,7 +5739,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_1 = __pyx_v_self->u1;
   __pyx_v_new_p0 = __pyx_t_1;
 
-  /* "unipolator/hamiltonian_system.pyx":172
+  /* "unipolator/hamiltonian_system.pyx":182
  * 
  *         cdef double complex *new_p0 = self.u1
  *         cdef double complex *new_q0 = self.u2             # <<<<<<<<<<<<<<
@@ -5436,7 +5749,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_1 = __pyx_v_self->u2;
   __pyx_v_new_q0 = __pyx_t_1;
 
-  /* "unipolator/hamiltonian_system.pyx":173
+  /* "unipolator/hamiltonian_system.pyx":183
  *         cdef double complex *new_p0 = self.u1
  *         cdef double complex *new_q0 = self.u2
  *         cdef double complex *p0 = self.u4             # <<<<<<<<<<<<<<
@@ -5446,7 +5759,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_1 = __pyx_v_self->u4;
   __pyx_v_p0 = __pyx_t_1;
 
-  /* "unipolator/hamiltonian_system.pyx":174
+  /* "unipolator/hamiltonian_system.pyx":184
  *         cdef double complex *new_q0 = self.u2
  *         cdef double complex *p0 = self.u4
  *         cdef double complex *q0 = self.u5             # <<<<<<<<<<<<<<
@@ -5456,7 +5769,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_1 = __pyx_v_self->u5;
   __pyx_v_q0 = __pyx_t_1;
 
-  /* "unipolator/hamiltonian_system.pyx":175
+  /* "unipolator/hamiltonian_system.pyx":185
  *         cdef double complex *p0 = self.u4
  *         cdef double complex *q0 = self.u5
  *         cdef double complex *u0 = &U[0, 0]             # <<<<<<<<<<<<<<
@@ -5467,7 +5780,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_3 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_U.data + __pyx_t_2 * __pyx_v_U.strides[0]) )) + __pyx_t_3)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":176
+  /* "unipolator/hamiltonian_system.pyx":186
  *         cdef double complex *q0 = self.u5
  *         cdef double complex *u0 = &U[0, 0]
  *         cdef double complex *u_tar = &U_target[0, 0]             # <<<<<<<<<<<<<<
@@ -5478,7 +5791,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_2 = 0;
   __pyx_v_u_tar = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_U_target.data + __pyx_t_3 * __pyx_v_U_target.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":177
+  /* "unipolator/hamiltonian_system.pyx":187
  *         cdef double complex *u0 = &U[0, 0]
  *         cdef double complex *u_tar = &U_target[0, 0]
  *         cdef double complex *curr_u = self.u3             # <<<<<<<<<<<<<<
@@ -5488,7 +5801,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_1 = __pyx_v_self->u3;
   __pyx_v_curr_u = __pyx_t_1;
 
-  /* "unipolator/hamiltonian_system.pyx":178
+  /* "unipolator/hamiltonian_system.pyx":188
  *         cdef double complex *u_tar = &U_target[0, 0]
  *         cdef double complex *curr_u = self.u3
  *         cdef double complex *du = &dU[0,0,0]             # <<<<<<<<<<<<<<
@@ -5500,7 +5813,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_4 = 0;
   __pyx_v_du = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dU.data + __pyx_t_2 * __pyx_v_dU.strides[0]) ) + __pyx_t_3 * __pyx_v_dU.strides[1]) )) + __pyx_t_4)) ))));
 
-  /* "unipolator/hamiltonian_system.pyx":181
+  /* "unipolator/hamiltonian_system.pyx":191
  * 
  *         cdef double complex trM, trdM, two_nni
  *         cdef double n = <double> target_indexes.shape[0]             # <<<<<<<<<<<<<<
@@ -5509,7 +5822,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_n = ((double)(__pyx_v_target_indexes.shape[0]));
 
-  /* "unipolator/hamiltonian_system.pyx":182
+  /* "unipolator/hamiltonian_system.pyx":192
  *         cdef double complex trM, trdM, two_nni
  *         cdef double n = <double> target_indexes.shape[0]
  *         cdef double nni = 1.0 / (n * (n + 1))             # <<<<<<<<<<<<<<
@@ -5518,7 +5831,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_nni = (1.0 / (__pyx_v_n * (__pyx_v_n + 1.0)));
 
-  /* "unipolator/hamiltonian_system.pyx":183
+  /* "unipolator/hamiltonian_system.pyx":193
  *         cdef double n = <double> target_indexes.shape[0]
  *         cdef double nni = 1.0 / (n * (n + 1))
  *         cdef double one_minus = 1.0 - n * nni             # <<<<<<<<<<<<<<
@@ -5527,7 +5840,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_one_minus = (1.0 - (__pyx_v_n * __pyx_v_nni));
 
-  /* "unipolator/hamiltonian_system.pyx":185
+  /* "unipolator/hamiltonian_system.pyx":195
  *         cdef double one_minus = 1.0 - n * nni
  * 
  *         if not dI_dj.shape[0] == steps:             # <<<<<<<<<<<<<<
@@ -5537,20 +5850,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_5 = ((!(((__pyx_v_dI_dj.shape[0]) == __pyx_v_steps) != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "unipolator/hamiltonian_system.pyx":186
+    /* "unipolator/hamiltonian_system.pyx":196
  * 
  *         if not dI_dj.shape[0] == steps:
  *             raise ValueError('Inputs must fulfill: cs.shape[0] = dI_dj.shape[0].')             # <<<<<<<<<<<<<<
  *         if not dI_dj.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __PYX_ERR(0, 186, __pyx_L1_error)
+    __PYX_ERR(0, 196, __pyx_L1_error)
 
-    /* "unipolator/hamiltonian_system.pyx":185
+    /* "unipolator/hamiltonian_system.pyx":195
  *         cdef double one_minus = 1.0 - n * nni
  * 
  *         if not dI_dj.shape[0] == steps:             # <<<<<<<<<<<<<<
@@ -5559,7 +5872,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   }
 
-  /* "unipolator/hamiltonian_system.pyx":187
+  /* "unipolator/hamiltonian_system.pyx":197
  *         if not dI_dj.shape[0] == steps:
  *             raise ValueError('Inputs must fulfill: cs.shape[0] = dI_dj.shape[0].')
  *         if not dI_dj.shape[1] == self.n_d_di:             # <<<<<<<<<<<<<<
@@ -5569,20 +5882,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_5 = ((!(((__pyx_v_dI_dj.shape[1]) == __pyx_v_self->n_d_di) != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "unipolator/hamiltonian_system.pyx":188
+    /* "unipolator/hamiltonian_system.pyx":198
  *             raise ValueError('Inputs must fulfill: cs.shape[0] = dI_dj.shape[0].')
  *         if not dI_dj.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')             # <<<<<<<<<<<<<<
  *         if not cs.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = cs.shape[1].')
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 198, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __PYX_ERR(0, 188, __pyx_L1_error)
+    __PYX_ERR(0, 198, __pyx_L1_error)
 
-    /* "unipolator/hamiltonian_system.pyx":187
+    /* "unipolator/hamiltonian_system.pyx":197
  *         if not dI_dj.shape[0] == steps:
  *             raise ValueError('Inputs must fulfill: cs.shape[0] = dI_dj.shape[0].')
  *         if not dI_dj.shape[1] == self.n_d_di:             # <<<<<<<<<<<<<<
@@ -5591,7 +5904,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   }
 
-  /* "unipolator/hamiltonian_system.pyx":189
+  /* "unipolator/hamiltonian_system.pyx":199
  *         if not dI_dj.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
  *         if not cs.shape[1] == self.n_d_di:             # <<<<<<<<<<<<<<
@@ -5601,20 +5914,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
   __pyx_t_5 = ((!(((__pyx_v_cs.shape[1]) == __pyx_v_self->n_d_di) != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "unipolator/hamiltonian_system.pyx":190
+    /* "unipolator/hamiltonian_system.pyx":200
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
  *         if not cs.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = cs.shape[1].')             # <<<<<<<<<<<<<<
  *         # Fidelity constants
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 190, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 200, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __PYX_ERR(0, 190, __pyx_L1_error)
+    __PYX_ERR(0, 200, __pyx_L1_error)
 
-    /* "unipolator/hamiltonian_system.pyx":189
+    /* "unipolator/hamiltonian_system.pyx":199
  *         if not dI_dj.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
  *         if not cs.shape[1] == self.n_d_di:             # <<<<<<<<<<<<<<
@@ -5623,18 +5936,18 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   }
 
-  /* "unipolator/hamiltonian_system.pyx":193
+  /* "unipolator/hamiltonian_system.pyx":203
  *         # Fidelity constants
  * 
  *         self.expmH_pulse_pointer(cs, u0)             # <<<<<<<<<<<<<<
  *         #Dag_fast(U_target, self.Ur3) # -> Ur3 is identical to Q  -> replaced by new approach
  *         DagM_M_cdot_pointer(u_tar, u0, q0, self.d)
  */
-  __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->expmH_pulse_pointer(__pyx_v_self, __pyx_v_cs, __pyx_v_u0, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->expmH_pulse_pointer(__pyx_v_self, __pyx_v_cs, __pyx_v_u0, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":195
+  /* "unipolator/hamiltonian_system.pyx":205
  *         self.expmH_pulse_pointer(cs, u0)
  *         #Dag_fast(U_target, self.Ur3) # -> Ur3 is identical to Q  -> replaced by new approach
  *         DagM_M_cdot_pointer(u_tar, u0, q0, self.d)             # <<<<<<<<<<<<<<
@@ -5643,7 +5956,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_f_10unipolator_14blas_functions_DagM_M_cdot_pointer(__pyx_v_u_tar, __pyx_v_u0, __pyx_v_q0, __pyx_v_self->d);
 
-  /* "unipolator/hamiltonian_system.pyx":196
+  /* "unipolator/hamiltonian_system.pyx":206
  *         #Dag_fast(U_target, self.Ur3) # -> Ur3 is identical to Q  -> replaced by new approach
  *         DagM_M_cdot_pointer(u_tar, u0, q0, self.d)
  *         trM = target_indexes_trace_pointer(q0, self.d, target_indexes)             # <<<<<<<<<<<<<<
@@ -5652,7 +5965,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_trM = __pyx_f_10unipolator_14blas_functions_target_indexes_trace_pointer(__pyx_v_q0, __pyx_v_self->d, __pyx_v_target_indexes);
 
-  /* "unipolator/hamiltonian_system.pyx":197
+  /* "unipolator/hamiltonian_system.pyx":207
  *         DagM_M_cdot_pointer(u_tar, u0, q0, self.d)
  *         trM = target_indexes_trace_pointer(q0, self.d, target_indexes)
  *         two_nni = - 2 / (n * (n + 1)) * conj(trM)             # <<<<<<<<<<<<<<
@@ -5661,7 +5974,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_two_nni = __Pyx_c_prod_double(__pyx_t_double_complex_from_parts((-2.0 / (__pyx_v_n * (__pyx_v_n + 1.0))), 0), __pyx_f_10unipolator_11exp_and_log_conj(__pyx_v_trM));
 
-  /* "unipolator/hamiltonian_system.pyx":198
+  /* "unipolator/hamiltonian_system.pyx":208
  *         trM = target_indexes_trace_pointer(q0, self.d, target_indexes)
  *         two_nni = - 2 / (n * (n + 1)) * conj(trM)
  *         cdef double I0 = one_minus - nni * abs_2(trM) # Sub Fidelity             # <<<<<<<<<<<<<<
@@ -5670,7 +5983,7 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
   __pyx_v_I0 = (__pyx_v_one_minus - (__pyx_v_nni * __pyx_f_10unipolator_11exp_and_log_abs_2(__pyx_v_trM, 0)));
 
-  /* "unipolator/hamiltonian_system.pyx":201
+  /* "unipolator/hamiltonian_system.pyx":211
  * 
  *         # Do GRAPE trick
  *         self.dexpmH_pointer(cs[0,:], curr_u, du) # Calculate Unitary and its derivatives             # <<<<<<<<<<<<<<
@@ -5690,14 +6003,14 @@ __pyx_t_7.shape[0] = __pyx_v_cs.shape[1];
 __pyx_t_7.strides[0] = __pyx_v_cs.strides[1];
     __pyx_t_7.suboffsets[0] = -1;
 
-__pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->dexpmH_pointer(__pyx_v_self, __pyx_t_7, __pyx_v_curr_u, __pyx_v_du, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 201, __pyx_L1_error)
+__pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->dexpmH_pointer(__pyx_v_self, __pyx_t_7, __pyx_v_curr_u, __pyx_v_du, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "unipolator/hamiltonian_system.pyx":202
+  /* "unipolator/hamiltonian_system.pyx":212
  *         # Do GRAPE trick
  *         self.dexpmH_pointer(cs[0,:], curr_u, du) # Calculate Unitary and its derivatives
  *         M_DagM_cdot_pointer(q0, curr_u, new_q0, self.d)  # Reduce q0             # <<<<<<<<<<<<<<
@@ -5706,7 +6019,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_10unipolator_14blas_functions_M_DagM_cdot_pointer(__pyx_v_q0, __pyx_v_curr_u, __pyx_v_new_q0, __pyx_v_self->d);
 
-  /* "unipolator/hamiltonian_system.pyx":203
+  /* "unipolator/hamiltonian_system.pyx":213
  *         self.dexpmH_pointer(cs[0,:], curr_u, du) # Calculate Unitary and its derivatives
  *         M_DagM_cdot_pointer(q0, curr_u, new_q0, self.d)  # Reduce q0
  *         copy_pointer(new_q0, q0, self.d2)             # <<<<<<<<<<<<<<
@@ -5715,7 +6028,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_new_q0, __pyx_v_q0, __pyx_v_self->d2);
 
-  /* "unipolator/hamiltonian_system.pyx":204
+  /* "unipolator/hamiltonian_system.pyx":214
  *         M_DagM_cdot_pointer(q0, curr_u, new_q0, self.d)  # Reduce q0
  *         copy_pointer(new_q0, q0, self.d2)
  *         for j in range(self.n_d_di):             # <<<<<<<<<<<<<<
@@ -5727,7 +6040,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_j = __pyx_t_10;
 
-    /* "unipolator/hamiltonian_system.pyx":206
+    /* "unipolator/hamiltonian_system.pyx":216
  *         for j in range(self.n_d_di):
  *             #MM_cdot_pointer(curr_du, p0, new_p0, self.d)  # p0 is not defined yet
  *             trdM = tr_dot_pointer_target_indexes(q0, du, self.d, target_indexes)             # <<<<<<<<<<<<<<
@@ -5736,7 +6049,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_v_trdM = __pyx_f_10unipolator_14blas_functions_tr_dot_pointer_target_indexes(__pyx_v_q0, __pyx_v_du, __pyx_v_self->d, __pyx_v_target_indexes);
 
-    /* "unipolator/hamiltonian_system.pyx":207
+    /* "unipolator/hamiltonian_system.pyx":217
  *             #MM_cdot_pointer(curr_du, p0, new_p0, self.d)  # p0 is not defined yet
  *             trdM = tr_dot_pointer_target_indexes(q0, du, self.d, target_indexes)
  *             dI_dj[0, j] = ( two_nni * trdM ).real             # <<<<<<<<<<<<<<
@@ -5748,7 +6061,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_t_3 = __pyx_v_j;
     *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_dI_dj.data + __pyx_t_4 * __pyx_v_dI_dj.strides[0]) )) + __pyx_t_3)) )) = __pyx_t_11;
 
-    /* "unipolator/hamiltonian_system.pyx":208
+    /* "unipolator/hamiltonian_system.pyx":218
  *             trdM = tr_dot_pointer_target_indexes(q0, du, self.d, target_indexes)
  *             dI_dj[0, j] = ( two_nni * trdM ).real
  *             du += self.d2             # <<<<<<<<<<<<<<
@@ -5758,7 +6071,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_v_du = (__pyx_v_du + __pyx_v_self->d2);
   }
 
-  /* "unipolator/hamiltonian_system.pyx":209
+  /* "unipolator/hamiltonian_system.pyx":219
  *             dI_dj[0, j] = ( two_nni * trdM ).real
  *             du += self.d2
  *         copy_pointer(curr_u, p0, self.d2)  # Define p0 from curr_u             # <<<<<<<<<<<<<<
@@ -5767,7 +6080,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
   __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_curr_u, __pyx_v_p0, __pyx_v_self->d2);
 
-  /* "unipolator/hamiltonian_system.pyx":210
+  /* "unipolator/hamiltonian_system.pyx":220
  *             du += self.d2
  *         copy_pointer(curr_u, p0, self.d2)  # Define p0 from curr_u
  *         for i in range(1, steps):             # <<<<<<<<<<<<<<
@@ -5779,7 +6092,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
   for (__pyx_t_10 = 1; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_i = __pyx_t_10;
 
-    /* "unipolator/hamiltonian_system.pyx":211
+    /* "unipolator/hamiltonian_system.pyx":221
  *         copy_pointer(curr_u, p0, self.d2)  # Define p0 from curr_u
  *         for i in range(1, steps):
  *             du -= self.d2 * self.n_d_di             # <<<<<<<<<<<<<<
@@ -5788,7 +6101,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_v_du = (__pyx_v_du - (__pyx_v_self->d2 * __pyx_v_self->n_d_di));
 
-    /* "unipolator/hamiltonian_system.pyx":212
+    /* "unipolator/hamiltonian_system.pyx":222
  *         for i in range(1, steps):
  *             du -= self.d2 * self.n_d_di
  *             self.dexpmH_pointer(cs[i, :], curr_u, du)  # Calculate Unitary and its derivatives             # <<<<<<<<<<<<<<
@@ -5808,14 +6121,14 @@ __pyx_t_7.shape[0] = __pyx_v_cs.shape[1];
 __pyx_t_7.strides[0] = __pyx_v_cs.strides[1];
     __pyx_t_7.suboffsets[0] = -1;
 
-__pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->dexpmH_pointer(__pyx_v_self, __pyx_t_7, __pyx_v_curr_u, __pyx_v_du, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 212, __pyx_L1_error)
+__pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self->__pyx_vtab)->dexpmH_pointer(__pyx_v_self, __pyx_t_7, __pyx_v_curr_u, __pyx_v_du, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
     __pyx_t_7.memview = NULL;
     __pyx_t_7.data = NULL;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "unipolator/hamiltonian_system.pyx":213
+    /* "unipolator/hamiltonian_system.pyx":223
  *             du -= self.d2 * self.n_d_di
  *             self.dexpmH_pointer(cs[i, :], curr_u, du)  # Calculate Unitary and its derivatives
  *             M_DagM_cdot_pointer(q0, curr_u, new_q0, self.d)  # Remove current unitary (curr_u) from Q             # <<<<<<<<<<<<<<
@@ -5824,7 +6137,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_f_10unipolator_14blas_functions_M_DagM_cdot_pointer(__pyx_v_q0, __pyx_v_curr_u, __pyx_v_new_q0, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":214
+    /* "unipolator/hamiltonian_system.pyx":224
  *             self.dexpmH_pointer(cs[i, :], curr_u, du)  # Calculate Unitary and its derivatives
  *             M_DagM_cdot_pointer(q0, curr_u, new_q0, self.d)  # Remove current unitary (curr_u) from Q
  *             for j in range(self.n_d_di):             # <<<<<<<<<<<<<<
@@ -5836,7 +6149,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
       __pyx_v_j = __pyx_t_14;
 
-      /* "unipolator/hamiltonian_system.pyx":215
+      /* "unipolator/hamiltonian_system.pyx":225
  *             M_DagM_cdot_pointer(q0, curr_u, new_q0, self.d)  # Remove current unitary (curr_u) from Q
  *             for j in range(self.n_d_di):
  *                 MM_cdot_pointer(du, p0, new_p0, self.d)             # <<<<<<<<<<<<<<
@@ -5845,7 +6158,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
       __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_du, __pyx_v_p0, __pyx_v_new_p0, __pyx_v_self->d);
 
-      /* "unipolator/hamiltonian_system.pyx":216
+      /* "unipolator/hamiltonian_system.pyx":226
  *             for j in range(self.n_d_di):
  *                 MM_cdot_pointer(du, p0, new_p0, self.d)
  *                 trdM = tr_dot_pointer_target_indexes(new_q0, new_p0, self.d, target_indexes)             # <<<<<<<<<<<<<<
@@ -5854,7 +6167,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
       __pyx_v_trdM = __pyx_f_10unipolator_14blas_functions_tr_dot_pointer_target_indexes(__pyx_v_new_q0, __pyx_v_new_p0, __pyx_v_self->d, __pyx_v_target_indexes);
 
-      /* "unipolator/hamiltonian_system.pyx":217
+      /* "unipolator/hamiltonian_system.pyx":227
  *                 MM_cdot_pointer(du, p0, new_p0, self.d)
  *                 trdM = tr_dot_pointer_target_indexes(new_q0, new_p0, self.d, target_indexes)
  *                 dI_dj[i, j] = ( two_nni * trdM ).real             # <<<<<<<<<<<<<<
@@ -5866,7 +6179,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
       __pyx_t_4 = __pyx_v_j;
       *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_dI_dj.data + __pyx_t_3 * __pyx_v_dI_dj.strides[0]) )) + __pyx_t_4)) )) = __pyx_t_11;
 
-      /* "unipolator/hamiltonian_system.pyx":218
+      /* "unipolator/hamiltonian_system.pyx":228
  *                 trdM = tr_dot_pointer_target_indexes(new_q0, new_p0, self.d, target_indexes)
  *                 dI_dj[i, j] = ( two_nni * trdM ).real
  *                 du += self.d2             # <<<<<<<<<<<<<<
@@ -5876,7 +6189,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
       __pyx_v_du = (__pyx_v_du + __pyx_v_self->d2);
     }
 
-    /* "unipolator/hamiltonian_system.pyx":219
+    /* "unipolator/hamiltonian_system.pyx":229
  *                 dI_dj[i, j] = ( two_nni * trdM ).real
  *                 du += self.d2
  *             MM_cdot_pointer(curr_u, p0, new_p0, self.d)  # Add current unitary (curr_u) to P             # <<<<<<<<<<<<<<
@@ -5885,7 +6198,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
     __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_curr_u, __pyx_v_p0, __pyx_v_new_p0, __pyx_v_self->d);
 
-    /* "unipolator/hamiltonian_system.pyx":221
+    /* "unipolator/hamiltonian_system.pyx":231
  *             MM_cdot_pointer(curr_u, p0, new_p0, self.d)  # Add current unitary (curr_u) to P
  *             # flip pointers
  *             self.u1, self.u4 = self.u4, self.u1             # <<<<<<<<<<<<<<
@@ -5897,7 +6210,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_v_self->u1 = __pyx_t_1;
     __pyx_v_self->u4 = __pyx_t_15;
 
-    /* "unipolator/hamiltonian_system.pyx":222
+    /* "unipolator/hamiltonian_system.pyx":232
  *             # flip pointers
  *             self.u1, self.u4 = self.u4, self.u1
  *             self.u2, self.u5 = self.u5, self.u2             # <<<<<<<<<<<<<<
@@ -5909,7 +6222,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_v_self->u2 = __pyx_t_15;
     __pyx_v_self->u5 = __pyx_t_1;
 
-    /* "unipolator/hamiltonian_system.pyx":223
+    /* "unipolator/hamiltonian_system.pyx":233
  *             self.u1, self.u4 = self.u4, self.u1
  *             self.u2, self.u5 = self.u5, self.u2
  *             new_p0, p0 = p0, new_p0             # <<<<<<<<<<<<<<
@@ -5921,7 +6234,7 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_v_new_p0 = __pyx_t_1;
     __pyx_v_p0 = __pyx_t_15;
 
-    /* "unipolator/hamiltonian_system.pyx":224
+    /* "unipolator/hamiltonian_system.pyx":234
  *             self.u2, self.u5 = self.u5, self.u2
  *             new_p0, p0 = p0, new_p0
  *             new_q0, q0 = q0, new_q0             # <<<<<<<<<<<<<<
@@ -5934,20 +6247,20 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
     __pyx_v_q0 = __pyx_t_1;
   }
 
-  /* "unipolator/hamiltonian_system.pyx":225
+  /* "unipolator/hamiltonian_system.pyx":235
  *             new_p0, p0 = p0, new_p0
  *             new_q0, q0 = q0, new_q0
  *         return I0             # <<<<<<<<<<<<<<
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = PyFloat_FromDouble(__pyx_v_I0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_t_6 = PyFloat_FromDouble(__pyx_v_I0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "unipolator/hamiltonian_system.pyx":166
+  /* "unipolator/hamiltonian_system.pyx":176
  *         self.expmH_pulse_pointer(cs, u0, dt)
  * 
  *     def grape(self, double[:,::1] cs, double complex[:,::1] U_target, int[::1] target_indexes, double complex[:,::1] U, double complex[:,:,::1] dU, double[:,::1] dI_dj):             # <<<<<<<<<<<<<<
@@ -5980,20 +6293,20 @@ __pyx_t_6 = ((struct __pyx_vtabstruct_10unipolator_18hamiltonian_system_Hamilton
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_14__reduce_cython__[] = "Hamiltonian_System.__reduce_cython__(self)";
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__reduce_cython__[] = "Hamiltonian_System.__reduce_cython__(self)";
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_14__reduce_cython__(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__reduce_cython__(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_14__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self) {
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6038,20 +6351,20 @@ static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__setstate_cython__[] = "Hamiltonian_System.__setstate_cython__(self, __pyx_state)";
-static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static char __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_18__setstate_cython__[] = "Hamiltonian_System.__setstate_cython__(self, __pyx_state)";
+static PyObject *__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__setstate_cython__(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_18__setstate_cython__(((struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10unipolator_18hamiltonian_system_18Hamiltonian_System_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -20218,11 +20531,12 @@ static PyMethodDef __pyx_methods_10unipolator_18hamiltonian_system_Hamiltonian_S
   {"set_which_diffs", (PyCFunction)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_3set_which_diffs, METH_O, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_2set_which_diffs},
   {"get_which_diffs", (PyCFunction)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_5get_which_diffs, METH_NOARGS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_4get_which_diffs},
   {"expmH", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_7expmH, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_6expmH},
-  {"dexpmH", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_9dexpmH, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_8dexpmH},
-  {"expmH_pulse", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_11expmH_pulse, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_10expmH_pulse},
-  {"grape", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_13grape, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_12grape},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_15__reduce_cython__, METH_NOARGS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_14__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_17__setstate_cython__, METH_O, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__setstate_cython__},
+  {"expmH_pulse_no_multiply", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_9expmH_pulse_no_multiply, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_8expmH_pulse_no_multiply},
+  {"dexpmH", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_11dexpmH, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_10dexpmH},
+  {"expmH_pulse", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_13expmH_pulse, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_12expmH_pulse},
+  {"grape", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_15grape, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_14grape},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_17__reduce_cython__, METH_NOARGS, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_16__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_10unipolator_18hamiltonian_system_18Hamiltonian_System_19__setstate_cython__, METH_O, __pyx_doc_10unipolator_18hamiltonian_system_18Hamiltonian_System_18__setstate_cython__},
   {0, 0, 0, 0}
 };
 
@@ -21190,7 +21504,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 97, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 111, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 945, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 149, __pyx_L1_error)
@@ -21207,69 +21521,69 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "unipolator/hamiltonian_system.pyx":104
+  /* "unipolator/hamiltonian_system.pyx":111
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &U[0,0]
- *         self.weighted_hamiltonian(c)
+ *         self.expmH_pointer(c, u0, dt)
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_c_shape_0_needs_to_be_equal_to_H); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_c_shape_0_needs_to_be_equal_to_H); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "unipolator/hamiltonian_system.pyx":140
+  /* "unipolator/hamiltonian_system.pyx":150
  *         cdef double complex *du0 = &dU[0,0,0]
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')             # <<<<<<<<<<<<<<
  *         if not self.d_di.shape[0] == dU.shape[0]:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_The_coefficient_c_must_be_of_siz); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_The_coefficient_c_must_be_of_siz); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "unipolator/hamiltonian_system.pyx":142
+  /* "unipolator/hamiltonian_system.pyx":152
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
  *         if not self.d_di.shape[0] == dU.shape[0]:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')             # <<<<<<<<<<<<<<
  *         self.dexpmH_pointer(c, u0, du0, dt)
  * 
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_which_diffs); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_which_diffs); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "unipolator/hamiltonian_system.pyx":186
+  /* "unipolator/hamiltonian_system.pyx":196
  * 
  *         if not dI_dj.shape[0] == steps:
  *             raise ValueError('Inputs must fulfill: cs.shape[0] = dI_dj.shape[0].')             # <<<<<<<<<<<<<<
  *         if not dI_dj.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_cs_shape_0_d); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_cs_shape_0_d); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "unipolator/hamiltonian_system.pyx":188
+  /* "unipolator/hamiltonian_system.pyx":198
  *             raise ValueError('Inputs must fulfill: cs.shape[0] = dI_dj.shape[0].')
  *         if not dI_dj.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')             # <<<<<<<<<<<<<<
  *         if not cs.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = cs.shape[1].')
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_which_diffs_2); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_which_diffs_2); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "unipolator/hamiltonian_system.pyx":190
+  /* "unipolator/hamiltonian_system.pyx":200
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
  *         if not cs.shape[1] == self.n_d_di:
  *             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = cs.shape[1].')             # <<<<<<<<<<<<<<
  *         # Fidelity constants
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_which_diffs_3); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_u_Inputs_must_fulfill_which_diffs_3); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
@@ -21640,6 +21954,7 @@ static int __Pyx_modinit_type_init_code(void) {
   /*--- Type init code ---*/
   __pyx_vtabptr_10unipolator_18hamiltonian_system_Hamiltonian_System = &__pyx_vtable_10unipolator_18hamiltonian_system_Hamiltonian_System;
   __pyx_vtable_10unipolator_18hamiltonian_system_Hamiltonian_System.weighted_hamiltonian = (PyObject *(*)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice))__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_weighted_hamiltonian;
+  __pyx_vtable_10unipolator_18hamiltonian_system_Hamiltonian_System.expmH_pointer = (PyObject *(*)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice, __pyx_t_double_complex *, double))__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pointer;
   __pyx_vtable_10unipolator_18hamiltonian_system_Hamiltonian_System.dexpmH_pointer = (PyObject *(*)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice, __pyx_t_double_complex *, __pyx_t_double_complex *, struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_dexpmH_pointer *__pyx_optional_args))__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_dexpmH_pointer;
   __pyx_vtable_10unipolator_18hamiltonian_system_Hamiltonian_System.expmH_pulse_pointer = (PyObject *(*)(struct __pyx_obj_10unipolator_18hamiltonian_system_Hamiltonian_System *, __Pyx_memviewslice, __pyx_t_double_complex *, struct __pyx_opt_args_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pulse_pointer *__pyx_optional_args))__pyx_f_10unipolator_18hamiltonian_system_18Hamiltonian_System_expmH_pulse_pointer;
   if (PyType_Ready(&__pyx_type_10unipolator_18hamiltonian_system_Hamiltonian_System) < 0) __PYX_ERR(0, 11, __pyx_L1_error)

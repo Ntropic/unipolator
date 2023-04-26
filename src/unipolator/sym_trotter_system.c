@@ -2355,14 +2355,14 @@ static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_dou
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(PyObject *, int writable_flag);
 
+/* ObjectToMemviewSlice.proto */
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(PyObject *, int writable_flag);
+
 /* IntPow.proto */
 static CYTHON_INLINE long __Pyx_pow_long(long, long);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(PyObject *, int writable_flag);
-
-/* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(PyObject *, int writable_flag);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_int(PyObject *, int writable_flag);
@@ -2591,6 +2591,7 @@ static PyObject *__pyx_builtin_IndexError;
 static const char __pyx_k_O[] = "O";
 static const char __pyx_k_U[] = "U";
 static const char __pyx_k_c[] = "c";
+static const char __pyx_k_cs[] = "cs";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
 static const char __pyx_k_H_s[] = "H_s";
@@ -2729,6 +2730,7 @@ static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_complex128;
 static PyObject *__pyx_kp_s_contiguous_and_direct;
 static PyObject *__pyx_kp_s_contiguous_and_indirect;
+static PyObject *__pyx_n_s_cs;
 static PyObject *__pyx_n_s_dict;
 static PyObject *__pyx_n_s_double;
 static PyObject *__pyx_n_s_dtype;
@@ -2797,8 +2799,9 @@ static PyObject *__pyx_n_s_which_diffs;
 static int __pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System___cinit__(struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_H_s, __Pyx_memviewslice __pyx_v_which_diffs, int __pyx_v_m_times); /* proto */
 static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_2get_cache(struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_4expmH(struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U); /* proto */
-static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6expmH_pulse_no_multiply(struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U); /* proto */
+static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -4639,6 +4642,8 @@ static PyObject *__pyx_f_10unipolator_18sym_trotter_system_18Sym_Trotter_System_
   long __pyx_t_3;
   __pyx_t_double_complex *__pyx_t_4;
   double *__pyx_t_5;
+  int __pyx_t_6;
+  int __pyx_t_7;
   __Pyx_RefNannySetupContext("expmH_pointer", 0);
 
   /* "unipolator/sym_trotter_system.pyx":131
@@ -4799,7 +4804,7 @@ static PyObject *__pyx_f_10unipolator_18sym_trotter_system_18Sym_Trotter_System_
  *             MM_cdot_pointer(self.u1, self.r0, u0, self.d)
  *             self.c1 = self.c0  # Restore original value of pointer             # <<<<<<<<<<<<<<
  *             self.e1s = self.e0s
- * 
+ *         for i in range(1, self.m_times, 2):
  */
     __pyx_t_4 = __pyx_v_self->c0;
     __pyx_v_self->c1 = __pyx_t_4;
@@ -4808,13 +4813,81 @@ static PyObject *__pyx_f_10unipolator_18sym_trotter_system_18Sym_Trotter_System_
  *             MM_cdot_pointer(self.u1, self.r0, u0, self.d)
  *             self.c1 = self.c0  # Restore original value of pointer
  *             self.e1s = self.e0s             # <<<<<<<<<<<<<<
- * 
- *     #def expmH(self, double[::1] c, double complex[:,::1] U):
+ *         for i in range(1, self.m_times, 2):
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
  */
     __pyx_t_5 = __pyx_v_self->e0s;
     __pyx_v_self->e1s = __pyx_t_5;
   }
   __pyx_L3:;
+
+  /* "unipolator/sym_trotter_system.pyx":149
+ *             self.c1 = self.c0  # Restore original value of pointer
+ *             self.e1s = self.e0s
+ *         for i in range(1, self.m_times, 2):             # <<<<<<<<<<<<<<
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
+ */
+  __pyx_t_6 = __pyx_v_self->m_times;
+  __pyx_t_7 = __pyx_t_6;
+  for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_7; __pyx_t_3+=2) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "unipolator/sym_trotter_system.pyx":150
+ *             self.e1s = self.e0s
+ *         for i in range(1, self.m_times, 2):
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)             # <<<<<<<<<<<<<<
+ *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
+ *         if self.m_times % 2:
+ */
+    __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_u0, __pyx_v_u0, __pyx_v_self->u1, __pyx_v_self->d);
+
+    /* "unipolator/sym_trotter_system.pyx":151
+ *         for i in range(1, self.m_times, 2):
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)             # <<<<<<<<<<<<<<
+ *         if self.m_times % 2:
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ */
+    __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_self->u1, __pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d);
+  }
+
+  /* "unipolator/sym_trotter_system.pyx":152
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
+ *         if self.m_times % 2:             # <<<<<<<<<<<<<<
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             copy_pointer(self.u1, u0, self.d2)
+ */
+  __pyx_t_1 = ((__pyx_v_self->m_times % 2) != 0);
+  if (__pyx_t_1) {
+
+    /* "unipolator/sym_trotter_system.pyx":153
+ *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
+ *         if self.m_times % 2:
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)             # <<<<<<<<<<<<<<
+ *             copy_pointer(self.u1, u0, self.d2)
+ * 
+ */
+    __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_u0, __pyx_v_u0, __pyx_v_self->u1, __pyx_v_self->d);
+
+    /* "unipolator/sym_trotter_system.pyx":154
+ *         if self.m_times % 2:
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             copy_pointer(self.u1, u0, self.d2)             # <<<<<<<<<<<<<<
+ * 
+ *     def expmH(self, double[::1] c, double complex[:,::1] U):
+ */
+    __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d2);
+
+    /* "unipolator/sym_trotter_system.pyx":152
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
+ *         if self.m_times % 2:             # <<<<<<<<<<<<<<
+ *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ *             copy_pointer(self.u1, u0, self.d2)
+ */
+  }
 
   /* "unipolator/sym_trotter_system.pyx":129
  *         return np.array(self.C), np.array(self.Es), np.array(self.L), np.array(self.R)
@@ -4831,8 +4904,8 @@ static PyObject *__pyx_f_10unipolator_18sym_trotter_system_18Sym_Trotter_System_
   return __pyx_r;
 }
 
-/* "unipolator/sym_trotter_system.pyx":157
- *     #    self.expmH_pointer(c, u0)
+/* "unipolator/sym_trotter_system.pyx":156
+ *             copy_pointer(self.u1, u0, self.d2)
  * 
  *     def expmH(self, double[::1] c, double complex[:,::1] U):             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -4874,11 +4947,11 @@ static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH", 1, 2, 2, 1); __PYX_ERR(0, 157, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH", 1, 2, 2, 1); __PYX_ERR(0, 156, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH") < 0)) __PYX_ERR(0, 157, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH") < 0)) __PYX_ERR(0, 156, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4886,12 +4959,12 @@ static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 157, __pyx_L3_error)
-    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 157, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 156, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 156, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("expmH", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 157, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expmH", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 156, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("unipolator.sym_trotter_system.Sym_Trotter_System.expmH", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4906,22 +4979,18 @@ static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System
 
 static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_4expmH(struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_c, __Pyx_memviewslice __pyx_v_U) {
   __pyx_t_double_complex *__pyx_v_u0;
-  CYTHON_UNUSED long __pyx_v_i;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
   Py_ssize_t __pyx_t_3;
   Py_ssize_t __pyx_t_4;
-  int __pyx_t_5;
-  int __pyx_t_6;
-  long __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expmH", 0);
 
-  /* "unipolator/sym_trotter_system.pyx":159
+  /* "unipolator/sym_trotter_system.pyx":158
  *     def expmH(self, double[::1] c, double complex[:,::1] U):
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:             # <<<<<<<<<<<<<<
@@ -4931,20 +5000,20 @@ static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System
   __pyx_t_1 = ((!(((__pyx_v_c.shape[0]) == __pyx_v_self->n_dims_1) != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "unipolator/sym_trotter_system.pyx":160
+    /* "unipolator/sym_trotter_system.pyx":159
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &U[0,0]
  *         self.expmH_pointer(c, u0)
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 160, __pyx_L1_error)
+    __PYX_ERR(0, 159, __pyx_L1_error)
 
-    /* "unipolator/sym_trotter_system.pyx":159
+    /* "unipolator/sym_trotter_system.pyx":158
  *     def expmH(self, double[::1] c, double complex[:,::1] U):
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:             # <<<<<<<<<<<<<<
@@ -4953,98 +5022,30 @@ static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System
  */
   }
 
-  /* "unipolator/sym_trotter_system.pyx":161
+  /* "unipolator/sym_trotter_system.pyx":160
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  *         cdef double complex *u0 = &U[0,0]             # <<<<<<<<<<<<<<
  *         self.expmH_pointer(c, u0)
- *         for i in range(1, self.m_times, 2):
+ * 
  */
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_U.data + __pyx_t_3 * __pyx_v_U.strides[0]) )) + __pyx_t_4)) ))));
 
-  /* "unipolator/sym_trotter_system.pyx":162
+  /* "unipolator/sym_trotter_system.pyx":161
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  *         cdef double complex *u0 = &U[0,0]
  *         self.expmH_pointer(c, u0)             # <<<<<<<<<<<<<<
- *         for i in range(1, self.m_times, 2):
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unipolator/sym_trotter_system.pyx":163
- *         cdef double complex *u0 = &U[0,0]
- *         self.expmH_pointer(c, u0)
- *         for i in range(1, self.m_times, 2):             # <<<<<<<<<<<<<<
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
- */
-  __pyx_t_5 = __pyx_v_self->m_times;
-  __pyx_t_6 = __pyx_t_5;
-  for (__pyx_t_7 = 1; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=2) {
-    __pyx_v_i = __pyx_t_7;
-
-    /* "unipolator/sym_trotter_system.pyx":164
- *         self.expmH_pointer(c, u0)
- *         for i in range(1, self.m_times, 2):
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)             # <<<<<<<<<<<<<<
- *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
- *         if self.m_times % 2:
- */
-    __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_u0, __pyx_v_u0, __pyx_v_self->u1, __pyx_v_self->d);
-
-    /* "unipolator/sym_trotter_system.pyx":165
- *         for i in range(1, self.m_times, 2):
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)             # <<<<<<<<<<<<<<
- *         if self.m_times % 2:
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- */
-    __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_self->u1, __pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d);
-  }
-
-  /* "unipolator/sym_trotter_system.pyx":166
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
- *         if self.m_times % 2:             # <<<<<<<<<<<<<<
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
+  /* "unipolator/sym_trotter_system.pyx":156
  *             copy_pointer(self.u1, u0, self.d2)
- */
-  __pyx_t_1 = ((__pyx_v_self->m_times % 2) != 0);
-  if (__pyx_t_1) {
-
-    /* "unipolator/sym_trotter_system.pyx":167
- *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
- *         if self.m_times % 2:
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)             # <<<<<<<<<<<<<<
- *             copy_pointer(self.u1, u0, self.d2)
- * 
- */
-    __pyx_f_10unipolator_14blas_functions_MM_cdot_pointer(__pyx_v_u0, __pyx_v_u0, __pyx_v_self->u1, __pyx_v_self->d);
-
-    /* "unipolator/sym_trotter_system.pyx":168
- *         if self.m_times % 2:
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- *             copy_pointer(self.u1, u0, self.d2)             # <<<<<<<<<<<<<<
- * 
- * 
- */
-    __pyx_f_10unipolator_11exp_and_log_copy_pointer(__pyx_v_self->u1, __pyx_v_u0, __pyx_v_self->d2);
-
-    /* "unipolator/sym_trotter_system.pyx":166
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- *             MM_cdot_pointer(self.u1, self.u1, u0, self.d)
- *         if self.m_times % 2:             # <<<<<<<<<<<<<<
- *             MM_cdot_pointer(u0, u0, self.u1, self.d)
- *             copy_pointer(self.u1, u0, self.d2)
- */
-  }
-
-  /* "unipolator/sym_trotter_system.pyx":157
- *     #    self.expmH_pointer(c, u0)
  * 
  *     def expmH(self, double[::1] c, double complex[:,::1] U):             # <<<<<<<<<<<<<<
  *         # Construct Hamiltonian
@@ -5066,6 +5067,249 @@ static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System
   return __pyx_r;
 }
 
+/* "unipolator/sym_trotter_system.pyx":163
+ *         self.expmH_pointer(c, u0)
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):             # <<<<<<<<<<<<<<
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_7expmH_pulse_no_multiply(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6expmH_pulse_no_multiply[] = "Sym_Trotter_System.expmH_pulse_no_multiply(self, double[:, ::1] cs, double complex[:, :, ::1] U)";
+static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_7expmH_pulse_no_multiply(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_cs = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_U = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("expmH_pulse_no_multiply (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_cs,&__pyx_n_s_U,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cs)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 2, 2, 1); __PYX_ERR(0, 163, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "expmH_pulse_no_multiply") < 0)) __PYX_ERR(0, 163, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 163, __pyx_L3_error)
+    __pyx_v_U = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_U.memview)) __PYX_ERR(0, 163, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 163, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("unipolator.sym_trotter_system.Sym_Trotter_System.expmH_pulse_no_multiply", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6expmH_pulse_no_multiply(((struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self), __pyx_v_cs, __pyx_v_U);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6expmH_pulse_no_multiply(struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, __Pyx_memviewslice __pyx_v_cs, __Pyx_memviewslice __pyx_v_U) {
+  __pyx_t_double_complex *__pyx_v_u0;
+  PyObject *__pyx_v_how_many = 0;
+  PyObject *__pyx_v_i = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  Py_ssize_t __pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  Py_ssize_t __pyx_t_6;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  Py_ssize_t __pyx_t_8;
+  __Pyx_memviewslice __pyx_t_9 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("expmH_pulse_no_multiply", 0);
+
+  /* "unipolator/sym_trotter_system.pyx":164
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
+ *         cdef double complex *u0 = &U[0, 0, 0]             # <<<<<<<<<<<<<<
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):
+ */
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_U.data + __pyx_t_1 * __pyx_v_U.strides[0]) ) + __pyx_t_2 * __pyx_v_U.strides[1]) )) + __pyx_t_3)) ))));
+
+  /* "unipolator/sym_trotter_system.pyx":165
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]             # <<<<<<<<<<<<<<
+ *         for i in range(how_many):
+ *             self.expmH_pointer(cs[i,:], u0)
+ */
+  __pyx_t_4 = PyInt_FromSsize_t((__pyx_v_cs.shape[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_v_how_many = __pyx_t_4;
+  __pyx_t_4 = 0;
+
+  /* "unipolator/sym_trotter_system.pyx":166
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):             # <<<<<<<<<<<<<<
+ *             self.expmH_pointer(cs[i,:], u0)
+ *             u0 += self.d2
+ */
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_how_many); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
+    __pyx_t_5 = __pyx_t_4; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
+    __pyx_t_7 = NULL;
+  } else {
+    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 166, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_7)) {
+      if (likely(PyList_CheckExact(__pyx_t_5))) {
+        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 166, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      } else {
+        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 166, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      }
+    } else {
+      __pyx_t_4 = __pyx_t_7(__pyx_t_5);
+      if (unlikely(!__pyx_t_4)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 166, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "unipolator/sym_trotter_system.pyx":167
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):
+ *             self.expmH_pointer(cs[i,:], u0)             # <<<<<<<<<<<<<<
+ *             u0 += self.d2
+ *     """
+ */
+    __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_9.data = __pyx_v_cs.data;
+    __pyx_t_9.memview = __pyx_v_cs.memview;
+    __PYX_INC_MEMVIEW(&__pyx_t_9, 0);
+    {
+    Py_ssize_t __pyx_tmp_idx = __pyx_t_8;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_cs.strides[0];
+        __pyx_t_9.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_9.shape[0] = __pyx_v_cs.shape[1];
+__pyx_t_9.strides[0] = __pyx_v_cs.strides[1];
+    __pyx_t_9.suboffsets[0] = -1;
+
+__pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_t_9, __pyx_v_u0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
+    __pyx_t_9.memview = NULL;
+    __pyx_t_9.data = NULL;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "unipolator/sym_trotter_system.pyx":168
+ *         for i in range(how_many):
+ *             self.expmH_pointer(cs[i,:], u0)
+ *             u0 += self.d2             # <<<<<<<<<<<<<<
+ *     """
+ *     def set_which_diffs(self, int[::1] which_diffs):
+ */
+    __pyx_v_u0 = (__pyx_v_u0 + __pyx_v_self->d2);
+
+    /* "unipolator/sym_trotter_system.pyx":166
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ *         for i in range(how_many):             # <<<<<<<<<<<<<<
+ *             self.expmH_pointer(cs[i,:], u0)
+ *             u0 += self.d2
+ */
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "unipolator/sym_trotter_system.pyx":163
+ *         self.expmH_pointer(c, u0)
+ * 
+ *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):             # <<<<<<<<<<<<<<
+ *         cdef double complex *u0 = &U[0, 0, 0]
+ *         cdef how_many = cs.shape[0]
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
+  __Pyx_AddTraceback("unipolator.sym_trotter_system.Sym_Trotter_System.expmH_pulse_no_multiply", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_how_many);
+  __Pyx_XDECREF(__pyx_v_i);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_cs, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_U, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
@@ -5073,20 +5317,20 @@ static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6__reduce_cython__[] = "Sym_Trotter_System.__reduce_cython__(self)";
-static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__reduce_cython__[] = "Sym_Trotter_System.__reduce_cython__(self)";
+static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6__reduce_cython__(((struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__reduce_cython__(((struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self) {
+static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5131,20 +5375,20 @@ static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static char __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__setstate_cython__[] = "Sym_Trotter_System.__setstate_cython__(self, __pyx_state)";
-static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static char __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_10__setstate_cython__[] = "Sym_Trotter_System.__setstate_cython__(self, __pyx_state)";
+static PyObject *__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__setstate_cython__(((struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_10__setstate_cython__(((struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10unipolator_18sym_trotter_system_18Sym_Trotter_System_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10unipolator_18sym_trotter_system_Sym_Trotter_System *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -19319,8 +19563,9 @@ static void __pyx_tp_dealloc_10unipolator_18sym_trotter_system_Sym_Trotter_Syste
 static PyMethodDef __pyx_methods_10unipolator_18sym_trotter_system_Sym_Trotter_System[] = {
   {"get_cache", (PyCFunction)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_3get_cache, METH_NOARGS, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_2get_cache},
   {"expmH", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_5expmH, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_4expmH},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_7__reduce_cython__, METH_NOARGS, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_9__setstate_cython__, METH_O, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__setstate_cython__},
+  {"expmH_pulse_no_multiply", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_7expmH_pulse_no_multiply, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_6expmH_pulse_no_multiply},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_9__reduce_cython__, METH_NOARGS, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_8__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_10unipolator_18sym_trotter_system_18Sym_Trotter_System_11__setstate_cython__, METH_O, __pyx_doc_10unipolator_18sym_trotter_system_18Sym_Trotter_System_10__setstate_cython__},
   {0, 0, 0, 0}
 };
 
@@ -20208,6 +20453,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_complex128, __pyx_k_complex128, sizeof(__pyx_k_complex128), 0, 0, 1, 1},
   {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
   {&__pyx_kp_s_contiguous_and_indirect, __pyx_k_contiguous_and_indirect, sizeof(__pyx_k_contiguous_and_indirect), 0, 0, 1, 0},
+  {&__pyx_n_s_cs, __pyx_k_cs, sizeof(__pyx_k_cs), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
   {&__pyx_n_s_double, __pyx_k_double, sizeof(__pyx_k_double), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
@@ -20277,7 +20523,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 111, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 159, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 945, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 149, __pyx_L1_error)
@@ -20294,14 +20540,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "unipolator/sym_trotter_system.pyx":160
+  /* "unipolator/sym_trotter_system.pyx":159
  *         # Construct Hamiltonian
  *         if not c.shape[0] == self.n_dims_1:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &U[0,0]
  *         self.expmH_pointer(c, u0)
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_c_shape_0_needs_to_be_equal_to_H); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_c_shape_0_needs_to_be_equal_to_H); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
@@ -24574,6 +24820,29 @@ __pyx_fail:
     return result;
 }
 
+/* ObjectToMemviewSlice */
+  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(PyObject *obj, int writable_flag) {
+    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
+    __Pyx_BufFmt_StackElem stack[1];
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int retcode;
+    if (obj == Py_None) {
+        result.memview = (struct __pyx_memoryview_obj *) Py_None;
+        return result;
+    }
+    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
+                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 2,
+                                                 &__Pyx_TypeInfo_double, stack,
+                                                 &result, obj);
+    if (unlikely(retcode == -1))
+        goto __pyx_fail;
+    return result;
+__pyx_fail:
+    result.memview = NULL;
+    result.data = NULL;
+    return result;
+}
+
 /* IntPow */
   static CYTHON_INLINE long __Pyx_pow_long(long b, long e) {
     long t = b;
@@ -24614,29 +24883,6 @@ __pyx_fail:
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
                                                  (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
                                                  &__Pyx_TypeInfo___pyx_t_double_complex, stack,
-                                                 &result, obj);
-    if (unlikely(retcode == -1))
-        goto __pyx_fail;
-    return result;
-__pyx_fail:
-    result.memview = NULL;
-    result.data = NULL;
-    return result;
-}
-
-/* ObjectToMemviewSlice */
-  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(PyObject *obj, int writable_flag) {
-    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
-    __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
-    int retcode;
-    if (obj == Py_None) {
-        result.memview = (struct __pyx_memoryview_obj *) Py_None;
-        return result;
-    }
-    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 2,
-                                                 &__Pyx_TypeInfo_double, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;

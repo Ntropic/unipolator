@@ -8,7 +8,6 @@
 *.npy
 */__pycache__/*
 __pycache__
-*.ipynb
 
 __pycache__/
 *$py.class
