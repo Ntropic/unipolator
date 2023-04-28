@@ -6,7 +6,9 @@ from kronbinations import *
 from timeit import *
 from tikzplotlib import get_tikz_code        
 import os
-from tqdm import tqdm
+
+from Analysis_Code.Average_Infidelity_Integrator import *
+import Analysis_Code.discrete_quantum as dq
 
 
 def fig2tikz(fig, filename):
@@ -213,10 +215,9 @@ def Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
         amp0 = np.pi
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)] # /k.value('bins')
 
-        for r in range(reps):     
+        for r in k.tqdm(range(reps)):     
             # Generate the random Hamiltonian
             H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
-            
             # Approximate calculation
             for i_method, (name, method_) in enumerate(methods.items()):   # Calculate max infidelities, average infidelities, and time
                 method = method_['method']
@@ -285,7 +286,7 @@ def Binned_Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
         amp0 = np.pi
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)] # /k.value('bins')
 
-        for r in tqdm(range(reps)):     
+        for r in k.tqdm(range(reps)):     
             # Generate the random Hamiltonian
             H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
             

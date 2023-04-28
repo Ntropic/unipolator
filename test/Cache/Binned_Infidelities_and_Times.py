@@ -84,7 +84,7 @@ def Binned_Infidelities_and_Times(k, methods, to_calculate, *args):
             curr_U_ex, U_ex2, U_ap = [np.empty((dim_hilbert, dim_hilbert), dtype=complex) for i in range(3)]
         amp0 = np.pi
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)]
-        for r in tqdm(range(reps)):
+        for r in k.tqdm(range(reps)):
             H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
             for i_method, (name, method_) in enumerate(methods.items()):
                 method = method_['method']

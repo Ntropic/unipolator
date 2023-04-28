@@ -84,7 +84,7 @@ def Infidelities_and_Times(k, methods, to_calculate, *args):
             curr_U_ex, U_ex2, U_ap = [np.empty((dim_hilbert, dim_hilbert), dtype=complex) for i in range(3)]
         amp0 = np.pi
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)]
-        for r in range(reps):
+        for r in k.tqdm(range(reps)):
             H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
             for i_method, (name, method_) in enumerate(methods.items()):
                 method = method_['method']
@@ -106,10 +106,10 @@ def Infidelities_and_Times(k, methods, to_calculate, *args):
                         max_infidelity_values[i_method][m, r] = dq.Av_Infidelity(curr_U_ex, U_ap)
                     if do_mean:
                         mean_infidelity_values[i_method][m, r], y = integrators[i_method].Mean_Average_Infidelity(exact.expmH, approx.expmH, U_ex2, U_ap)
-                    if r == 0 and 'times' in to_calculate:
+                    if r == 0 and do_times:
                         times[i_method][m] = timeit_autorange(approx, dim_hilbert, curr_c)
             if r == 0 and do_times:
-                times[-1] = timeit_autorange(approx, dim_hilbert, curr_c)
+                times[-1] = timeit_autorange(exact, dim_hilbert, curr_c)
         len_args = len(args)
         if do_times:
             len_args -= 1
