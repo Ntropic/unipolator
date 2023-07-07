@@ -87,7 +87,7 @@ cdef class UI:
         cdef int sum_location = 0
         cdef double alpha_max = 0.0
         cdef double alpha_rest
-        cdef int i
+        cdef Py_ssize_t i
         cdef int max_alpha_ind = 0
         cdef int max_vals
         for i in range(self.n_dims):
@@ -135,8 +135,8 @@ cdef class UI:
         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL), np.asarray(self.CH), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_R), np.asarray(self.strides_C)
 
     cdef interpolate_single_u(self, double complex *u0): #u0 => input the matrices for output
-        cdef int i, j
-        cdef int ind
+        cdef Py_ssize_t i, j
+        cdef Py_ssize_t ind
         if self.n_dims == 1:
             ind = self.location[0] + self.d_location[0]
             self.vr = &self.Vr[ind, 0, 0] # In 1D strides are 1
@@ -182,7 +182,7 @@ cdef class UI:
 
     cdef interpolate_single_u_du(self, double complex *u0, double complex *du0): #u0, du0 => input the matrices for output   ##int[::1] d_di, -> define earlier
         # d_di contains the indexes of the derivatives that we want to calculate
-        cdef int i, j, ind, curr_d_di
+        cdef Py_ssize_t i, j, ind, curr_d_di
         cdef int curr_d_ind = 0
         cdef int do_copy = 0
         cdef double complex *du1 = self.du1 #.copy()
@@ -285,12 +285,14 @@ cdef class UI:
                 self.ur1, self.ur0 = self.ur0, self.ur1
 
     cdef expmH_pointer(self, double[::1] c, double complex *u0):
-        if not c.shape[0] == self.n_dims:
-            raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
         self.single_parameters2oddgrid(c)
         self.interpolate_single_u(u0)
     def expmH(self, double[::1] c, double complex[:,::1] U):
         cdef double complex *u0 = &U[0, 0]
+        if not c.shape[0] == self.n_dims:
+            raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('The unitary U must be of size [d,d].')
         self.expmH_pointer(c, u0)
 
     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0):  #int[::1] d_di,
@@ -304,19 +306,19 @@ cdef class UI:
         cdef double complex *du0 = &dU[0,0,0]
         if not c.shape[0] == self.n_dims:
             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
-        if not self.d_di.shape[0] == dU.shape[0]:
-            raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('The unitary U must be of size [d,d].')
+        if not dU.shape[0] == dU.shape[1] == self.d:
+            raise ValueError('The derivative dU must be of size [d,d].')
         self.dexpmH_pointer(c, u0, du0)
 
     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0):
-        cdef int i = 0
-        cdef int i_1
+        cdef Py_ssize_t i = 0
+        cdef Py_ssize_t i_1
         cdef int steps = cs.shape[0]
         cdef int steps_1 = steps - 1
         cdef double complex *ur2 = self.ur2
         cdef double complex *ur3 = self.ur3
-        if not cs.shape[1] == self.n_dims:
-            raise ValueError('The coefficient matrix must be of size [n_time_steps, interpolation_dimensions].')
         # First timestep
         if steps_1 % 2:
             ur3, u0 = u0, ur3
@@ -338,6 +340,10 @@ cdef class UI:
             MM_cdot_pointer(ur2, u0, ur3, self.d)
     def expmH_pulse(self, double[:,::1] cs, double complex[:,::1] U):
         cdef double complex *u0 = &U[0, 0]
+        if not cs.shape[1] == self.n_dims:
+            raise ValueError('The coefficient matrix must be of size [n_time_steps, interpolation_dimensions].')
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('The unitary U must be of size [d,d].')
         self.expmH_pulse_pointer(cs, u0)
 
     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
@@ -349,7 +355,7 @@ cdef class UI:
 
     def grape(self, double[:,::1] cs, double complex[:,::1] U_target, int[::1] target_indexes, double complex[:,::1] U, double complex[:,:,::1] dU, double[:,::1] dI_dj):
         # Calculate fidelity for a pulse and the differentials of the fidelity at every timestep using the grape trick
-        cdef int i, j
+        cdef Py_ssize_t i, j
         cdef int steps = cs.shape[0]
 
         cdef double complex *new_p0 = self.ur0
@@ -372,6 +378,13 @@ cdef class UI:
             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
         if not cs.shape[1] == self.n_d_di:
             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = cs.shape[1].')
+        # check unitaries
+        if not U_target.shape[0] == U_target.shape[1] == U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('The unitaries U and U_target must be of size [d,d].')
+        if not dU.shape[1] == dU.shape[2] == self.d:
+            raise ValueError('The derivative dU must be of size [d,d].')
+        if not dU.shape[0] == self.n_d_di:
+            raise ValueError('The derivative dU must be of size [n_d_di,d,d].')
         # Fidelity constants
 
         self.expmH_pulse_pointer(cs, u0)

@@ -127,6 +127,7 @@ cdef class Sym_Trotter_System:
         return np.array(self.C), np.array(self.Es), np.array(self.L), np.array(self.R)
 
     cdef expmH_pointer(self, double[::1] c, double complex *u0):
+        cdef Py_ssize_t i
         # Construct Hamiltonian
         if c.shape[0] == 1: # Special case
             copy_pointer(self.r0, self.u1, self.d2)
@@ -163,6 +164,7 @@ cdef class Sym_Trotter_System:
     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
         cdef double complex *u0 = &U[0, 0, 0]
         cdef how_many = cs.shape[0]
+        cdef Py_ssize_t i
         for i in range(how_many):
             self.expmH_pointer(cs[i,:], u0)
             u0 += self.d2

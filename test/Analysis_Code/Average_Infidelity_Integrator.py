@@ -1,12 +1,13 @@
 import numpy as np
 from scipy import integrate
 from Analysis_Code.analytical_integration_vector_functions import *
-
+from Analysis_Code.useful import *
+import Analysis_Code.discrete_quantum as dq
 
 # A class that generates points from which to fit coefficients of basis functions 
 # with which to represent the sqrt of the infidelity function for a control parameter space and calculate the average infidelity on a volume of those parameters
 class I_mean_Gen():
-    def __init__(self, x0, dx0, limit_fun, edge_points, basis_fun, min_order=2, max_order=3, one_zero=False, which_orders=None, repeats=10, point_ratio=1.0, rng=None, add_points=None, integrator=None, do_std=True):
+    def __init__(self, x0, dx0, limit_fun, edge_points, basis_fun, min_order=2, max_order=3, one_zero=False, which_orders=None, repeats=10, point_ratio=1.0, rng=None, add_points=None, integrator=None):
         # Initiate the object, generate evaluation points on the parameter space defined by x0, dx0 and limit_fun
         # x0 is the origin, dx0 the size in every direction and limit_fun specifies whether a vector in the cube is also within the parameter space
         # rng is the random number generator for the random evaluation points
@@ -41,7 +42,6 @@ class I_mean_Gen():
         self.rel_edge_points = self.relative_location(edge_points)
         self.repeats = repeats
         self.integrator = integrator
-        self.do_std = do_std
         
         # Construct basis functions
         # First construct combinations of orders of the basis functions
@@ -75,6 +75,7 @@ class I_mean_Gen():
         self.fit_coeff = np.empty(self.n_points)    # Fit coefficients of the basis functions to the sqrt of the infidelity
         self.n_eval_points = 0
         self.prepared_std = False
+        self.n_sample_points = 0
         
     # Functions to return variables by name of variable
     def __getattr__(self, name):
@@ -94,10 +95,11 @@ class I_mean_Gen():
         F_av = np.abs(F_av)
         return F_av
     def Av_Infidelity(self, U_ex, U_ap):
-        return np.abs(1 - self.Av_Fidelity(U_ex, U_ap))
+        return np.abs(1 - self.Av_Fidelity(U_ex, U_ap))    
 
     #### Main functions
     def Sample_at_Points(self, points, U_fun, approx_U_fun, U_ex, U_ap, passU2fun = True):
+        # Sample the infidelity at the points given in points
         n_points = points.shape[0]
         I = np.empty(n_points)
         for i in range(n_points):
@@ -122,15 +124,81 @@ class I_mean_Gen():
         self.fit_coeff = self.amplitude2coeff @ I
         # Calculate the average infidelity
         I_mean = np.sum( self.integral_combinations @ self.fit_coeff)
-        do_std = self.do_std
-        # Calculate STD?
-        if do_std:
-            if not self.prepared_std: # Prepare STD
-                self.integral_combinations_std = self.integral_coefficient_combinations_std()
-            I_std = np.sqrt( self.fit_coeff.T @ self.integral_combinations_std @ self.fit_coeff )
-            return I_mean, I_std, I 
+        return I_mean, I
+    
+    def InfidelityFit2Samples(self, U_fun, approx_U_fun, U_ex, U_ap, passU2fun=True, how_many_samples=100, compare_exact=False):
+        # Fit infidelity landscape and then sample from the constructed distribution
+        if not self.prepared_std or how_many_samples != self.n_sample_points:
+            self.n_sample_points = how_many_samples
+            sample_points = self.random_points_in_volume(n_points=self.n_sample_points)
+            self.sample_points = sample_points
+            sample_points_rel = self.relative_location(sample_points)
+            # get the basis function values at the sample points
+            basis_a = self.basis_fun(self.combinations_a, sample_points_rel)
+            basis_b = self.basis_fun(self.combinations_b, sample_points_rel)
+            self.std_basis = basis_a * basis_b
+            self.prepared_std = True
+        # First construct fit
+        I = self.Sample_at_Points(self.points, U_fun, approx_U_fun, U_ex, U_ap, passU2fun)
+        # Using linear regression --> Fit the coefficients of the basis functions of the sqrt(Infidelities)
+        self.fit_coeff = self.amplitude2coeff @ I
+        # Sample from fit
+        I_samples = self.std_basis @ self.fit_coeff
+        if compare_exact == False:
+            return I_samples
+        else: # also calculate with approx_U_fun and U_fun
+            I_exact = self.Sample_at_Points(self.sample_points, U_fun, approx_U_fun, U_ex, U_ap, passU2fun)
+            return I_samples, I_exact
+        
+    def Sample_at_Points_vector(self, points, U_fun, approx_U_fun, U_ex, v_in, v_ex, v_ap):
+        # Sample the infidelity at the points given in points
+        n_points = points.shape[0]
+        I = np.empty(n_points)
+        for i in range(n_points):
+            point = points[i,:]
+            approx_U_fun(point, v_in, v_ap)
+            U_fun(point, U_ex)
+            v_ex = U_ex @ v_in
+            I[i] = dq.State_Infidelity_noramalize_ap(v_ex, v_ap)
+        return I
+    def InfidelityFit2Samples_vector(self, U_fun, approx_U_fun, U_ex, v_in, v_ex, v_ap, how_many_samples=100):
+        # Fit infidelity landscape and then sample from the constructed distribution
+        # but using wavevectors
+        # sample at how_many_samples points using the wavevectors provided in v_in 's columns
+        # v_ex and v_ap are the exact and approximated wavevectors
+        if not self.prepared_std or how_many_samples != self.n_sample_points:
+            self.n_sample_points = how_many_samples
+            sample_points = self.random_points_in_volume(n_points=self.n_sample_points)
+            self.sample_points = sample_points
+            sample_points_rel = self.relative_location(sample_points)
+            # get the basis function values at the sample points
+            basis_a = self.basis_fun(self.combinations_a, sample_points_rel)
+            basis_b = self.basis_fun(self.combinations_b, sample_points_rel)
+            self.std_basis = basis_a * basis_b
+            self.prepared_std = True
+        # First construct fit
+        I = self.Sample_at_Points_vector(self.points, U_fun, approx_U_fun, U_ex, v_in, v_ex, v_ap)
+        # Using linear regression --> Fit the coefficients of the basis functions of the sqrt(Infidelities)
+        self.fit_coeff = self.amplitude2coeff @ I
+        # Sample from fit
+        I_samples = self.std_basis @ self.fit_coeff
+        return I_samples
+
+    
+    def Mean_Std_Average_Infidelity(self, U_fun, approx_U_fun, U_ex, U_ap, passU2fun=True, how_many_samples=100, output_samples=False):
+        # Also outputs a lower and upper standard deviation of the average infidelity,
+        # calculated by evaluating the fit function at how_many_samples points
+        I_samples = self.InfidelityFit2Samples(U_fun, approx_U_fun, U_ex, U_ap, passU2fun, how_many_samples)
+        # get upper and lower std
+        I_mean = np.sum( self.integral_combinations @ self.fit_coeff)
+        smaller_than = I_samples[I_samples<I_mean]
+        larger_than = I_samples[I_samples>I_mean]
+        I_min_std = np.sqrt(np.sum((I_mean - smaller_than)**2)/(len(smaller_than) - 1))
+        I_max_std = np.sqrt(np.sum((larger_than - I_mean)**2) / (len(larger_than) - 1))
+        if output_samples:
+            return I_mean, I_min_std, I_max_std, I_samples
         else:
-            return I_mean, I
+            return I_mean, I_min_std, I_max_std
     
     def eval_basis_term(self, combination, x_s):
         # Evaluate the basis function term combination at the point x_s
@@ -333,7 +401,7 @@ class I_mean_Gen():
         self.eval_points = self.random_points_in_volume(n_points=self.n_eval_points)
         self.eval_rel_points = self.relative_location(self.eval_points)
 
-    def compare_fit_at_evaluation_points(self, U_fun, approx_U_fun, U_ex, U_ap, passU2fun = True, how_many_points=100):
+    def compare_fit_at_evaluation_points(self, U_fun, approx_U_fun, U_ex, U_ap, passU2fun = True, how_many_points=100, asym_std=False):
         if self.n_eval_points == 0:
             self.add_evaluation_points(how_many_points)
         # Compares the fit at the evaluation points
@@ -341,7 +409,11 @@ class I_mean_Gen():
         I_fit = self.eval_fit_at_points(self.eval_points)
         I_method = self.Sample_at_Points(self.eval_points, U_fun, approx_U_fun, U_ex, U_ap) 
         # compare I_method and I_fit
-        return np.mean(np.abs(I_fit - I_method)), np.std(np.abs(I_fit - I_method))
+        if asym_std == False:
+            return np.mean(np.abs(I_fit - I_method)), np.std(np.abs(I_fit - I_method))
+        else:
+            mea, mini, maxi = mean_std_asym(np.abs(I_fit - I_method))
+            return mea, mini, maxi
 
     def distances_in_volume(self, points):
         # calculates the distances
@@ -385,37 +457,12 @@ class I_mean_Gen():
             integral_combinations[i] = integrator(polynomials) 
         return integral_combinations
 
-    def integral_coefficient_combinations_std(self):
-        # Calcualate the combinations of the integral terms, to enable the calculation of standard deviations
-        integrator = self.integrator
-        combinations_a = self.combinations_a
-        combinations_b = self.combinations_b
-        n = combinations_a.shape[0]
-        n_poly = combinations_a.shape[1]
-        integral_combinations_std = np.zeros((n,n))
-        for i in range(n):
-            ic1 = combinations_a[i,:]
-            ic2 = combinations_b[i,:]
-            mean_i = self.integral_combinations[i]
-            i_polynomials = combinate_polynomial_vectors(ic1, ic2)
-            i_polynomials[0][0] = i_polynomials[0][0] - mean_i # remove mean_i from the polynomial
-            for j in range(i,n):     
-                jc1 = combinations_a[j,:]
-                jc2 = combinations_b[j,:]    
-                mean_j = self.integral_combinations[i]
-                j_polynomials = combinate_polynomial_vectors(jc1, jc2)
-                j_polynomials[0][0] = j_polynomials[0][0] - mean_j # remove mean_j from the polynomial
-                # multiply the polynomials
-                ij_polynomials = [multiply_polynomial_vectors(i_polynomials[k], j_polynomials[k]) for k in range(n_poly)]
-                integral_combinations_std[i,j] = integrator(ij_polynomials)
-                integral_combinations_std[j,i] = integral_combinations_std[i,j]
-        return integral_combinations_std
                 
 ###############################################################################################################################################################
 
 class I_mean_UI(I_mean_Gen):
     # Specialized class for calculating the mean average infidelities of Unitary Interpolations
-    def __init__(self, c_mins, c_maxs, c_bins, min_order=1, max_order=3, which_orders=None, repeats=4, point_ratio=1.0, rng=None, add_points=None, do_std=True):
+    def __init__(self, c_mins, c_maxs, c_bins, min_order=1, max_order=3, which_orders=None, repeats=4, point_ratio=1.0, rng=None, add_points=None):
         x0 = c_mins.copy()
         dx0 = (c_maxs - c_mins)/c_bins.astype(float)
         x0[0] += dx0[0]
@@ -426,7 +473,7 @@ class I_mean_UI(I_mean_Gen):
         for i in range(n_dim):
             edge_points[i+1] = x0.copy()
             edge_points[i+1,i] += dx0[i]
-        super().__init__(x0, dx0, self.limits_ui(n_dim), edge_points, self.evaluate_ui_polynomial_basis, min_order, max_order, False, which_orders, repeats, point_ratio, rng, add_points, integrator=integrate_ui_polynomial, do_std=do_std)
+        super().__init__(x0, dx0, self.limits_ui(n_dim), edge_points, self.evaluate_ui_polynomial_basis, min_order, max_order, False, which_orders, repeats, point_ratio, rng, add_points, integrator=integrate_ui_polynomial)
     def limits_ui(self, n_dim):    
         # Construct limits of an integration interval for the unitary interpolation - in relative coordinates
         limits = []
@@ -457,11 +504,11 @@ class I_mean_UI(I_mean_Gen):
 
 class I_mean_trotter(I_mean_Gen):
     # Specialized class for calculating the mean average infidelities of Trotterizations
-    def __init__(self, x0, dx0, min_order=1, max_order=3, which_orders=None, repeats=4, point_ratio=1.0, rng=None, add_points=None, do_std=True):
+    def __init__(self, x0, dx0, min_order=1, max_order=3, which_orders=None, repeats=4, point_ratio=1.0, rng=None, add_points=None):
         n_dim = len(x0)
         edge_points = np.empty((1, n_dim), dtype=float)
         edge_points[0] = x0
-        super().__init__(x0, dx0, self.limits_trotter(n_dim), edge_points, self.evaluate_trotter_polynomial_basis, min_order, max_order, False, which_orders, repeats, point_ratio, rng, add_points, integrator=integrate_trotter_polynomial, do_std=do_std)
+        super().__init__(x0, dx0, self.limits_trotter(n_dim), edge_points, self.evaluate_trotter_polynomial_basis, min_order, max_order, False, which_orders, repeats, point_ratio, rng, add_points, integrator=integrate_trotter_polynomial)
     def limits_trotter(self, n_dim):    
         # Construct limits of an integration interval for the unitary interpolation - in relative coordinates
         limits = []
@@ -481,4 +528,40 @@ class I_mean_trotter(I_mean_Gen):
             p = combinations[i,:]
             coeff2amplitude[:,i] = np.prod(x_s**p, axis=1)
         return coeff2amplitude
+    
+# A class for samplig infidelity values for the expm method, 
+# simper than the others as there are no functional dependencies
+class I_mean_expm(): 
+    def __init__(self, x0, dx0, rng=np.random.default_rng()):
+        self.rng = rng
+        self.x0 = x0 # vector
+        self.dx0 = dx0 #vector
+        self.gen_sample_points = False
+        self.how_many_samples = -1
+        
+    # generate sample points
+    def generate_sample_points(self, n_points):
+        # the points lie within a cube defined by x0 and dx0 (both are vectors)
+        # generate n_points points
+        self.sample_points = self.rng.uniform(self.x0, self.x0 + self.dx0, (n_points, len(self.x0)))
+        self.gen_sample_points = True
+    
+    # add function that randomly chooses sample points in sample volume
+    def Sample_Infidelities_vector(self, U_fun, approx_U_fun, U_ex, v_in, v_ex, v_ap, how_many_samples=100):
+        if not self.gen_sample_points or how_many_samples != self.how_many_samples:
+            self.how_many_samples = how_many_samples
+            self.generate_sample_points(self.how_many_samples)
+        # Sample the infidelity at the points given in points
+        I = np.empty(self.how_many_samples)
+        # go point by point
+        for i, point in enumerate(self.sample_points):
+            # calculate v_ex = U_ex @ v_in
+            U_fun(point, U_ex)
+            v_ex = U_ex @ v_in
+            # calculate v_ap = approx_U_fun @ v_in
+            approx_U_fun(point, v_in, v_ap)
+            # calculate infidelity
+            I[i] = dq.State_Infidelity_noramalize_ap(v_ex, v_ap)
+        return I
+            
     

@@ -217,6 +217,9 @@ cpdef void c_eigh_lapack(double complex[:,::1] H, double complex[:,::1] V, doubl
     #return info
 
 
+###### Consider using https://epubs.siam.org/doi/10.1137/100788860 ---- for expmH * vec   --> for vector optimization
+
+###### These could be useful for a future additional unitary interpolation approach ####################################
 ###### Additions #######################################################################################################
 cpdef void d_third_order_tensor_scale(double complex[:,:,::1] A, double d) nogil:
     cdef int s = A.shape[0]
@@ -251,6 +254,7 @@ cpdef void d_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, dou
     zcopy(&nn, c0, &incz, a0, &incz)
 
 cpdef void c_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex c): # nogil:
+    # 
     cdef int n = A.shape[0]
     cdef int nn = n*n
     cdef int incz = 1
@@ -280,5 +284,10 @@ cpdef void c_mat_add(double complex[:,::1] A, double complex[:,::1] B, double co
     cdef int incz = 1
     cdef double complex *a0=&A[0,0]
     cdef double complex *b0=&B[0,0]
+    zaxpy(&nn, &c, b0, &incz, a0, &incz)
+
+cdef void c_mat_add_pointer(double complex *a0, double complex *b0, int nn) nogil: # A = A+B*c
+    cdef int incz = 1
+    cdef double complex c = 1.0 + 0.0j
     zaxpy(&nn, &c, b0, &incz, a0, &incz)
 

@@ -217,7 +217,7 @@ cdef void v_exp_pointer(double *e0, double complex *v0, double t, int n) nogil:
         c.real = cos(ei)
         c.imag = -sin(ei)
         zscal(&n, &c, v0, &incz)
-cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, int n) nogil: # -i*E*amp*exp(-i*E*t)
+cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, int n) nogil: 
     cdef double complex c
     cdef double ei, f
     cdef int incz = 1

@@ -1,8 +1,8 @@
 import numpy as np
-from numba import jit, njit
+from numba import jit
 
 # a polynomial is represented as a vector of coefficients in the order of increasing powers [1, x, x^2, ...]
-@njit()
+@jit(nopython=True)
 def integrate_polynomial(p):
     # integrate a polynomial
     # p is a vector of coefficients
@@ -15,7 +15,7 @@ def integrate_polynomial(p):
     return q
 
 # A function that evaluates a polynomial vector at a point
-@njit()
+@jit(nopython=True)
 def eval_polynomial(p, x):
     # p is a vector of coefficients
     # x is a point
@@ -27,7 +27,7 @@ def eval_polynomial(p, x):
     return y
 
 # A function that integrates a polynomial vector from a to b
-@njit()
+@jit(nopython=True)
 def integrate_polynomial_interval(p, a, b):
     # p is a vector of coefficients
     # a, b are the integration limits
@@ -36,7 +36,7 @@ def integrate_polynomial_interval(p, a, b):
     q = integrate_polynomial(p)
     return eval_polynomial(q, b) - eval_polynomial(q, a)
 
-@njit()
+@jit(nopython=True)
 def integrate_polynomial_0_to_x(p):
     # p is a vector of coefficients
     # x is the integration limit
@@ -50,7 +50,7 @@ def integrate_polynomial_0_to_x(p):
 
 
 # A function that multiplies polynomial vectors
-@njit()
+@jit(nopython=True)
 def multiply_polynomial_vectors(p1, p2):
     # p1, p2 are vectors of coefficients
     # return the vector of coefficients of the product of the polynomials
@@ -63,7 +63,7 @@ def multiply_polynomial_vectors(p1, p2):
             p[i+j] += p1[i]*p2[j]
     return p
 
-@njit()
+@jit(nopython=True)
 def binom(n, k):
     # return the binomial coefficient n choose k
     if k > n:
@@ -77,7 +77,7 @@ def binom(n, k):
     return binom(n-1, k-1) + binom(n-1, k)
 # a function that creates a vector of coefficients of a polynomial of a variable y that corresponds to as input vector of coefficients of a polynomial of a variable x for which 1-y=x has been substituted
 
-@njit()
+@jit(nopython=True)
 def substitute_polynomial_1_x(p):
     # p is a vector of coefficients of a polynomial of a variable x
     # use the binoomial theorem to substitute 1-y=x
@@ -99,7 +99,7 @@ def substitute_polynomial_1_x(p):
 ############################################################################################################################################################################
 
 # a function that constructs all the permutations of n numbers
-@jit()
+@jit(nopython=True)
 def gen_permutations(n):
     # n is the number of elements
     # return a list of all the permutations of the numbers from 0 to n-1
@@ -121,7 +121,7 @@ def gen_permutations(n):
 #print(len(perms))
 #### Inititalize Vectors #################################################################################################################################################
 
-@jit()
+@jit(nopython=True)
 def gen_polynomial_vectors(combinations):
     # combinations is a vector of the orders of polynomials in each dimension
     # The unitary interpolation polynomial is a product of polynomials in each dimension

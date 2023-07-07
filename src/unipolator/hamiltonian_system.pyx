@@ -7,7 +7,7 @@ from .caching cimport *
 from .blas_functions cimport *
 from scipy.linalg.cython_lapack cimport zheevd
 
-# Unitary Interpolation
+# Hamiltonian_System
 cdef class Hamiltonian_System:
     # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
     cdef int n_dims, n_dims_1, d, d2, n_d_di_1, n_d_di,
@@ -107,21 +107,24 @@ cdef class Hamiltonian_System:
 
     def expmH(self, double[::1] c, double complex[:,::1] U, double dt=1.0):
         # Construct Hamiltonian
+        cdef double complex *u0 = &U[0,0]
         if not c.shape[0] == self.n_dims_1:
             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
-        cdef double complex *u0 = &U[0,0]
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('U.shape[0] and U.shape[1] need to be equal to H_s[0].shape[1].')
         self.expmH_pointer(c, u0, dt)
 
     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U, double dt=1.0):
         cdef double complex *u0 = &U[0, 0, 0]
         cdef how_many = cs.shape[0]
+        cdef Py_ssize_t i
         for i in range(how_many):
             self.expmH_pointer(cs[i,:], u0, dt)
             u0 += self.d2
 
     cdef dexpmH_pointer(self, double[::1] c, double complex *u0, double complex *du0, dt=1.0):  #int[::1] d_di,
         # Construct Hamiltonian
-        cdef int i
+        cdef Py_ssize_t i
         cdef double complex *h0
         cdef int curr_d_di_1
         self.weighted_hamiltonian(c)
@@ -147,13 +150,17 @@ cdef class Hamiltonian_System:
         cdef double complex *u0 = &U[0, 0]
         cdef double complex *du0 = &dU[0,0,0]
         if not c.shape[0] == self.n_dims_1:
-            raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
-        if not self.d_di.shape[0] == dU.shape[0]:
-            raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dU.shape[0].')
+            raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
+        if not self.n_d_di == dU.shape[0]:
+            raise ValueError('dU.shape[0] needs to be equal to len(d_di).')
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('U.shape[0] and U.shape[1] need to be equal to H_s[0].shape[1].')
+        if not dU.shape[1] == dU.shape[2] == self.d:
+            raise ValueError('dU.shape[1] and dU.shape[2] need to be equal to H_s[0].shape[1].')
         self.dexpmH_pointer(c, u0, du0, dt)
 
     cdef expmH_pulse_pointer(self, double[:,::1] cs, double complex *u0, double dt=1.0):
-        cdef int i
+        cdef Py_ssize_t i
         cdef int steps = cs.shape[0]
 
         self.weighted_hamiltonian(cs[0,:])
@@ -171,11 +178,15 @@ cdef class Hamiltonian_System:
     def expmH_pulse(self, double[:,::1] cs, double complex[:,::1] U, double dt=1.0):
         # Construct Hamiltonian
         cdef double complex *u0 = &U[0, 0]
+        if not cs.shape[1] == self.n_dims_1:
+            raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('The matrix U must be of size [d,d].')
         self.expmH_pulse_pointer(cs, u0, dt)
 
     def grape(self, double[:,::1] cs, double complex[:,::1] U_target, int[::1] target_indexes, double complex[:,::1] U, double complex[:,:,::1] dU, double[:,::1] dI_dj):
         # Calculate fidelity for a pulse and the differentials of the fidelity at every timestep using the grape trick
-        cdef int i, j
+        cdef Py_ssize_t i, j
         cdef int steps = cs.shape[0]
 
         cdef double complex *new_p0 = self.u1
@@ -198,6 +209,12 @@ cdef class Hamiltonian_System:
             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = dI_dj.shape[1].')
         if not cs.shape[1] == self.n_d_di:
             raise ValueError('Inputs must fulfill: which_diffs.shape[0] = cs.shape[1].')
+        # check if unitaries have correct size self.d x self.d
+        if not U.shape[0] == U.shape[1] == U_target.shape[0] == U_target.shape[1] == self.d:
+            raise ValueError('Unitaries must be of size [d,d].')
+        # check if dU has correct size of self.n_d_di x self.d x self.d
+        if not dU.shape[0] == self.n_d_di or dU.shape[1] == dU.shape[2] == self.d:
+            raise ValueError('dU must be of size [n_d_di,d,d].')
         # Fidelity constants
 
         self.expmH_pulse_pointer(cs, u0)

@@ -22,15 +22,15 @@ def timeit_autorange(func, dim_hilbert, curr_c, min_time=2.0):
     return time
 
 
-def initialize_rep_arrays(to_calculate, reps, methods):
-    max_infidelity_values, mean_infidelity_values, times = [], [], []
+def initialize_rep_arrays(to_calculate, reps, how_many_samples, methods):
+    max_infidelity_values, mean_infidelity_values, std_infidelity_values_min, std_infidelity_values_max, times = [], [], [], [], []
     for name, method_ in methods.items():
         m_times = method_['m_times']
         len_m = len(m_times)
         if 'max' in to_calculate:
             max_infidelity_values.append(np.empty((len_m, reps)))
         if 'mean' in to_calculate:
-            mean_infidelity_values.append(np.empty((len_m, reps)))
+            mean_infidelity_values.append(np.empty((len_m, reps, how_many_samples)))
         if 'times' in to_calculate:
             times.append(np.empty((len_m)))
     if 'times' in to_calculate:
@@ -40,19 +40,18 @@ def initialize_rep_arrays(to_calculate, reps, methods):
 
 def intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng):
     repeats = 5
-    add_points = 0
-    point_ratio = 1.0
+    point_ratio = 2.0
     integrators = []
     ui_done, trotter_done = False, False
     for name, method in methods.items():
         if 'UI' in name: # only create the UI integrator once and copy it for every method using ui
             if not ui_done:
-                ui_integrator = I_mean_UI(c_mins, c_maxs, c_bins, min_order=1, max_order=2, rng=rng, repeats=repeats, add_points=add_points, point_ratio=point_ratio, do_std=False)
+                ui_integrator = I_mean_UI(c_mins, c_maxs, c_bins, min_order=1, max_order=2, rng=rng, repeats=repeats, point_ratio=point_ratio)
                 ui_done = True
             integrators.append(ui_integrator)
         else: # Trotter
             if not trotter_done:
-                trotter_integrator = I_mean_trotter(c_mins, c_maxs, min_order=1, max_order=2, rng=rng, repeats=repeats, add_points=add_points, point_ratio=point_ratio, do_std=False)
+                trotter_integrator = I_mean_trotter(c_mins, c_maxs, min_order=1, max_order=2, rng=rng, repeats=repeats, point_ratio=point_ratio)
                 trotter_done = True
             integrators.append(trotter_integrator)
     return integrators
@@ -65,14 +64,15 @@ def mean_std(x): # Calculate the mean and standard deviation of an array summing
 
 def Infidelities_and_Times(k, methods, to_calculate, *args):
     reps = 100
-    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, methods)
+    how_many_samples = 100
+    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, how_many_samples, methods)
     do_times, do_max, do_mean = 'times' in to_calculate, 'max' in to_calculate, 'mean' in to_calculate
     for i, v, c in k.kronprod(do_index=True, do_change=True):
         if k.changed('num_controls'):
             num_controls = k.value('num_controls')
             c_mins, c_maxs, c_bins = np.zeros(num_controls), np.ones(num_controls), np.ones(num_controls, dtype=int)
-            if 'mean' in to_calculate:
-                curr_args = [k.value('num_controls'), 'mean', to_calculate]
+            if do_mean:
+                curr_args = [k.value('num_controls'), do_mean]
                 seed = int(sha1(str(curr_args).encode('utf-8')).hexdigest(), 16)
                 rng = np.random.default_rng(seed)
                 integrators = intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng)
@@ -82,10 +82,10 @@ def Infidelities_and_Times(k, methods, to_calculate, *args):
         if k.changed('dim_hilbert'):
             dim_hilbert = k.value('dim_hilbert')
             curr_U_ex, U_ex2, U_ap = [np.empty((dim_hilbert, dim_hilbert), dtype=complex) for i in range(3)]
-        amp0 = np.pi
+        amp0 = np.pi/2
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)]
         for r in k.tqdm(range(reps)):
-            H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
+            H_s = dq.Random_parametric_Hamiltonian_gauss(num_controls, dim_hilbert, sigmas=amps, rng=rng)
             for i_method, (name, method_) in enumerate(methods.items()):
                 method = method_['method']
                 m_times = method_['m_times']
@@ -105,7 +105,7 @@ def Infidelities_and_Times(k, methods, to_calculate, *args):
                         approx.expmH(curr_c, U_ap)
                         max_infidelity_values[i_method][m, r] = dq.Av_Infidelity(curr_U_ex, U_ap)
                     if do_mean:
-                        mean_infidelity_values[i_method][m, r], y = integrators[i_method].Mean_Average_Infidelity(exact.expmH, approx.expmH, U_ex2, U_ap)
+                        mean_infidelity_values[i_method][m, r, :] = integrators[i_method].InfidelityFit2Samples(exact.expmH, approx.expmH, U_ex2, U_ap, how_many_samples=how_many_samples)
                     if r == 0 and do_times:
                         times[i_method][m] = timeit_autorange(approx, dim_hilbert, curr_c)
             if r == 0 and do_times:
@@ -114,18 +114,18 @@ def Infidelities_and_Times(k, methods, to_calculate, *args):
         if do_times:
             len_args -= 1
         ind = 0
-        repeats = 0
+        i_method = 0
         while ind < len_args:
             if do_max:
-                args[ind][i,:], args[ind+1][i,:] = mean_std(max_infidelity_values[repeats])
-                ind += 2
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:] = mean_std_asym(max_infidelity_values[i_method], axis=1)
+                ind += 3
             if do_mean:
-                args[ind][i,:], args[ind+1][i,:] = mean_std(mean_infidelity_values[repeats])
-                ind += 2
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:]  = mean_std_asym(mean_infidelity_values[i_method], axis=(1,2))
+                ind += 3
             if do_times:
-                args[ind][i,:] = times[repeats]
+                args[ind][i,:] = times[i_method]
                 ind += 1
-            repeats += 1
+            i_method += 1
         if do_times:
             args[-1][i] = times[-1]
     return args

@@ -4,43 +4,14 @@ import scipy as sp
 from mpl_toolkits.mplot3d import axes3d
 from kronbinations import *
 from timeit import *
-from tikzplotlib import get_tikz_code        
+from tikzplotlib import get_tikz_code, save as tikz_save
 import os
 
+from unipolator import *
 from Analysis_Code.Average_Infidelity_Integrator import *
 import Analysis_Code.discrete_quantum as dq
+from Analysis_Code.useful import *
 
-
-def fig2tikz(fig, filename):
-    code = get_tikz_code(fig, axis_width='8.5cm', axis_height='6.375cm')
-    # add start and end strings to code  #legend columns=2,
-    code_list = code.split('\n')
-    #append to begging of code_list
-    code_list = [r'\documentclass[groupedaddress,amsmath,amssymb,amsfonts,nofootinbib,a4paper, 10pt]{standalone}', r'\input{../tikz_header}', r'\begin{document}'] + code_list + [r'\end{document}']
-    ind = -1
-    found = 0
-    brace_counter = 0
-    for i, curr_line in enumerate(code_list):
-        #check if line starts with \legend style
-        if found == 0:
-            if curr_line.strip().startswith(r'legend style'):
-                # count the curly opening braces and closing braces, before the last brace is closed, add the new text
-                found = 1
-                # count opening and closing braces in curr_line # 
-        if found == 1:
-            brace_counter += curr_line.count('{') - curr_line.count('}')
-            if brace_counter == 0:
-                # found end of legend style
-                ind = i
-                found = 0
-    if ind > -1:
-        curr_line = code_list[ind][:-2] + r', at={(0.5,1.05)}, anchor=south},'
-        code_list[ind] = curr_line + '\n' + r'legend columns=2,'
-    # unify list into string
-    code = '\n'.join(code_list)
-    # save code to file
-    with open(os.path.join('Tikz',filename+'.tex'), 'w') as f:
-        f.write(code) 
 
 # A script that checks whether a file needs to be updated, by comparing it's modification time to the modification time of the file it was created from
 def time2update(filename, filename_of_original):
@@ -66,7 +37,7 @@ def closest_match(array, value):  # find the index of the closest value in the a
     index = np.argmin(np.abs(array-value))
     return index, array[index]
 
-def first_smaller(array, value):  # find the index of the first value in the array that is smaller than the value and the value at that index
+def first_smaller(array, value):  # find the index of the first value in the array that is smaller than the value 
     truth_array = array<value
     if np.sum(truth_array) == 0:
         return None
@@ -116,7 +87,13 @@ def get_parameters(combination, all_parameters):
     axis_types = []
     for parameter in all_parameters:
         if parameter['name'] in combination:
-            parameters[parameter['name']] = parameter['variation_vals']
+            # check if parameter has key 'weight'
+            if 'weight' in parameter.keys():
+                parameters[parameter['name']] = {'value': parameter['variation_vals'], 'weight': parameter['weight']}
+            if 'weights' in parameter.keys():
+                parameters[parameter['name']] = {'value': parameter['variation_vals'], 'weight': parameter['weights']}
+            else:
+                parameters[parameter['name']] = parameter['variation_vals']
             axis_labels.append(parameter['label'])
             axis_types.append(parameter['variation_type'])
         else:
@@ -126,10 +103,10 @@ def get_parameters(combination, all_parameters):
 def create_variables(k, method_dict, to_do=['mean', 'max', 'times']):
     variable_dicts = {}
     type_names = []
-    if 'mean' in to_do:
-        type_names += ['mean_I_mean', 'mean_I_std']
     if 'max' in to_do:
-        type_names += ['max_I_mean', 'max_I_std']
+        type_names += ['max_I_mean', 'max_I_std_min', 'max_I_std_max']    # using asymmetric std
+    if 'mean' in to_do:
+        type_names += ['mean_I_mean', 'mean_I_std_min', 'mean_I_std_max']   # using asymmetric std
     if 'times' in to_do:
         type_names += ['times']
     for method_name, method in method_dict.items():
@@ -158,16 +135,43 @@ def timeit_autorange(func, dim_hilbert, curr_c, min_time=2.0):
         Us = np.empty((n, dim_hilbert, dim_hilbert), dtype=complex)
         time = timeit.timeit(lambda: func.expmH_pulse_no_multiply(cs, Us), number=1)/n
     return time
+
+def timeit_autorange_vector(func, dim_hilbert, curr_c, v_in, v_out, min_time=2.0, pass_U=False):
+    # Warm up
+    if pass_U:
+        U = np.empty((dim_hilbert, dim_hilbert), dtype=complex)
+        def func2(curr_c, v_in):
+            func.expmH(curr_c, U)
+            return U @ v_in
+        time = timeit.timeit(lambda: func2(curr_c, v_in), number=1)
+    else:    
+        time = timeit.timeit(lambda: func.expmH(curr_c, v_in, v_out), number=1)
+    if time < min_time:
+        n = int(np.ceil(2.0/time))
+        n = np.min([10**4, n])
+        # create n repetitions of c array
+        cs = np.tile(curr_c, (n, 1))
+        if pass_U:
+            def func2(curr_c, v_in):
+                for c in curr_c:
+                    func.expmH(c, U)
+                    v_out = U @ v_in
+                return v_out
+            time = timeit.timeit(lambda: func2(cs, v_in), number=1)/n
+        else:
+            v_out_s = np.empty((n, dim_hilbert, 1), dtype=complex)
+            time = timeit.timeit(lambda: func.expmH_pulse_no_multiply(cs, v_in, v_out_s), number=1)/n
+    return time
     
-def initialize_rep_arrays(to_calculate, reps, methods):
-    max_infidelity_values, mean_infidelity_values, times = [], [], []
+def initialize_rep_arrays(to_calculate, reps, how_many_samples, methods):
+    max_infidelity_values, mean_infidelity_values, std_infidelity_values_min, std_infidelity_values_max, times = [], [], [], [], []
     for name, method_ in methods.items():
         m_times = method_['m_times']
         len_m = len(m_times)
         if 'max' in to_calculate:
             max_infidelity_values.append(np.empty((len_m, reps)))
         if 'mean' in to_calculate:
-            mean_infidelity_values.append(np.empty((len_m, reps)))
+            mean_infidelity_values.append(np.empty((len_m, reps, how_many_samples)))
         if 'times' in to_calculate:
             times.append(np.empty((len_m)))
     if 'times' in to_calculate:
@@ -176,19 +180,23 @@ def initialize_rep_arrays(to_calculate, reps, methods):
 
 def intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng):
     repeats = 5
-    add_points = 0
-    point_ratio = 1.0
+    point_ratio = 2.0
     integrators = []
-    ui_done, trotter_done = False, False
+    ui_done, trotter_done, expm_done = False, False, False
     for name, method in methods.items():
         if 'UI' in name: # only create the UI integrator once and copy it for every method using ui
             if not ui_done:
-                ui_integrator = I_mean_UI(c_mins, c_maxs, c_bins, min_order=1, max_order=2, rng=rng, repeats=repeats, add_points=add_points, point_ratio=point_ratio, do_std=False)
+                ui_integrator = I_mean_UI(c_mins, c_maxs, c_bins, min_order=1, max_order=2, rng=rng, repeats=repeats, point_ratio=point_ratio)
                 ui_done = True
             integrators.append(ui_integrator)
+        if 'Expm' in name: # only create the Expm integrator once and copy it for every method using Expm
+            if not expm_done:
+                expm_integrator = I_mean_expm(c_mins, c_maxs, rng=rng)
+                expm_done = True
+            integrators.append(expm_integrator)
         else: # Trotter
             if not trotter_done:
-                trotter_integrator = I_mean_trotter(c_mins, c_maxs, min_order=1, max_order=2, rng=rng, repeats=repeats, add_points=add_points, point_ratio=point_ratio, do_std=False)
+                trotter_integrator = I_mean_trotter(c_mins, c_maxs, min_order=1, max_order=2, rng=rng, repeats=repeats, point_ratio=point_ratio)
                 trotter_done = True
             integrators.append(trotter_integrator)
     return integrators
@@ -197,27 +205,30 @@ def mean_std(x): # Calculate the mean and standard deviation of an array summing
     n = x.ndim - 1
     return np.mean(x, axis=n), np.std(x, axis=n)
 
-def Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
-    reps = 100 # 25
+def Infidelities_and_Times(k, methods, to_calculate, *args, rng):
+    # Simplifies grid creation to a single grid interval to speed up caching, use script below (Binned version) to create a grid with multiple intervals, necessary for accurate timing
+    reps = 100 
+    how_many_samples = 100
     # Inititalize intermediate arrays, tpo store results of reps, to average over
-    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, methods)
+    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, how_many_samples, methods)
     do_times, do_max, do_mean = 'times' in to_calculate, 'max' in to_calculate, 'mean' in to_calculate
     for i, v, c in k.kronprod(do_index=True, do_change=True):
         if k.changed('num_controls'):
             num_controls = k.value('num_controls')
             c_mins, c_maxs, c_bins = np.zeros(num_controls), np.ones(num_controls), np.ones(num_controls, dtype=int)
             # Generate the mean value approximator
-            if 'mean' in to_calculate:
+            if do_mean:
                 integrators = intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng)
         if k.changed('dim_hilbert'):
             dim_hilbert = k.value('dim_hilbert')
             curr_U_ex, U_ex2, U_ap = [np.empty((dim_hilbert, dim_hilbert), dtype=complex) for i in range(3)]
-        amp0 = np.pi
+        amp0 = np.pi/2
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)] # /k.value('bins')
 
         for r in k.tqdm(range(reps)):     
             # Generate the random Hamiltonian
-            H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
+            #H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
+            H_s = dq.Random_parametric_Hamiltonian_gauss(num_controls, dim_hilbert, sigmas=amps, rng=rng)
             # Approximate calculation
             for i_method, (name, method_) in enumerate(methods.items()):   # Calculate max infidelities, average infidelities, and time
                 method = method_['method']
@@ -240,7 +251,7 @@ def Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
                         max_infidelity_values[i_method][m, r] = dq.Av_Infidelity(curr_U_ex, U_ap)  # Max infidelity of approximation
                     ## Mean Infidelities ###################################################################################################
                     if do_mean:
-                        mean_infidelity_values[i_method][m, r], y = integrators[i_method].Mean_Average_Infidelity(exact.expmH, approx.expmH, U_ex2, U_ap)
+                        mean_infidelity_values[i_method][m, r, :] = integrators[i_method].InfidelityFit2Samples(exact.expmH, approx.expmH, U_ex2, U_ap, how_many_samples=how_many_samples)
                     ## Times ###############################################################################################################
                     # use timeit to time the function approx.expmH with the arguments c1_2
                     if r == 0 and do_times:
@@ -252,59 +263,62 @@ def Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
         if do_times:
             len_args -= 1
         ind = 0
-        repeats = 0
+        i_method = 0
         while ind < len_args: # last one for exact times
             if do_max:
-                args[ind][i,:], args[ind+1][i,:] = mean_std(max_infidelity_values[repeats]) #max_I_mean, max_I_std
-                ind += 2
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:] = mean_std_asym(max_infidelity_values[i_method], axis=1) #max_I_mean, max_I_std
+                ind += 3
             if do_mean:
-                args[ind][i,:], args[ind+1][i,:] = mean_std(mean_infidelity_values[repeats]) #mean_I_mean, mean_I_std
-                ind += 2
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:]  = mean_std_asym(mean_infidelity_values[i_method], axis=(1,2)) #mean_I_mean, mean_I_std
+                ind += 3
             if do_times:
-                args[ind][i,:] = times[repeats] #time
+                args[ind][i,:] = times[i_method] #time
                 ind += 1
-            repeats += 1
+            i_method += 1
         if do_times:
             args[-1][i] = times[-1]
     return args
 
-def Binned_Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
-    reps = 100 # 25
-    # Inititalize intermediate arrays, tpo store results of reps, to average over
-    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, methods)
+
+def Binned_Infidelities_and_Times(k, methods, to_calculate, *args, rng):
+    ### With complete grid cache (for timing purposes) ### Use non binned version above for faster results, whenever timing is not necessary (cache creation is slower for full grids)
+    reps = 100
+    how_many_samples = 100
+    # Inititalize intermediate arrays, too store results of reps, to average over
+    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, how_many_samples, methods)
     do_times, do_max, do_mean = 'times' in to_calculate, 'max' in to_calculate, 'mean' in to_calculate
     for i, v, c in k.kronprod(do_index=True, do_change=True):
         if k.changed('num_controls'):
             num_controls = k.value('num_controls')
             c_mins, c_maxs, c_bins = np.zeros(num_controls), np.ones(num_controls), np.ones(num_controls, dtype=int)
             # Generate the mean value approximator
-            if 'mean' in to_calculate:
+            if do_mean:
                 integrators = intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng)
         if k.changed('dim_hilbert'):
             dim_hilbert = k.value('dim_hilbert')
-            curr_U_ex, U_ex2, U_ap = [np.empty((dim_hilbert, dim_hilbert), dtype=complex) for i in range(3)]
-        amp0 = np.pi
+        if k.changed('bins'):
+            bins = k.value('bins')
+        amp0 = np.pi/2
         amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)] # /k.value('bins')
 
         for r in k.tqdm(range(reps)):     
             # Generate the random Hamiltonian
-            H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
+            #H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
+            H_s = dq.Random_parametric_Hamiltonian_gauss(num_controls, dim_hilbert, sigmas=amps, rng=rng)
+            curr_U_ex, U_ex2, U_ap = [np.empty((dim_hilbert, dim_hilbert), dtype=complex) for i in range(3)]
             
             # Approximate calculation
             for i_method, (name, method_) in enumerate(methods.items()):   # Calculate max infidelities, average infidelities, and time
                 method = method_['method']
                 m_times = method_['m_times']
                 for m, curr_m_times in enumerate(m_times):
+                    exact = Hamiltonian_System(H_s) 
                     if 'UI' in name:
-                        H_s_ui = H_s.copy() 
-                        H_s_ui[1:] = H_s_ui[1:] #
-                        factor = int(k.value('bins') * 2**curr_m_times)
-                        exact = Hamiltonian_System(H_s_ui)                        
+                        factor = int(bins * 2**curr_m_times)      
                         curr_c = np.ones(num_controls) / 2 / factor 
-                        approx = method(H_s_ui, c_mins, c_maxs, c_bins*factor)  
+                        approx = method(H_s, c_mins, c_maxs, c_bins*factor)  
                     else: # Trotteresque
                         factor = 1
-                        exact = Hamiltonian_System(H_s)
                         curr_c = np.ones(num_controls)
                         approx = method(H_s, m_times=curr_m_times)
                     ## Max Infidelities ####################################################################################################
@@ -314,7 +328,7 @@ def Binned_Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
                         max_infidelity_values[i_method][m, r] = dq.Av_Infidelity(curr_U_ex, U_ap)  # Max infidelity of approximation
                     ## Mean Infidelities ###################################################################################################
                     if do_mean:
-                        mean_infidelity_values[i_method][m, r], y = integrators[i_method].Mean_Average_Infidelity(lambda c, U: exact.expmH(c/factor, U),lambda c, U: approx.expmH(c/factor, U), U_ex2, U_ap)
+                        mean_infidelity_values[i_method][m, r, :] = integrators[i_method].InfidelityFit2Samples(lambda c, U: exact.expmH(c/factor, U),lambda c, U: approx.expmH(c/factor, U), U_ex2, U_ap, how_many_samples=how_many_samples)
                     ## Times ###############################################################################################################
                     # use timeit to time the function approx.expmH with the arguments c1_2
                     if r == 0 and do_times:
@@ -326,19 +340,109 @@ def Binned_Infidelities_and_Times(k, methods, to_calculate, *args, rng):#
         if do_times:
             len_args -= 1
         ind = 0
-        repeats = 0
+        i_method = 0
         while ind < len_args: # last one for exact times
             if do_max:
-                args[ind][i,:], args[ind+1][i,:] = mean_std(max_infidelity_values[repeats]) #max_I_mean, max_I_std
-                ind += 2
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:] = mean_std_asym(max_infidelity_values[i_method], axis=1) #max_I_mean, max_I_std
+                ind += 3
             if do_mean:
-                args[ind][i,:], args[ind+1][i,:] = mean_std(mean_infidelity_values[repeats]) #mean_I_mean, mean_I_std
-                ind += 2
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:]  = mean_std_asym(mean_infidelity_values[i_method], axis=(1,2)) #mean_I_mean, mean_I_std
+                ind += 3
             if do_times:
-                args[ind][i,:] = times[repeats] #time
+                pass
+                args[ind][i,:] = times[i_method] #time
                 ind += 1
-            repeats += 1
+            i_method += 1
         if do_times:
             args[-1][i] = times[-1]
+            pass
+    return args
+
+
+def Binned_Infidelities_and_Times_vector(k, methods, to_calculate, *args, rng):
+    ### With complete grid cache (for timing purposes) ### Use non binned version above for faster results, whenever timing is not necessary (cache creation is slower for full grids)
+    # Does not use 2**m_times, but m_times directly for binning / stepping
+    reps = 100
+    how_many_samples = 100
+    how_many_states = 1  # makes analysis easier. simply run more reps
+    # Inititalize intermediate arrays, too store results of reps, to average over
+    max_infidelity_values, mean_infidelity_values, times = initialize_rep_arrays(to_calculate, reps, how_many_samples, methods)
+    do_times, do_max, do_mean = 'times' in to_calculate, 'max' in to_calculate, 'mean' in to_calculate
+    for i, v, c in k.kronprod(do_index=True, do_change=True):
+        if k.changed('num_controls'):
+            num_controls = k.value('num_controls')
+            c_mins, c_maxs, c_bins = np.zeros(num_controls), np.ones(num_controls), np.ones(num_controls, dtype=int)
+            # Generate the mean value approximator
+            if do_mean:
+                integrators = intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng)
+        if k.changed('dim_hilbert'):
+            dim_hilbert = k.value('dim_hilbert')
+        if k.changed('bins'):
+            bins = k.value('bins')
+        amp0 = np.pi/2
+        amps = [amp0] + [amp0*k.value('amp_ratio') for i in range(num_controls)] # /k.value('bins')
+
+        # Generate random states
+        v_in = dq.rand_state(dim_hilbert, how_many_states, rng=rng)
+        v_ex = np.empty((dim_hilbert, how_many_states), dtype=complex)
+        v_ap = np.empty((dim_hilbert, how_many_states), dtype=complex)
+        U_ex = np.empty((dim_hilbert, dim_hilbert), dtype=complex)
+        for r in k.tqdm(range(reps)):     
+            # Generate the random Hamiltonian
+            #H_s = dq.Random_parametric_Hamiltonian_Haar(num_controls, dim_hilbert, amps, rng)
+            H_s = dq.Random_parametric_Hamiltonian_gauss(num_controls, dim_hilbert, sigmas=amps, rng=rng)
+            # Approximate calculation
+            for i_method, (name, method_) in enumerate(methods.items()):   # Calculate max infidelities, average infidelities, and time
+                method = method_['method']
+                m_times = method_['m_times']
+                for m, curr_m_times in enumerate(m_times):
+                    exact = Hamiltonian_System(H_s)      
+                    if 'UI' in name:
+                        factor = int(bins * curr_m_times)                  
+                        curr_c = np.ones(num_controls) / 2 / factor 
+                        approx = method(H_s, c_mins, c_maxs, c_bins*factor) 
+                    elif 'Expm' in name: # Expm Multiply
+                        factor = 1
+                        approx = method(H_s) 
+                        curr_c = np.ones(num_controls)
+                        # Change the number of steps for the approximation
+                        approx.set_m_star(curr_m_times)
+                    elif 'Trotter': # Trotteresque
+                        factor = 1
+                        curr_c = np.ones(num_controls)
+                        approx = method(H_s, n_times=curr_m_times)
+                    ## Mean Infidelities ###################################################################################################
+                    if do_mean:
+                        if not 'Expm' in name:
+                            mean_infidelity_values[i_method][m, r, :] = integrators[i_method].InfidelityFit2Samples_vector(lambda c, U_ex: exact.expmH(c/factor, U_ex), lambda c, vin, vout: approx.expmH(c/factor, vin, vout), U_ex, v_in, v_ex, v_ap, how_many_samples=how_many_samples)
+                        else: # Sample Random points
+                            mean_infidelity_values[i_method][m, r, :] = integrators[i_method].Sample_Infidelities_vector(lambda c, U_ex: exact.expmH(c/factor, U_ex), lambda c, vin, vout: approx.expmH(c/factor, vin, vout), U_ex, v_in, v_ex, v_ap, how_many_samples=how_many_samples)
+                    ## Times ###############################################################################################################
+                    # use timeit to time the function approx.expmH with the arguments c1_2
+                    if r == 0 and do_times:
+                        times[i_method][m] = timeit_autorange_vector(approx, dim_hilbert, curr_c, v_in, v_ap )
+            if r == 0 and do_times:
+                times[-1] = timeit_autorange_vector(exact, dim_hilbert, curr_c, v_in, v_ap, pass_U=True)
+        # Save values onto *args = [max_I_mean, max_I_str, mean_I_mean, mean_I_std, times]
+        len_args = len(args)
+        if do_times:
+            len_args -= 1
+        ind = 0
+        i_method = 0
+        while ind < len_args: # last one for exact times
+            if do_max:
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:] = mean_std_asym(max_infidelity_values[i_method], axis=1) #max_I_mean, max_I_std
+                ind += 3
+            if do_mean:
+                args[ind][i,:], args[ind+1][i,:], args[ind+2][i,:]  = mean_std_asym(mean_infidelity_values[i_method], axis=(1,2)) #mean_I_mean, mean_I_std
+                ind += 3
+            if do_times:
+                pass
+                args[ind][i,:] = times[i_method] #time
+                ind += 1
+            i_method += 1
+        if do_times:
+            args[-1][i] = times[-1]
+            pass
     return args
 

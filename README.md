@@ -1,35 +1,65 @@
 # unipolator
-Unitary Interpolation, for the calculation of propagators of time dependent quantum systems. Speeds up your propagators. 
+Unitary Interpolation, for the fast calculation of propagators (and their derivatives) of time dependent quantum systems of the form $H(t) = H_0 + \sum_{i=1} c_i(t) H_i$ (for example in optimal control problems). We utilize a grid based interpolation scheme to calculate propagators from cached matrix decompositions. The computation of a propagator for a time step is as fast as a single Trotter step, but with the ability to achieve machine precision. 
 
-## Install 
-  Via `pip install unipolator`
+## Install and Import
+  Install via
+  ```
+  pip install unipolator
+  ```
+  and then simply import into a project via
+  ```
+  from unipolator import *
+  ```
 
-## Import  
-  Via `from unipolator import *`
-
-## How To:
-
-Generate an array of Hamiltonians `H_s[0,...] = H_0`, `H_s[i,...] = H_i` for a system with Hamiltonian $H(t) = H_0 + \sum_{i=1} c_i(t) H_i$.
-Initialize unitary interpolation 
+## Initialize the Unitary Interpolation Object:
+Describe a system with a double complex array of Hamiltonians `H_s`, with `H_s[i,...] = H_i ∆t`, so that for $n$ control Hamiltonians `H_s` is a $(n+1) \times d \times d$ array for a $d$ dimensional Hilbert space. Define the bounds of the interpolation (hyper-) volume via $n$ dimensional double arrays `c_mins` and `c_maxs` and define the number of bins for every dimension via the $n$ dimensional int64 array `c_bins`, to initialize the unitary interpolation cache 
 ```
 ui = UI(H_s, c_mins, c_maxs, c_bins)  
 ```
-Calculate unitary by passing a complex numpy array `U_ui` and coefficients `c` to, a return argument is not needed, the inputed array is simply modified
+Equivalently if we wish to propagate only wavevectors $\ket{\psi(t)} = U(t) \ket{\psi(0)}$ we initialize the unitary interpolation cache via
 ```
-ui.expmH( c, U_ui)
-``` 
-Similarly, pass a 3d array `dU`and calculate the derivatives as well.
+ui_vector = UI_vector(H_s, c_mins, c_maxs, c_bins, m)  
 ```
-ui.dexpmH( c, U, dU)
-``` 
-A 2d array allows the calculation of a complete pulse via
+where `m` is the number of wavevectors that are calculated in parallel.
+The package contains further methods listed at the bottom of this document.
+
+## Calculate:
+We can now use `ui` to calculate matrix exponentials, their derivatives, pulse sequences, and their gradients via the following methods:
+1. `expmH` calculates the unitary $U = \exp(-i H(c) \Delta t)$ for a given set of coefficients `c` (double array of length $n$), pass `U_ui` to the method to store the result (this avoids allocating new memory for every call, and allows reusing the same arrays)
+    ```
+    ui.expmH( c, U_ui)  
+    ``` 
+    Similarly we pass two $d \times m$ arrays `V_in` and `V_out`, with the $m$ input wavevectors and for the propagated wavevectors, via
+    ```
+    ui_vector.expmH( c, V_in, V_out)
+    ```
+2. `dexpmH` also outputs the derivatives of the unitaris (wavevectors) with respect to the control paracters `c`. This requires the additional passing of a $n \times d \times d$ array `dU` to store the derivatives in
+    ```
+    ui.dexpmH( c, U, dU)
+    ``` 
+    During the initalization we can also select which dervatives we wish to compute, via the additional argument `which_diffs` which requires an int64 array with the indexes of the control parameters for which we wish to compute the derivatives. 
+    
+    In the wavevector case, we replace the output variable `dU` with an additional $n \times m \times n$ arrays `dV_out`, so that
+    ```
+    ui_vector.dexpmH( c, V_in, V_out, dV_out)
+    ```
+3. `expmH_pulse` calculates the propagator of a piecewise constant pulse for a given set of coefficients `c_s`, now a 2d array of shape $N \times n$, where $N$ is the number of timesteps
 ```
 ui.expmH_pulse(cs, U)
 ``` 
-Finally the GRAPE method is supported via (pass an array `dI_dj.shape(n, cs.shape[0])` to store the gradients)
+4. `grape` calculates the infidelity of such a pulse with respect to a arget unitary `U_target` (using the indexes `target_indexes` of `U_target`), as well as the gradients of the control parameters along the pulse by using the GRAPE trick. We pass an array `dI_dj` of shape $n \times N$ to store the gradients at every time step for every control parameter
 ```
 ui.grape(cs, U_target, target_indexes, U, dU, dI_dj)
 ```
+
+### Other Methods:
+The package also contains classes for eigenvalue based exponentiations, Krylov based exponentiations and (symmetric-)  Trotterisations, namely 
+- `Hamiltonian_System(H_s)`, 
+- `Hamiltonian_System_vector(H_s, m)`, where `m` is the number of wavevectors that are calculated in parallel, 
+- `Trotter_System=(H_s, m_times)`, where `m_times` is the number of doublings $2^\mathrm{m}$ Trotter steps, 
+- `Symmetric_Trotter_System=(H_s, m_times)`,
+- `Trotter_System_vector(H_s, n_times)` where `n_times` is the number of performed Trotter steps ,
+- `Symmetric_Trotter_System_vector(H_s, n_times)`. 
 
 ## Author: 
 Michael Schilling

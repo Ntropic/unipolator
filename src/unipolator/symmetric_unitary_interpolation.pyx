@@ -146,8 +146,8 @@ cdef class Sym_UI:
         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
 
     cdef interpolate_single_u(self, double complex *u0):  #u0 => input the matrices for output
-        cdef int i, j
-        cdef int ind, indE
+        cdef Py_ssize_t i, j
+        cdef Py_ssize_t ind, indE
         if self.n_dims == 1:  # Shouldn't make any difference if you use symmetric 1D or non symmetric 1D interpolation
             ind = self.location[0] + self.d_location[0]
             self.vr = &self.Vr[ind, 0, 0]  # In 1D strides are 1
@@ -177,9 +177,8 @@ cdef class Sym_UI:
             self.L[1] = self.location[1]
             V_expE_W_pointer(self.cl, self.cr, self.ei, self.abs_alpha_rest[0], self.ur0, self.ur1, self.d, self.d2)  # Save onto self.ur1
             # Now outward
-            for k in range(self.n_dims_2):  # All except for the last element
-                i = k + 1
-                j = k + 2
+            for i in range(1,self.n_dims_1):  # All except for the last element
+                j = i + 1  # between [2, n_dims_1]
                 self.ei = &self.E[indE, 0]
                 self.L[j] += self.d_location[j]
                 indE = findex_0(self.L, self.strides_E[j, :], self.n_dims) + self.first_elements_E[j]  # For E
@@ -207,17 +206,21 @@ cdef class Sym_UI:
             MMM_cdot_pointer(self.vl, self.ur1, self.vr, u0, self.ur2, self.d)  # Save to u0
 
     cdef expmH_pointer(self, double[::1] c, double complex *u0):
-        if not c.shape[0] == self.n_dims:
-            raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
         self.single_parameters2oddgrid(c)
         self.interpolate_single_u(u0)
     def expmH(self, double[::1] c, double complex[:,::1] U):
         cdef double complex *u0 = &U[0, 0]
+        if not c.shape[0] == self.n_dims:
+            raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0].')
+        if not U.shape[0] == U.shape[1] == self.d:
+            raise ValueError('U.shape[0] and U.shape[1] need to be equal to H_s[0].shape[0].')
+
         self.expmH_pointer(c, u0)
 
     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
         cdef double complex *u0 = &U[0, 0, 0]
         cdef how_many = cs.shape[0]
+        cdef Py_ssize_t i
         for i in range(how_many):
             self.expmH_pointer(cs[i,:], u0)
             u0 += self.d2

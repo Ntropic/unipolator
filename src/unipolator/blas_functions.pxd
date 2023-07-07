@@ -45,3 +45,4 @@ cpdef void d_mat_add(double complex[:,::1] A, double complex[:,::1] B, double d)
 cdef void d_mat_add_pointer(double complex *a0, double complex *b0, double d, int n2) nogil
 
 cpdef void c_mat_add(double complex[:,::1] A, double complex[:,::1] B, double complex c) nogil
+cdef void c_mat_add_pointer(double complex *a0, double complex *b0, int nn) nogil
