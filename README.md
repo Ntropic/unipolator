@@ -44,13 +44,13 @@ We can now use `ui` to calculate matrix exponentials, their derivatives, pulse s
     ui_vector.dexpmH( c, V_in, V_out, dV_out)
     ```
 3. `expmH_pulse` calculates the propagator of a piecewise constant pulse for a given set of coefficients `c_s`, now a 2d array of shape $N \times n$, where $N$ is the number of timesteps
-```
-ui.expmH_pulse(cs, U)
-``` 
+    ```
+    ui.expmH_pulse(cs, U)
+    ``` 
 4. `grape` calculates the infidelity of such a pulse with respect to a arget unitary `U_target` (using the indexes `target_indexes` of `U_target`), as well as the gradients of the control parameters along the pulse by using the GRAPE trick. We pass an array `dI_dj` of shape $n \times N$ to store the gradients at every time step for every control parameter
-```
-ui.grape(cs, U_target, target_indexes, U, dU, dI_dj)
-```
+    ```
+    ui.grape(cs, U_target, target_indexes, U, dU, dI_dj)
+    ```
 
 ### Other Methods:
 The package also contains classes for eigenvalue based exponentiations, Krylov based exponentiations and (symmetric-)  Trotterisations, namely 
