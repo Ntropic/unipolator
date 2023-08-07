@@ -9,7 +9,7 @@
             "/openmp"
         ],
         "include_dirs": [
-            "C:\\Users\\schilling\\anaconda3\\envs\\mypy\\lib\\site-packages\\numpy\\core\\include"
+            "C:\\Users\\micha\\anaconda3\\envs\\mypy\\lib\\site-packages\\numpy\\core\\include"
         ],
         "name": "unipolator.blas_functions_vectors",
         "sources": [

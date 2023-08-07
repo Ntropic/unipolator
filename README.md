@@ -23,6 +23,21 @@ ui_vector = UI_vector(H_s, c_mins, c_maxs, c_bins, m)
 where `m` is the number of wavevectors that are calculated in parallel.
 The package contains further methods listed at the bottom of this document.
 
+## Automatic Binning
+The method `UI_bins` automatically calculates the optimal binning for a target infidelity (default `I_tar=1e-10`). Use via
+```
+bins = UI_bins(H_s, c_mins, c_maxs, I_tar=1e-10)
+```
+By calling 
+```
+ui = UI_auto(H_s, c_mins, c_maxs, I_tar=1e-10)
+```
+or
+```
+ui_vector = UI_vector_auto(H_s, c_mins, c_maxs, I_tar=1e-10, m)
+```
+this method is called automatically during the initialization of the unitary interpolation cache.
+
 ## Calculate:
 We can now use `ui` to calculate matrix exponentials, their derivatives, pulse sequences, and their gradients via the following methods:
 1. `expmH` calculates the unitary $U = \exp(-i H(c) \Delta t)$ for a given set of coefficients `c` (double array of length $n$), pass `U_ui` to the method to store the result (this avoids allocating new memory for every call, and allows reusing the same arrays)

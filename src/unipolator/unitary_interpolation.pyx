@@ -6,7 +6,7 @@ from .exp_and_log cimport *
 from .indexing cimport *
 from .caching cimport *
 from .blas_functions cimport *
-
+from .autobinning import optimal_binning
 
 # Unitary Interpolation
 cdef class UI:
@@ -34,7 +34,7 @@ cdef class UI:
     cdef double[::1] abs_alpha_rest, alpha
     cdef long[::1] first_elements_E, first_elements_C, L
     cdef long[::1] d_di
-    def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, long[::1] c_bins, long[::1] which_diffs = np.array([], dtype=long)):
+    def __init__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, long[::1] c_bins, long[::1] which_diffs = np.array([], dtype=long)):
         # Construct parameters
         self.n_dims = c_min_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
@@ -422,4 +422,12 @@ cdef class UI:
             new_p0, p0 = p0, new_p0
             new_q0, q0 = q0, new_q0
         return I0
+
+
+def UI_auto(H_s, c_min_s, c_max_s, I_tar=1e-10, which_diffs = np.array([], dtype=np.compat.long)):
+    opt_bins  = optimal_binning(H_s, c_mins=c_min_s, c_maxs=c_max_s, I_tar=I_tar)
+    return UI(H_s, c_min_s, c_max_s, opt_bins, which_diffs)
+
+def UI_bins(H_s, c_min_s, c_max_s, I_tar=1e-10):
+    return optimal_binning(H_s, c_mins=c_min_s, c_maxs=c_max_s, I_tar=I_tar)
 

@@ -69,22 +69,52 @@ def plusminus(num, std_num, precision = 2):
     else:
         l = precision+2
     # determine the exponent
-    order = int(floor(log10(abs(num))))
-    order_error = int(floor(log10(abs(std_num))))
-    # determine precision so that at least one digit is shown of std_num
-    if order_error < order:
-        min_precision = order - order_error
-        if precision < min_precision:
-            precision = min_precision
-    # determine the mantissa
-    mantissa = num/10**order
-    mantissa_std = std_num/10**order
-    # Create the string
-    if not order == 0:
-        string = '('+fstr(mantissa, precision)+'±'+fstr(mantissa_std, precision)+')e'+fstr(order, 0)
+    # exception if values too small
+    if num < 10**-15:
+        order = None
     else:
-        string = fstr(mantissa, precision)+'±'+fstr(mantissa_std, precision)
+        order = int(floor(log10(abs(num))))
+    if std_num < 10**-15:
+        order_error = None
+    else:
+        order_error = int(floor(log10(abs(std_num))))
+    if order_error is None:
+        if not order is None:
+            string = fstr(num, precision)
+        else:
+            string = '0±0'
+    elif order is None:
+        string = '0 ± '+fstr(std_num, precision)
+    else:
+        # determine precision so that at least one digit is shown of std_num
+        if order_error < order:
+            min_precision = order - order_error
+            if precision < min_precision:
+                precision = min_precision
+        # determine the mantissa
+        mantissa = num/10**order
+        mantissa_std = std_num/10**order
+        # Create the string
+        if not order == 0:
+            string = '('+fstr(mantissa, precision)+'±'+fstr(mantissa_std, precision)+')e'+fstr(order, 0)
+        else:
+            string = fstr(mantissa, precision)+'±'+fstr(mantissa_std, precision)
     return string
+
+def latex_int_list(l):
+    return r'[' + r',\, '.join([str(int(i)) for i in l]) + r']'
+
+def latex_float_list(l,prec=2):
+    return r'[' + r',\, '.join([fstr(i, prec) for i in l]) + r']'
+
+def latex_exp_list(l,prec=2):
+    # first find the exponents of every element
+    l = np.array(l)
+    order = np.floor(np.log10(np.abs(l))).astype(int)
+    # find lowest order, to append to the list
+    min_order = np.min(order)
+    l_resized = [i*10**(-min_order) for i in l]
+    return r'[' + r',\, '.join([fstr(i, prec) for i in l_resized]) + r']'+'e'+fstr(min_order, 0)
 
 def rep_zip(*args):
     """
@@ -437,3 +467,81 @@ def clean_notebooks(dir=''):
             if file.endswith('.ipynb'):
                 print('Cleaning ' + os.path.join(root, file))
                 os.system('nbstripout ' + os.path.join(root, file))
+
+
+#### Creates LaTeX tables from arrays
+def latex_table(names, str_funs, arrays, vert_lines=True):
+    # accepts str_funs[i] = 'i' for integers, 'f' for floats, 'ipm' for integers with plus minus....
+    # make a latex table
+    n = len(names)
+    m = len(arrays)
+    if n != m:
+        raise ValueError("The number of names and arrays must be the same.")
+    str_fun = []
+    for i in range(n):
+        if str_funs[i][0] == 'i': # integers
+            if not len(str_funs[i]) == 1:
+                if str_funs[i] == 'ipm': # integer plus minus
+                    str_fun.append(lambda x: str(int(np.round(x[0]))) + ' \pm ' + str(int(np.round(x[1]))))
+                else:
+                    raise ValueError("Unknown string function: ", str_funs[i])
+            else:
+                str_fun.append(lambda x: str(int(x)))
+        elif str_funs[i][0] == 'f': # floats
+            if len(str_funs[i]) == 1:
+                prec = 2
+            else:
+                prec = int(str_funs[i][1:])
+            str_fun.append(lambda x: num2str(x, prec))
+        elif str_funs[i][0] == 'e':  # scientific notation
+            if len(str_funs[i]) == 1:
+                prec = 2
+            else:
+                prec = int(str_funs[i][1:])
+            str_fun.append(lambda x: num2expstr(x, prec))
+        elif str_funs[i][0] == 'p': # plus minus with scientific notation -> expects two values
+            if len(str_funs[i]) == 1:
+                prec = 2
+                prec = int(str_funs[i][1:])
+            str_fun.append(lambda x: plusminus(x[0], x[1], prec))
+        elif str_funs[i][0] == 'l': # list of integers
+            if len(str_funs[i]) == 1:
+                str_fun.append(latex_int_list)
+            else: # list of floats
+                if str_funs[i][1] == 'f':
+                    if len(str_funs[i]) == 2:
+                        prec = 2
+                    else:
+                        prec = int(str_funs[i][2:])
+                    str_fun.append(lambda x: latex_float_list(x, prec))
+                if str_funs[i][1] == 'e':
+                    if len(str_funs[i]) == 2:
+                        prec = 1
+                    else:
+                        prec = int(str_funs[i][2:])
+                    str_fun.append(lambda x: latex_exp_list(x, prec))
+                else:
+                    raise ValueError("Unknown string function: ", str_funs[i])
+        else: # str_funs[i] is None:
+            str_fun.append(lambda x: str(x))
+    latex_string = r"\begin{tabular}{"
+    if vert_lines:
+        latex_string += '|'+r"|".join(["c"]*n) + r"|}\hline" + "\n"
+    else:
+        latex_string += r' '.join(["c"]*n) + r'}\hline' + '\n'
+    #latex_string += r'\hline' + '\n'
+    latex_string += r' & '.join(names) + r' \\' + '\n'
+    latex_string += r'\hline' + '\n'
+    l = len(arrays[0])
+    for i in range(l):
+        try:
+            latex_string += r' & '.join(['$'+str_fun[j](arr[i])+'$' for j, arr in enumerate(arrays)]) + r' \\' + '\n'
+        except:
+            arr_string = r' & '.join([str(arr[i]) for arr in arrays])
+            raise ValueError("Couldn't convert values (",arr_string,')')
+    latex_string += r'\hline' + '\n'
+    latex_string += r'\end{tabular}'
+    latex_string = latex_string.replace('±', r' \pm ')
+    # replace e-x with \num{e-10} where x can be any numbers
+    latex_string = re.sub(r'e-(\d+)', r'\\num{e-\1}', latex_string)
+    return latex_string

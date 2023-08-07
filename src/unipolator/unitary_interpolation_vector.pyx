@@ -7,6 +7,7 @@ from .indexing cimport *
 from .caching cimport *
 from .blas_functions cimport *
 from .blas_functions_vectors cimport *
+from .autobinning import optimal_binning
 
 
 # Unitary Interpolation
@@ -400,3 +401,8 @@ cdef class UI_vector:
             new_q0, q0 = q0, new_q0
         return I0
     """
+
+
+def UI_vector_auto(H_s, c_min_s, c_max_s, I_tar=1e-10, which_diffs = np.array([], dtype=np.compat.long), m = 1):
+    opt_bins  = optimal_binning(H_s, c_mins=c_min_s, c_maxs=c_max_s, I_tar=I_tar)
+    return UI_vector(H_s, c_min_s, c_max_s, opt_bins, which_diffs, m = 1)

@@ -32,7 +32,9 @@ def no_cythonize(extensions, **_ignore):
 # make a list of the .pyx files in the os.join.path("src",name) directory
 #pyx_files = [os.path.splitext(fn)[0] for fn in os.listdir(os.path.join('src', name)) if fn.endswith(".pyx")] 
 pyx_files = ['blas_functions', 'blas_functions_vectors', 'exp_and_log', 'indexing', 'caching', 'unitary_interpolation',  'symmetric_unitary_interpolation', 'hamiltonian_system', 'trotter_system', 'sym_trotter_system']
+#pyx_files += ['autobinning']
 pyx_files += ['unitary_interpolation_vector', 'symmetric_unitary_interpolation_vector', 'trotter_system_vector', 'sym_trotter_system_vector', 'hamiltonian_system_vector']
+
 # check which operating system we are on
 # Linux?
 if os.name == 'posix':   # Linux or Mac OSX
@@ -62,16 +64,16 @@ with open("requirements-dev.txt") as fp:
 setup(   
     name = "unipolator",
     #zip_safe = False,
-    version    = "0.3.0",
+    version     = "0.3.1",
     author = "Michael Schilling",
     author_email = "michael@ntropic.de",
     description  = "Unipolator allows for n dimensional unitary interpolation, and the calculation of propagators using unitary interpolation. Speeds up your propagators for linear quantum systems.",
     long_description = long_description,
     long_description_content_type = "text/markdown",
     url = "https://github.com/Ntropic/unipolator",
-    download_url = "https://github.com/Ntropic/unipolator/archive/refs/tags/v0.3.0.tar.gz",
+    download_url = "https://github.com/Ntropic/unipolator/archive/refs/tags/v0.3.1.tar.gz",
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "programming language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
