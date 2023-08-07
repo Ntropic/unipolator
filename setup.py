@@ -64,14 +64,14 @@ with open("requirements-dev.txt") as fp:
 setup(   
     name = "unipolator",
     #zip_safe = False,
-    version     = "0.3.1",
+    version      = "0.3.2",
     author = "Michael Schilling",
     author_email = "michael@ntropic.de",
     description  = "Unipolator allows for n dimensional unitary interpolation, and the calculation of propagators using unitary interpolation. Speeds up your propagators for linear quantum systems.",
     long_description = long_description,
     long_description_content_type = "text/markdown",
     url = "https://github.com/Ntropic/unipolator",
-    download_url = "https://github.com/Ntropic/unipolator/archive/refs/tags/v0.3.1.tar.gz",
+    download_url = "https://github.com/Ntropic/unipolator/archive/refs/tags/v0.3.2.tar.gz",
     classifiers=[
         "programming language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
