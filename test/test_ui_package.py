@@ -9,7 +9,6 @@ def test_random_hamiltonian():
     s = 16 # dimension of the hamiltonian
     rng = random.default_rng(123)
     amps = np.pi/2*array([1.0, 0.025])
-    #H_s = dq.Random_parametric_Hamiltonian_Haar(n, s, amps, rng)
     H_s = dq.Random_parametric_Hamiltonian_gauss(n, s, sigmas=amps, rng=rng)
     c_mins = zeros(n)
     c_maxs = ones(n)
