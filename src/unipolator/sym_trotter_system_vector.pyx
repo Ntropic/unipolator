@@ -49,7 +49,7 @@ cdef class Sym_Trotter_System_vector:
         self.n_dims_2 = self.n_dims - 2
         self.n_dims_3 = self.n_dims - 3
         if n_times < 0:
-            self.n_times = 2**m_times
+            self.n_times = int(2**m_times)
         else:
             self.n_times = n_times
         self.d = H_s.shape[1]

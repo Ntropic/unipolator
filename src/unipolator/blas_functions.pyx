@@ -204,7 +204,6 @@ cpdef void c_eigh_lapack(double complex[:,::1] H, double complex[:,::1] V, doubl
     #cdef int lwork = 2*n + n*n+1
     cdef double complex[:] work = np.empty([lwork], dtype=np.complex128)
     cdef double complex *work0 = &work[0]
-    #cdef int lrwork = 1 + 5*n + 2*n**2 +1
     cdef double[:] rwork = np.empty([lrwork], dtype=np.double)
     cdef double *rwork0 = &rwork[0]
 

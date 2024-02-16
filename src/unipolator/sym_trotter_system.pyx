@@ -48,7 +48,7 @@ cdef class Sym_Trotter_System:
         self.n_dims_2 = self.n_dims - 2
         self.n_dims_3 = self.n_dims - 3
         self.m_times = m_times
-        self.n_times = 2**m_times
+        self.n_times = int(2**m_times)
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
         if which_diffs.shape[0] == 0:
