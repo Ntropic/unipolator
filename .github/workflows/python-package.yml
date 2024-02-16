@@ -26,8 +26,14 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements.txts
         pip install numpy
         pip install .
-    - name: Run tests
-      run: pytest test 
+    - name: Test with pytest
+      run: |
+        pip install pytest pytest-cov
+        pytest --cov-report=lcov:./coverage/lcov.info --cov=kronbinations test/
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
