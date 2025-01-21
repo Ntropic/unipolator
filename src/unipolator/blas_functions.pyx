@@ -5,18 +5,18 @@ import numpy as np
 from scipy.linalg.cython_blas cimport zgemm, zscal, zdscal, zaxpy, zcopy, zdotu
 from scipy.linalg.cython_lapack cimport zheevd
 
-cdef void AxB_elementwise_pointer(double complex *a0, double complex *b0, double complex *c0, int n2) nogil:
+cdef void AxB_elementwise_pointer(double complex *a0, double complex *b0, double complex *c0, int n2) noexcept nogil :
     cdef int i
     for i in range(n2):
         c0[i] = a0[i]*b0[i]
 
-cdef void MM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) nogil:
+cdef void MM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *ori = 'n'
     cdef double complex alpha = 1.0
     cdef double complex beta = 0.0
     zgemm(ori, ori, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, c0, &n)
-cdef void MM_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) nogil:
+cdef void MM_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *ori = 'n'
     cdef double complex alpha_c
@@ -24,7 +24,7 @@ cdef void MM_cdot_scale_pointer(double alpha, double complex *a0, double complex
     alpha_c.real = alpha
     alpha_c.imag = 0
     zgemm(ori, ori, &n, &n, &n, &alpha_c, b0, &n, a0, &n, &beta, c0, &n)
-cpdef void MM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) nogil: # C = A @ B
+cpdef void MM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) noexcept nogil : # C = A @ B
     # matrix multiply 2 square matrices A (n x n) and B (n x n) -> C = A @ B
     cdef char *ori = 'n'
     cdef double complex *a0=&A[0,0]
@@ -36,13 +36,13 @@ cpdef void MM_cdot(double complex[:,::1] A, double complex[:,::1] B, double comp
     n = A.shape[0]
     zgemm(ori, ori, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, c0, &n)
 
-cdef void MMM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, double complex *e0, int n) nogil: # A @ B @ C = D
+cdef void MMM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, double complex *e0, int n) noexcept nogil : # A @ B @ C = D
     cdef char *ori = 'n'
     cdef double complex alpha = 1.0
     cdef double complex beta = 0.0
     zgemm(ori, ori, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, e0, &n)   
     zgemm(ori, ori, &n, &n, &n, &alpha, c0, &n, e0, &n, &beta, d0, &n)
-cdef void MMM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D, double complex[:,::1] E) nogil:  # A @ B @ C = D (helper variable E)
+cdef void MMM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D, double complex[:,::1] E) noexcept nogil :  # A @ B @ C = D (helper variable E)
     cdef double complex *a0 = &A[0, 0]
     cdef double complex *b0 = &B[0, 0]
     cdef double complex *c0 = &C[0, 0]
@@ -51,14 +51,14 @@ cdef void MMM_cdot(double complex[:,::1] A, double complex[:,::1] B, double comp
     cdef int n = A.shape[0]
     MMM_cdot_pointer(a0, b0, c0, d0, e0, n)
 
-cdef void DagM_M_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) nogil:
+cdef void DagM_M_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'n'
     cdef char *orientB = 'c'
     cdef double complex alpha = 1.0
     cdef double complex beta = 0.0
     zgemm(orientA, orientB, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, c0, &n)
-cdef void DagM_M_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) nogil:
+cdef void DagM_M_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'n'
     cdef char *orientB = 'c'
@@ -67,7 +67,7 @@ cdef void DagM_M_cdot_scale_pointer(double alpha, double complex *a0, double com
     alpha_c.real = alpha
     alpha_c.imag = 0
     zgemm(orientA, orientB, &n, &n, &n, &alpha_c, b0, &n, a0, &n, &beta, c0, &n)
-cpdef void DagM_M_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) nogil:
+cpdef void DagM_M_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'n'
     cdef char *orientB = 'c'
@@ -79,14 +79,14 @@ cpdef void DagM_M_cdot(double complex[:,::1] A, double complex[:,::1] B, double 
     cdef int n = A.shape[0]
     zgemm(orientA, orientB, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, c0, &n)
 
-cdef void M_DagM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) nogil:
+cdef void M_DagM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'c'
     cdef char *orientB = 'n'
     cdef double complex alpha = 1.0
     cdef double complex beta = 0.0
     zgemm(orientA, orientB, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, c0, &n)
-cdef void M_DagM_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) nogil:
+cdef void M_DagM_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'c'
     cdef char *orientB = 'n'
@@ -95,7 +95,7 @@ cdef void M_DagM_cdot_scale_pointer(double alpha, double complex *a0, double com
     alpha_c.real = alpha
     alpha_c.imag = 0
     zgemm(orientA, orientB, &n, &n, &n, &alpha_c, b0, &n, a0, &n, &beta, c0, &n)
-cpdef void M_DagM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) nogil:
+cpdef void M_DagM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'c'
     cdef char *orientB = 'n'
@@ -108,29 +108,29 @@ cpdef void M_DagM_cdot(double complex[:,::1] A, double complex[:,::1] B, double 
     zgemm(orientA, orientB, &n, &n, &n, &alpha, b0, &n, a0, &n, &beta, c0, &n)
 
 # Triple products
-cpdef void DagA_B_A_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D) nogil:
+cpdef void DagA_B_A_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D) noexcept nogil :
     # calculates the product: D = Dag(A) @ B @ A
     # uses C to store intermediate results
     DagM_M_cdot(A, B, C)
     MM_cdot(C,A, D)
-cdef void DagA_B_A_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, int n) nogil:
+cdef void DagA_B_A_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, int n) noexcept nogil :
     # calculates the product: D = Dag(A) @ B @ A
     # uses C to store intermediate results
     DagM_M_cdot_pointer(a0, b0, c0, n)
     MM_cdot_pointer(c0, a0, d0, n)
 
-cpdef void A_B_DagA_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D) nogil:
+cpdef void A_B_DagA_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D) noexcept nogil :
     # calculates the product: D = A @ B @ Dag(A)
     # uses C to store intermediate results
     MM_cdot(A, B, C)
     M_DagM_cdot(C, A, D)
-cdef void A_B_DagA_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, int n) nogil:
+cdef void A_B_DagA_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, int n) noexcept nogil :
     # calculates the product: D = A @ B @ Dag(A)
     # uses C to store intermediate results
     MM_cdot_pointer(a0, b0, c0, n)
     M_DagM_cdot_pointer(c0, a0, d0, n)
 
-cdef double complex tr_dot_pointer(double complex *v0, double complex *w0, int n) nogil: # -i*E*amp*exp(-i*E*t)
+cdef double complex tr_dot_pointer(double complex *v0, double complex *w0, int n) noexcept nogil : # -i*E*amp*exp(-i*E*t)
     cdef double complex c
     cdef double abstr
     cdef int inc = 1
@@ -146,7 +146,7 @@ cpdef double complex tr_dot(double complex[:,::1] V, double complex[:,::1] W, in
     cdef double complex *w0 = &W[0,0]
     return tr_dot_pointer(v0, w0, n)
 
-cdef double complex tr_dot_pointer_target_indexes(double complex *v0, double complex *w0, int n, int[::1] target_indexes) nogil: # -i*E*amp*exp(-i*E*t)
+cdef double complex tr_dot_pointer_target_indexes(double complex *v0, double complex *w0, int n, int[::1] target_indexes) noexcept nogil : # -i*E*amp*exp(-i*E*t)
     cdef double complex c
     cdef int i, i_s
     cdef int inc = 1
@@ -161,7 +161,7 @@ cpdef double complex tr_dot_target_indexes(double complex[:,::1] V, double compl
     cdef double complex *w0 = &W[0,0]
     return tr_dot_pointer_target_indexes(v0, w0, n, target_indexes)
 
-cdef double complex target_indexes_trace_pointer(double complex *v0, int n, int[::1] target_indexes) nogil:
+cdef double complex target_indexes_trace_pointer(double complex *v0, int n, int[::1] target_indexes) noexcept nogil :
     cdef int i
     cdef double complex c = 0
     for i in range(target_indexes.shape[0]):
@@ -220,7 +220,7 @@ cpdef void c_eigh_lapack(double complex[:,::1] H, double complex[:,::1] V, doubl
 
 ###### These could be useful for a future additional unitary interpolation approach ####################################
 ###### Additions #######################################################################################################
-cpdef void d_third_order_tensor_scale(double complex[:,:,::1] A, double d) nogil:
+cpdef void d_third_order_tensor_scale(double complex[:,:,::1] A, double d) noexcept nogil :
     cdef int s = A.shape[0]
     cdef int n = A.shape[1]
     cdef int snn = s*n*n
@@ -228,21 +228,21 @@ cpdef void d_third_order_tensor_scale(double complex[:,:,::1] A, double d) nogil
     cdef double complex *a0=&A[0,0,0]
     zdscal(&snn, &d, a0, &incz)
 
-cpdef void d_mat_scale(double complex[:,::1] A, double d) nogil:
+cpdef void d_mat_scale(double complex[:,::1] A, double d) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int nn = n*n
     cdef int incz = 1
     cdef double complex *a0=&A[0,0]
     zdscal(&nn, &d, a0, &incz)
 
-cpdef void c_mat_scale(double complex[:,::1] A, double complex c) nogil:
+cpdef void c_mat_scale(double complex[:,::1] A, double complex c) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int nn = n*n
     cdef int incz = 1
     cdef double complex *a0=&A[0,0]
     zscal(&nn, &c, a0, &incz)
 
-cpdef void d_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double d): # nogil:
+cpdef void d_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double d): # noexcept nogil :
     cdef int n = A.shape[0]
     cdef int nn = n*n
     cdef int incz = 1
@@ -252,7 +252,7 @@ cpdef void d_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, dou
     cdef double complex *c0=&C[0,0]
     zcopy(&nn, c0, &incz, a0, &incz)
 
-cpdef void c_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex c): # nogil:
+cpdef void c_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex c): # noexcept nogil :
     # 
     cdef int n = A.shape[0]
     cdef int nn = n*n
@@ -263,7 +263,7 @@ cpdef void c_mat_add_first(double complex[:,::1] A, double complex[:,::1] B, dou
     cdef double complex *c0=&C[0,0]
     zcopy(&nn, c0, &incz, a0, &incz)
 
-cpdef void d_mat_add(double complex[:,::1] A, double complex[:,::1] B, double d) nogil: # A = A+B*d
+cpdef void d_mat_add(double complex[:,::1] A, double complex[:,::1] B, double d) noexcept nogil : # A = A+B*d
     cdef int n = A.shape[0]
     cdef int nn = n*n
     cdef int incz = 1
@@ -272,12 +272,12 @@ cpdef void d_mat_add(double complex[:,::1] A, double complex[:,::1] B, double d)
     cdef double complex c = <double complex> d
     zaxpy(&nn, &c, b0, &incz, a0, &incz)
 
-cdef void d_mat_add_pointer(double complex *a0, double complex *b0, double d, int n2) nogil: # A = A+B*d
+cdef void d_mat_add_pointer(double complex *a0, double complex *b0, double d, int n2) noexcept nogil : # A = A+B*d
     cdef int incz = 1
     cdef double complex c = <double complex> d
     zaxpy(&n2, &c, b0, &incz, a0, &incz)
 
-cpdef void c_mat_add(double complex[:,::1] A, double complex[:,::1] B, double complex c) nogil: # A = A+B*c
+cpdef void c_mat_add(double complex[:,::1] A, double complex[:,::1] B, double complex c) noexcept nogil : # A = A+B*c
     cdef int n = A.shape[0]
     cdef int nn = n*n
     cdef int incz = 1
@@ -285,7 +285,7 @@ cpdef void c_mat_add(double complex[:,::1] A, double complex[:,::1] B, double co
     cdef double complex *b0=&B[0,0]
     zaxpy(&nn, &c, b0, &incz, a0, &incz)
 
-cdef void c_mat_add_pointer(double complex *a0, double complex *b0, int nn) nogil: # A = A+B*c
+cdef void c_mat_add_pointer(double complex *a0, double complex *b0, int nn) noexcept nogil : # A = A+B*c
     cdef int incz = 1
     cdef double complex c = 1.0 + 0.0j
     zaxpy(&nn, &c, b0, &incz, a0, &incz)

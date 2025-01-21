@@ -42,13 +42,18 @@ def intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng):
     repeats = 5
     point_ratio = 2.0
     integrators = []
-    ui_done, trotter_done = False, False
+    ui_done, trotter_done, expm_done = False, False, False
     for name, method in methods.items():
         if 'UI' in name: # only create the UI integrator once and copy it for every method using ui
             if not ui_done:
                 ui_integrator = I_mean_UI(c_mins, c_maxs, c_bins, min_order=1, max_order=2, rng=rng, repeats=repeats, point_ratio=point_ratio)
                 ui_done = True
             integrators.append(ui_integrator)
+        if 'Expm' in name: # only create the Expm integrator once and copy it for every method using Expm
+            if not expm_done:
+                expm_integrator = I_mean_expm(c_mins, c_maxs, rng=rng)
+                expm_done = True
+            integrators.append(expm_integrator)
         else: # Trotter
             if not trotter_done:
                 trotter_integrator = I_mean_trotter(c_mins, c_maxs, min_order=1, max_order=2, rng=rng, repeats=repeats, point_ratio=point_ratio)
@@ -60,6 +65,46 @@ def intitialize_integrators(methods, c_mins, c_maxs, c_bins, rng):
 def mean_std(x): # Calculate the mean and standard deviation of an array summing over the second axis
     n = x.ndim - 1
     return np.mean(x, axis=n), np.std(x, axis=n)
+
+
+def mean_std_asym(arr, axis=-1):
+    # Calculate the mean and two std's for each side of the mean (asymmetric std)
+    # first check if axis is a tuple
+    if isinstance(axis, (tuple, list, np.ndarray)):
+        # create a shape_out list 
+        shape = arr.shape
+        shape_out = []
+        for i in range(len(shape)):
+            if not i in axis:
+                shape_out.append(shape[i])
+        mean = np.zeros(shape_out)
+        std_min = np.zeros(shape_out)
+        std_max = np.zeros(shape_out)
+        for ind, ind_reduced in zip(nditer_slices(shape, slice_dimensions=axis), nditer_slices(shape_out)):
+            mean[ind_reduced], std_min[ind_reduced], std_max[ind_reduced] = mean_std_asym(arr[ind], axis=-1) 
+        return mean, std_min, std_max
+    elif axis < 0:
+        mean = np.mean(arr)
+        smaller_than = arr[arr<mean]
+        larger_than = arr[arr>mean]
+        std_min = np.sqrt(np.sum((mean - smaller_than)**2)/(len(smaller_than) - 1))
+        std_max = np.sqrt(np.sum((larger_than - mean)**2)/(len(larger_than) -1))
+        return mean, std_min, std_max
+    else:
+        # iterate over all axis except the one specified in axis
+        #define output arrays and their shape
+        shape = arr.shape
+        shape_out = shape[:axis] + shape[axis+1:]
+        mean = np.zeros(shape_out)
+        std_min = np.zeros(shape_out)
+        std_max = np.zeros(shape_out)
+        # iterate over all axis except the one specified in axis, get the index for every iteration in loop
+        for ind in np.ndindex(shape_out):
+            # modify the index to include slice along axis
+            ind_post = ind[:axis] + (slice(None),) + ind[axis:]
+            # calculate mean and asymmetric std for this slice
+            mean[ind], std_min[ind], std_max[ind] = mean_std_asym(arr[ind_post], axis=-1)
+        return mean, std_min, std_max
 
 
 def Infidelities_and_Times(k, methods, to_calculate, *args):

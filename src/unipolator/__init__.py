@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#from unipolator.autobinning import *
+from unipolator.autobinning import *
 from unipolator.hamiltonian_system import *
 
 from unipolator.unitary_interpolation import *

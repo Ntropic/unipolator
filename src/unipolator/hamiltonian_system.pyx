@@ -9,9 +9,9 @@ from scipy.linalg.cython_lapack cimport zheevd
 
 # Hamiltonian_System
 cdef class Hamiltonian_System:
-    # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
-    cdef int n_dims, n_dims_1, d, d2, n_d_di_1, n_d_di,
-    cdef long[::1] d_di
+    # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
+    cdef int n_dims, n_dims_1, d, d2, n_d_di_1, n_d_di
+    cdef npc.intp_t[::1] d_di            # CHANGED: was long[::1]
     cdef double[::1] E
     cdef double complex[::1] C1
     cdef double complex[:,:,::1] H
@@ -36,16 +36,21 @@ cdef class Hamiltonian_System:
     cdef char *jobz
     cdef char *uplo
     cdef int info
-    def __cinit__(self, double complex[:,:,::1] H_s, long[::1] which_diffs = np.array([], dtype=long)):
+
+    def __cinit__(self, double complex[:,:,::1] H_s,
+                  npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp)):  # CHANGED
         # Construct parameters
         self.n_dims = H_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
+
         if which_diffs.shape[0] == 0:
-            self.d_di = np.arange(self.n_dims_1)
+            # Use np.intp for a consistent memoryview type
+            self.d_di = np.arange(self.n_dims_1, dtype=np.intp)  # CHANGED
         else:
             self.d_di = which_diffs
+
         self.n_d_di_1 = self.d_di.shape[0] - 1
         self.n_d_di = self.d_di.shape[0]
 
@@ -78,13 +83,13 @@ cdef class Hamiltonian_System:
         self.work0 = &self.work[0]
         self.rwork = np.empty([self.lrwork], dtype=np.double)
         self.rwork0 = &self.rwork[0]
-        self.iwork = np.empty([self.liwork], dtype=np.int32)
+        self.iwork = np.empty([self.liwork], dtype=np.int32)  # stays int32 for LAPACK
         self.iwork0 = &self.iwork[0]
-        self.jobz = 'v'  #eigenvectors and values -> v
+        self.jobz = 'v'  # eigenvectors and values -> v
         self.uplo = 'l'  # upper triangle
         self.info = 0
 
-    def set_which_diffs(self, long[::1] which_diffs):
+    def set_which_diffs(self, npc.intp_t[::1] which_diffs):  # CHANGED
         self.d_di = which_diffs
         self.n_d_di = self.d_di.shape[0]
 

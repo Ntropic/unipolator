@@ -6,14 +6,14 @@ import numpy as np
 from scipy.linalg.cython_blas cimport zgemm, zscal, zcopy
 from scipy.sparse.linalg._expm_multiply import LazyOperatorNormInfo, _fragment_3_1
 
-cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) nogil:
+cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :
     # matrix multiply 2 matrices A (n x n) and B (n x m)
     cdef char *ori = 'n'
     #cdef double complex alpha = 1.0
     cdef double complex beta = 0.0
     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
 
-cdef void MM_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) nogil:
+cdef void MM_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :
     # matrix multiply 2 matrices A (n x n) and B (n x m)
     cdef char *ori = 'n'
     cdef double complex alpha = 1.0
@@ -33,7 +33,7 @@ cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double co
     cdef double complex beta = 0.0
     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
 
-cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) nogil:
+cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef char *orientA = 'n'
     cdef char *orientB = 'c'
@@ -41,7 +41,7 @@ cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double c
     cdef double complex beta = 0.0
     zgemm(orientA, orientB, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
 
-cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) nogil:
+cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil :
     # matrix multiply 2 square matrices A (n x n) and B (n x n)
     cdef double complex *a0=&A[0,0]
     cdef double complex *v0=&v[0,0]
@@ -51,7 +51,7 @@ cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, doubl
     DagM_M_cdot_pointer_v(a0, v0, c0, n, m)
 
 
-cdef void v_exp_pointer_v(double *e0, double complex *v0, double t, int n, int m) nogil: # -i*E*amp*exp(-i*E*t)@v
+cdef void v_exp_pointer_v(double *e0, double complex *v0, double t, int n, int m) noexcept nogil : # -i*E*amp*exp(-i*E*t)@v
     cdef double complex c
     cdef double ei
     cdef int incz = 1
@@ -68,7 +68,7 @@ cdef void v_exp_pointer_v(double *e0, double complex *v0, double t, int n, int m
         c.imag = -sin(ei)
         zscal(&m, &c, v0, &incz)
 
-cdef void v_exp_v_pointer_v(double amp, double *e0, double complex *v0, double t, int n, int m) nogil: 
+cdef void v_exp_v_pointer_v(double amp, double *e0, double complex *v0, double t, int n, int m) noexcept nogil : 
     cdef double complex c
     cdef double ei, f
     cdef int incz = 1
@@ -91,7 +91,7 @@ cdef void v_exp_v_pointer_v(double amp, double *e0, double complex *v0, double t
 
 
 ##### Batch computations ############################################
-cdef void MM_cdot_pointer_batch_v(double complex *a0, double complex *vi, double complex *vo, double complex *di, double complex *do, int n, int m, int nm, int batch_ind) nogil:
+cdef void MM_cdot_pointer_batch_v(double complex *a0, double complex *vi, double complex *vo, double complex *di, double complex *do, int n, int m, int nm, int batch_ind) noexcept nogil :
     # calculate all matrix products in a batch jumping by nm for batch_ind 
     cdef char *ori = 'n'
     cdef double complex alpha = 1.0
@@ -105,7 +105,7 @@ cdef void MM_cdot_pointer_batch_v(double complex *a0, double complex *vi, double
         di2 += nm
         do2 += nm
 
-cdef void MM_cdot_batch_v(double complex[:,::1] A, double complex[:,::1] V_in, double complex[:,::1] V_out, double complex[:,:,::1] dV_in, double complex[:,:,::1] dV_out, int n, int m, int nm, int batch_ind) nogil:
+cdef void MM_cdot_batch_v(double complex[:,::1] A, double complex[:,::1] V_in, double complex[:,::1] V_out, double complex[:,:,::1] dV_in, double complex[:,:,::1] dV_out, int n, int m, int nm, int batch_ind) noexcept nogil :
     # calculate all matrix products in a batch jumping by nm for batch_ind 
     cdef double complex *a0=&A[0,0]
     cdef double complex *vi=&V_in[0,0]
@@ -114,7 +114,7 @@ cdef void MM_cdot_batch_v(double complex[:,::1] A, double complex[:,::1] V_in, d
     cdef double complex *do=&dV_out[0,0,0]
     MM_cdot_pointer_batch_v(a0, vi, vo, di, do, n, m, nm, batch_ind)
     
-cdef void v_exp_v_and_v_exp_pointer_v_batch(double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int batch_ind) nogil: 
+cdef void v_exp_v_and_v_exp_pointer_v_batch(double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int batch_ind) noexcept nogil : 
     # use matrix exponential for every page in dv0
     # if batch_ind_increment=1 add a last element, copy the first element to the last element
     cdef double complex c, g
@@ -152,7 +152,7 @@ cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, doub
     cdef int n = V.shape[0]
     v_exp_v_and_v_exp_pointer_v_batch(e0, e0s, v0, dv0, t, n, m, batch_ind)
 
-cdef void v_exp_v_and_v_exp_pointer_v_batch_increment(double amp, double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int mn, int batch_ind) nogil: 
+cdef void v_exp_v_and_v_exp_pointer_v_batch_increment(double amp, double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int mn, int batch_ind) noexcept nogil : 
     # use matrix exponential for every page in dv0
     # if batch_ind_increment=1 add a last element, copy the first element to the last element
     cdef double complex c, g
@@ -208,7 +208,7 @@ cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double
     v_exp_v_and_v_exp_pointer_v_batch_increment(amp, e0, e0s, v0, dv0, t, n, m, mn, batch_ind)
 
 #### Not really blas functions, but added here nonetheless
-cdef double norm_inf_complex( double complex[:, ::1] B, int d, int m) nogil:
+cdef double norm_inf_complex( double complex[:, ::1] B, int d, int m) noexcept nogil :
     cdef Py_ssize_t i, j, n_rows, n_cols
     cdef double row_sum
     cdef double max_sum = 0.0

@@ -49,12 +49,12 @@ cdef expm_multiply_prepare(A, m, t=1.0):
         m_star, s = _fragment_3_1(norm_info, m)
     return m_star, s, mu
 
-cdef void c_mat_add_pointer(double complex *a0, double complex *b0, int nn) nogil: # A = A+B*c
+cdef void c_mat_add_pointer(double complex *a0, double complex *b0, int nn) noexcept nogil : # A = A+B*c
     cdef int incz = 1
     cdef double complex c = 1.0 + 0.0j
     zaxpy(&nn, &c, b0, &incz, a0, &incz)
 
-cpdef double norm_inf_complex(double complex[:, ::1] B) nogil:
+cpdef double norm_inf_complex(double complex[:, ::1] B) noexcept nogil :
     cdef Py_ssize_t i, j, n_rows, n_cols
     cdef double max_sum, row_sum
     
@@ -70,7 +70,7 @@ cpdef double norm_inf_complex(double complex[:, ::1] B) nogil:
             max_sum = row_sum
     return max_sum
 
-cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) nogil:
+cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :
     # matrix multiply 2 matrices A (n x n) and B (n x m)
     cdef char *ori = 'n'
     #cdef double complex alpha = 1.0

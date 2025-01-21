@@ -1,55 +1,70 @@
-cpdef Bin_Parameters(double[::1] c_mins, double[::1] c_maxs, long[::1] c_bins)
+# pxd file for compatibility with updated pyx file
 
-cpdef void next_in_mrange(long[:] A, long[:] n_s) nogil
+cimport numpy as npc
 
-cpdef reverse_cum_prod(long[:] s, int n)
+cpdef Bin_Parameters(double[::1] c_mins, double[::1] c_maxs, npc.intp_t[::1] c_bins)
 
-cpdef int findex_0(long[:] i, long[:] cum_prod, int n)
+cpdef void next_in_mrange(npc.intp_t[:] A, npc.intp_t[:] n_s) noexcept nogil 
 
-cpdef int findex(long[:] i, long[:] cum_prod, int n, int a) nogil
+cpdef reverse_cum_prod(npc.intp_t[:] s, int n)
 
-cpdef flat_index_sizes_E(long[::1] c_bins)
+cpdef int findex_0(npc.intp_t[:] i, npc.intp_t[:] cum_prod, int n)
 
-cpdef flat_index_sizes_V(long[::1] c_bins)
+cpdef int findex(npc.intp_t[:] i, npc.intp_t[:] cum_prod, int n, int a) noexcept nogil 
 
-cpdef int is_odd(int num) nogil
+cpdef flat_index_sizes_E(npc.intp_t[::1] c_bins)
 
-cpdef void is_odd_array(long[::1] num, int n) nogil
+cpdef flat_index_sizes_V(npc.intp_t[::1] c_bins)
 
-cpdef int is_even(int num) nogil
+cpdef int is_odd(int num) noexcept nogil 
 
-cpdef void is_even_array(long[::1] num, int n) nogil
+cpdef void is_odd_array(npc.intp_t[::1] num, int n) noexcept nogil 
 
-cpdef void asym_sign(double[::1] nums, long[::1] signs, int n) nogil
+cpdef int is_even(int num) noexcept nogil 
 
-cpdef void asym_sign_2D(double[:,::1] nums, long[:,::1] signs, int n0, int n1) nogil
+cpdef void is_even_array(npc.intp_t[::1] num, int n) noexcept nogil 
 
-cpdef void rounder(double a, int b) nogil
+cpdef void asym_sign(double[::1] nums, npc.intp_t[::1] signs, int n) noexcept nogil 
 
-cpdef void rounder_array(double[::1] a, long[::1] b, int n) nogil
+cpdef void asym_sign_2D(double[:,::1] nums, npc.intp_t[:,::1] signs, int n0, int n1) noexcept nogil 
 
-cpdef void rounder_array_2d(double[:,::1] a, long[:,::1] b, int n0, int n1) nogil
+cpdef void rounder(double a, int b) noexcept nogil 
 
-cpdef int is_in_interval(double[::1] c, long[::1] maxs, int n) nogil
+cpdef void rounder_array(double[::1] a, npc.intp_t[::1] b, int n) noexcept nogil 
 
-cpdef int int_sum(long[::1] i_s, int n) nogil
+cpdef void rounder_array_2d(double[:,::1] a, npc.intp_t[:,::1] b, int n0, int n1) noexcept nogil 
 
-cpdef int int_max(long[::1] i_s, int n) nogil
+cpdef int is_in_interval(double[::1] c, npc.intp_t[::1] maxs, int n) noexcept nogil 
 
-cpdef int int_prod(long[::1] i_s, int n) nogil
+cpdef int int_sum(npc.intp_t[::1] i_s, int n) noexcept nogil 
 
-cpdef int_prod_array(long[:,::1] i_s, int n)
-cpdef int_prod_asym_array(long[:,::1] i_s)
+cpdef int int_max(npc.intp_t[::1] i_s, int n) noexcept nogil 
 
-cpdef void c_abs_sum(double[::1] c, double[::1] abs_c, int n) nogil
+cpdef int int_prod(npc.intp_t[::1] i_s, int n) noexcept nogil 
 
-cpdef void c_int_sum(long[::1] c, int sum_c, int n) nogil
+cpdef int_prod_array(npc.intp_t[:,::1] i_s, int n)
 
-cpdef void dvec_minus_ivec(double[::1] c, double[::1] dvec, long[:] ivec, int n) nogil
+cpdef int_prod_asym_array(npc.intp_t[:,::1] i_s)
 
-cpdef void elementwise_grid_parameters(double[::1] c, double[::1] c_min, double[::1] dc, long[::1] c_bins, double[::1] alpha, int sum_location, long[::1] location, double[::1] alpha_rest, double[::1] abs_alpha_rest, long[::1] d_location) nogil
+cpdef void c_abs_sum(double[::1] c, double[::1] abs_c, int n) noexcept nogil 
 
-cpdef int c_argmax(double[::1] c, int max_ind, double c_max, int n) nogil
+cpdef void c_int_sum(npc.intp_t[::1] c, int sum_c, int n) noexcept nogil 
 
-#cpdef Parameters2OddGrid(double[::1] alpha, double[::1] c, double[::1] c_min, double[::1] dc, int[::1] c_bins)
+cpdef void dvec_minus_ivec(double[::1] c, double[::1] dvec, npc.intp_t[:] ivec, int n) noexcept nogil 
 
+cpdef void elementwise_grid_parameters(
+    double[::1] c, 
+    double[::1] c_min, 
+    double[::1] dc, 
+    npc.intp_t[::1] c_bins, 
+    double[::1] alpha, 
+    int sum_location, 
+    npc.intp_t[::1] location, 
+    double[::1] alpha_rest, 
+    double[::1] abs_alpha_rest, 
+    npc.intp_t[::1] d_location
+) noexcept nogil 
+
+cpdef int c_argmax(double[::1] c, int max_ind, double c_max, int n) noexcept nogil 
+
+# cpdef Parameters2OddGrid(double[::1] alpha, double[::1] c, double[::1] c_min, double[::1] dc, int[::1] c_bins)

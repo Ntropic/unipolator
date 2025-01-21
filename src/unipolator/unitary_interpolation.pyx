@@ -8,11 +8,12 @@ from .caching cimport *
 from .blas_functions cimport *
 from .autobinning import optimal_binning
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Unitary Interpolation
 cdef class UI:
-    # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
+    # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
     cdef double[::1] c_mins, c_maxs, dcs, das
-    cdef long[::1] c_bins
+    cdef npc.intp_t[::1] c_bins                       # was long[::1]
     cdef int n_dims, d, d2, n_dims_1, n_d_di_1, n_d_di
     cdef double[:, ::1] E
     cdef double complex[:,:,::1] Vr, Vl, CL, CH, dU1
@@ -28,41 +29,48 @@ cdef class UI:
     cdef double complex *ur4
     cdef double complex *ur5
     cdef double complex *du1
-    cdef long[::1] strides_L, strides_R,
-    cdef long[:,::1] strides_E, strides_C
-    cdef long[::1] location, d_location
+    cdef npc.intp_t[::1] strides_L, strides_R         # was long[::1]
+    cdef npc.intp_t[:,::1] strides_E, strides_C       # was long[:,::1]
+    cdef npc.intp_t[::1] location, d_location         # was long[::1]
     cdef double[::1] abs_alpha_rest, alpha
-    cdef long[::1] first_elements_E, first_elements_C, L
-    cdef long[::1] d_di
-    def __init__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, long[::1] c_bins, long[::1] which_diffs = np.array([], dtype=long)):
+    cdef npc.intp_t[::1] first_elements_E, first_elements_C, L  # was long[::1]
+    cdef npc.intp_t[::1] d_di                          # was long[::1]
+    def __init__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, npc.intp_t[::1] c_bins, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp)):
         # Construct parameters
         self.n_dims = c_min_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
         if not H_s.shape[0] == self.n_dims + 1:
-            print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lenths of Hs, c_mins, c_maxs, c_bins')
+            print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lengths of Hs, c_mins, c_maxs, c_bins')
             raise ValueError
-        self.c_bins = np.empty(self.n_dims, dtype=long)
+
+        # Use np.intp for Python-level allocation
+        self.c_bins = np.empty(self.n_dims, dtype=np.intp) 
         for i in range(self.n_dims):
             self.c_bins[i] = c_bins[i]
         self.c_mins, self.c_maxs, self.dcs, self.das = Bin_Parameters(c_min_s, c_max_s, self.c_bins)
-        # Single Step Indexing Parameters  --> Add multiple indexes later
-        self.location = np.empty(self.n_dims, dtype=long)
+
+        # Single Step Indexing Parameters
+        self.location = np.empty(self.n_dims, dtype=np.intp)
         self.abs_alpha_rest = np.empty(self.n_dims, dtype=np.double)
-        self.d_location = np.empty(self.n_dims, dtype=long)
+        self.d_location = np.empty(self.n_dims, dtype=np.intp)
         self.alpha = np.empty(self.n_dims, dtype=np.double)
+
         if which_diffs.shape[0] == 0:
             self.d_di = np.arange(self.n_dims)
         else:
             self.d_di = which_diffs
+
         self.n_d_di_1 = self.d_di.shape[0] - 1
         self.n_d_di = self.d_di.shape[0]
 
         # Construct interpolation grid points
         U_grid, cum_prod = Unitary_Grid(H_s, self.c_mins, self.dcs, self.c_bins)
-        ## Construct interpolation cache
-        self.E, self.Vl, self.Vr, self.CL, self.CH, self.strides_E, self.strides_L, self.strides_R, self.strides_C, self.first_elements_E, self.first_elements_C = Create_Interpolation_Cache( U_grid, cum_prod, self.c_bins)
+
+        # Construct interpolation cache
+        self.E, self.Vl, self.Vr, self.CL, self.CH, self.strides_E, self.strides_L, self.strides_R, self.strides_C, self.first_elements_E, self.first_elements_C = Create_Interpolation_Cache(U_grid, cum_prod, self.c_bins)
+
         self.ei = &self.E[0, 0]
         self.vl = &self.Vl[0, 0, 0]
         self.vr = &self.Vr[0, 0, 0]
@@ -81,7 +89,7 @@ cdef class UI:
         self.ur5 = &self.Ur5[0, 0]
         self.dU1 = np.empty([self.n_dims+1, self.d, self.d], dtype=np.complex128)
         self.du1 = &self.dU1[0, 0, 0]
-        self.L = np.empty(self.n_dims, dtype=long)
+        self.L = np.empty(self.n_dims, dtype=np.intp) 
 
     cdef single_parameters2oddgrid(self, double[::1] c):
         cdef int sum_location = 0
@@ -122,7 +130,7 @@ cdef class UI:
             if max_vals > self.c_bins[i]-1:
                 self.d_location[i] = -1
 
-    def set_which_diffs(self, long[::1] which_diffs):
+    def set_which_diffs(self, npc.intp_t[::1] which_diffs):  # was long[::1]
         self.d_di = which_diffs
         self.n_d_di_1 = self.d_di.shape[0] - 1
         self.n_d_di = self.d_di.shape[0]
@@ -347,6 +355,7 @@ cdef class UI:
         self.expmH_pulse_pointer(cs, u0)
 
     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,:,::1] U):
+        cdef Py_ssize_t i = 0
         cdef double complex *u0 = &U[0, 0, 0]
         cdef how_many = cs.shape[0]
         for i in range(how_many):
@@ -424,7 +433,7 @@ cdef class UI:
         return I0
 
 
-def UI_auto(H_s, c_min_s, c_max_s, I_tar=1e-10, which_diffs = np.array([], dtype=np.compat.long)):
+def UI_auto(H_s, c_min_s, c_max_s, I_tar=1e-10, which_diffs = np.array([], dtype=np.intp)):
     opt_bins  = optimal_binning(H_s, c_mins=c_min_s, c_maxs=c_max_s, I_tar=I_tar)
     return UI(H_s, c_min_s, c_max_s, opt_bins, which_diffs)
 

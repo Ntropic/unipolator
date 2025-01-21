@@ -5,13 +5,12 @@ from .exp_and_log cimport *
 from .indexing cimport *
 from .caching cimport *
 from .blas_functions cimport *
-#from scipy.linalg.cython_lapack cimport zheevd
 
 # Trotter System
 cdef class Trotter_System:
-    # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
+    # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
     cdef int n_dims, n_dims_1, n_dims_2, n_dims_3, d, d2, n_d_di_1, n_d_di, i
-    cdef long[::1] d_di
+    cdef npc.intp_t[::1] d_di                 # CHANGED: was long[::1]
     cdef double[::1] E
     cdef double[:,::1] Es
     cdef double complex[::1] C1
@@ -41,18 +40,26 @@ cdef class Trotter_System:
     cdef char *jobz
     cdef char *uplo
     cdef int info, n_times, m_times
-    def __cinit__(self, double complex[:,:,::1] H_s, long[::1] which_diffs = np.array([], dtype=long), int m_times=0): # n_times = 2**m_times ==> m_times = 0 --> n_times = 1
+
+    def __cinit__(
+        self,
+        double complex[:,:,::1] H_s,
+        npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED
+        int m_times = 0
+    ):
         # Construct parameters
         self.n_dims = H_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
         self.n_dims_2 = self.n_dims - 2
         self.n_dims_3 = self.n_dims - 3
         self.m_times = m_times
-        self.n_times = int(2**m_times)
+        self.n_times = int(2 ** m_times)
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
+
         if which_diffs.shape[0] == 0:
-            self.d_di = np.arange(self.n_dims_1)
+            # Make sure it matches npc.intp_t[::1]
+            self.d_di = np.arange(self.n_dims_1, dtype=np.intp)  # CHANGED
         else:
             self.d_di = which_diffs
         self.n_d_di = self.d_di.shape[0]
@@ -80,12 +87,14 @@ cdef class Trotter_System:
         self.V = np.empty([self.d, self.d], dtype=np.complex128)
         self.v0 = &self.V[0, 0]
         self.curr_h0 = &self.H[0, 0, 0]
+
         # Cache variables
         self.L = np.empty([self.n_dims, self.d, self.d], dtype=np.complex128)
-        self.l0 = &self.L[0, 0, 0] 
+        self.l0 = &self.L[0, 0, 0]
         self.Es = np.empty([self.n_dims_1, self.d], dtype=np.double)
-        self.e0s = &self.Es[0,0] 
+        self.e0s = &self.Es[0, 0]
 
+        # iwork stays int for LAPACK
         self.lwork, self.lrwork, self.liwork = c_eigh_lapack_workspace_sizes(self.V)
         self.work = np.empty([self.lwork], dtype=np.complex128)
         self.work0 = &self.work[0]
@@ -93,26 +102,26 @@ cdef class Trotter_System:
         self.rwork0 = &self.rwork[0]
         self.iwork = np.empty([self.liwork], dtype=np.int32)
         self.iwork0 = &self.iwork[0]
-        self.jobz = 'v'  #eigenvectors and values -> v
+        self.jobz = 'v'  # eigenvectors and values -> v
         self.uplo = 'l'  # upper triangle
         self.info = 0
 
         # Cache matrices
         # First the H0 element
-        c_expmH(self.H[0], 1.0/self.n_times, self.U1, self.lwork, self.lrwork, self.liwork) # store in U1
-        self.l1 = self.l0 # temporary pointer - moving along self.L, but backwards
-        self.e1s = self.e0s  # temporary pointer - moving along self.Es, but backwards
+        c_expmH(self.H[0], 1.0 / self.n_times, self.U1, self.lwork, self.lrwork, self.liwork)
+        self.l1 = self.l0
+        self.e1s = self.e0s
         for i in range(1, self.n_dims):
-            c_eigh_lapack(self.H[i], self.V, self.Es[i-1], self.lwork, self.lrwork, self.liwork) # store in 
-            M_DagM_cdot_pointer(self.u1, self.v0, self.l1, self.d) # store in U1
-            copy_pointer(self.v0 , self.u1, self.d2)
+            c_eigh_lapack(self.H[i], self.V, self.Es[i - 1], self.lwork, self.lrwork, self.liwork)
+            M_DagM_cdot_pointer(self.u1, self.v0, self.l1, self.d)
+            copy_pointer(self.v0, self.u1, self.d2)
             self.l1 += self.d2
         copy_pointer(self.v0, self.l1, self.d2)
-        self.l1 = self.l0  # Restore original value of pointer
+        self.l1 = self.l0  # Restore original pointer
 
-        for i in range(self.n_dims_1):  # half steps 
+        for i in range(self.n_dims_1):
             for j in range(self.d):
-                self.Es[i,j] = self.Es[i,j]/self.n_times
+                self.Es[i, j] = self.Es[i, j] / self.n_times
     
     def get_cache(self):
         return np.array(self.L), np.array(self.Es)

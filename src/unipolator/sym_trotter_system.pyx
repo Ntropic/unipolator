@@ -9,13 +9,13 @@ from scipy.linalg.cython_lapack cimport zheevd
 
 # Unitary Interpolation
 cdef class Sym_Trotter_System:
-    # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
+    # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
     cdef int n_dims, n_dims_1, n_dims_2, n_dims_3, d, d2, n_d_di_1, n_d_di, i
-    cdef long[::1] d_di
+    cdef npc.intp_t[::1] d_di          # CHANGED: was long[::1]
     cdef double complex[::1] expE
     cdef double[:,::1] Es
     cdef double complex[:,:,::1] H, C
-    cdef double complex[:,::1] V, U1, U2, U3, U4, U5, L , R
+    cdef double complex[:,::1] V, U1, U2, U3, U4, U5, L, R
     cdef double complex *h0
     cdef double complex *c0
     cdef double complex *c1
@@ -41,7 +41,13 @@ cdef class Sym_Trotter_System:
     cdef char *jobz
     cdef char *uplo
     cdef int info, n_times, m_times
-    def __cinit__(self, double complex[:,:,::1] H_s, long[::1] which_diffs = np.array([], dtype=long), int m_times=0): # n_times = 2**m_times ==> m_times = 0 --> n_times = 1
+
+    def __cinit__(
+        self, 
+        double complex[:,:,::1] H_s, 
+        npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED: dtype=long -> dtype=np.intp
+        int m_times=0
+    ):
         # Construct parameters
         self.n_dims = H_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
@@ -51,10 +57,13 @@ cdef class Sym_Trotter_System:
         self.n_times = int(2**m_times)
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
+
         if which_diffs.shape[0] == 0:
-            self.d_di = np.arange(self.n_dims_1)
+            # Use np.intp for a consistent memoryview type
+            self.d_di = np.arange(self.n_dims_1, dtype=np.intp)  # CHANGED: added dtype=np.intp
         else:
             self.d_di = which_diffs
+
         self.n_d_di_1 = self.d_di.shape[0] - 1
         self.n_d_di = self.d_di.shape[0]
 
@@ -87,7 +96,6 @@ cdef class Sym_Trotter_System:
         self.R = np.empty([self.d, self.d], dtype=np.complex128)
         self.r0 = &self.R[0, 0]
 
-
         self.Es = np.empty([self.n_dims_1, self.d], dtype=np.double)
         self.e0s = &self.Es[0,0] + self.n_dims_2 * self.d  
 
@@ -96,9 +104,9 @@ cdef class Sym_Trotter_System:
         self.work0 = &self.work[0]
         self.rwork = np.empty([self.lrwork], dtype=np.double)
         self.rwork0 = &self.rwork[0]
-        self.iwork = np.empty([self.liwork], dtype=np.int32)
+        self.iwork = np.empty([self.liwork], dtype=np.int32)  # stays int32 for LAPACK
         self.iwork0 = &self.iwork[0]
-        self.jobz = 'v'  #eigenvectors and values -> v
+        self.jobz = 'v'  # eigenvectors and values -> v
         self.uplo = 'l'  # upper triangle
         self.info = 0
 
@@ -168,6 +176,7 @@ cdef class Sym_Trotter_System:
         for i in range(how_many):
             self.expmH_pointer(cs[i,:], u0)
             u0 += self.d2
+
     """
     def set_which_diffs(self, int[::1] which_diffs):
         self.d_di = which_diffs

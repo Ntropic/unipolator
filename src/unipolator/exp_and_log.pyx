@@ -9,26 +9,26 @@ from scipy.linalg.cython_lapack cimport zheevd
 from .blas_functions cimport MM_cdot, DagM_M_cdot, M_DagM_cdot, MM_cdot_pointer, DagM_M_cdot_pointer, c_eigh_lapack
 
 ##### Basic complex number functions to avoid using complex.h #########################
-cpdef double creal(double complex dc) nogil:
+cpdef double creal(double complex dc) noexcept nogil :
     cdef double complex* dcptr = &dc
     return (<double *>dcptr)[0]
 
-cpdef double cimag(double complex dc) nogil:
+cpdef double cimag(double complex dc) noexcept nogil :
     cdef double complex* dcptr = &dc
     return (<double *>dcptr)[1]
 
-cpdef double complex cconj(double complex dc) nogil:
+cpdef double complex cconj(double complex dc) noexcept nogil :
     dc.imag = -dc.imag 
     #a =  (<double *>dcptr)[0] -1j*(<double *>dcptr)[1]
     return dc
 
-cpdef void cdiag(double complex[:,::1] A, double complex[::1] diagA) nogil:
+cpdef void cdiag(double complex[:,::1] A, double complex[::1] diagA) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int i
     for i in range(n):
         diagA[i] = A[i,i]
 
-cpdef void Conj_mat_copy(double complex[:,::1] A, double complex[:,::1] ConjA) nogil:
+cpdef void Conj_mat_copy(double complex[:,::1] A, double complex[:,::1] ConjA) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int i,j
     for i in range(n):
@@ -36,21 +36,21 @@ cpdef void Conj_mat_copy(double complex[:,::1] A, double complex[:,::1] ConjA) n
             ConjA[i,j].real =  A[i,j].real
             ConjA[i,j].imag = -A[i,j].imag
 
-cpdef void Conj_mat(double complex[:,::1] A) nogil:
+cpdef void Conj_mat(double complex[:,::1] A) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int i,j
     for i in range(n):
         for j in range(n):
             A[i,j].imag = -A[i,j].imag
 
-cpdef void Conj_vec_copy(double complex[::1] A, double complex[::1] ConjA) nogil:
+cpdef void Conj_vec_copy(double complex[::1] A, double complex[::1] ConjA) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int i
     for i in range(n):
         ConjA[i].real =  A[i].real
         ConjA[i].imag = -A[i].imag
 
-cpdef void Conj_vec(double complex[::1] A) nogil:
+cpdef void Conj_vec(double complex[::1] A) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int i
     for i in range(n):
@@ -67,7 +67,7 @@ cpdef Dag(double complex[:,::1] A):
             DagA[i,j].imag = -A[j,i].imag
     return DagA
 
-cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) nogil:
+cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) noexcept nogil :
     cdef int n = A.shape[0]
     cdef int i, j
     for i in range(n):
@@ -75,13 +75,13 @@ cpdef void Dag_fast(double complex[:,::1] A, double complex[:,::1] DagA) nogil:
             DagA[i,j].real =  A[j,i].real
             DagA[i,j].imag = -A[j,i].imag
 
-cdef double complex conj(double complex A) nogil:
+cdef double complex conj(double complex A) noexcept nogil :
     cdef double complex conjA
     conjA.real = A.real
     conjA.imag = -A.imag
     return conjA
 
-cpdef double abs_2(double complex A) nogil: #c_dagc
+cpdef double abs_2(double complex A) noexcept nogil : #c_dagc
     cdef double absA_2
     absA_2 = A.real * A.real + A.imag * A.imag
     return absA_2
@@ -91,7 +91,7 @@ cpdef double abs_2(double complex A) nogil: #c_dagc
 #### Vector exponential/logarithm times matrix
 
 # Old skripts for this
-cpdef void copy_v_exp_blas(double[::1] E, double complex[:,::1] V, double complex[:,::1] A, double t, int n) nogil:
+cpdef void copy_v_exp_blas(double[::1] E, double complex[:,::1] V, double complex[:,::1] A, double t, int n) noexcept nogil :
     #cdef int n = V.shape[0]
     cdef double complex c
     cdef double ei
@@ -104,7 +104,7 @@ cpdef void copy_v_exp_blas(double[::1] E, double complex[:,::1] V, double comple
         c = cos(ei)-1j*sin(ei) #cexp(ei)
         vi0=&A[i,0]
         zscal(&n, &c, vi0, &incz)
-cpdef void v_exp_blas(double[::1] E, double complex[:,::1] V, double t) nogil:
+cpdef void v_exp_blas(double[::1] E, double complex[:,::1] V, double t) noexcept nogil :
     cdef int n = V.shape[0]
     cdef double complex c
     cdef double ei
@@ -117,19 +117,19 @@ cpdef void v_exp_blas(double[::1] E, double complex[:,::1] V, double t) nogil:
         vi0=&V[i,0]
         zscal(&n, &c, vi0, &incz)
 
-cdef void copy_pointer(double complex *v0, double complex *a0, int n2) nogil:
+cdef void copy_pointer(double complex *v0, double complex *a0, int n2) noexcept nogil :
     #cdef int n2 = n*n
     cdef int incz = 1
     zcopy(&n2, v0, &incz, a0, &incz)
 
 
-cdef void copy_pointer_d(double *v0, double *a0, int n2) nogil:
+cdef void copy_pointer_d(double *v0, double *a0, int n2) noexcept nogil :
     #cdef int n2 = n*n
     cdef int incz = 1
     dcopy(&n2, v0, &incz, a0, &incz)
 
 # New skripts for this
-cdef void expE_V_expE_pointer(double *e0, double complex *v0, double t, double complex *expe0, int n) nogil:
+cdef void expE_V_expE_pointer(double *e0, double complex *v0, double t, double complex *expe0, int n) noexcept nogil :
     # Construct the transformation:  A <- diag(exp(v)) @ A @ diag(exp(v))
     ## This should be auto simd
     cdef double complex c, d
@@ -152,14 +152,14 @@ cdef void expE_V_expE_pointer(double *e0, double complex *v0, double t, double c
             v0[0] = d * v0[0]
             expe0 += 1
             v0 += 1
-cdef void expE_V_expE(double[::1] E, double complex[:,::1] V, double t, double complex[::1] expE) nogil:
+cdef void expE_V_expE(double[::1] E, double complex[:,::1] V, double t, double complex[::1] expE) noexcept nogil :
     cdef int n = V.shape[0]
     cdef double *e0 = &E[0]
     cdef double complex *expe0 = &expE[0]
     cdef double complex *v0 = &V[0,0]
     expE_V_expE_pointer(e0, v0, t, expe0, n)
 
-cdef void d_dt_expE_V_expE_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, double complex *expe0, int n) nogil:
+cdef void d_dt_expE_V_expE_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, double complex *expe0, int n) noexcept nogil :
     # Construct the derivative of the transformation:  A <- diag(exp(v)) @ A @ diag(exp(v))
     ## This should be auto simd
     cdef double complex c, d, ec, s
@@ -192,7 +192,7 @@ cdef void d_dt_expE_V_expE_pointer(double amp, double *e0, double complex *v0, d
             e0 += 1
             v0 += 1
             dv0 += 1
-cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, double complex[:,::1] dV, double t, double complex[::1] expE) nogil:
+cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, double complex[:,::1] dV, double t, double complex[::1] expE) noexcept nogil :
     cdef int n = V.shape[0]
     cdef double *e0 = &E[0]
     cdef double complex *expe0 = &expE[0]
@@ -200,7 +200,7 @@ cdef void d_dt_expE_V_expE(double amp, double[::1] E, double complex[:,::1] V, d
     cdef double complex *dv0 = &dV[0,0]
     d_dt_expE_V_expE_pointer(amp, e0, v0, dv0, t, expe0, n)
 
-cdef void v_exp_pointer(double *e0, double complex *v0, double t, int n) nogil:
+cdef void v_exp_pointer(double *e0, double complex *v0, double t, int n) noexcept nogil :
     cdef double complex c
     cdef double ei
     cdef int incz = 1
@@ -217,7 +217,7 @@ cdef void v_exp_pointer(double *e0, double complex *v0, double t, int n) nogil:
         c.real = cos(ei)
         c.imag = -sin(ei)
         zscal(&n, &c, v0, &incz)
-cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, int n) nogil: 
+cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, int n) noexcept nogil : 
     cdef double complex c
     cdef double ei, f
     cdef int incz = 1
@@ -236,7 +236,7 @@ cdef void v_exp_v_pointer(double amp, double *e0, double complex *v0, double t, 
         c.real = f * sin(ei)
         c.imag = f * cos(ei)
         zscal(&n, &c, v0, &incz)
-cdef void d_dt_exp_v_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, int n, int n_2) nogil: # -i*E*amp*exp(-i*E*t)
+cdef void d_dt_exp_v_pointer(double amp, double *e0, double complex *v0, double complex *dv0, double t, int n, int n_2) noexcept nogil : # -i*E*amp*exp(-i*E*t)
     cdef double complex c, dc
     cdef double ei, f
     cdef int incz = 1
@@ -263,7 +263,7 @@ cdef void d_dt_exp_v_pointer(double amp, double *e0, double complex *v0, double 
         zscal(&n, &c, v0, &incz)
         zscal(&n, &dc, dv0, &incz)
 
-cdef void phase_shift_matrix_pointer(double *e0, double complex *v0, double complex *a0, double dt, int n) nogil: # Only calculates upper triangle of symmetric matrix
+cdef void phase_shift_matrix_pointer(double *e0, double complex *v0, double complex *a0, double dt, int n) noexcept nogil : # Only calculates upper triangle of symmetric matrix
     cdef int i, j
     cdef double complex idt = - 1j*dt
     cdef double ei, de
@@ -294,7 +294,7 @@ cdef void phase_shift_matrix_pointer(double *e0, double complex *v0, double comp
             a1[0] = a0[0]
         a0 += i+2
         a1 = a0
-cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double complex[:,::1] A, double dt) nogil: # Only calculates upper triangle of symmetric matrix
+cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double complex[:,::1] A, double dt) noexcept nogil : # Only calculates upper triangle of symmetric matrix
     cdef double *e0 = &E[0]
     cdef double complex *v0 = &v[0]
     cdef double complex *a0 = &A[0,0]
@@ -307,7 +307,7 @@ cpdef void phase_shift_matrix(double[::1] E, double complex[::1] v, double compl
 
 ###### Matrix exponentials from eigenvalue decomposition of Hamiltonians and Unitary logarithms / decompositions
 
-cdef void V_expE_W_pointer(double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:
+cdef void V_expE_W_pointer(double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) noexcept nogil :
     # Calculates B = V @ diag(exp(-1j*E*t)) @ W
     copy_pointer(w0 , a0, n_2)
     v_exp_pointer(e0, a0, t, n)
@@ -321,19 +321,19 @@ cpdef void V_expE_W(double complex[:,::1] V, double complex[:,::1] W, double[::1
     cdef double complex *b0 = &B[0,0]
     V_expE_W_pointer(v0, w0, e0, t, a0, b0, n, n_2)
 
-cdef void V_EexpE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:
+cdef void V_EexpE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) noexcept nogil :
     # Calculates amp*dB/dt = -1j * amp @ V @ diag(E) * diag(exp(-1j*E*t)) @ W   -> with helper variable *a0
     copy_pointer(w0 , a0, n_2)
     v_exp_v_pointer(amp, e0, a0, t, n)
     MM_cdot_pointer(v0, a0, b0, n)
-cdef void d_dt_V_expE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, double complex *db0, int n, int n_2) nogil:
+cdef void d_dt_V_expE_W_pointer(double amp, double complex *v0, double complex *w0, double *e0, double t, double complex *a0, double complex *b0, double complex *db0, int n, int n_2) noexcept nogil :
     # Calculates B = V @ diag(exp(-1j*E*t)) @ W    -> with helper variable *a0
     # and its derivative amp*dB/dt = -1j * amp @ V @ diag(E) * diag(exp(-1j*E*t)) @ W
     copy_pointer(w0, a0, n_2)
     d_dt_exp_v_pointer(amp, e0, a0, b0, t, n, n_2)
     MM_cdot_pointer(v0, b0, db0, n)
     MM_cdot_pointer(v0, a0,  b0, n)
-cdef void DagV_expE_V_pointer(double complex *v0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) nogil:
+cdef void DagV_expE_V_pointer(double complex *v0, double *e0, double t, double complex *a0, double complex *b0, int n, int n_2) noexcept nogil :
     # Calculates B = Dag(V) @ diag(exp(-1j*E*t)) @ V
     copy_pointer(v0 , a0, n_2)
     v_exp_pointer(e0, a0, t, n)
@@ -362,7 +362,7 @@ cpdef void eigU(double complex[:,::1] U, double complex[::1] Ec, double complex[
             V[i,j].real =  Vmat[j,i].real
             V[i,j].imag = -Vmat[j,i].imag
 
-cpdef double complex clog(double complex c) nogil:   # logarithm of complex number
+cpdef double complex clog(double complex c) noexcept nogil :   # logarithm of complex number
     cdef double x = c.real
     cdef double y = c.imag
     cdef double complex d

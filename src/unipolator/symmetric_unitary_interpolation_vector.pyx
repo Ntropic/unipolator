@@ -8,12 +8,11 @@ from .caching cimport *
 from .blas_functions cimport *
 from .blas_functions_vectors cimport *
 
-
 # Unitary Interpolation
 cdef class Sym_UI_vector:
-    # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
+    # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
     cdef double[::1] c_mins, c_maxs, dcs, das
-    cdef long[::1] c_bins
+    cdef npc.intp_t[::1] c_bins               # CHANGED: was long[::1]
     cdef int n_dims, d, d2, n_dims_1, n_dims_2, n_d_di_1, n_d_di, m, dm
     cdef double[:, ::1] E
     cdef double complex[:,:,::1] Vr, Vl, CL_L, CH_L, CL_R, CH_R, dUl, dUr
@@ -30,54 +29,76 @@ cdef class Sym_UI_vector:
     cdef double complex *dul
     cdef double complex *dur
     cdef double complex *duc
-    cdef long[::1] strides_L
-    cdef long[:,::1] strides_E, strides_C
-    cdef long[::1] location, d_location
+    cdef npc.intp_t[::1] strides_L        # CHANGED: was long[::1]
+    cdef npc.intp_t[:,::1] strides_E, strides_C   # CHANGED: was long[:,::1]
+    cdef npc.intp_t[::1] location, d_location       # CHANGED: was long[::1]
     cdef double[::1] abs_alpha_rest, alpha
-    cdef long[::1] first_elements_E, first_elements_C, L, 
-    cdef long[::1] d_di
-    def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, long[::1] c_bins, long[::1] which_diffs = np.array([], dtype=long), int m = 1):
+    cdef npc.intp_t[::1] first_elements_E, first_elements_C, L    # CHANGED: was long[::1]
+    cdef npc.intp_t[::1] d_di                    # CHANGED: was long[::1]
+
+    def __cinit__(
+        self, 
+        double complex[:,:,::1] H_s, 
+        double[::1] c_min_s, 
+        double[::1] c_max_s, 
+        npc.intp_t[::1] c_bins,                    # CHANGED: was long[::1]
+        npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED: dtype=np.intp
+        int m = 1
+    ):
         # Construct parameters
         self.n_dims = c_min_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
         self.n_dims_2 = self.n_dims - 2
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
+
         if not H_s.shape[0] == self.n_dims + 1:
-            print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lenths of Hs, c_mins, c_maxs, c_bins')
+            print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lengths of Hs, c_mins, c_maxs, c_bins')
             raise ValueError
-        self.c_bins = np.empty(self.n_dims, dtype=long)
+
+        self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp
         for i in range(self.n_dims):
             if c_bins[i] > 0:
                 self.c_bins[i] = c_bins[i]
             else:
-                print('Need at least 1 bin per dimension, corrected bins['+str(i)+'] to 1.')
+                print('Need at least 1 bin per dimension, corrected bins[' + str(i) + '] to 1.')
+                self.c_bins[i] = 1  # Ensure at least 1 bin
+
         self.c_mins, self.c_maxs, self.dcs, self.das = Bin_Parameters(c_min_s, c_max_s, self.c_bins)
+
         # Single Step Indexing Parameters  --> Add multiple indexes later
-        self.location = np.empty(self.n_dims, dtype=long)
+        self.location = np.empty(self.n_dims, dtype=np.intp)           # CHANGED: dtype=np.intp
         self.abs_alpha_rest = np.empty(self.n_dims, dtype=np.double)
-        self.d_location = np.empty(self.n_dims, dtype=long)
+        self.d_location = np.empty(self.n_dims, dtype=np.intp)         # CHANGED: dtype=np.intp
         self.alpha = np.empty(self.n_dims, dtype=np.double)
+
         if which_diffs.shape[0] == 0:
-            self.d_di = np.arange(self.n_dims)
+            self.d_di = np.arange(self.n_dims, dtype=np.intp)          # CHANGED: dtype=np.intp
         else:
             self.d_di = which_diffs
+
         self.n_d_di_1 = self.d_di.shape[0] - 1
         self.n_d_di = self.d_di.shape[0]
 
         # Construct interpolation grid points
         H_s2 = H_s.copy()
         d_third_order_tensor_scale(H_s2, 0.5 )
-        U_grid2, cum_prod = Unitary_Grid(H_s2, self.c_mins, self.dcs, self.c_bins) # Half grid -> H_s2 = H_s / 2
+        U_grid2, cum_prod = Unitary_Grid(H_s2, self.c_mins, self.dcs, self.c_bins)  # Half grid -> H_s2 = H_s / 2
+
         ## Construct interpolation cache
-        self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R, self.strides_E, self.strides_L, self.strides_C, self.first_elements_E, self.first_elements_C = Create_Sym_Interpolation_Cache( U_grid2, cum_prod, self.c_bins)
+        (self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R,
+         self.strides_E, self.strides_L, self.strides_C, 
+         self.first_elements_E, self.first_elements_C) = Create_Sym_Interpolation_Cache(
+            U_grid2, cum_prod, self.c_bins
+         )
 
         self.ei = &self.E[0, 0]
+        self.expe = &self.Es[0]              # Assuming Es is initialized properly elsewhere
         self.vl = &self.Vl[0, 0, 0]
         self.vr = &self.Vr[0, 0, 0]
         self.cl = &self.CL_L[0, 0, 0]
         self.cr = &self.CL_R[0, 0, 0]
-        self.L = np.empty(self.n_dims, dtype=long)
+        self.L = np.empty(self.n_dims, dtype=np.intp)   # CHANGED: dtype=np.intp
 
     def change_m(self, int m):
         self.m = m
@@ -102,17 +123,18 @@ cdef class Sym_UI_vector:
         self.duc = &self.dUc[0,0]
 
     cdef single_parameters2oddgrid(self, double[::1] c):
-        cdef long sum_location = 0
+        cdef npc.intp_t sum_location = 0          # CHANGED: long -> npc.intp_t
         cdef double alpha_max = 0.0
         cdef double alpha_rest
-        cdef long i
-        cdef long max_alpha_ind = 0
-        cdef long max_vals
+        cdef npc.intp_t i                        # CHANGED: long -> npc.intp_t
+        cdef npc.intp_t max_alpha_ind = 0        # CHANGED: long -> npc.intp_t
+        cdef npc.intp_t max_vals                 # CHANGED: long -> npc.intp_t
+
         for i in range(self.n_dims):
             # Transform
             self.alpha[i] = (c[i] - self.c_mins[i]) / self.dcs[i]
             # Round
-            self.location[i] = <long> self.alpha[i]
+            self.location[i] = <npc.intp_t> self.alpha[i]   # CHANGED: <long> -> <npc.intp_t>
             alpha_rest = self.alpha[i] - self.location[i]
             if alpha_rest > 0.5:
                 self.location[i] += 1
@@ -124,28 +146,31 @@ cdef class Sym_UI_vector:
             if self.alpha[i] < 0 or self.alpha[i] > self.c_bins[i]:
                 print('Warning: These parameters lie outside of interpolation grid!')
                 break
+
         if is_even(sum_location):
             max_alpha_ind = c_argmax(self.abs_alpha_rest, max_alpha_ind, alpha_max, self.n_dims)
             if self.location[max_alpha_ind] + self.d_location[max_alpha_ind] > self.c_bins[max_alpha_ind]:
                 self.d_location[max_alpha_ind] = -1
             self.location[max_alpha_ind] += self.d_location[max_alpha_ind]
             self.d_location[max_alpha_ind] = - self.d_location[max_alpha_ind]
-            self.abs_alpha_rest[max_alpha_ind] = 1-self.abs_alpha_rest[max_alpha_ind]
+            self.abs_alpha_rest[max_alpha_ind] = 1 - self.abs_alpha_rest[max_alpha_ind]
+
         for i in range(self.n_dims):
             self.d_location[i] -= 1
-            self.d_location[i] >>= 1 # via bitshift operation
+            self.d_location[i] >>= 1  # via bitshift operation
             #d_location[i] /= 2 #(d_location[i]-1)/2 ### in two steps with optimized in-place operations
+
         for i in range(self.n_dims):
-            max_vals = self.location[i]+self.d_location[i]
-            if max_vals > self.c_bins[i]-1:
+            max_vals = self.location[i] + self.d_location[i]
+            if max_vals > self.c_bins[i] - 1:
                 self.d_location[i] = -1
 
-    def set_which_diffs(self, long[::1] which_diffs):
+    def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]
         self.d_di = which_diffs
         self.n_d_di_1 = self.d_di.shape[0] - 1
         self.n_d_di = self.d_di.shape[0]
 
-    def get_single_param(self, double[::1] c): # To verify interpolation grid
+    def get_single_param(self, double[::1] c):  # To verify interpolation grid
         self.single_parameters2oddgrid(c)
         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
 
