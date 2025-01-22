@@ -316,7 +316,7 @@ cdef class UI:
             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
         if not U.shape[0] == U.shape[1] == self.d:
             raise ValueError('The unitary U must be of size [d,d].')
-        if not dU.shape[0] == dU.shape[1] == self.d:
+        if not dU.shape[1] == dU.shape[2] == self.d:
             raise ValueError('The derivative dU must be of size [d,d].')
         self.dexpmH_pointer(c, u0, du0)
 

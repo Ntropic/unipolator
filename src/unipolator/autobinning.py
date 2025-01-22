@@ -130,12 +130,12 @@ def UI_directional_overlap_traces(U0, Ui_2, Uij_2, U_2, Es, Vs):
         tr_M = np.array([])
         tr_M_single = np.array([np.trace(Dag(Ui_2[0]) @ U) - d])
         tr_M_2 = tr_M_single[0]
-        indexes = np.empty((0,0), dtype=np.compat.long)
+        indexes = np.empty((0,0), dtype=np.intp)
     else:
         n_ij = n * (n-1) // 2
         tr_M = np.empty(n_ij, dtype=np.complex128)
         tr_M_single = np.empty(n, dtype=np.complex128)
-        indexes = np.empty((n_ij, 2), dtype=np.compat.long)
+        indexes = np.empty((n_ij, 2), dtype=np.intp)
         ind = 0
         alphas = np.array([0.5])
         for i in range(n):
@@ -147,7 +147,7 @@ def UI_directional_overlap_traces(U0, Ui_2, Uij_2, U_2, Es, Vs):
                 indices = np.array([i,j])
                 U = nd_interpolation_core_term(Vs, Es, U0, alphas, indices)
                 tr_M[ind] = np.trace(Dag(Uij_2[ind]) @ U) - d - tr_M_single[i] - tr_M_single[j]
-                indexes[ind] = np.array([i,j], dtype=np.compat.long)
+                indexes[ind] = np.array([i,j], dtype=np.intp)
                 ind += 1
     tr_M = tr_M + tr_M.conj()
     tr_M = tr_M.real.astype(np.float64)
@@ -178,9 +178,9 @@ def get_bidirectional_overlap_operators(H_s, c_mins=None, c_maxs=None, bins=None
     if c_maxs is None:
         c_maxs = np.ones(n)
     if bins is None:
-        bins = np.ones(n, dtype=np.compat.long)
+        bins = np.ones(n, dtype=np.intp)
     else:
-        bins = bins.astype(np.compat.long)
+        bins = bins.astype(np.intp)
     dc = (c_maxs - c_mins)
     c_maxs = c_mins + dc / bins
     U0, Ui, Ui_2, Uij_2, U_2_exact = make_border_unitaries(H_s, c_mins, c_maxs)
@@ -193,7 +193,7 @@ def get_bidirectional_overlap_operators(H_s, c_mins=None, c_maxs=None, bins=None
 
 def I_from_tr_M_bins(tr_M_single, tr_M, indexes, n, param=None, bins=None):
     if bins is None:
-        bins = np.ones(n, dtype=np.compat.long)
+        bins = np.ones(n, dtype=np.intp)
     if param is None:
         param = np.ones(n)
     param = param / bins
@@ -280,7 +280,7 @@ def _optimize_solution(tr_M_single, tr_M, indexes, n, bins, I_tar=10**-14):
     if curr_I > I_tar:
         raise Exception('Initial solution not < I_tar')
     new_Is = np.zeros(n)
-    new_caches = np.zeros(n, dtype=np.compat.long)
+    new_caches = np.zeros(n, dtype=np.intp)
     while optimizing:
         # check neighbors I
         for i in range(n):
@@ -316,7 +316,7 @@ def separate_indexes(i, indexes, tr_M):
     indexes_not_i = indexes[inds_not_i]
     ind_i = indexes[inds_i]
     # reduce indexes_i to not contain i, make it a one d array
-    indexes_i = np.empty(len(ind_i), dtype=np.compat.long)
+    indexes_i = np.empty(len(ind_i), dtype=np.intp)
     for j in range(len(ind_i)):
         indexes_i[j] = ind_i[j][0] if ind_i[j][0] != i else ind_i[j][1]
     tr_M_not_i = tr_M[inds_not_i]
@@ -338,7 +338,7 @@ def separate_all_indexes(indexes, tr_M, n):
 
 def I_rest_from_tr_M_bins(i, tr_M_single, tr_M_not_i, indexes_not_i, n, bins):
     if bins is None:
-        bins = np.ones(n, dtype=np.compat.long)
+        bins = np.ones(n, dtype=np.intp)
     param = 1 / bins
     res = 0.0
     if len(indexes_not_i) > 0:
@@ -350,7 +350,7 @@ def I_rest_from_tr_M_bins(i, tr_M_single, tr_M_not_i, indexes_not_i, n, bins):
 
 def I_i_from_tr_M_bins(i, tr_M_single, tr_M_i, indexes_i, n, bins):
     if bins is None:
-        bins = np.ones(n, dtype=np.compat.long)
+        bins = np.ones(n, dtype=np.intp)
     param = 1 / bins
     res = 0.0
     if len(indexes_i) > 0:
@@ -383,7 +383,7 @@ def optimum_along_single_direction(i, tr_M_single, tr_M_i, tr_M_not_i, indexes_i
                 # from s_i to_bins[i]
                 bins_i = np.sqrt(1/s_i)
                 new_bins = bins.copy()
-                new_bins[i] = np.ceil(bins_i).astype(np.compat.long)
+                new_bins[i] = np.ceil(bins_i).astype(np.intp)
     return new_bins, success
 
 ##### The script we need to run to optimize binning
@@ -391,7 +391,7 @@ def optimize_binning(tr_M_single, tr_M, indexes, n, bins=None, I_tar=10**-14):
     # optimize binning to get minimum cache for target infidelity
     # while I > I_tar: add bins in a direction that increases infidelity the most per cache size, if more than one direction would achieve the target fidelity 
     if bins is None:
-        bins = np.ones(n, dtype=np.compat.long)
+        bins = np.ones(n, dtype=np.intp)
     bins, curr_I = _find_solution(tr_M_single, tr_M, indexes, n, bins, I_tar)
     # check surrounding points for smaller cache size
     bins, curr_I = _optimize_solution(tr_M_single, tr_M, indexes, n, bins, I_tar)
@@ -436,7 +436,7 @@ def optimize_binning(tr_M_single, tr_M, indexes, n, bins=None, I_tar=10**-14):
 def optimal_binning(H_s, c_mins, c_maxs, I_tar):
     n = H_s.shape[0] 
     n -= 1
-    bins = np.ones(n, dtype=np.compat.long)
+    bins = np.ones(n, dtype=np.intp)
     tr_M_single, tr_M, tr_M_2, indexes, U_exact, U_approx = get_bidirectional_overlap_operators(H_s, c_mins, c_maxs, bins=bins)
     opt_bins, curr_I = optimize_binning(tr_M_single, tr_M, indexes, n, bins=bins, I_tar=I_tar)
     return opt_bins

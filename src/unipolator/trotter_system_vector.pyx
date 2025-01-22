@@ -6,10 +6,12 @@ from .indexing cimport *
 from .caching cimport *
 from .blas_functions cimport *
 from .blas_functions_vectors cimport *
+#from scipy.linalg.cython_lapack cimport zheevd
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Trotter System Vector
 cdef class Trotter_System_vector:
-    # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
+    # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
     cdef int n_dims, n_dims_1, n_dims_2, n_dims_3, d, d2, m, dm
     cdef double[::1] E
     cdef double[:,::1] Es
@@ -33,40 +35,52 @@ cdef class Trotter_System_vector:
     cdef double complex *work0
     cdef double[::1] rwork
     cdef double *rwork0
-    cdef int[::1] iwork
-    cdef int *iwork0
+    cdef npc.intp_t[::1] iwork
+    cdef npc.intp_t *iwork0
     cdef char *jobz
     cdef char *uplo
-    cdef int info, n_times, m_times
+    cdef npc.intp_t info, n_times, m_times
+    def __cinit__(self, double complex[:,:,::1] H_s, int m_times=0, int n_times=-1, int m=1): # n_times = 2**m_times ==> m_times = 0 --> n_times = 1
+        # Construct a Trotter object for state evolution of
+        # H_s - the Hamiltonian of the system H_s[0] = H0, H_s[1] = H1, H_s[2] = H2, etc.
+        # m_times - do 2**m_times trotter steps to approximate a unitary
+        # if n_times is not <0, then m_times is ignored and n_times is used instead
+        # m - number of wavevectors to calculate (default is 1)
 
-    def __cinit__(self, double complex[:,:,::1] H_s, int m_times=0, int n_times=-1, int m=1):
+        # Construct parameters
         self.n_dims = H_s.shape[0]
         self.n_dims_1 = self.n_dims - 1
         self.n_dims_2 = self.n_dims - 2
         self.n_dims_3 = self.n_dims - 3
+        if n_times < 0:
+            self.n_times = int(2**m_times)
+        else:
+            self.n_times = n_times
         self.d = H_s.shape[1]
         self.d2 = self.d * self.d
         self.m = m
         self.dm = self.d * self.m
-
         self.H = np.empty([self.n_dims, self.d, self.d], dtype=np.complex128)
-        self.h0 = &self.H[0, 0, 0]
-        cdef double complex *h_s0 = &H_s[0, 0, 0]
-        copy_pointer(h_s0, self.h0, self.d2 * self.n_dims)
+        self.h0 = &self.H[0,0,0]
+        cdef int i
+        cdef double complex *h_s0 = &H_s[0,0,0]
+        copy_pointer(h_s0, self.h0, self.d2*self.n_dims)
+
 
         self.E = np.empty([self.d], dtype=np.double)
         self.e0 = &self.E[0]
         self.C1 = np.empty([self.d], dtype=np.complex128)
         self.c1 = &self.C1[0]
         self.change_m(m)
-
         self.V = np.empty([self.d, self.d], dtype=np.complex128)
         self.v0 = &self.V[0, 0]
         self.curr_h0 = &self.H[0, 0, 0]
+        # Cache variables
         self.L = np.empty([self.n_dims, self.d, self.d], dtype=np.complex128)
-        self.l0 = &self.L[0, 0, 0]
+        self.l0 = &self.L[0, 0, 0] 
         self.Es = np.empty([self.n_dims_1, self.d], dtype=np.double)
-        self.e0s = &self.Es[0, 0]
+        self.e0s = &self.Es[0,0] 
+
         self.Unn = np.empty([self.d, self.d], dtype=np.complex128)
         self.unn = &self.Unn[0, 0]
 
@@ -75,25 +89,40 @@ cdef class Trotter_System_vector:
         self.work0 = &self.work[0]
         self.rwork = np.empty([self.lrwork], dtype=np.double)
         self.rwork0 = &self.rwork[0]
-        self.iwork = np.empty([self.liwork], dtype=np.int32)
+        self.iwork = np.empty([self.liwork], dtype=np.intp)
         self.iwork0 = &self.iwork[0]
-        self.jobz = 'v'
-        self.uplo = 'l'
+        self.jobz = 'v'  #eigenvectors and values -> v
+        self.uplo = 'l'  # upper triangle
         self.info = 0
 
-        c_expmH(self.H[0], 1.0 / self.n_times, self.Unn, self.lwork, self.lrwork, self.liwork)
-        self.l1 = self.l0
-        self.e1s = self.e0s
+        # Cache matrices
+        # First the H0 element
+        c_expmH(self.H[0], 1.0/self.n_times, self.Unn, self.lwork, self.lrwork, self.liwork) # store in Unn
+        self.l1 = self.l0 #+ self.n_dims_1*self.d2  # temporary pointer - moving along self.L, but backwards
+        self.e1s = self.e0s #+ self.n_dims_2*self.d # temporary pointer - moving along self.Es, but backwards
 
         for i in range(1, self.n_dims):
-            c_eigh_lapack(self.H[i], self.V, self.Es[i - 1], self.lwork, self.lrwork, self.liwork)
-            M_DagM_cdot_pointer(self.unn, self.v0, self.l1, self.d)
-            copy_pointer(self.v0, self.unn, self.d2)
+            c_eigh_lapack(self.H[i], self.V, self.Es[i-1], self.lwork, self.lrwork, self.liwork) # store in  ### old: self.Es[i-1]
+            M_DagM_cdot_pointer(self.unn, self.v0, self.l1, self.d) # store in U1
+            copy_pointer(self.v0 , self.unn, self.d2)
             self.l1 += self.d2
+        copy_pointer(self.v0, self.l1, self.d2)
+        self.l0 += self.d2 * self.n_dims_1
+        self.e0s += self.d * self.n_dims_2
+        self.e1s = self.e0s
+        self.l1 = self.l0  # Restore original value of pointer
+
+        # use V to store R @ L  ( the first and last elements of L)
+        MM_cdot(self.L[self.n_dims_1], self.L[0], self.V)
+
+        for i in range(self.n_dims_1):  # n'th steps
+            for j in range(self.d):
+                self.Es[i,j] = self.Es[i,j]/self.n_times
 
     def change_m(self, int m):
         self.m = m
         self.dm = self.d * m
+        # also change self.vi's
         self.U1 = np.empty([self.d, self.m], dtype=np.complex128)
         self.u1 = &self.U1[0, 0]
         self.U2 = np.empty([self.d, self.m], dtype=np.complex128)

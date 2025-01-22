@@ -4,7 +4,7 @@ import scipy as sp
 from mpl_toolkits.mplot3d import axes3d
 from kronbinations import *
 from timeit import *
-from tikzplotlib import get_tikz_code, save as tikz_save
+from Analysis_Code.tikzplotlib_mod import get_tikz_code, save as tikz_save
 import os
 
 from unipolator import *

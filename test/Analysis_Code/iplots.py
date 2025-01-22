@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from numpy import diff, sqrt, min, linspace, arange, NaN
+from numpy import diff, sqrt, min, linspace, arange, nan 
 from scipy.special import erfinv
 import os
 from matplotlib import pyplot as plt
-from tikzplotlib import get_tikz_code
+from Analysis_Code.tikzplotlib_mod import get_tikz_code
 from Analysis_Code.useful import *
 
 def tex_exists_and_same(filename, code):
@@ -394,7 +394,7 @@ def std_plot(axes, x, y, std, ps=0.9, ns=1, label='', alphas=None, colors=None, 
 
             if ns > 0:
                 if i == 0:
-                    p11 = axes.fill(NaN, NaN, color=color, alpha=alphas[0])
+                    p11 = axes.fill(nan, nan, color=color, alpha=alphas[0])
                     r.append(p1)
                     r.append(p2)
                     if label:
@@ -493,7 +493,7 @@ def min_mean_max_plot(axes, x, y, miny, maxy, ps=0.68, label='', alphas=None, co
                 p1 = axes.plot(cx, cy, color=color, **kwargs)
 
             if i == 0:
-                p11 = axes.fill(NaN, NaN, color=color, alpha=alphas)
+                p11 = axes.fill(nan, nan, color=color, alpha=alphas)
                 r.append(p1)
                 r.append(p2)
                 if label:

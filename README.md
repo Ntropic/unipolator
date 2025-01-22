@@ -2,7 +2,11 @@
 [![Python package](https://github.com/Ntropic/unipolator/actions/workflows/python-package.yml/badge.svg)](https://github.com/Ntropic/unipolator/actions/workflows/python-package.yml)
 ![Python Version](https://img.shields.io/badge/Python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue.svg)
 
-Unitary Interpolation, allows for the fast repeated exponentiation of parametric Hamiltonians [[1]](https://arxiv.org/abs/2402.01498). Construct propagators (and their derivatives) of time dependent quantum systems of the form $H(t) = H_0 + \sum_{i=1} c_i(t) H_i$ (for example in optimal control problems) or quantum circuits with parametric gates. We utilize a grid based interpolation scheme to calculate propagators from cached matrix decompositions. The computation of a propagator for a time step is as fast as a single Trotter step, but with the ability to achieve machine precision. 
+Unitary Interpolation, allows for the fast repeated exponentiation of parametric Hamiltonians [[1]](https://arxiv.org/abs/2402.01498). Construct propagators (and their derivatives) of time dependent quantum systems of the form $H(t) = H_0 + \sum_{i=1} c_i(t) H_i$ (for example in optimal control problems) or quantum circuits with parametric gates. We utilize a grid based interpolation scheme to calculate propagators from cached matrix decompositions. The computation of a propagator for a time step is as fast as a single Trotter step, but with the ability to achieve machine precision.
+
+**Update:** Now supports numpy $\geq$ 2.0. 
+ 
+ To reproduce the plots from the publication (see the .ipynb scripts in the test/ folder) use python $\leq$ 3.10, as tikzplotlib currently does not support python 3.11.
 
 ## Install and Import
   Install via
