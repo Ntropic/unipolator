@@ -6,6 +6,7 @@ from .indexing cimport *
 from .caching cimport *
 from .blas_functions cimport *
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Trotter System
 cdef class Trotter_System:
     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads

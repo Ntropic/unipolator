@@ -4,9 +4,7 @@ import numpy as np
 cimport numpy as npc
 
 # distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
-
 #### Construct Parameters of bounds #############################################################
-
 cpdef Bin_Parameters(double[::1] c_mins, double[::1] c_maxs, npc.intp_t[::1] c_bins):  # Replaced long[::1] with npc.intp_t[::1]
     # Correct input parameters
     cdef int n = c_mins.shape[0]
