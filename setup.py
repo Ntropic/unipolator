@@ -2,32 +2,11 @@
 import os
 from setuptools import setup, find_packages, Extension
 import numpy as np
+from Cython.Build import cythonize
 
 name = 'unipolator'
 annotate = False
 
-try:
-    from Cython.Build import cythonize
-    print('Compiling via cython')
-except ImportError:
-    print('Not using Cythonize, due to an ImportError')
-    cythonize = None
-
-# https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules
-def no_cythonize(extensions, **_ignore):
-    for extension in extensions:
-        sources = []
-        for sfile in extension.sources:
-            path, ext = os.path.splitext(sfile)
-            if ext in (".pyx", ".py"):
-                if extension.language == "c++":
-                    ext = ".cpp"
-                else:
-                    ext = ".c"
-                sfile = path + ext
-            sources.append(sfile)
-        extension.sources[:] = sources
-    return extensions
 
 # make a list of the .pyx files in the os.join.path("src",name) directory
 #pyx_files = [os.path.splitext(fn)[0] for fn in os.listdir(os.path.join('src', name)) if fn.endswith(".pyx")] 
@@ -48,12 +27,8 @@ extensions = [Extension(name+'.'+filename, [ os.path.join('src', name, filename+
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-CYTHONIZE = True if cythonize is not None else False
-if CYTHONIZE:
-    compiler_directives = {'initializedcheck': False, 'boundscheck': False, 'wraparound': False, 'language_level': 3, "embedsignature": True, "cdivision": True, "nonecheck" : False, 'profile': False}
-    extensions = cythonize(extensions, language_level = "3", annotate=annotate, compiler_directives=compiler_directives ) #gdb_debug=True, 
-else:
-    extensions = no_cythonize(extensions)
+compiler_directives = {'emit_code_comments': False, 'initializedcheck': False, 'boundscheck': False, 'wraparound': False, 'language_level': 3, "embedsignature": True, "cdivision": True, "nonecheck" : False, 'profile': False}
+extensions = cythonize(extensions, language_level = "3", annotate=annotate, compiler_directives=compiler_directives ) #gdb_debug=True, 
 
 with open("requirements.txt") as fp:
     install_requires = fp.read().strip().split("\n")
