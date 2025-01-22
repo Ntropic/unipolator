@@ -5,6 +5,7 @@
 *.pdf
 *.p
 *.pyc
+*.pyd
 
 *.npy
 */__pycache__/*
