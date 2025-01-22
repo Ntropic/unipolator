@@ -27,7 +27,7 @@ def test_random_hamiltonian():
     I_ui = dq.Av_Infidelity(U_ap, U_ex)
 
     trotter.expmH(c, U_ap)
-    
+
     #U_ap = dq.expmH(H0)@ dq.expmH(H1*c[0])
     I_trotter = dq.Av_Infidelity(U_ap, U_ex)
 

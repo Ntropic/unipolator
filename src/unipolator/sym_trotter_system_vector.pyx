@@ -7,6 +7,7 @@ from .caching cimport *
 from .blas_functions cimport *
 from .blas_functions_vectors cimport *
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Unitary Interpolation
 cdef class Sym_Trotter_System_vector:
     # Initialize variables, to quickly calculate interpolations while minimizing memmory allocation overheads
@@ -36,6 +37,7 @@ cdef class Sym_Trotter_System_vector:
     cdef char *jobz
     cdef char *uplo
     cdef int info, n_times, m_times
+    
     def __cinit__(self, double complex[:,:,::1] H_s, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m_times=0, int n_times=-1, int m=1): # n_times = 2**m_times ==> m_times = 0 --> n_times = 1
         # Construct a Trotter object for state evolution of
         # H_s - the Hamiltonian of the system H_s[0] = H0, H_s[1] = H1, H_s[2] = H2, etc.

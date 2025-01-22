@@ -7,6 +7,7 @@ from .caching cimport *
 from .blas_functions cimport *
 from scipy.linalg.cython_lapack cimport zheevd
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Unitary Interpolation
 cdef class Sym_Trotter_System:
     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
@@ -42,12 +43,7 @@ cdef class Sym_Trotter_System:
     cdef char *uplo
     cdef int info, n_times, m_times
 
-    def __cinit__(
-        self, 
-        double complex[:,:,::1] H_s, 
-        npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED: dtype=long -> dtype=np.intp
-        int m_times=0
-    ):
+    def __cinit__(self, double complex[:,:,::1] H_s, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m_times=0):
         # Construct parameters
         self.n_dims = H_s.shape[0]
         self.n_dims_1 = self.n_dims - 1

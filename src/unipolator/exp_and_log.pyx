@@ -8,6 +8,7 @@ from scipy.linalg.cython_blas cimport zgemm, zscal, zdscal, zaxpy, zcopy, dcopy
 from scipy.linalg.cython_lapack cimport zheevd
 from .blas_functions cimport MM_cdot, DagM_M_cdot, M_DagM_cdot, MM_cdot_pointer, DagM_M_cdot_pointer, c_eigh_lapack
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 ##### Basic complex number functions to avoid using complex.h #########################
 cpdef double creal(double complex dc) noexcept nogil :
     cdef double complex* dcptr = &dc

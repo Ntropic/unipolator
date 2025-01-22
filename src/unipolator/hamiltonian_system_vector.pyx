@@ -7,7 +7,8 @@ from .blas_functions_vectors cimport *
 from .exp_and_log cimport copy_pointer
 from scipy.linalg.cython_blas cimport zgemm, zaxpy, zscal
 
-# Unitary Interpolation
+
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 cdef class Hamiltonian_System_vector:
     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
     cdef int n_dims, n_dims_1, d, d2, m, dm

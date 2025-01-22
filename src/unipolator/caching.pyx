@@ -6,7 +6,7 @@ from .blas_functions cimport c_eigh_lapack_workspace_sizes, d_mat_add, M_DagM_cd
 from .exp_and_log cimport c_expmH, Make_U_Partial, Dag, Partialize_Center, Partialize_Sides, copy_pointer  # Find correct files for these functions
 from .indexing cimport next_in_mrange, findex_0, reverse_cum_prod, flat_index_sizes_E, flat_index_sizes_V, int_max, int_prod_array, int_sum, is_even         # Find correct files for these functions
 
-
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 ##### Create Interpolation Cache #######################################################################################
 cpdef Unitary_Grid(double complex[:,:,::1] H, double[::1] c_mins, double[::1] dcs, npc.intp_t[::1] c_bins): # s is the number of interpolation points
     cdef int n = H.shape[1]
@@ -36,7 +36,6 @@ cpdef Unitary_Grid(double complex[:,:,::1] H, double[::1] c_mins, double[::1] dc
         c_expmH(H_i_s, dt, U_grid[findex_0(i_s, cum_prod, l), :, :], work, rwork, iwork)
         next_in_mrange(i_s, d_bins) # returns new i_s -> always apply at the end of the loop
     return U_grid, cum_prod
-
 
 #### Needs to be updates
 cpdef Create_Interpolation_Cache(double complex[:,:,::1] U_grid, npc.intp_t[::1] grid_cum_prod, npc.intp_t[::1] c_bins):

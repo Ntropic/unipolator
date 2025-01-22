@@ -6,6 +6,7 @@ import numpy as np
 from scipy.linalg.cython_blas cimport zgemm, zscal, zcopy
 from scipy.sparse.linalg._expm_multiply import LazyOperatorNormInfo, _fragment_3_1
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :
     # matrix multiply 2 matrices A (n x n) and B (n x m)
     cdef char *ori = 'n'

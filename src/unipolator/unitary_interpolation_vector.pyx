@@ -10,6 +10,7 @@ from .blas_functions_vectors cimport *
 from .autobinning import optimal_binning
 from scipy.linalg.cython_lapack cimport zheevd
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Unitary Interpolation
 cdef class UI_vector:
     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
@@ -144,8 +145,7 @@ cdef class UI_vector:
             np.asarray(self.strides_E),
             np.asarray(self.strides_L),
             np.asarray(self.strides_R),
-            np.asarray(self.strides_C)
-        )
+            np.asarray(self.strides_C))
 
     cdef interpolate_single_u(self, double complex *u0, double complex *v0):  # u0 => input vectors, v0 => output vectors
         cdef Py_ssize_t i, j

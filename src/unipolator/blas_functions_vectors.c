@@ -17882,9 +17882,9 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   return __pyx_r;
 }
 
-/* "unipolator/blas_functions_vectors.pyx":9
- * from scipy.sparse.linalg._expm_multiply import LazyOperatorNormInfo, _fragment_3_1
+/* "unipolator/blas_functions_vectors.pyx":10
  * 
+ * # distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
  * cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
  *     # matrix multiply 2 matrices A (n x n) and B (n x m)
  *     cdef char *ori = 'n'
@@ -17894,7 +17894,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v_scal
   char *__pyx_v_ori;
   __pyx_t_double_complex __pyx_v_beta;
 
-  /* "unipolator/blas_functions_vectors.pyx":11
+  /* "unipolator/blas_functions_vectors.pyx":12
  * cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :
  *     # matrix multiply 2 matrices A (n x n) and B (n x m)
  *     cdef char *ori = 'n'             # <<<<<<<<<<<<<<
@@ -17903,7 +17903,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v_scal
  */
   __pyx_v_ori = ((char *)"n");
 
-  /* "unipolator/blas_functions_vectors.pyx":13
+  /* "unipolator/blas_functions_vectors.pyx":14
  *     cdef char *ori = 'n'
  *     #cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0             # <<<<<<<<<<<<<<
@@ -17912,7 +17912,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v_scal
  */
   __pyx_v_beta = __pyx_t_double_complex_from_parts(0.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":14
+  /* "unipolator/blas_functions_vectors.pyx":15
  *     #cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)             # <<<<<<<<<<<<<<
@@ -17921,9 +17921,9 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v_scal
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zgemm(__pyx_v_ori, __pyx_v_ori, (&__pyx_v_m), (&__pyx_v_n), (&__pyx_v_n), (&__pyx_v_alpha), __pyx_v_v0, (&__pyx_v_m), __pyx_v_a0, (&__pyx_v_n), (&__pyx_v_beta), __pyx_v_c0, (&__pyx_v_m));
 
-  /* "unipolator/blas_functions_vectors.pyx":9
- * from scipy.sparse.linalg._expm_multiply import LazyOperatorNormInfo, _fragment_3_1
+  /* "unipolator/blas_functions_vectors.pyx":10
  * 
+ * # distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
  * cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
  *     # matrix multiply 2 matrices A (n x n) and B (n x m)
  *     cdef char *ori = 'n'
@@ -17932,7 +17932,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v_scal
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":16
+/* "unipolator/blas_functions_vectors.pyx":17
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cdef void MM_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -17945,7 +17945,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__py
   __pyx_t_double_complex __pyx_v_alpha;
   __pyx_t_double_complex __pyx_v_beta;
 
-  /* "unipolator/blas_functions_vectors.pyx":18
+  /* "unipolator/blas_functions_vectors.pyx":19
  * cdef void MM_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :
  *     # matrix multiply 2 matrices A (n x n) and B (n x m)
  *     cdef char *ori = 'n'             # <<<<<<<<<<<<<<
@@ -17954,7 +17954,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__py
  */
   __pyx_v_ori = ((char *)"n");
 
-  /* "unipolator/blas_functions_vectors.pyx":19
+  /* "unipolator/blas_functions_vectors.pyx":20
  *     # matrix multiply 2 matrices A (n x n) and B (n x m)
  *     cdef char *ori = 'n'
  *     cdef double complex alpha = 1.0             # <<<<<<<<<<<<<<
@@ -17963,7 +17963,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__py
  */
   __pyx_v_alpha = __pyx_t_double_complex_from_parts(1.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":20
+  /* "unipolator/blas_functions_vectors.pyx":21
  *     cdef char *ori = 'n'
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0             # <<<<<<<<<<<<<<
@@ -17972,7 +17972,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__py
  */
   __pyx_v_beta = __pyx_t_double_complex_from_parts(0.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":21
+  /* "unipolator/blas_functions_vectors.pyx":22
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)             # <<<<<<<<<<<<<<
@@ -17981,7 +17981,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__py
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zgemm(__pyx_v_ori, __pyx_v_ori, (&__pyx_v_m), (&__pyx_v_n), (&__pyx_v_n), (&__pyx_v_alpha), __pyx_v_v0, (&__pyx_v_m), __pyx_v_a0, (&__pyx_v_n), (&__pyx_v_beta), __pyx_v_c0, (&__pyx_v_m));
 
-  /* "unipolator/blas_functions_vectors.pyx":16
+  /* "unipolator/blas_functions_vectors.pyx":17
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cdef void MM_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -17992,7 +17992,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__py
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":23
+/* "unipolator/blas_functions_vectors.pyx":24
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C): # C = A @ B             # <<<<<<<<<<<<<<
@@ -18019,7 +18019,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
 
-  /* "unipolator/blas_functions_vectors.pyx":25
+  /* "unipolator/blas_functions_vectors.pyx":26
  * cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C): # C = A @ B
  *     # matrix multiply 2 matrices A (n x n) and B (n x m) -> C = A @ B
  *     cdef double complex *a0=&A[0,0]             # <<<<<<<<<<<<<<
@@ -18030,7 +18030,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
   __pyx_t_2 = 0;
   __pyx_v_a0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_1 * __pyx_v_A.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":26
+  /* "unipolator/blas_functions_vectors.pyx":27
  *     # matrix multiply 2 matrices A (n x n) and B (n x m) -> C = A @ B
  *     cdef double complex *a0=&A[0,0]
  *     cdef double complex *v0=&v[0,0]             # <<<<<<<<<<<<<<
@@ -18041,7 +18041,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
   __pyx_t_1 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_v.data + __pyx_t_2 * __pyx_v_v.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":27
+  /* "unipolator/blas_functions_vectors.pyx":28
  *     cdef double complex *a0=&A[0,0]
  *     cdef double complex *v0=&v[0,0]
  *     cdef double complex *c0=&C[0,0]             # <<<<<<<<<<<<<<
@@ -18052,7 +18052,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
   __pyx_t_2 = 0;
   __pyx_v_c0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_1 * __pyx_v_C.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":28
+  /* "unipolator/blas_functions_vectors.pyx":29
  *     cdef double complex *v0=&v[0,0]
  *     cdef double complex *c0=&C[0,0]
  *     cdef int n = A.shape[0] # = v.shape[0]             # <<<<<<<<<<<<<<
@@ -18061,7 +18061,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/blas_functions_vectors.pyx":29
+  /* "unipolator/blas_functions_vectors.pyx":30
  *     cdef double complex *c0=&C[0,0]
  *     cdef int n = A.shape[0] # = v.shape[0]
  *     cdef int m = v.shape[1]             # <<<<<<<<<<<<<<
@@ -18070,7 +18070,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
  */
   __pyx_v_m = (__pyx_v_v.shape[1]);
 
-  /* "unipolator/blas_functions_vectors.pyx":31
+  /* "unipolator/blas_functions_vectors.pyx":32
  *     cdef int m = v.shape[1]
  *     #Mv_cdot_pointer(a0, v0, c0, n, m)
  *     cdef char *ori = 'n'             # <<<<<<<<<<<<<<
@@ -18079,7 +18079,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
  */
   __pyx_v_ori = ((char *)"n");
 
-  /* "unipolator/blas_functions_vectors.pyx":32
+  /* "unipolator/blas_functions_vectors.pyx":33
  *     #Mv_cdot_pointer(a0, v0, c0, n, m)
  *     cdef char *ori = 'n'
  *     cdef double complex alpha = 1.0             # <<<<<<<<<<<<<<
@@ -18088,7 +18088,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
  */
   __pyx_v_alpha = __pyx_t_double_complex_from_parts(1.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":33
+  /* "unipolator/blas_functions_vectors.pyx":34
  *     cdef char *ori = 'n'
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0             # <<<<<<<<<<<<<<
@@ -18097,7 +18097,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
  */
   __pyx_v_beta = __pyx_t_double_complex_from_parts(0.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":34
+  /* "unipolator/blas_functions_vectors.pyx":35
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)             # <<<<<<<<<<<<<<
@@ -18106,7 +18106,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__Pyx_memvie
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zgemm(__pyx_v_ori, __pyx_v_ori, (&__pyx_v_m), (&__pyx_v_n), (&__pyx_v_n), (&__pyx_v_alpha), __pyx_v_v0, (&__pyx_v_m), __pyx_v_a0, (&__pyx_v_n), (&__pyx_v_beta), __pyx_v_c0, (&__pyx_v_m));
 
-  /* "unipolator/blas_functions_vectors.pyx":23
+  /* "unipolator/blas_functions_vectors.pyx":24
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C): # C = A @ B             # <<<<<<<<<<<<<<
@@ -18177,7 +18177,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -18185,9 +18185,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("MM_cdot_v", 1, 3, 3, 1); __PYX_ERR(0, 23, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("MM_cdot_v", 1, 3, 3, 1); __PYX_ERR(0, 24, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -18195,14 +18195,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("MM_cdot_v", 1, 3, 3, 2); __PYX_ERR(0, 23, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("MM_cdot_v", 1, 3, 3, 2); __PYX_ERR(0, 24, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "MM_cdot_v") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "MM_cdot_v") < 0)) __PYX_ERR(0, 24, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -18211,13 +18211,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 23, __pyx_L3_error)
-    __pyx_v_v = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_v.memview)) __PYX_ERR(0, 23, __pyx_L3_error)
-    __pyx_v_C = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_C.memview)) __PYX_ERR(0, 23, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
+    __pyx_v_v = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_v.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
+    __pyx_v_C = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_C.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("MM_cdot_v", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("MM_cdot_v", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 24, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -18259,8 +18259,8 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_MM_cdot_v(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("MM_cdot_v", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__pyx_v_A, __pyx_v_v, __pyx_v_C, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_v(__pyx_v_A, __pyx_v_v, __pyx_v_C, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -18277,7 +18277,7 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_MM_cdot_v(CYTHON
   return __pyx_r;
 }
 
-/* "unipolator/blas_functions_vectors.pyx":36
+/* "unipolator/blas_functions_vectors.pyx":37
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18291,7 +18291,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
   __pyx_t_double_complex __pyx_v_alpha;
   __pyx_t_double_complex __pyx_v_beta;
 
-  /* "unipolator/blas_functions_vectors.pyx":38
+  /* "unipolator/blas_functions_vectors.pyx":39
  * cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :
  *     # matrix multiply 2 square matrices A (n x n) and B (n x n)
  *     cdef char *orientA = 'n'             # <<<<<<<<<<<<<<
@@ -18300,7 +18300,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
  */
   __pyx_v_orientA = ((char *)"n");
 
-  /* "unipolator/blas_functions_vectors.pyx":39
+  /* "unipolator/blas_functions_vectors.pyx":40
  *     # matrix multiply 2 square matrices A (n x n) and B (n x n)
  *     cdef char *orientA = 'n'
  *     cdef char *orientB = 'c'             # <<<<<<<<<<<<<<
@@ -18309,7 +18309,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
  */
   __pyx_v_orientB = ((char *)"c");
 
-  /* "unipolator/blas_functions_vectors.pyx":40
+  /* "unipolator/blas_functions_vectors.pyx":41
  *     cdef char *orientA = 'n'
  *     cdef char *orientB = 'c'
  *     cdef double complex alpha = 1.0             # <<<<<<<<<<<<<<
@@ -18318,7 +18318,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
  */
   __pyx_v_alpha = __pyx_t_double_complex_from_parts(1.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":41
+  /* "unipolator/blas_functions_vectors.pyx":42
  *     cdef char *orientB = 'c'
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0             # <<<<<<<<<<<<<<
@@ -18327,7 +18327,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
  */
   __pyx_v_beta = __pyx_t_double_complex_from_parts(0.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":42
+  /* "unipolator/blas_functions_vectors.pyx":43
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0
  *     zgemm(orientA, orientB, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)             # <<<<<<<<<<<<<<
@@ -18336,7 +18336,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zgemm(__pyx_v_orientA, __pyx_v_orientB, (&__pyx_v_m), (&__pyx_v_n), (&__pyx_v_n), (&__pyx_v_alpha), __pyx_v_v0, (&__pyx_v_m), __pyx_v_a0, (&__pyx_v_n), (&__pyx_v_beta), __pyx_v_c0, (&__pyx_v_m));
 
-  /* "unipolator/blas_functions_vectors.pyx":36
+  /* "unipolator/blas_functions_vectors.pyx":37
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18347,7 +18347,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":44
+/* "unipolator/blas_functions_vectors.pyx":45
  *     zgemm(orientA, orientB, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18371,7 +18371,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
 
-  /* "unipolator/blas_functions_vectors.pyx":46
+  /* "unipolator/blas_functions_vectors.pyx":47
  * cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil :
  *     # matrix multiply 2 square matrices A (n x n) and B (n x n)
  *     cdef double complex *a0=&A[0,0]             # <<<<<<<<<<<<<<
@@ -18382,7 +18382,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
   __pyx_t_2 = 0;
   __pyx_v_a0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_1 * __pyx_v_A.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":47
+  /* "unipolator/blas_functions_vectors.pyx":48
  *     # matrix multiply 2 square matrices A (n x n) and B (n x n)
  *     cdef double complex *a0=&A[0,0]
  *     cdef double complex *v0=&v[0,0]             # <<<<<<<<<<<<<<
@@ -18393,7 +18393,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
   __pyx_t_1 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_v.data + __pyx_t_2 * __pyx_v_v.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":48
+  /* "unipolator/blas_functions_vectors.pyx":49
  *     cdef double complex *a0=&A[0,0]
  *     cdef double complex *v0=&v[0,0]
  *     cdef double complex *c0=&C[0,0]             # <<<<<<<<<<<<<<
@@ -18404,7 +18404,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
   __pyx_t_2 = 0;
   __pyx_v_c0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_C.data + __pyx_t_1 * __pyx_v_C.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":49
+  /* "unipolator/blas_functions_vectors.pyx":50
  *     cdef double complex *v0=&v[0,0]
  *     cdef double complex *c0=&C[0,0]
  *     cdef int n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -18413,7 +18413,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "unipolator/blas_functions_vectors.pyx":50
+  /* "unipolator/blas_functions_vectors.pyx":51
  *     cdef double complex *c0=&C[0,0]
  *     cdef int n = A.shape[0]
  *     cdef int m = v.shape[1]             # <<<<<<<<<<<<<<
@@ -18422,7 +18422,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
  */
   __pyx_v_m = (__pyx_v_v.shape[1]);
 
-  /* "unipolator/blas_functions_vectors.pyx":51
+  /* "unipolator/blas_functions_vectors.pyx":52
  *     cdef int n = A.shape[0]
  *     cdef int m = v.shape[1]
  *     DagM_M_cdot_pointer_v(a0, v0, c0, n, m)             # <<<<<<<<<<<<<<
@@ -18431,7 +18431,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__Pyx_me
  */
   __pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_pointer_v(__pyx_v_a0, __pyx_v_v0, __pyx_v_c0, __pyx_v_n, __pyx_v_m);
 
-  /* "unipolator/blas_functions_vectors.pyx":44
+  /* "unipolator/blas_functions_vectors.pyx":45
  *     zgemm(orientA, orientB, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18502,7 +18502,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 45, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -18510,9 +18510,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 45, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("DagM_M_cdot_v", 1, 3, 3, 1); __PYX_ERR(0, 44, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("DagM_M_cdot_v", 1, 3, 3, 1); __PYX_ERR(0, 45, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -18520,14 +18520,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 45, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("DagM_M_cdot_v", 1, 3, 3, 2); __PYX_ERR(0, 44, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("DagM_M_cdot_v", 1, 3, 3, 2); __PYX_ERR(0, 45, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "DagM_M_cdot_v") < 0)) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "DagM_M_cdot_v") < 0)) __PYX_ERR(0, 45, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -18536,13 +18536,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 44, __pyx_L3_error)
-    __pyx_v_v = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_v.memview)) __PYX_ERR(0, 44, __pyx_L3_error)
-    __pyx_v_C = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_C.memview)) __PYX_ERR(0, 44, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 45, __pyx_L3_error)
+    __pyx_v_v = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_v.memview)) __PYX_ERR(0, 45, __pyx_L3_error)
+    __pyx_v_C = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_C.memview)) __PYX_ERR(0, 45, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("DagM_M_cdot_v", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 44, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("DagM_M_cdot_v", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 45, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -18584,7 +18584,7 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_2DagM_M_cdot_v(C
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DagM_M_cdot_v", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__pyx_v_A, __pyx_v_v, __pyx_v_C, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_10unipolator_22blas_functions_vectors_DagM_M_cdot_v(__pyx_v_A, __pyx_v_v, __pyx_v_C, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -18601,7 +18601,7 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_2DagM_M_cdot_v(C
   return __pyx_r;
 }
 
-/* "unipolator/blas_functions_vectors.pyx":54
+/* "unipolator/blas_functions_vectors.pyx":55
  * 
  * 
  * cdef void v_exp_pointer_v(double *e0, double complex *v0, double t, int n, int m) noexcept nogil : # -i*E*amp*exp(-i*E*t)@v             # <<<<<<<<<<<<<<
@@ -18618,7 +18618,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
   int __pyx_t_2;
   int __pyx_t_3;
 
-  /* "unipolator/blas_functions_vectors.pyx":57
+  /* "unipolator/blas_functions_vectors.pyx":58
  *     cdef double complex c
  *     cdef double ei
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -18627,7 +18627,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/blas_functions_vectors.pyx":59
+  /* "unipolator/blas_functions_vectors.pyx":60
  *     cdef int incz = 1
  *     cdef int i
  *     ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -18636,7 +18636,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
   __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-  /* "unipolator/blas_functions_vectors.pyx":60
+  /* "unipolator/blas_functions_vectors.pyx":61
  *     cdef int i
  *     ei = dereference(e0) * t
  *     c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -18645,7 +18645,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
   __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-  /* "unipolator/blas_functions_vectors.pyx":61
+  /* "unipolator/blas_functions_vectors.pyx":62
  *     ei = dereference(e0) * t
  *     c.real = cos(ei)
  *     c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -18654,7 +18654,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
   __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-  /* "unipolator/blas_functions_vectors.pyx":62
+  /* "unipolator/blas_functions_vectors.pyx":63
  *     c.real = cos(ei)
  *     c.imag = -sin(ei)
  *     zscal(&m, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -18663,7 +18663,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
 
-  /* "unipolator/blas_functions_vectors.pyx":63
+  /* "unipolator/blas_functions_vectors.pyx":64
  *     c.imag = -sin(ei)
  *     zscal(&m, &c, v0, &incz)
  *     for i in range(1, n):             # <<<<<<<<<<<<<<
@@ -18675,7 +18675,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":64
+    /* "unipolator/blas_functions_vectors.pyx":65
  *     zscal(&m, &c, v0, &incz)
  *     for i in range(1, n):
  *         v0 += m             # <<<<<<<<<<<<<<
@@ -18684,7 +18684,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_m);
 
-    /* "unipolator/blas_functions_vectors.pyx":65
+    /* "unipolator/blas_functions_vectors.pyx":66
  *     for i in range(1, n):
  *         v0 += m
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -18693,7 +18693,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/blas_functions_vectors.pyx":66
+    /* "unipolator/blas_functions_vectors.pyx":67
  *         v0 += m
  *         e0 += 1
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -18702,7 +18702,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/blas_functions_vectors.pyx":67
+    /* "unipolator/blas_functions_vectors.pyx":68
  *         e0 += 1
  *         ei = dereference(e0) * t
  *         c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -18711,7 +18711,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
     __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-    /* "unipolator/blas_functions_vectors.pyx":68
+    /* "unipolator/blas_functions_vectors.pyx":69
  *         ei = dereference(e0) * t
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -18720,7 +18720,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-    /* "unipolator/blas_functions_vectors.pyx":69
+    /* "unipolator/blas_functions_vectors.pyx":70
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)
  *         zscal(&m, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -18730,7 +18730,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":54
+  /* "unipolator/blas_functions_vectors.pyx":55
  * 
  * 
  * cdef void v_exp_pointer_v(double *e0, double complex *v0, double t, int n, int m) noexcept nogil : # -i*E*amp*exp(-i*E*t)@v             # <<<<<<<<<<<<<<
@@ -18741,7 +18741,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(double
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":71
+/* "unipolator/blas_functions_vectors.pyx":72
  *         zscal(&m, &c, v0, &incz)
  * 
  * cdef void v_exp_v_pointer_v(double amp, double *e0, double complex *v0, double t, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18759,7 +18759,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
   int __pyx_t_2;
   int __pyx_t_3;
 
-  /* "unipolator/blas_functions_vectors.pyx":74
+  /* "unipolator/blas_functions_vectors.pyx":75
  *     cdef double complex c
  *     cdef double ei, f
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -18768,7 +18768,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/blas_functions_vectors.pyx":77
+  /* "unipolator/blas_functions_vectors.pyx":78
  *     cdef int i
  * 
  *     ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -18777,7 +18777,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
   __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-  /* "unipolator/blas_functions_vectors.pyx":78
+  /* "unipolator/blas_functions_vectors.pyx":79
  * 
  *     ei = dereference(e0) * t
  *     f = -dereference(e0) * amp             # <<<<<<<<<<<<<<
@@ -18786,7 +18786,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
   __pyx_v_f = ((-(*__pyx_v_e0)) * __pyx_v_amp);
 
-  /* "unipolator/blas_functions_vectors.pyx":79
+  /* "unipolator/blas_functions_vectors.pyx":80
  *     ei = dereference(e0) * t
  *     f = -dereference(e0) * amp
  *     c.real = f * sin(ei)             # <<<<<<<<<<<<<<
@@ -18795,7 +18795,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
   __Pyx_SET_CREAL(__pyx_v_c, (__pyx_v_f * sin(__pyx_v_ei)));
 
-  /* "unipolator/blas_functions_vectors.pyx":80
+  /* "unipolator/blas_functions_vectors.pyx":81
  *     f = -dereference(e0) * amp
  *     c.real = f * sin(ei)
  *     c.imag = f * cos(ei)             # <<<<<<<<<<<<<<
@@ -18804,7 +18804,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
   __Pyx_SET_CIMAG(__pyx_v_c, (__pyx_v_f * cos(__pyx_v_ei)));
 
-  /* "unipolator/blas_functions_vectors.pyx":81
+  /* "unipolator/blas_functions_vectors.pyx":82
  *     c.real = f * sin(ei)
  *     c.imag = f * cos(ei)
  *     zscal(&m, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -18813,7 +18813,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
 
-  /* "unipolator/blas_functions_vectors.pyx":82
+  /* "unipolator/blas_functions_vectors.pyx":83
  *     c.imag = f * cos(ei)
  *     zscal(&m, &c, v0, &incz)
  *     for i in range(1, n):             # <<<<<<<<<<<<<<
@@ -18825,7 +18825,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":83
+    /* "unipolator/blas_functions_vectors.pyx":84
  *     zscal(&m, &c, v0, &incz)
  *     for i in range(1, n):
  *         v0 += m             # <<<<<<<<<<<<<<
@@ -18834,7 +18834,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_m);
 
-    /* "unipolator/blas_functions_vectors.pyx":84
+    /* "unipolator/blas_functions_vectors.pyx":85
  *     for i in range(1, n):
  *         v0 += m
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -18843,7 +18843,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
     __pyx_v_e0 = (__pyx_v_e0 + 1);
 
-    /* "unipolator/blas_functions_vectors.pyx":85
+    /* "unipolator/blas_functions_vectors.pyx":86
  *         v0 += m
  *         e0 += 1
  *         ei = dereference(e0) * t             # <<<<<<<<<<<<<<
@@ -18852,7 +18852,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
     __pyx_v_ei = ((*__pyx_v_e0) * __pyx_v_t);
 
-    /* "unipolator/blas_functions_vectors.pyx":86
+    /* "unipolator/blas_functions_vectors.pyx":87
  *         e0 += 1
  *         ei = dereference(e0) * t
  *         f = -dereference(e0) * amp             # <<<<<<<<<<<<<<
@@ -18861,7 +18861,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
     __pyx_v_f = ((-(*__pyx_v_e0)) * __pyx_v_amp);
 
-    /* "unipolator/blas_functions_vectors.pyx":87
+    /* "unipolator/blas_functions_vectors.pyx":88
  *         ei = dereference(e0) * t
  *         f = -dereference(e0) * amp
  *         c.real = f * sin(ei)             # <<<<<<<<<<<<<<
@@ -18870,7 +18870,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
     __Pyx_SET_CREAL(__pyx_v_c, (__pyx_v_f * sin(__pyx_v_ei)));
 
-    /* "unipolator/blas_functions_vectors.pyx":88
+    /* "unipolator/blas_functions_vectors.pyx":89
  *         f = -dereference(e0) * amp
  *         c.real = f * sin(ei)
  *         c.imag = f * cos(ei)             # <<<<<<<<<<<<<<
@@ -18879,7 +18879,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (__pyx_v_f * cos(__pyx_v_ei)));
 
-    /* "unipolator/blas_functions_vectors.pyx":89
+    /* "unipolator/blas_functions_vectors.pyx":90
  *         c.real = f * sin(ei)
  *         c.imag = f * cos(ei)
  *         zscal(&m, &c, v0, &incz)             # <<<<<<<<<<<<<<
@@ -18889,7 +18889,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), (&__pyx_v_c), __pyx_v_v0, (&__pyx_v_incz));
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":71
+  /* "unipolator/blas_functions_vectors.pyx":72
  *         zscal(&m, &c, v0, &incz)
  * 
  * cdef void v_exp_v_pointer_v(double amp, double *e0, double complex *v0, double t, int n, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18900,7 +18900,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_pointer_v(doub
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":94
+/* "unipolator/blas_functions_vectors.pyx":95
  * 
  * ##### Batch computations ############################################
  * cdef void MM_cdot_pointer_batch_v(double complex *a0, double complex *vi, double complex *vo, double complex *di, double complex *do, int n, int m, int nm, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -18919,7 +18919,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
   int __pyx_t_2;
   int __pyx_t_3;
 
-  /* "unipolator/blas_functions_vectors.pyx":96
+  /* "unipolator/blas_functions_vectors.pyx":97
  * cdef void MM_cdot_pointer_batch_v(double complex *a0, double complex *vi, double complex *vo, double complex *di, double complex *do, int n, int m, int nm, int batch_ind) noexcept nogil :
  *     # calculate all matrix products in a batch jumping by nm for batch_ind
  *     cdef char *ori = 'n'             # <<<<<<<<<<<<<<
@@ -18928,7 +18928,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
   __pyx_v_ori = ((char *)"n");
 
-  /* "unipolator/blas_functions_vectors.pyx":97
+  /* "unipolator/blas_functions_vectors.pyx":98
  *     # calculate all matrix products in a batch jumping by nm for batch_ind
  *     cdef char *ori = 'n'
  *     cdef double complex alpha = 1.0             # <<<<<<<<<<<<<<
@@ -18937,7 +18937,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
   __pyx_v_alpha = __pyx_t_double_complex_from_parts(1.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":98
+  /* "unipolator/blas_functions_vectors.pyx":99
  *     cdef char *ori = 'n'
  *     cdef double complex alpha = 1.0
  *     cdef double complex beta = 0.0             # <<<<<<<<<<<<<<
@@ -18946,7 +18946,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
   __pyx_v_beta = __pyx_t_double_complex_from_parts(0.0, 0);
 
-  /* "unipolator/blas_functions_vectors.pyx":100
+  /* "unipolator/blas_functions_vectors.pyx":101
  *     cdef double complex beta = 0.0
  *     # copy pointers
  *     cdef double complex *di2 = di             # <<<<<<<<<<<<<<
@@ -18955,7 +18955,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
   __pyx_v_di2 = __pyx_v_di;
 
-  /* "unipolator/blas_functions_vectors.pyx":101
+  /* "unipolator/blas_functions_vectors.pyx":102
  *     # copy pointers
  *     cdef double complex *di2 = di
  *     cdef double complex *do2 = do             # <<<<<<<<<<<<<<
@@ -18964,7 +18964,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
   __pyx_v_do2 = __pyx_v_do;
 
-  /* "unipolator/blas_functions_vectors.pyx":102
+  /* "unipolator/blas_functions_vectors.pyx":103
  *     cdef double complex *di2 = di
  *     cdef double complex *do2 = do
  *     zgemm(ori, ori, &m, &n, &n, &alpha, vi, &m, a0, &n, &beta, vo, &m)             # <<<<<<<<<<<<<<
@@ -18973,7 +18973,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zgemm(__pyx_v_ori, __pyx_v_ori, (&__pyx_v_m), (&__pyx_v_n), (&__pyx_v_n), (&__pyx_v_alpha), __pyx_v_vi, (&__pyx_v_m), __pyx_v_a0, (&__pyx_v_n), (&__pyx_v_beta), __pyx_v_vo, (&__pyx_v_m));
 
-  /* "unipolator/blas_functions_vectors.pyx":103
+  /* "unipolator/blas_functions_vectors.pyx":104
  *     cdef double complex *do2 = do
  *     zgemm(ori, ori, &m, &n, &n, &alpha, vi, &m, a0, &n, &beta, vo, &m)
  *     for i in range(batch_ind):             # <<<<<<<<<<<<<<
@@ -18985,7 +18985,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":104
+    /* "unipolator/blas_functions_vectors.pyx":105
  *     zgemm(ori, ori, &m, &n, &n, &alpha, vi, &m, a0, &n, &beta, vo, &m)
  *     for i in range(batch_ind):
  *         zgemm(ori, ori, &m, &n, &n, &alpha, di2, &m, a0, &n, &beta, do2, &m)             # <<<<<<<<<<<<<<
@@ -18994,7 +18994,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
     __pyx_f_5scipy_6linalg_11cython_blas_zgemm(__pyx_v_ori, __pyx_v_ori, (&__pyx_v_m), (&__pyx_v_n), (&__pyx_v_n), (&__pyx_v_alpha), __pyx_v_di2, (&__pyx_v_m), __pyx_v_a0, (&__pyx_v_n), (&__pyx_v_beta), __pyx_v_do2, (&__pyx_v_m));
 
-    /* "unipolator/blas_functions_vectors.pyx":105
+    /* "unipolator/blas_functions_vectors.pyx":106
  *     for i in range(batch_ind):
  *         zgemm(ori, ori, &m, &n, &n, &alpha, di2, &m, a0, &n, &beta, do2, &m)
  *         di2 += nm             # <<<<<<<<<<<<<<
@@ -19003,7 +19003,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
  */
     __pyx_v_di2 = (__pyx_v_di2 + __pyx_v_nm);
 
-    /* "unipolator/blas_functions_vectors.pyx":106
+    /* "unipolator/blas_functions_vectors.pyx":107
  *         zgemm(ori, ori, &m, &n, &n, &alpha, di2, &m, a0, &n, &beta, do2, &m)
  *         di2 += nm
  *         do2 += nm             # <<<<<<<<<<<<<<
@@ -19013,7 +19013,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
     __pyx_v_do2 = (__pyx_v_do2 + __pyx_v_nm);
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":94
+  /* "unipolator/blas_functions_vectors.pyx":95
  * 
  * ##### Batch computations ############################################
  * cdef void MM_cdot_pointer_batch_v(double complex *a0, double complex *vi, double complex *vo, double complex *di, double complex *do, int n, int m, int nm, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19024,7 +19024,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":108
+/* "unipolator/blas_functions_vectors.pyx":109
  *         do2 += nm
  * 
  * cdef void MM_cdot_batch_v(double complex[:,::1] A, double complex[:,::1] V_in, double complex[:,::1] V_out, double complex[:,:,::1] dV_in, double complex[:,:,::1] dV_out, int n, int m, int nm, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19042,7 +19042,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
 
-  /* "unipolator/blas_functions_vectors.pyx":110
+  /* "unipolator/blas_functions_vectors.pyx":111
  * cdef void MM_cdot_batch_v(double complex[:,::1] A, double complex[:,::1] V_in, double complex[:,::1] V_out, double complex[:,:,::1] dV_in, double complex[:,:,::1] dV_out, int n, int m, int nm, int batch_ind) noexcept nogil :
  *     # calculate all matrix products in a batch jumping by nm for batch_ind
  *     cdef double complex *a0=&A[0,0]             # <<<<<<<<<<<<<<
@@ -19053,7 +19053,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   __pyx_t_2 = 0;
   __pyx_v_a0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_A.data + __pyx_t_1 * __pyx_v_A.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":111
+  /* "unipolator/blas_functions_vectors.pyx":112
  *     # calculate all matrix products in a batch jumping by nm for batch_ind
  *     cdef double complex *a0=&A[0,0]
  *     cdef double complex *vi=&V_in[0,0]             # <<<<<<<<<<<<<<
@@ -19064,7 +19064,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   __pyx_t_1 = 0;
   __pyx_v_vi = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V_in.data + __pyx_t_2 * __pyx_v_V_in.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":112
+  /* "unipolator/blas_functions_vectors.pyx":113
  *     cdef double complex *a0=&A[0,0]
  *     cdef double complex *vi=&V_in[0,0]
  *     cdef double complex *vo=&V_out[0,0]             # <<<<<<<<<<<<<<
@@ -19075,7 +19075,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   __pyx_t_2 = 0;
   __pyx_v_vo = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V_out.data + __pyx_t_1 * __pyx_v_V_out.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":113
+  /* "unipolator/blas_functions_vectors.pyx":114
  *     cdef double complex *vi=&V_in[0,0]
  *     cdef double complex *vo=&V_out[0,0]
  *     cdef double complex *di=&dV_in[0,0,0]             # <<<<<<<<<<<<<<
@@ -19087,7 +19087,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   __pyx_t_3 = 0;
   __pyx_v_di = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dV_in.data + __pyx_t_2 * __pyx_v_dV_in.strides[0]) ) + __pyx_t_1 * __pyx_v_dV_in.strides[1]) )) + __pyx_t_3)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":114
+  /* "unipolator/blas_functions_vectors.pyx":115
  *     cdef double complex *vo=&V_out[0,0]
  *     cdef double complex *di=&dV_in[0,0,0]
  *     cdef double complex *do=&dV_out[0,0,0]             # <<<<<<<<<<<<<<
@@ -19099,7 +19099,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   __pyx_t_2 = 0;
   __pyx_v_do = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dV_out.data + __pyx_t_3 * __pyx_v_dV_out.strides[0]) ) + __pyx_t_1 * __pyx_v_dV_out.strides[1]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":115
+  /* "unipolator/blas_functions_vectors.pyx":116
  *     cdef double complex *di=&dV_in[0,0,0]
  *     cdef double complex *do=&dV_out[0,0,0]
  *     MM_cdot_pointer_batch_v(a0, vi, vo, di, do, n, m, nm, batch_ind)             # <<<<<<<<<<<<<<
@@ -19108,7 +19108,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
  */
   __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_batch_v(__pyx_v_a0, __pyx_v_vi, __pyx_v_vo, __pyx_v_di, __pyx_v_do, __pyx_v_n, __pyx_v_m, __pyx_v_nm, __pyx_v_batch_ind);
 
-  /* "unipolator/blas_functions_vectors.pyx":108
+  /* "unipolator/blas_functions_vectors.pyx":109
  *         do2 += nm
  * 
  * cdef void MM_cdot_batch_v(double complex[:,::1] A, double complex[:,::1] V_in, double complex[:,::1] V_out, double complex[:,:,::1] dV_in, double complex[:,:,::1] dV_out, int n, int m, int nm, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19119,7 +19119,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_batch_v(__Pyx_
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":117
+/* "unipolator/blas_functions_vectors.pyx":118
  *     MM_cdot_pointer_batch_v(a0, vi, vo, di, do, n, m, nm, batch_ind)
  * 
  * cdef void v_exp_v_and_v_exp_pointer_v_batch(double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19140,7 +19140,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   int __pyx_t_5;
   Py_ssize_t __pyx_t_6;
 
-  /* "unipolator/blas_functions_vectors.pyx":123
+  /* "unipolator/blas_functions_vectors.pyx":124
  *     cdef double ei
  *     cdef double complex f
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -19149,7 +19149,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/blas_functions_vectors.pyx":126
+  /* "unipolator/blas_functions_vectors.pyx":127
  *     cdef Py_ssize_t i, j
  *     # first calculate the array e0s once
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -19161,7 +19161,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":128
+    /* "unipolator/blas_functions_vectors.pyx":129
  *     for i in range(n):
  *         #multiply the n'th element of e0 with t
  *         ei = t * dereference(e0)             # <<<<<<<<<<<<<<
@@ -19170,7 +19170,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_ei = (__pyx_v_t * (*__pyx_v_e0));
 
-    /* "unipolator/blas_functions_vectors.pyx":129
+    /* "unipolator/blas_functions_vectors.pyx":130
  *         #multiply the n'th element of e0 with t
  *         ei = t * dereference(e0)
  *         c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -19179,7 +19179,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-    /* "unipolator/blas_functions_vectors.pyx":130
+    /* "unipolator/blas_functions_vectors.pyx":131
  *         ei = t * dereference(e0)
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -19188,7 +19188,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-    /* "unipolator/blas_functions_vectors.pyx":131
+    /* "unipolator/blas_functions_vectors.pyx":132
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)
  *         e0s[i] = c             # <<<<<<<<<<<<<<
@@ -19197,7 +19197,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     (__pyx_v_e0s[__pyx_v_i]) = __pyx_v_c;
 
-    /* "unipolator/blas_functions_vectors.pyx":132
+    /* "unipolator/blas_functions_vectors.pyx":133
  *         c.imag = -sin(ei)
  *         e0s[i] = c
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -19207,7 +19207,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     __pyx_v_e0 = (__pyx_v_e0 + 1);
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":134
+  /* "unipolator/blas_functions_vectors.pyx":135
  *         e0 += 1
  *     # now calculate the row wise exponential first of v0 and then of the pages of dv0
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -19219,7 +19219,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":135
+    /* "unipolator/blas_functions_vectors.pyx":136
  *     # now calculate the row wise exponential first of v0 and then of the pages of dv0
  *     for i in range(n):
  *         zscal(&m, e0s, v0, &incz)             # <<<<<<<<<<<<<<
@@ -19228,7 +19228,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), __pyx_v_e0s, __pyx_v_v0, (&__pyx_v_incz));
 
-    /* "unipolator/blas_functions_vectors.pyx":136
+    /* "unipolator/blas_functions_vectors.pyx":137
  *     for i in range(n):
  *         zscal(&m, e0s, v0, &incz)
  *         v0 += m             # <<<<<<<<<<<<<<
@@ -19237,7 +19237,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_m);
 
-    /* "unipolator/blas_functions_vectors.pyx":137
+    /* "unipolator/blas_functions_vectors.pyx":138
  *         zscal(&m, e0s, v0, &incz)
  *         v0 += m
  *         e0s += 1             # <<<<<<<<<<<<<<
@@ -19247,7 +19247,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     __pyx_v_e0s = (__pyx_v_e0s + 1);
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":139
+  /* "unipolator/blas_functions_vectors.pyx":140
  *         e0s += 1
  *     # now calculate the row wise exponential of dv0
  *     for i in range(batch_ind): # page wise             # <<<<<<<<<<<<<<
@@ -19259,7 +19259,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":140
+    /* "unipolator/blas_functions_vectors.pyx":141
  *     # now calculate the row wise exponential of dv0
  *     for i in range(batch_ind): # page wise
  *         e0s -= n             # <<<<<<<<<<<<<<
@@ -19268,7 +19268,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_e0s = (__pyx_v_e0s - __pyx_v_n);
 
-    /* "unipolator/blas_functions_vectors.pyx":141
+    /* "unipolator/blas_functions_vectors.pyx":142
  *     for i in range(batch_ind): # page wise
  *         e0s -= n
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -19280,7 +19280,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/blas_functions_vectors.pyx":142
+      /* "unipolator/blas_functions_vectors.pyx":143
  *         e0s -= n
  *         for j in range(n):
  *             zscal(&m, e0s, dv0, &incz)             # <<<<<<<<<<<<<<
@@ -19289,7 +19289,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
       __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), __pyx_v_e0s, __pyx_v_dv0, (&__pyx_v_incz));
 
-      /* "unipolator/blas_functions_vectors.pyx":143
+      /* "unipolator/blas_functions_vectors.pyx":144
  *         for j in range(n):
  *             zscal(&m, e0s, dv0, &incz)
  *             dv0 += m             # <<<<<<<<<<<<<<
@@ -19298,7 +19298,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
       __pyx_v_dv0 = (__pyx_v_dv0 + __pyx_v_m);
 
-      /* "unipolator/blas_functions_vectors.pyx":144
+      /* "unipolator/blas_functions_vectors.pyx":145
  *             zscal(&m, e0s, dv0, &incz)
  *             dv0 += m
  *             e0s += 1             # <<<<<<<<<<<<<<
@@ -19309,7 +19309,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     }
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":117
+  /* "unipolator/blas_functions_vectors.pyx":118
  *     MM_cdot_pointer_batch_v(a0, vi, vo, di, do, n, m, nm, batch_ind)
  * 
  * cdef void v_exp_v_and_v_exp_pointer_v_batch(double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19320,7 +19320,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":146
+/* "unipolator/blas_functions_vectors.pyx":147
  *             e0s += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
@@ -19346,7 +19346,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
 
-  /* "unipolator/blas_functions_vectors.pyx":147
+  /* "unipolator/blas_functions_vectors.pyx":148
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):
  *     cdef double *e0 = &E[0]             # <<<<<<<<<<<<<<
@@ -19356,7 +19356,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_1 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":148
+  /* "unipolator/blas_functions_vectors.pyx":149
  * cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]             # <<<<<<<<<<<<<<
@@ -19366,7 +19366,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_1 = 0;
   __pyx_v_e0s = (&(*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_Es.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":149
+  /* "unipolator/blas_functions_vectors.pyx":150
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]
  *     cdef double complex *v0 = &V[0,0]             # <<<<<<<<<<<<<<
@@ -19377,7 +19377,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_2 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_1 * __pyx_v_V.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":150
+  /* "unipolator/blas_functions_vectors.pyx":151
  *     cdef double complex *e0s = &Es[0]
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *dv0 = &dV[0,0,0]             # <<<<<<<<<<<<<<
@@ -19389,7 +19389,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_3 = 0;
   __pyx_v_dv0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dV.data + __pyx_t_2 * __pyx_v_dV.strides[0]) ) + __pyx_t_1 * __pyx_v_dV.strides[1]) )) + __pyx_t_3)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":151
+  /* "unipolator/blas_functions_vectors.pyx":152
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *dv0 = &dV[0,0,0]
  *     cdef int m = V.shape[1]             # <<<<<<<<<<<<<<
@@ -19398,7 +19398,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_v_m = (__pyx_v_V.shape[1]);
 
-  /* "unipolator/blas_functions_vectors.pyx":152
+  /* "unipolator/blas_functions_vectors.pyx":153
  *     cdef double complex *dv0 = &dV[0,0,0]
  *     cdef int m = V.shape[1]
  *     cdef int n = V.shape[0]             # <<<<<<<<<<<<<<
@@ -19407,7 +19407,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_v_n = (__pyx_v_V.shape[0]);
 
-  /* "unipolator/blas_functions_vectors.pyx":153
+  /* "unipolator/blas_functions_vectors.pyx":154
  *     cdef int m = V.shape[1]
  *     cdef int n = V.shape[0]
  *     v_exp_v_and_v_exp_pointer_v_batch(e0, e0s, v0, dv0, t, n, m, batch_ind)             # <<<<<<<<<<<<<<
@@ -19416,7 +19416,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_pointer_v_batch(__pyx_v_e0, __pyx_v_e0s, __pyx_v_v0, __pyx_v_dv0, __pyx_v_t, __pyx_v_n, __pyx_v_m, __pyx_v_batch_ind);
 
-  /* "unipolator/blas_functions_vectors.pyx":146
+  /* "unipolator/blas_functions_vectors.pyx":147
  *             e0s += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
@@ -19496,7 +19496,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -19504,9 +19504,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 1); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 1); __PYX_ERR(0, 147, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -19514,9 +19514,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 2); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 2); __PYX_ERR(0, 147, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -19524,9 +19524,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 3); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 3); __PYX_ERR(0, 147, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
@@ -19534,9 +19534,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 4); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 4); __PYX_ERR(0, 147, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
@@ -19544,14 +19544,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 5); __PYX_ERR(0, 146, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, 5); __PYX_ERR(0, 147, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "v_exp_v_and_v_exp_v_batch") < 0)) __PYX_ERR(0, 146, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "v_exp_v_and_v_exp_v_batch") < 0)) __PYX_ERR(0, 147, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 6)) {
       goto __pyx_L5_argtuple_error;
@@ -19563,16 +19563,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
       values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
     }
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 146, __pyx_L3_error)
-    __pyx_v_Es = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Es.memview)) __PYX_ERR(0, 146, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 146, __pyx_L3_error)
-    __pyx_v_dV = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dV.memview)) __PYX_ERR(0, 146, __pyx_L3_error)
-    __pyx_v_t = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
-    __pyx_v_batch_ind = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_batch_ind == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 147, __pyx_L3_error)
+    __pyx_v_Es = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Es.memview)) __PYX_ERR(0, 147, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 147, __pyx_L3_error)
+    __pyx_v_dV = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dV.memview)) __PYX_ERR(0, 147, __pyx_L3_error)
+    __pyx_v_t = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
+    __pyx_v_batch_ind = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_batch_ind == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, __pyx_nargs); __PYX_ERR(0, 146, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch", 1, 6, 6, __pyx_nargs); __PYX_ERR(0, 147, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -19616,8 +19616,8 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_4v_exp_v_and_v_e
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("v_exp_v_and_v_exp_v_batch", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_batch(__pyx_v_E, __pyx_v_Es, __pyx_v_V, __pyx_v_dV, __pyx_v_t, __pyx_v_batch_ind, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 146, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_batch(__pyx_v_E, __pyx_v_Es, __pyx_v_V, __pyx_v_dV, __pyx_v_t, __pyx_v_batch_ind, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -19634,7 +19634,7 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_4v_exp_v_and_v_e
   return __pyx_r;
 }
 
-/* "unipolator/blas_functions_vectors.pyx":155
+/* "unipolator/blas_functions_vectors.pyx":156
  *     v_exp_v_and_v_exp_pointer_v_batch(e0, e0s, v0, dv0, t, n, m, batch_ind)
  * 
  * cdef void v_exp_v_and_v_exp_pointer_v_batch_increment(double amp, double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int mn, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19657,7 +19657,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   int __pyx_t_5;
   Py_ssize_t __pyx_t_6;
 
-  /* "unipolator/blas_functions_vectors.pyx":161
+  /* "unipolator/blas_functions_vectors.pyx":162
  *     cdef double ei
  *     cdef double complex f
  *     cdef int incz = 1             # <<<<<<<<<<<<<<
@@ -19666,7 +19666,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_incz = 1;
 
-  /* "unipolator/blas_functions_vectors.pyx":163
+  /* "unipolator/blas_functions_vectors.pyx":164
  *     cdef int incz = 1
  *     cdef Py_ssize_t i, j
  *     cdef int k = mn * batch_ind             # <<<<<<<<<<<<<<
@@ -19675,7 +19675,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_k = (__pyx_v_mn * __pyx_v_batch_ind);
 
-  /* "unipolator/blas_functions_vectors.pyx":166
+  /* "unipolator/blas_functions_vectors.pyx":167
  * 
  *     # first calculate the array e0s once
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -19687,7 +19687,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":168
+    /* "unipolator/blas_functions_vectors.pyx":169
  *     for i in range(n):
  *         #multiply the n'th element of e0 with t
  *         ei = t * dereference(e0)             # <<<<<<<<<<<<<<
@@ -19696,7 +19696,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_ei = (__pyx_v_t * (*__pyx_v_e0));
 
-    /* "unipolator/blas_functions_vectors.pyx":169
+    /* "unipolator/blas_functions_vectors.pyx":170
  *         #multiply the n'th element of e0 with t
  *         ei = t * dereference(e0)
  *         c.real = cos(ei)             # <<<<<<<<<<<<<<
@@ -19705,7 +19705,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __Pyx_SET_CREAL(__pyx_v_c, cos(__pyx_v_ei));
 
-    /* "unipolator/blas_functions_vectors.pyx":170
+    /* "unipolator/blas_functions_vectors.pyx":171
  *         ei = t * dereference(e0)
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)             # <<<<<<<<<<<<<<
@@ -19714,7 +19714,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __Pyx_SET_CIMAG(__pyx_v_c, (-sin(__pyx_v_ei)));
 
-    /* "unipolator/blas_functions_vectors.pyx":171
+    /* "unipolator/blas_functions_vectors.pyx":172
  *         c.real = cos(ei)
  *         c.imag = -sin(ei)
  *         e0s[i] = c             # <<<<<<<<<<<<<<
@@ -19723,7 +19723,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     (__pyx_v_e0s[__pyx_v_i]) = __pyx_v_c;
 
-    /* "unipolator/blas_functions_vectors.pyx":172
+    /* "unipolator/blas_functions_vectors.pyx":173
  *         c.imag = -sin(ei)
  *         e0s[i] = c
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -19733,7 +19733,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     __pyx_v_e0 = (__pyx_v_e0 + 1);
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":174
+  /* "unipolator/blas_functions_vectors.pyx":175
  *         e0 += 1
  *     # now calculate the row wise exponential first of v0 and then of the pages of dv0
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -19745,7 +19745,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":175
+    /* "unipolator/blas_functions_vectors.pyx":176
  *     # now calculate the row wise exponential first of v0 and then of the pages of dv0
  *     for i in range(n):
  *         zscal(&m, e0s, v0, &incz)             # <<<<<<<<<<<<<<
@@ -19754,7 +19754,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), __pyx_v_e0s, __pyx_v_v0, (&__pyx_v_incz));
 
-    /* "unipolator/blas_functions_vectors.pyx":176
+    /* "unipolator/blas_functions_vectors.pyx":177
  *     for i in range(n):
  *         zscal(&m, e0s, v0, &incz)
  *         v0 += m             # <<<<<<<<<<<<<<
@@ -19763,7 +19763,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_m);
 
-    /* "unipolator/blas_functions_vectors.pyx":177
+    /* "unipolator/blas_functions_vectors.pyx":178
  *         zscal(&m, e0s, v0, &incz)
  *         v0 += m
  *         e0s += 1             # <<<<<<<<<<<<<<
@@ -19773,7 +19773,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     __pyx_v_e0s = (__pyx_v_e0s + 1);
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":179
+  /* "unipolator/blas_functions_vectors.pyx":180
  *         e0s += 1
  *     # precopy -> then rescale later
  *     v0 -= mn             # <<<<<<<<<<<<<<
@@ -19782,7 +19782,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_v0 = (__pyx_v_v0 - __pyx_v_mn);
 
-  /* "unipolator/blas_functions_vectors.pyx":180
+  /* "unipolator/blas_functions_vectors.pyx":181
  *     # precopy -> then rescale later
  *     v0 -= mn
  *     dv0 += k             # <<<<<<<<<<<<<<
@@ -19791,7 +19791,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_dv0 = (__pyx_v_dv0 + __pyx_v_k);
 
-  /* "unipolator/blas_functions_vectors.pyx":181
+  /* "unipolator/blas_functions_vectors.pyx":182
  *     v0 -= mn
  *     dv0 += k
  *     zcopy(&mn, v0, &incz, dv0, &incz)             # <<<<<<<<<<<<<<
@@ -19800,7 +19800,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_f_5scipy_6linalg_11cython_blas_zcopy((&__pyx_v_mn), __pyx_v_v0, (&__pyx_v_incz), __pyx_v_dv0, (&__pyx_v_incz));
 
-  /* "unipolator/blas_functions_vectors.pyx":182
+  /* "unipolator/blas_functions_vectors.pyx":183
  *     dv0 += k
  *     zcopy(&mn, v0, &incz, dv0, &incz)
  *     dv0 -= k             # <<<<<<<<<<<<<<
@@ -19809,7 +19809,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_dv0 = (__pyx_v_dv0 - __pyx_v_k);
 
-  /* "unipolator/blas_functions_vectors.pyx":184
+  /* "unipolator/blas_functions_vectors.pyx":185
  *     dv0 -= k
  *     # now calculate the row wise exponential of dv0
  *     for i in range(batch_ind): # page wise             # <<<<<<<<<<<<<<
@@ -19821,7 +19821,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":185
+    /* "unipolator/blas_functions_vectors.pyx":186
  *     # now calculate the row wise exponential of dv0
  *     for i in range(batch_ind): # page wise
  *         e0s -= n             # <<<<<<<<<<<<<<
@@ -19830,7 +19830,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_e0s = (__pyx_v_e0s - __pyx_v_n);
 
-    /* "unipolator/blas_functions_vectors.pyx":186
+    /* "unipolator/blas_functions_vectors.pyx":187
  *     for i in range(batch_ind): # page wise
  *         e0s -= n
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -19842,7 +19842,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/blas_functions_vectors.pyx":187
+      /* "unipolator/blas_functions_vectors.pyx":188
  *         e0s -= n
  *         for j in range(n):
  *             zscal(&m, e0s, dv0, &incz)             # <<<<<<<<<<<<<<
@@ -19851,7 +19851,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
       __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), __pyx_v_e0s, __pyx_v_dv0, (&__pyx_v_incz));
 
-      /* "unipolator/blas_functions_vectors.pyx":188
+      /* "unipolator/blas_functions_vectors.pyx":189
  *         for j in range(n):
  *             zscal(&m, e0s, dv0, &incz)
  *             dv0 += m             # <<<<<<<<<<<<<<
@@ -19860,7 +19860,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
       __pyx_v_dv0 = (__pyx_v_dv0 + __pyx_v_m);
 
-      /* "unipolator/blas_functions_vectors.pyx":189
+      /* "unipolator/blas_functions_vectors.pyx":190
  *             zscal(&m, e0s, dv0, &incz)
  *             dv0 += m
  *             e0s += 1             # <<<<<<<<<<<<<<
@@ -19871,7 +19871,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     }
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":191
+  /* "unipolator/blas_functions_vectors.pyx":192
  *             e0s += 1
  *     # scale the precopied elements
  *     e0 -= n             # <<<<<<<<<<<<<<
@@ -19880,7 +19880,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __pyx_v_e0 = (__pyx_v_e0 - __pyx_v_n);
 
-  /* "unipolator/blas_functions_vectors.pyx":192
+  /* "unipolator/blas_functions_vectors.pyx":193
  *     # scale the precopied elements
  *     e0 -= n
  *     f.real = 0.0             # <<<<<<<<<<<<<<
@@ -19889,7 +19889,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
   __Pyx_SET_CREAL(__pyx_v_f, 0.0);
 
-  /* "unipolator/blas_functions_vectors.pyx":193
+  /* "unipolator/blas_functions_vectors.pyx":194
  *     e0 -= n
  *     f.real = 0.0
  *     for i in range(n): # copy and scale by f             # <<<<<<<<<<<<<<
@@ -19901,7 +19901,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":194
+    /* "unipolator/blas_functions_vectors.pyx":195
  *     f.real = 0.0
  *     for i in range(n): # copy and scale by f
  *         f.imag = - amp * dereference(e0)             # <<<<<<<<<<<<<<
@@ -19910,7 +19910,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __Pyx_SET_CIMAG(__pyx_v_f, ((-__pyx_v_amp) * (*__pyx_v_e0)));
 
-    /* "unipolator/blas_functions_vectors.pyx":196
+    /* "unipolator/blas_functions_vectors.pyx":197
  *         f.imag = - amp * dereference(e0)
  *         # complex multiplication
  *         zscal(&m, &f, dv0, &incz)             # <<<<<<<<<<<<<<
@@ -19919,7 +19919,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_f_5scipy_6linalg_11cython_blas_zscal((&__pyx_v_m), (&__pyx_v_f), __pyx_v_dv0, (&__pyx_v_incz));
 
-    /* "unipolator/blas_functions_vectors.pyx":197
+    /* "unipolator/blas_functions_vectors.pyx":198
  *         # complex multiplication
  *         zscal(&m, &f, dv0, &incz)
  *         dv0 += m             # <<<<<<<<<<<<<<
@@ -19928,7 +19928,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
  */
     __pyx_v_dv0 = (__pyx_v_dv0 + __pyx_v_m);
 
-    /* "unipolator/blas_functions_vectors.pyx":198
+    /* "unipolator/blas_functions_vectors.pyx":199
  *         zscal(&m, &f, dv0, &incz)
  *         dv0 += m
  *         e0 += 1             # <<<<<<<<<<<<<<
@@ -19938,7 +19938,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
     __pyx_v_e0 = (__pyx_v_e0 + 1);
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":155
+  /* "unipolator/blas_functions_vectors.pyx":156
  *     v_exp_v_and_v_exp_pointer_v_batch(e0, e0s, v0, dv0, t, n, m, batch_ind)
  * 
  * cdef void v_exp_v_and_v_exp_pointer_v_batch_increment(double amp, double *e0, double complex *e0s, double complex *v0, double complex *dv0, double t, int n, int m, int mn, int batch_ind) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -19949,7 +19949,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_poin
   /* function exit code */
 }
 
-/* "unipolator/blas_functions_vectors.pyx":200
+/* "unipolator/blas_functions_vectors.pyx":201
  *         e0 += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
@@ -19976,7 +19976,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
 
-  /* "unipolator/blas_functions_vectors.pyx":201
+  /* "unipolator/blas_functions_vectors.pyx":202
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):
  *     cdef double *e0 = &E[0]             # <<<<<<<<<<<<<<
@@ -19986,7 +19986,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_1 = 0;
   __pyx_v_e0 = (&(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_E.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":202
+  /* "unipolator/blas_functions_vectors.pyx":203
  * cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]             # <<<<<<<<<<<<<<
@@ -19996,7 +19996,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_1 = 0;
   __pyx_v_e0s = (&(*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_Es.data) + __pyx_t_1)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":203
+  /* "unipolator/blas_functions_vectors.pyx":204
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]
  *     cdef double complex *v0 = &V[0,0]             # <<<<<<<<<<<<<<
@@ -20007,7 +20007,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_2 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V.data + __pyx_t_1 * __pyx_v_V.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":204
+  /* "unipolator/blas_functions_vectors.pyx":205
  *     cdef double complex *e0s = &Es[0]
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *dv0 = &dV[0,0,0]             # <<<<<<<<<<<<<<
@@ -20019,7 +20019,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
   __pyx_t_3 = 0;
   __pyx_v_dv0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_dV.data + __pyx_t_2 * __pyx_v_dV.strides[0]) ) + __pyx_t_1 * __pyx_v_dV.strides[1]) )) + __pyx_t_3)) ))));
 
-  /* "unipolator/blas_functions_vectors.pyx":205
+  /* "unipolator/blas_functions_vectors.pyx":206
  *     cdef double complex *v0 = &V[0,0]
  *     cdef double complex *dv0 = &dV[0,0,0]
  *     cdef int m = V.shape[1]             # <<<<<<<<<<<<<<
@@ -20028,7 +20028,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_v_m = (__pyx_v_V.shape[1]);
 
-  /* "unipolator/blas_functions_vectors.pyx":206
+  /* "unipolator/blas_functions_vectors.pyx":207
  *     cdef double complex *dv0 = &dV[0,0,0]
  *     cdef int m = V.shape[1]
  *     cdef int n = V.shape[0]             # <<<<<<<<<<<<<<
@@ -20037,7 +20037,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_v_n = (__pyx_v_V.shape[0]);
 
-  /* "unipolator/blas_functions_vectors.pyx":207
+  /* "unipolator/blas_functions_vectors.pyx":208
  *     cdef int m = V.shape[1]
  *     cdef int n = V.shape[0]
  *     cdef int mn = m * n             # <<<<<<<<<<<<<<
@@ -20046,7 +20046,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_v_mn = (__pyx_v_m * __pyx_v_n);
 
-  /* "unipolator/blas_functions_vectors.pyx":208
+  /* "unipolator/blas_functions_vectors.pyx":209
  *     cdef int n = V.shape[0]
  *     cdef int mn = m * n
  *     v_exp_v_and_v_exp_pointer_v_batch_increment(amp, e0, e0s, v0, dv0, t, n, m, mn, batch_ind)             # <<<<<<<<<<<<<<
@@ -20055,7 +20055,7 @@ static void __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_ba
  */
   __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_pointer_v_batch_increment(__pyx_v_amp, __pyx_v_e0, __pyx_v_e0s, __pyx_v_v0, __pyx_v_dv0, __pyx_v_t, __pyx_v_n, __pyx_v_m, __pyx_v_mn, __pyx_v_batch_ind);
 
-  /* "unipolator/blas_functions_vectors.pyx":200
+  /* "unipolator/blas_functions_vectors.pyx":201
  *         e0 += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
@@ -20138,7 +20138,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -20146,9 +20146,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 1); __PYX_ERR(0, 200, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 1); __PYX_ERR(0, 201, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -20156,9 +20156,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 2); __PYX_ERR(0, 200, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 2); __PYX_ERR(0, 201, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -20166,9 +20166,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 3); __PYX_ERR(0, 200, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 3); __PYX_ERR(0, 201, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
@@ -20176,9 +20176,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 4); __PYX_ERR(0, 200, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 4); __PYX_ERR(0, 201, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
@@ -20186,9 +20186,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 5); __PYX_ERR(0, 200, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 5); __PYX_ERR(0, 201, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
@@ -20196,14 +20196,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[6]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 6); __PYX_ERR(0, 200, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, 6); __PYX_ERR(0, 201, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "v_exp_v_and_v_exp_v_batch_increment") < 0)) __PYX_ERR(0, 200, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "v_exp_v_and_v_exp_v_batch_increment") < 0)) __PYX_ERR(0, 201, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 7)) {
       goto __pyx_L5_argtuple_error;
@@ -20216,17 +20216,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
       values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
     }
-    __pyx_v_amp = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_amp == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_Es = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Es.memview)) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_dV = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dV.memview)) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_t = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_batch_ind = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_batch_ind == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+    __pyx_v_amp = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_amp == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_E = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_E.memview)) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_Es = __Pyx_PyObject_to_MemoryviewSlice_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_Es.memview)) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_V = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V.memview)) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_dV = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_dV.memview)) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_t = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_batch_ind = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_batch_ind == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, __pyx_nargs); __PYX_ERR(0, 200, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("v_exp_v_and_v_exp_v_batch_increment", 1, 7, 7, __pyx_nargs); __PYX_ERR(0, 201, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -20270,8 +20270,8 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_6v_exp_v_and_v_e
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("v_exp_v_and_v_exp_v_batch_increment", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_batch_increment(__pyx_v_amp, __pyx_v_E, __pyx_v_Es, __pyx_v_V, __pyx_v_dV, __pyx_v_t, __pyx_v_batch_ind, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_f_10unipolator_22blas_functions_vectors_v_exp_v_and_v_exp_v_batch_increment(__pyx_v_amp, __pyx_v_E, __pyx_v_Es, __pyx_v_V, __pyx_v_dV, __pyx_v_t, __pyx_v_batch_ind, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -20288,7 +20288,7 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_6v_exp_v_and_v_e
   return __pyx_r;
 }
 
-/* "unipolator/blas_functions_vectors.pyx":211
+/* "unipolator/blas_functions_vectors.pyx":212
  * 
  * #### Not really blas functions, but added here nonetheless
  * cdef double norm_inf_complex( double complex[:, ::1] B, int d, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -20312,7 +20312,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
   Py_ssize_t __pyx_t_8;
   int __pyx_t_9;
 
-  /* "unipolator/blas_functions_vectors.pyx":214
+  /* "unipolator/blas_functions_vectors.pyx":215
  *     cdef Py_ssize_t i, j, n_rows, n_cols
  *     cdef double row_sum
  *     cdef double max_sum = 0.0             # <<<<<<<<<<<<<<
@@ -20321,7 +20321,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
  */
   __pyx_v_max_sum = 0.0;
 
-  /* "unipolator/blas_functions_vectors.pyx":215
+  /* "unipolator/blas_functions_vectors.pyx":216
  *     cdef double row_sum
  *     cdef double max_sum = 0.0
  *     for i in range(d):             # <<<<<<<<<<<<<<
@@ -20333,7 +20333,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/blas_functions_vectors.pyx":216
+    /* "unipolator/blas_functions_vectors.pyx":217
  *     cdef double max_sum = 0.0
  *     for i in range(d):
  *         row_sum = 0.0             # <<<<<<<<<<<<<<
@@ -20342,7 +20342,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
  */
     __pyx_v_row_sum = 0.0;
 
-    /* "unipolator/blas_functions_vectors.pyx":217
+    /* "unipolator/blas_functions_vectors.pyx":218
  *     for i in range(d):
  *         row_sum = 0.0
  *         for j in range(m):             # <<<<<<<<<<<<<<
@@ -20354,7 +20354,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "unipolator/blas_functions_vectors.pyx":218
+      /* "unipolator/blas_functions_vectors.pyx":219
  *         row_sum = 0.0
  *         for j in range(m):
  *             row_sum += abs(B[i, j])             # <<<<<<<<<<<<<<
@@ -20366,7 +20366,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
       __pyx_v_row_sum = (__pyx_v_row_sum + __Pyx_c_abs_double((*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_B.data + __pyx_t_7 * __pyx_v_B.strides[0]) )) + __pyx_t_8)) )))));
     }
 
-    /* "unipolator/blas_functions_vectors.pyx":219
+    /* "unipolator/blas_functions_vectors.pyx":220
  *         for j in range(m):
  *             row_sum += abs(B[i, j])
  *         if row_sum >  max_sum:             # <<<<<<<<<<<<<<
@@ -20376,7 +20376,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
     __pyx_t_9 = (__pyx_v_row_sum > __pyx_v_max_sum);
     if (__pyx_t_9) {
 
-      /* "unipolator/blas_functions_vectors.pyx":220
+      /* "unipolator/blas_functions_vectors.pyx":221
  *             row_sum += abs(B[i, j])
  *         if row_sum >  max_sum:
  *                 max_sum = row_sum             # <<<<<<<<<<<<<<
@@ -20385,7 +20385,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
  */
       __pyx_v_max_sum = __pyx_v_row_sum;
 
-      /* "unipolator/blas_functions_vectors.pyx":219
+      /* "unipolator/blas_functions_vectors.pyx":220
  *         for j in range(m):
  *             row_sum += abs(B[i, j])
  *         if row_sum >  max_sum:             # <<<<<<<<<<<<<<
@@ -20395,7 +20395,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
     }
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":221
+  /* "unipolator/blas_functions_vectors.pyx":222
  *         if row_sum >  max_sum:
  *                 max_sum = row_sum
  *     return max_sum             # <<<<<<<<<<<<<<
@@ -20405,7 +20405,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
   __pyx_r = __pyx_v_max_sum;
   goto __pyx_L0;
 
-  /* "unipolator/blas_functions_vectors.pyx":211
+  /* "unipolator/blas_functions_vectors.pyx":212
  * 
  * #### Not really blas functions, but added here nonetheless
  * cdef double norm_inf_complex( double complex[:, ::1] B, int d, int m) noexcept nogil :             # <<<<<<<<<<<<<<
@@ -20418,7 +20418,7 @@ static double __pyx_f_10unipolator_22blas_functions_vectors_norm_inf_complex(__P
   return __pyx_r;
 }
 
-/* "unipolator/blas_functions_vectors.pyx":223
+/* "unipolator/blas_functions_vectors.pyx":224
  *     return max_sum
  * 
  * cpdef expm_multiply_prepare(double complex[:,::1] A0, int m, double tol):             # <<<<<<<<<<<<<<
@@ -20459,19 +20459,19 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expm_multiply_prepare", 1);
 
-  /* "unipolator/blas_functions_vectors.pyx":249
+  /* "unipolator/blas_functions_vectors.pyx":250
  *     """
  *     # Check the inputs.
  *     A = np.array(A0)             # <<<<<<<<<<<<<<
  *     #print(A.shape)
  *     if A.shape[0] != A.shape[1]:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_A0, 2, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_A0, 2, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -20492,51 +20492,51 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __pyx_v_A = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":251
+  /* "unipolator/blas_functions_vectors.pyx":252
  *     A = np.array(A0)
  *     #print(A.shape)
  *     if A.shape[0] != A.shape[1]:             # <<<<<<<<<<<<<<
  *         raise ValueError('expected A to be like a square matrix')
  *     ident = np.eye(A.shape[0], A.shape[1], dtype=np.complex128)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_t_6)) {
 
-    /* "unipolator/blas_functions_vectors.pyx":252
+    /* "unipolator/blas_functions_vectors.pyx":253
  *     #print(A.shape)
  *     if A.shape[0] != A.shape[1]:
  *         raise ValueError('expected A to be like a square matrix')             # <<<<<<<<<<<<<<
  *     ident = np.eye(A.shape[0], A.shape[1], dtype=np.complex128)
  *     n = A.shape[0]
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 252, __pyx_L1_error)
+    __PYX_ERR(0, 253, __pyx_L1_error)
 
-    /* "unipolator/blas_functions_vectors.pyx":251
+    /* "unipolator/blas_functions_vectors.pyx":252
  *     A = np.array(A0)
  *     #print(A.shape)
  *     if A.shape[0] != A.shape[1]:             # <<<<<<<<<<<<<<
@@ -20545,46 +20545,46 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
  */
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":253
+  /* "unipolator/blas_functions_vectors.pyx":254
  *     if A.shape[0] != A.shape[1]:
  *         raise ValueError('expected A to be like a square matrix')
  *     ident = np.eye(A.shape[0], A.shape[1], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *     n = A.shape[0]
  *     traceA =  np.array(A).trace()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_eye); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_eye); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error);
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_complex128); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_complex128); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -20592,31 +20592,31 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
   __pyx_v_ident = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":254
+  /* "unipolator/blas_functions_vectors.pyx":255
  *         raise ValueError('expected A to be like a square matrix')
  *     ident = np.eye(A.shape[0], A.shape[1], dtype=np.complex128)
  *     n = A.shape[0]             # <<<<<<<<<<<<<<
  *     traceA =  np.array(A).trace()
  *     mu = traceA / float(n)
  */
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_A, __pyx_n_s_shape); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 255, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_7, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_7, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 255, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_n = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":255
+  /* "unipolator/blas_functions_vectors.pyx":256
  *     ident = np.eye(A.shape[0], A.shape[1], dtype=np.complex128)
  *     n = A.shape[0]
  *     traceA =  np.array(A).trace()             # <<<<<<<<<<<<<<
  *     mu = traceA / float(n)
  *     A = A - mu * ident
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -20637,11 +20637,11 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_v_A};
     __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 255, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_trace); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_trace); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -20662,56 +20662,56 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 0+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 255, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_v_traceA = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":256
+  /* "unipolator/blas_functions_vectors.pyx":257
  *     n = A.shape[0]
  *     traceA =  np.array(A).trace()
  *     mu = traceA / float(n)             # <<<<<<<<<<<<<<
  *     A = A - mu * ident
  *     A_1_norm = np.linalg.norm(A, 1)
  */
-  __pyx_t_4 = __Pyx_PyNumber_Float(__pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Float(__pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_v_traceA, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_v_traceA, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_mu = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":257
+  /* "unipolator/blas_functions_vectors.pyx":258
  *     traceA =  np.array(A).trace()
  *     mu = traceA / float(n)
  *     A = A - mu * ident             # <<<<<<<<<<<<<<
  *     A_1_norm = np.linalg.norm(A, 1)
  *     if A_1_norm == 0:
  */
-  __pyx_t_2 = PyNumber_Multiply(__pyx_v_mu, __pyx_v_ident); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_v_mu, __pyx_v_ident); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyNumber_Subtract(__pyx_v_A, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Subtract(__pyx_v_A, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_A, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":258
+  /* "unipolator/blas_functions_vectors.pyx":259
  *     mu = traceA / float(n)
  *     A = A - mu * ident
  *     A_1_norm = np.linalg.norm(A, 1)             # <<<<<<<<<<<<<<
  *     if A_1_norm == 0:
  *         m_star, s = 0, 1
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_linalg); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_linalg); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_norm); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_norm); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -20732,24 +20732,24 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     PyObject *__pyx_callargs[3] = {__pyx_t_7, __pyx_v_A, __pyx_int_1};
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 2+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 258, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_v_A_1_norm = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":259
+  /* "unipolator/blas_functions_vectors.pyx":260
  *     A = A - mu * ident
  *     A_1_norm = np.linalg.norm(A, 1)
  *     if A_1_norm == 0:             # <<<<<<<<<<<<<<
  *         m_star, s = 0, 1
  *     else:
  */
-  __pyx_t_6 = (__Pyx_PyInt_BoolEqObjC(__pyx_v_A_1_norm, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyInt_BoolEqObjC(__pyx_v_A_1_norm, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 260, __pyx_L1_error)
   if (__pyx_t_6) {
 
-    /* "unipolator/blas_functions_vectors.pyx":260
+    /* "unipolator/blas_functions_vectors.pyx":261
  *     A_1_norm = np.linalg.norm(A, 1)
  *     if A_1_norm == 0:
  *         m_star, s = 0, 1             # <<<<<<<<<<<<<<
@@ -20765,7 +20765,7 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     __pyx_v_s = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "unipolator/blas_functions_vectors.pyx":259
+    /* "unipolator/blas_functions_vectors.pyx":260
  *     A = A - mu * ident
  *     A_1_norm = np.linalg.norm(A, 1)
  *     if A_1_norm == 0:             # <<<<<<<<<<<<<<
@@ -20775,7 +20775,7 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     goto __pyx_L4;
   }
 
-  /* "unipolator/blas_functions_vectors.pyx":262
+  /* "unipolator/blas_functions_vectors.pyx":263
  *         m_star, s = 0, 1
  *     else:
  *         ell = 2             # <<<<<<<<<<<<<<
@@ -20785,24 +20785,24 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
   /*else*/ {
     __pyx_v_ell = 2;
 
-    /* "unipolator/blas_functions_vectors.pyx":263
+    /* "unipolator/blas_functions_vectors.pyx":264
  *     else:
  *         ell = 2
  *         norm_info = LazyOperatorNormInfo(A, A_1_norm=A_1_norm)             # <<<<<<<<<<<<<<
  *         m_star, s = _fragment_3_1(norm_info, m, tol)
  *     return m_star, s, np.real(mu)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_LazyOperatorNormInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 263, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_LazyOperatorNormInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 263, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_A);
     __Pyx_GIVEREF(__pyx_v_A);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_A)) __PYX_ERR(0, 263, __pyx_L1_error);
-    __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 263, __pyx_L1_error)
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_A)) __PYX_ERR(0, 264, __pyx_L1_error);
+    __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_A_1_norm, __pyx_v_A_1_norm) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_A_1_norm, __pyx_v_A_1_norm) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -20810,17 +20810,17 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     __pyx_v_norm_info = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "unipolator/blas_functions_vectors.pyx":264
+    /* "unipolator/blas_functions_vectors.pyx":265
  *         ell = 2
  *         norm_info = LazyOperatorNormInfo(A, A_1_norm=A_1_norm)
  *         m_star, s = _fragment_3_1(norm_info, m, tol)             # <<<<<<<<<<<<<<
  *     return m_star, s, np.real(mu)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_fragment_3_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_fragment_3_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_m); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_m); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PyFloat_FromDouble(__pyx_v_tol); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_2 = PyFloat_FromDouble(__pyx_v_tol); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     __pyx_t_5 = 0;
@@ -20842,7 +20842,7 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
@@ -20852,7 +20852,7 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 264, __pyx_L1_error)
+        __PYX_ERR(0, 265, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -20865,15 +20865,15 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
       __Pyx_INCREF(__pyx_t_7);
       __Pyx_INCREF(__pyx_t_2);
       #else
-      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 264, __pyx_L1_error)
+      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 265, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
+      __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_8 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_4);
@@ -20881,7 +20881,7 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
       __Pyx_GOTREF(__pyx_t_7);
       index = 1; __pyx_t_2 = __pyx_t_8(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_2);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_4), 2) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_4), 2) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       goto __pyx_L6_unpacking_done;
@@ -20889,7 +20889,7 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 264, __pyx_L1_error)
+      __PYX_ERR(0, 265, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __pyx_v_m_star = __pyx_t_7;
@@ -20899,15 +20899,15 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
   }
   __pyx_L4:;
 
-  /* "unipolator/blas_functions_vectors.pyx":265
+  /* "unipolator/blas_functions_vectors.pyx":266
  *         norm_info = LazyOperatorNormInfo(A, A_1_norm=A_1_norm)
  *         m_star, s = _fragment_3_1(norm_info, m, tol)
  *     return m_star, s, np.real(mu)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_real); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_real); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -20928,26 +20928,26 @@ static PyObject *__pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_pre
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_v_mu};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
-  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_v_m_star);
   __Pyx_GIVEREF(__pyx_v_m_star);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v_m_star)) __PYX_ERR(0, 265, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v_m_star)) __PYX_ERR(0, 266, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_s);
   __Pyx_GIVEREF(__pyx_v_s);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_v_s)) __PYX_ERR(0, 265, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_v_s)) __PYX_ERR(0, 266, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_r = __pyx_t_7;
   __pyx_t_7 = 0;
   goto __pyx_L0;
 
-  /* "unipolator/blas_functions_vectors.pyx":223
+  /* "unipolator/blas_functions_vectors.pyx":224
  *     return max_sum
  * 
  * cpdef expm_multiply_prepare(double complex[:,::1] A0, int m, double tol):             # <<<<<<<<<<<<<<
@@ -21039,7 +21039,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -21047,9 +21047,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("expm_multiply_prepare", 1, 3, 3, 1); __PYX_ERR(0, 223, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expm_multiply_prepare", 1, 3, 3, 1); __PYX_ERR(0, 224, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -21057,14 +21057,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("expm_multiply_prepare", 1, 3, 3, 2); __PYX_ERR(0, 223, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expm_multiply_prepare", 1, 3, 3, 2); __PYX_ERR(0, 224, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "expm_multiply_prepare") < 0)) __PYX_ERR(0, 223, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "expm_multiply_prepare") < 0)) __PYX_ERR(0, 224, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -21073,13 +21073,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
     }
-    __pyx_v_A0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A0.memview)) __PYX_ERR(0, 223, __pyx_L3_error)
-    __pyx_v_m = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_m == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L3_error)
-    __pyx_v_tol = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_tol == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L3_error)
+    __pyx_v_A0 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A0.memview)) __PYX_ERR(0, 224, __pyx_L3_error)
+    __pyx_v_m = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_m == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
+    __pyx_v_tol = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_tol == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("expm_multiply_prepare", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 223, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expm_multiply_prepare", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 224, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -21117,7 +21117,7 @@ static PyObject *__pyx_pf_10unipolator_22blas_functions_vectors_8expm_multiply_p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expm_multiply_prepare", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_prepare(__pyx_v_A0, __pyx_v_m, __pyx_v_tol, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_10unipolator_22blas_functions_vectors_expm_multiply_prepare(__pyx_v_A0, __pyx_v_m, __pyx_v_tol, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -22266,8 +22266,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 63, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 253, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_n_s_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 100, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 156, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 159, __pyx_L1_error)
@@ -22322,14 +22322,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "unipolator/blas_functions_vectors.pyx":252
+  /* "unipolator/blas_functions_vectors.pyx":253
  *     #print(A.shape)
  *     if A.shape[0] != A.shape[1]:
  *         raise ValueError('expected A to be like a square matrix')             # <<<<<<<<<<<<<<
  *     ident = np.eye(A.shape[0], A.shape[1], dtype=np.complex128)
  *     n = A.shape[0]
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_u_expected_A_to_be_like_a_square_m); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_u_expected_A_to_be_like_a_square_m); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
@@ -22434,62 +22434,62 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__19);
   __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(1, 1, __pyx_L1_error)
 
-  /* "unipolator/blas_functions_vectors.pyx":23
+  /* "unipolator/blas_functions_vectors.pyx":24
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C): # C = A @ B             # <<<<<<<<<<<<<<
  *     # matrix multiply 2 matrices A (n x n) and B (n x m) -> C = A @ B
  *     cdef double complex *a0=&A[0,0]
  */
-  __pyx_tuple__21 = PyTuple_Pack(3, __pyx_n_s_A, __pyx_n_s_v, __pyx_n_s_C); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(3, __pyx_n_s_A, __pyx_n_s_v, __pyx_n_s_C); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_MM_cdot_v, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_MM_cdot_v, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "unipolator/blas_functions_vectors.pyx":44
+  /* "unipolator/blas_functions_vectors.pyx":45
  *     zgemm(orientA, orientB, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil :             # <<<<<<<<<<<<<<
  *     # matrix multiply 2 square matrices A (n x n) and B (n x n)
  *     cdef double complex *a0=&A[0,0]
  */
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_DagM_M_cdot_v, 44, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_DagM_M_cdot_v, 45, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 45, __pyx_L1_error)
 
-  /* "unipolator/blas_functions_vectors.pyx":146
+  /* "unipolator/blas_functions_vectors.pyx":147
  *             e0s += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]
  */
-  __pyx_tuple__24 = PyTuple_Pack(6, __pyx_n_s_E, __pyx_n_s_Es, __pyx_n_s_V, __pyx_n_s_dV, __pyx_n_s_t, __pyx_n_s_batch_ind); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(6, __pyx_n_s_E, __pyx_n_s_Es, __pyx_n_s_V, __pyx_n_s_dV, __pyx_n_s_t, __pyx_n_s_batch_ind); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_v_exp_v_and_v_exp_v_batch, 146, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_v_exp_v_and_v_exp_v_batch, 147, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 147, __pyx_L1_error)
 
-  /* "unipolator/blas_functions_vectors.pyx":200
+  /* "unipolator/blas_functions_vectors.pyx":201
  *         e0 += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]
  */
-  __pyx_tuple__26 = PyTuple_Pack(7, __pyx_n_s_amp, __pyx_n_s_E, __pyx_n_s_Es, __pyx_n_s_V, __pyx_n_s_dV, __pyx_n_s_t, __pyx_n_s_batch_ind); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(7, __pyx_n_s_amp, __pyx_n_s_E, __pyx_n_s_Es, __pyx_n_s_V, __pyx_n_s_dV, __pyx_n_s_t, __pyx_n_s_batch_ind); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_v_exp_v_and_v_exp_v_batch_increm, 200, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_v_exp_v_and_v_exp_v_batch_increm, 201, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 201, __pyx_L1_error)
 
-  /* "unipolator/blas_functions_vectors.pyx":223
+  /* "unipolator/blas_functions_vectors.pyx":224
  *     return max_sum
  * 
  * cpdef expm_multiply_prepare(double complex[:,::1] A0, int m, double tol):             # <<<<<<<<<<<<<<
  *     """
  *     Prepare the computation of the action of the matrix exponential of A on B.
  */
-  __pyx_tuple__28 = PyTuple_Pack(3, __pyx_n_s_A0, __pyx_n_s_m, __pyx_n_s_tol); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_tuple__28 = PyTuple_Pack(3, __pyx_n_s_A0, __pyx_n_s_m, __pyx_n_s_tol); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
-  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_expm_multiply_prepare, 223, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_blas_functions_ve, __pyx_n_s_expm_multiply_prepare, 224, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -23592,7 +23592,7 @@ if (!__Pyx_RefNanny) {
  * from scipy.linalg.cython_blas cimport zgemm, zscal, zcopy
  * from scipy.sparse.linalg._expm_multiply import LazyOperatorNormInfo, _fragment_3_1             # <<<<<<<<<<<<<<
  * 
- * cdef void MM_cdot_pointer_v_scaled(double complex *a0, double complex *v0, double complex *c0, double complex alpha, int n, int m) noexcept nogil :
+ * # distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
  */
   __pyx_t_7 = PyList_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
@@ -23615,64 +23615,64 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":23
+  /* "unipolator/blas_functions_vectors.pyx":24
  *     zgemm(ori, ori, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C): # C = A @ B             # <<<<<<<<<<<<<<
  *     # matrix multiply 2 matrices A (n x n) and B (n x m) -> C = A @ B
  *     cdef double complex *a0=&A[0,0]
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_1MM_cdot_v, 0, __pyx_n_s_MM_cdot_v, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_1MM_cdot_v, 0, __pyx_n_s_MM_cdot_v, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MM_cdot_v, __pyx_t_4) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MM_cdot_v, __pyx_t_4) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":44
+  /* "unipolator/blas_functions_vectors.pyx":45
  *     zgemm(orientA, orientB, &m, &n, &n, &alpha, v0, &m, a0, &n, &beta, c0, &m)
  * 
  * cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil :             # <<<<<<<<<<<<<<
  *     # matrix multiply 2 square matrices A (n x n) and B (n x n)
  *     cdef double complex *a0=&A[0,0]
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_3DagM_M_cdot_v, 0, __pyx_n_s_DagM_M_cdot_v, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_3DagM_M_cdot_v, 0, __pyx_n_s_DagM_M_cdot_v, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DagM_M_cdot_v, __pyx_t_4) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DagM_M_cdot_v, __pyx_t_4) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":146
+  /* "unipolator/blas_functions_vectors.pyx":147
  *             e0s += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch(double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_5v_exp_v_and_v_exp_v_batch, 0, __pyx_n_s_v_exp_v_and_v_exp_v_batch, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_5v_exp_v_and_v_exp_v_batch, 0, __pyx_n_s_v_exp_v_and_v_exp_v_batch, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_v_exp_v_and_v_exp_v_batch, __pyx_t_4) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_v_exp_v_and_v_exp_v_batch, __pyx_t_4) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":200
+  /* "unipolator/blas_functions_vectors.pyx":201
  *         e0 += 1
  * 
  * cpdef void v_exp_v_and_v_exp_v_batch_increment(double amp, double[::1] E, double complex[::1] Es, double complex[:,::1] V, double complex[:,:,::1] dV, double t, int batch_ind):             # <<<<<<<<<<<<<<
  *     cdef double *e0 = &E[0]
  *     cdef double complex *e0s = &Es[0]
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_7v_exp_v_and_v_exp_v_batch_increment, 0, __pyx_n_s_v_exp_v_and_v_exp_v_batch_increm, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_7v_exp_v_and_v_exp_v_batch_increment, 0, __pyx_n_s_v_exp_v_and_v_exp_v_batch_increm, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_v_exp_v_and_v_exp_v_batch_increm, __pyx_t_4) < 0) __PYX_ERR(0, 200, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_v_exp_v_and_v_exp_v_batch_increm, __pyx_t_4) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unipolator/blas_functions_vectors.pyx":223
+  /* "unipolator/blas_functions_vectors.pyx":224
  *     return max_sum
  * 
  * cpdef expm_multiply_prepare(double complex[:,::1] A0, int m, double tol):             # <<<<<<<<<<<<<<
  *     """
  *     Prepare the computation of the action of the matrix exponential of A on B.
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_9expm_multiply_prepare, 0, __pyx_n_s_expm_multiply_prepare, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_22blas_functions_vectors_9expm_multiply_prepare, 0, __pyx_n_s_expm_multiply_prepare, NULL, __pyx_n_s_unipolator_blas_functions_vector, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_expm_multiply_prepare, __pyx_t_4) < 0) __PYX_ERR(0, 223, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_expm_multiply_prepare, __pyx_t_4) < 0) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "unipolator/blas_functions_vectors.pyx":1

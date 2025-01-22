@@ -3,6 +3,7 @@ from numpy.linalg import norm, eigh, qr
 from scipy.linalg import schur
 
 
+
 ##### Matrix operations #########################################################
 def Dag(U):
     return np.transpose(np.conj(U))

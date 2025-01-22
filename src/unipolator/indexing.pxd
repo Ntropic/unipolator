@@ -68,3 +68,4 @@ cpdef void elementwise_grid_parameters(
 cpdef int c_argmax(double[::1] c, int max_ind, double c_max, int n) noexcept nogil 
 
 # cpdef Parameters2OddGrid(double[::1] alpha, double[::1] c, double[::1] c_min, double[::1] dc, int[::1] c_bins)
+

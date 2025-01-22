@@ -7,6 +7,7 @@ from .caching cimport *
 from .blas_functions cimport *
 from scipy.linalg.cython_lapack cimport zheevd
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Hamiltonian_System
 cdef class Hamiltonian_System:
     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
@@ -36,6 +37,7 @@ cdef class Hamiltonian_System:
     cdef char *jobz
     cdef char *uplo
     cdef int info
+
 
     def __cinit__(self, double complex[:,:,::1] H_s,
                   npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp)):  # CHANGED

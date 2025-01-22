@@ -4,6 +4,7 @@ cpdef void MM_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double co
 cdef void DagM_M_cdot_pointer_v(double complex *a0, double complex *v0, double complex *c0, int n, int m) noexcept nogil 
 cpdef void DagM_M_cdot_v(double complex[:,::1] A, double complex[:,::1] v, double complex[:,::1] C) noexcept nogil 
 
+
 cdef void v_exp_pointer_v(double *e0, double complex *v0, double t, int n, int m) noexcept nogil 
 cdef void v_exp_v_pointer_v(double amp, double *e0, double complex *v0, double t, int n, int m) noexcept nogil 
 

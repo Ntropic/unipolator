@@ -8,6 +8,7 @@ from .caching cimport *
 from .blas_functions cimport *
 from .blas_functions_vectors cimport *
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 # Unitary Interpolation
 cdef class Sym_UI_vector:
     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
@@ -36,15 +37,7 @@ cdef class Sym_UI_vector:
     cdef npc.intp_t[::1] first_elements_E, first_elements_C, L    # CHANGED: was long[::1]
     cdef npc.intp_t[::1] d_di                    # CHANGED: was long[::1]
 
-    def __cinit__(
-        self, 
-        double complex[:,:,::1] H_s, 
-        double[::1] c_min_s, 
-        double[::1] c_max_s, 
-        npc.intp_t[::1] c_bins,                    # CHANGED: was long[::1]
-        npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED: dtype=np.intp
-        int m = 1
-    ):
+    def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, npc.intp_t[::1] c_bins, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m = 1):
         # Construct parameters
         self.n_dims = c_min_s.shape[0]
         self.n_dims_1 = self.n_dims - 1

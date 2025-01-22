@@ -1895,7 +1895,7 @@ typedef void (*__pyx_t_5numpy_NpyIter_GetMultiIndexFunc)(NpyIter *, npy_intp *);
 struct __pyx_ctuple_int__and_int__and_int;
 typedef struct __pyx_ctuple_int__and_int__and_int __pyx_ctuple_int__and_int__and_int;
 
-/* "blas_functions.pxd":30
+/* "blas_functions.pxd":31
  * cdef double complex target_indexes_trace_pointer(double complex *v0, int n, int[::1] target_indexes) noexcept nogil
  * 
  * cpdef (int, int, int) c_eigh_lapack_workspace_sizes(double complex[:,::1] H)             # <<<<<<<<<<<<<<
@@ -1908,8 +1908,8 @@ struct __pyx_ctuple_int__and_int__and_int {
   int f2;
 };
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":12
- * 
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":13
+ * # distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
  * # Unitary Interpolation
  * cdef class Sym_UI_vector:             # <<<<<<<<<<<<<<
  *     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
@@ -2047,8 +2047,8 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":12
- * 
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":13
+ * # distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
  * # Unitary Interpolation
  * cdef class Sym_UI_vector:             # <<<<<<<<<<<<<<
  *     # Initialize variables, to quickly calculate interpolations while minimizing memory allocation overheads
@@ -20137,12 +20137,12 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":39
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":40
  *     cdef npc.intp_t[::1] d_di                    # CHANGED: was long[::1]
  * 
- *     def __cinit__(             # <<<<<<<<<<<<<<
- *         self,
- *         double complex[:,:,::1] H_s,
+ *     def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, npc.intp_t[::1] c_bins, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m = 1):             # <<<<<<<<<<<<<<
+ *         # Construct parameters
+ *         self.n_dims = c_min_s.shape[0]
  */
 
 /* Python wrapper */
@@ -20196,7 +20196,7 @@ static int __pyx_pw_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
           (void)__Pyx_Arg_NewRef_VARARGS(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -20204,9 +20204,9 @@ static int __pyx_pw_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
           (void)__Pyx_Arg_NewRef_VARARGS(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, 1); __PYX_ERR(0, 39, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, 1); __PYX_ERR(0, 40, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -20214,9 +20214,9 @@ static int __pyx_pw_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
           (void)__Pyx_Arg_NewRef_VARARGS(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, 2); __PYX_ERR(0, 39, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, 2); __PYX_ERR(0, 40, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -20224,28 +20224,28 @@ static int __pyx_pw_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
           (void)__Pyx_Arg_NewRef_VARARGS(values[3]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, 3); __PYX_ERR(0, 39, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, 3); __PYX_ERR(0, 40, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_which_diffs);
           if (value) { values[4] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_m);
           if (value) { values[5] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 39, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 40, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -20261,25 +20261,25 @@ static int __pyx_pw_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_H_s = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_H_s.memview)) __PYX_ERR(0, 41, __pyx_L3_error)
-    __pyx_v_c_min_s = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c_min_s.memview)) __PYX_ERR(0, 42, __pyx_L3_error)
-    __pyx_v_c_max_s = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c_max_s.memview)) __PYX_ERR(0, 43, __pyx_L3_error)
-    __pyx_v_c_bins = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c_bins.memview)) __PYX_ERR(0, 44, __pyx_L3_error)
+    __pyx_v_H_s = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_H_s.memview)) __PYX_ERR(0, 40, __pyx_L3_error)
+    __pyx_v_c_min_s = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c_min_s.memview)) __PYX_ERR(0, 40, __pyx_L3_error)
+    __pyx_v_c_max_s = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c_max_s.memview)) __PYX_ERR(0, 40, __pyx_L3_error)
+    __pyx_v_c_bins = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c_bins.memview)) __PYX_ERR(0, 40, __pyx_L3_error)
     if (values[4]) {
-      __pyx_v_which_diffs = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_which_diffs.memview)) __PYX_ERR(0, 45, __pyx_L3_error)
+      __pyx_v_which_diffs = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_which_diffs.memview)) __PYX_ERR(0, 40, __pyx_L3_error)
     } else {
       __pyx_v_which_diffs = __pyx_k__11;
       __PYX_INC_MEMVIEW(&__pyx_v_which_diffs, 1);
     }
     if (values[5]) {
-      __pyx_v_m = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_m == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+      __pyx_v_m = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_m == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L3_error)
     } else {
       __pyx_v_m = ((int)1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, __pyx_nargs); __PYX_ERR(0, 39, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 6, __pyx_nargs); __PYX_ERR(0, 40, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -20367,8 +20367,8 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":49
- *     ):
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":42
+ *     def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, npc.intp_t[::1] c_bins, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m = 1):
  *         # Construct parameters
  *         self.n_dims = c_min_s.shape[0]             # <<<<<<<<<<<<<<
  *         self.n_dims_1 = self.n_dims - 1
@@ -20376,7 +20376,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->n_dims = (__pyx_v_c_min_s.shape[0]);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":50
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":43
  *         # Construct parameters
  *         self.n_dims = c_min_s.shape[0]
  *         self.n_dims_1 = self.n_dims - 1             # <<<<<<<<<<<<<<
@@ -20385,7 +20385,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->n_dims_1 = (__pyx_v_self->n_dims - 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":51
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":44
  *         self.n_dims = c_min_s.shape[0]
  *         self.n_dims_1 = self.n_dims - 1
  *         self.n_dims_2 = self.n_dims - 2             # <<<<<<<<<<<<<<
@@ -20394,7 +20394,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->n_dims_2 = (__pyx_v_self->n_dims - 2);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":52
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":45
  *         self.n_dims_1 = self.n_dims - 1
  *         self.n_dims_2 = self.n_dims - 2
  *         self.d = H_s.shape[1]             # <<<<<<<<<<<<<<
@@ -20403,7 +20403,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->d = (__pyx_v_H_s.shape[1]);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":53
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":46
  *         self.n_dims_2 = self.n_dims - 2
  *         self.d = H_s.shape[1]
  *         self.d2 = self.d * self.d             # <<<<<<<<<<<<<<
@@ -20412,7 +20412,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->d2 = (__pyx_v_self->d * __pyx_v_self->d);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":55
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":48
  *         self.d2 = self.d * self.d
  * 
  *         if not H_s.shape[0] == self.n_dims + 1:             # <<<<<<<<<<<<<<
@@ -20422,18 +20422,18 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_1 = (!((__pyx_v_H_s.shape[0]) == (__pyx_v_self->n_dims + 1)));
   if (unlikely(__pyx_t_1)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":56
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":49
  * 
  *         if not H_s.shape[0] == self.n_dims + 1:
  *             print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lengths of Hs, c_mins, c_maxs, c_bins')             # <<<<<<<<<<<<<<
  *             raise ValueError
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":57
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":50
  *         if not H_s.shape[0] == self.n_dims + 1:
  *             print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lengths of Hs, c_mins, c_maxs, c_bins')
  *             raise ValueError             # <<<<<<<<<<<<<<
@@ -20441,9 +20441,9 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  *         self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp
  */
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
-    __PYX_ERR(0, 57, __pyx_L1_error)
+    __PYX_ERR(0, 50, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":55
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":48
  *         self.d2 = self.d * self.d
  * 
  *         if not H_s.shape[0] == self.n_dims + 1:             # <<<<<<<<<<<<<<
@@ -20452,56 +20452,56 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":59
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":52
  *             raise ValueError
  * 
  *         self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp             # <<<<<<<<<<<<<<
  *         for i in range(self.n_dims):
  *             if c_bins[i] > 0:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_intp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_intp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->c_bins, 0);
   __pyx_v_self->c_bins = __pyx_t_7;
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":60
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":53
  * 
  *         self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp
  *         for i in range(self.n_dims):             # <<<<<<<<<<<<<<
  *             if c_bins[i] > 0:
  *                 self.c_bins[i] = c_bins[i]
  */
-  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
@@ -20509,9 +20509,9 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __pyx_t_8 = 0;
     __pyx_t_9 = NULL;
   } else {
-    __pyx_t_8 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __pyx_t_8 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 53, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -20520,28 +20520,28 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 60, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
           #endif
           if (__pyx_t_8 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 60, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 60, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
           #endif
           if (__pyx_t_8 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 60, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -20551,7 +20551,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 60, __pyx_L1_error)
+          else __PYX_ERR(0, 53, __pyx_L1_error)
         }
         break;
       }
@@ -20560,32 +20560,32 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":61
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":54
  *         self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp
  *         for i in range(self.n_dims):
  *             if c_bins[i] > 0:             # <<<<<<<<<<<<<<
  *                 self.c_bins[i] = c_bins[i]
  *             else:
  */
-    __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 54, __pyx_L1_error)
     __pyx_t_11 = __pyx_t_10;
     __pyx_t_1 = ((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_c_bins.data) + __pyx_t_11)) ))) > 0);
     if (__pyx_t_1) {
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":62
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":55
  *         for i in range(self.n_dims):
  *             if c_bins[i] > 0:
  *                 self.c_bins[i] = c_bins[i]             # <<<<<<<<<<<<<<
  *             else:
  *                 print('Need at least 1 bin per dimension, corrected bins[' + str(i) + '] to 1.')
  */
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L1_error)
       __pyx_t_11 = __pyx_t_10;
-      __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L1_error)
       __pyx_t_13 = __pyx_t_12;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->c_bins.data) + __pyx_t_13)) )) = (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_c_bins.data) + __pyx_t_11)) )));
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":61
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":54
  *         self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp
  *         for i in range(self.n_dims):
  *             if c_bins[i] > 0:             # <<<<<<<<<<<<<<
@@ -20595,7 +20595,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
       goto __pyx_L6;
     }
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":64
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":57
  *                 self.c_bins[i] = c_bins[i]
  *             else:
  *                 print('Need at least 1 bin per dimension, corrected bins[' + str(i) + '] to 1.')             # <<<<<<<<<<<<<<
@@ -20603,33 +20603,33 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  * 
  */
     /*else*/ {
-      __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_kp_u_Need_at_least_1_bin_per_dimensio, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_kp_u_Need_at_least_1_bin_per_dimensio, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_4, __pyx_kp_u_to_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_4, __pyx_kp_u_to_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":65
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":58
  *             else:
  *                 print('Need at least 1 bin per dimension, corrected bins[' + str(i) + '] to 1.')
  *                 self.c_bins[i] = 1  # Ensure at least 1 bin             # <<<<<<<<<<<<<<
  * 
  *         self.c_mins, self.c_maxs, self.dcs, self.das = Bin_Parameters(c_min_s, c_max_s, self.c_bins)
  */
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 58, __pyx_L1_error)
       __pyx_t_11 = __pyx_t_10;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->c_bins.data) + __pyx_t_11)) )) = 1;
     }
     __pyx_L6:;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":60
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":53
  * 
  *         self.c_bins = np.empty(self.n_dims, dtype=np.intp)    # CHANGED: dtype=np.intp
  *         for i in range(self.n_dims):             # <<<<<<<<<<<<<<
@@ -20639,14 +20639,14 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":67
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":60
  *                 self.c_bins[i] = 1  # Ensure at least 1 bin
  * 
  *         self.c_mins, self.c_maxs, self.dcs, self.das = Bin_Parameters(c_min_s, c_max_s, self.c_bins)             # <<<<<<<<<<<<<<
  * 
  *         # Single Step Indexing Parameters  --> Add multiple indexes later
  */
-  __pyx_t_6 = __pyx_f_10unipolator_8indexing_Bin_Parameters(__pyx_v_c_min_s, __pyx_v_c_max_s, __pyx_v_self->c_bins, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_6 = __pyx_f_10unipolator_8indexing_Bin_Parameters(__pyx_v_c_min_s, __pyx_v_c_max_s, __pyx_v_self->c_bins, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   if ((likely(PyTuple_CheckExact(__pyx_t_6))) || (PyList_CheckExact(__pyx_t_6))) {
     PyObject* sequence = __pyx_t_6;
@@ -20654,7 +20654,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     if (unlikely(size != 4)) {
       if (size > 4) __Pyx_RaiseTooManyValuesError(4);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 67, __pyx_L1_error)
+      __PYX_ERR(0, 60, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -20677,7 +20677,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
       Py_ssize_t i;
       PyObject** temps[4] = {&__pyx_t_4,&__pyx_t_2,&__pyx_t_3,&__pyx_t_5};
       for (i=0; i < 4; i++) {
-        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 67, __pyx_L1_error)
+        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 60, __pyx_L1_error)
         __Pyx_GOTREF(item);
         *(temps[i]) = item;
       }
@@ -20687,7 +20687,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   } else {
     Py_ssize_t index = -1;
     PyObject** temps[4] = {&__pyx_t_4,&__pyx_t_2,&__pyx_t_3,&__pyx_t_5};
-    __pyx_t_14 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_14 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_15 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_14);
@@ -20696,7 +20696,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
       __Pyx_GOTREF(item);
       *(temps[index]) = item;
     }
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_14), 4) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_14), 4) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
     __pyx_t_15 = NULL;
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
     goto __pyx_L9_unpacking_done;
@@ -20704,16 +20704,16 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
     __pyx_t_15 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 67, __pyx_L1_error)
+    __PYX_ERR(0, 60, __pyx_L1_error)
     __pyx_L9_unpacking_done:;
   }
-  __pyx_t_16 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_16.memview)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_16 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_16.memview)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_17 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_17.memview)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_17 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_17.memview)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_18 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_18.memview)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_18 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_18.memview)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_19 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_19.memview)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_19 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_19.memview)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->c_mins, 0);
   __pyx_v_self->c_mins = __pyx_t_16;
@@ -20732,167 +20732,167 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_19.memview = NULL;
   __pyx_t_19.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":70
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":63
  * 
  *         # Single Step Indexing Parameters  --> Add multiple indexes later
  *         self.location = np.empty(self.n_dims, dtype=np.intp)           # CHANGED: dtype=np.intp             # <<<<<<<<<<<<<<
  *         self.abs_alpha_rest = np.empty(self.n_dims, dtype=np.double)
  *         self.d_location = np.empty(self.n_dims, dtype=np.intp)         # CHANGED: dtype=np.intp
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_6);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error);
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_intp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_intp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->location, 0);
   __pyx_v_self->location = __pyx_t_7;
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":71
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":64
  *         # Single Step Indexing Parameters  --> Add multiple indexes later
  *         self.location = np.empty(self.n_dims, dtype=np.intp)           # CHANGED: dtype=np.intp
  *         self.abs_alpha_rest = np.empty(self.n_dims, dtype=np.double)             # <<<<<<<<<<<<<<
  *         self.d_location = np.empty(self.n_dims, dtype=np.intp)         # CHANGED: dtype=np.intp
  *         self.alpha = np.empty(self.n_dims, dtype=np.double)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_double); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_double); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_19 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_19.memview)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_19 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_19.memview)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->abs_alpha_rest, 0);
   __pyx_v_self->abs_alpha_rest = __pyx_t_19;
   __pyx_t_19.memview = NULL;
   __pyx_t_19.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":72
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":65
  *         self.location = np.empty(self.n_dims, dtype=np.intp)           # CHANGED: dtype=np.intp
  *         self.abs_alpha_rest = np.empty(self.n_dims, dtype=np.double)
  *         self.d_location = np.empty(self.n_dims, dtype=np.intp)         # CHANGED: dtype=np.intp             # <<<<<<<<<<<<<<
  *         self.alpha = np.empty(self.n_dims, dtype=np.double)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_intp); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_intp); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->d_location, 0);
   __pyx_v_self->d_location = __pyx_t_7;
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":73
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":66
  *         self.abs_alpha_rest = np.empty(self.n_dims, dtype=np.double)
  *         self.d_location = np.empty(self.n_dims, dtype=np.intp)         # CHANGED: dtype=np.intp
  *         self.alpha = np.empty(self.n_dims, dtype=np.double)             # <<<<<<<<<<<<<<
  * 
  *         if which_diffs.shape[0] == 0:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error);
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_double); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_double); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_19 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_19.memview)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_19 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_19.memview)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->alpha, 0);
   __pyx_v_self->alpha = __pyx_t_19;
   __pyx_t_19.memview = NULL;
   __pyx_t_19.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":75
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":68
  *         self.alpha = np.empty(self.n_dims, dtype=np.double)
  * 
  *         if which_diffs.shape[0] == 0:             # <<<<<<<<<<<<<<
@@ -20902,47 +20902,47 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_1 = ((__pyx_v_which_diffs.shape[0]) == 0);
   if (__pyx_t_1) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":76
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":69
  * 
  *         if which_diffs.shape[0] == 0:
  *             self.d_di = np.arange(self.n_dims, dtype=np.intp)          # CHANGED: dtype=np.intp             # <<<<<<<<<<<<<<
  *         else:
  *             self.d_di = which_diffs
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_arange); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_arange); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_6);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 76, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error);
     __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_intp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_intp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->d_di, 0);
     __pyx_v_self->d_di = __pyx_t_7;
     __pyx_t_7.memview = NULL;
     __pyx_t_7.data = NULL;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":75
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":68
  *         self.alpha = np.empty(self.n_dims, dtype=np.double)
  * 
  *         if which_diffs.shape[0] == 0:             # <<<<<<<<<<<<<<
@@ -20952,7 +20952,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     goto __pyx_L10;
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":78
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":71
  *             self.d_di = np.arange(self.n_dims, dtype=np.intp)          # CHANGED: dtype=np.intp
  *         else:
  *             self.d_di = which_diffs             # <<<<<<<<<<<<<<
@@ -20966,7 +20966,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   }
   __pyx_L10:;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":80
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":73
  *             self.d_di = which_diffs
  * 
  *         self.n_d_di_1 = self.d_di.shape[0] - 1             # <<<<<<<<<<<<<<
@@ -20975,7 +20975,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->n_d_di_1 = ((__pyx_v_self->d_di.shape[0]) - 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":81
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":74
  * 
  *         self.n_d_di_1 = self.d_di.shape[0] - 1
  *         self.n_d_di = self.d_di.shape[0]             # <<<<<<<<<<<<<<
@@ -20984,19 +20984,19 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_v_self->n_d_di = (__pyx_v_self->d_di.shape[0]);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":84
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":77
  * 
  *         # Construct interpolation grid points
  *         H_s2 = H_s.copy()             # <<<<<<<<<<<<<<
  *         d_third_order_tensor_scale(H_s2, 0.5 )
  *         U_grid2, cum_prod = Unitary_Grid(H_s2, self.c_mins, self.dcs, self.c_bins)  # Half grid -> H_s2 = H_s / 2
  */
-  __pyx_t_20 = __pyx_memoryview_copy_slice_d_d_dc___pyx_t_double_complex_c(__pyx_v_H_s); if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_20 = __pyx_memoryview_copy_slice_d_d_dc___pyx_t_double_complex_c(__pyx_v_H_s); if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 77, __pyx_L1_error)
   __pyx_v_H_s2 = __pyx_t_20;
   __pyx_t_20.memview = NULL;
   __pyx_t_20.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":85
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":78
  *         # Construct interpolation grid points
  *         H_s2 = H_s.copy()
  *         d_third_order_tensor_scale(H_s2, 0.5 )             # <<<<<<<<<<<<<<
@@ -21005,14 +21005,14 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
  */
   __pyx_f_10unipolator_14blas_functions_d_third_order_tensor_scale(__pyx_v_H_s2, 0.5, 0);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":86
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":79
  *         H_s2 = H_s.copy()
  *         d_third_order_tensor_scale(H_s2, 0.5 )
  *         U_grid2, cum_prod = Unitary_Grid(H_s2, self.c_mins, self.dcs, self.c_bins)  # Half grid -> H_s2 = H_s / 2             # <<<<<<<<<<<<<<
  * 
  *         ## Construct interpolation cache
  */
-  __pyx_t_4 = __pyx_f_10unipolator_7caching_Unitary_Grid(__pyx_v_H_s2, __pyx_v_self->c_mins, __pyx_v_self->dcs, __pyx_v_self->c_bins, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_t_4 = __pyx_f_10unipolator_7caching_Unitary_Grid(__pyx_v_H_s2, __pyx_v_self->c_mins, __pyx_v_self->dcs, __pyx_v_self->c_bins, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
     PyObject* sequence = __pyx_t_4;
@@ -21020,7 +21020,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 86, __pyx_L1_error)
+      __PYX_ERR(0, 79, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -21033,15 +21033,15 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __Pyx_INCREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_15 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_5);
@@ -21049,7 +21049,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __Pyx_GOTREF(__pyx_t_6);
     index = 1; __pyx_t_3 = __pyx_t_15(__pyx_t_5); if (unlikely(!__pyx_t_3)) goto __pyx_L11_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_5), 2) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_5), 2) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
     __pyx_t_15 = NULL;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     goto __pyx_L12_unpacking_done;
@@ -21057,7 +21057,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_15 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 86, __pyx_L1_error)
+    __PYX_ERR(0, 79, __pyx_L1_error)
     __pyx_L12_unpacking_done:;
   }
   __pyx_v_U_grid2 = __pyx_t_6;
@@ -21065,24 +21065,24 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_v_cum_prod = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":92
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":85
  *          self.strides_E, self.strides_L, self.strides_C,
  *          self.first_elements_E, self.first_elements_C) = Create_Sym_Interpolation_Cache(
  *             U_grid2, cum_prod, self.c_bins             # <<<<<<<<<<<<<<
  *          )
  * 
  */
-  __pyx_t_20 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_v_U_grid2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 92, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_v_cum_prod, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_20 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_v_U_grid2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_v_cum_prod, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 85, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":91
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":84
  *         (self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R,
  *          self.strides_E, self.strides_L, self.strides_C,
  *          self.first_elements_E, self.first_elements_C) = Create_Sym_Interpolation_Cache(             # <<<<<<<<<<<<<<
  *             U_grid2, cum_prod, self.c_bins
  *          )
  */
-  __pyx_t_4 = __pyx_f_10unipolator_7caching_Create_Sym_Interpolation_Cache(__pyx_t_20, __pyx_t_7, __pyx_v_self->c_bins, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_4 = __pyx_f_10unipolator_7caching_Create_Sym_Interpolation_Cache(__pyx_t_20, __pyx_t_7, __pyx_v_self->c_bins, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __PYX_XCLEAR_MEMVIEW(&__pyx_t_20, 1);
   __pyx_t_20.memview = NULL; __pyx_t_20.data = NULL;
@@ -21094,7 +21094,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     if (unlikely(size != 12)) {
       if (size > 12) __Pyx_RaiseTooManyValuesError(12);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 89, __pyx_L1_error)
+      __PYX_ERR(0, 82, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -21141,7 +21141,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
       Py_ssize_t i;
       PyObject** temps[12] = {&__pyx_t_3,&__pyx_t_6,&__pyx_t_5,&__pyx_t_2,&__pyx_t_14,&__pyx_t_21,&__pyx_t_22,&__pyx_t_23,&__pyx_t_24,&__pyx_t_25,&__pyx_t_26,&__pyx_t_27};
       for (i=0; i < 12; i++) {
-        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 89, __pyx_L1_error)
+        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 82, __pyx_L1_error)
         __Pyx_GOTREF(item);
         *(temps[i]) = item;
       }
@@ -21151,7 +21151,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   } else {
     Py_ssize_t index = -1;
     PyObject** temps[12] = {&__pyx_t_3,&__pyx_t_6,&__pyx_t_5,&__pyx_t_2,&__pyx_t_14,&__pyx_t_21,&__pyx_t_22,&__pyx_t_23,&__pyx_t_24,&__pyx_t_25,&__pyx_t_26,&__pyx_t_27};
-    __pyx_t_28 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_28 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 82, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_28);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_15 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_28);
@@ -21160,7 +21160,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
       __Pyx_GOTREF(item);
       *(temps[index]) = item;
     }
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_28), 12) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_28), 12) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
     __pyx_t_15 = NULL;
     __Pyx_DECREF(__pyx_t_28); __pyx_t_28 = 0;
     goto __pyx_L14_unpacking_done;
@@ -21168,40 +21168,40 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
     __Pyx_DECREF(__pyx_t_28); __pyx_t_28 = 0;
     __pyx_t_15 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 89, __pyx_L1_error)
+    __PYX_ERR(0, 82, __pyx_L1_error)
     __pyx_L14_unpacking_done:;
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":89
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":82
  * 
  *         ## Construct interpolation cache
  *         (self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R,             # <<<<<<<<<<<<<<
  *          self.strides_E, self.strides_L, self.strides_C,
  *          self.first_elements_E, self.first_elements_C) = Create_Sym_Interpolation_Cache(
  */
-  __pyx_t_29 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_29.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_29 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_29.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_20 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_20 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_6, PyBUF_WRITABLE); if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_30 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_30.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_30 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_30.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_31 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_31.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_31 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_2, PyBUF_WRITABLE); if (unlikely(!__pyx_t_31.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_32 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_14, PyBUF_WRITABLE); if (unlikely(!__pyx_t_32.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_32 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_14, PyBUF_WRITABLE); if (unlikely(!__pyx_t_32.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-  __pyx_t_33 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_21, PyBUF_WRITABLE); if (unlikely(!__pyx_t_33.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_33 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_21, PyBUF_WRITABLE); if (unlikely(!__pyx_t_33.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
-  __pyx_t_34 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_22, PyBUF_WRITABLE); if (unlikely(!__pyx_t_34.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_34 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_22, PyBUF_WRITABLE); if (unlikely(!__pyx_t_34.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_22); __pyx_t_22 = 0;
-  __pyx_t_35 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_23, PyBUF_WRITABLE); if (unlikely(!__pyx_t_35.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_35 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_23, PyBUF_WRITABLE); if (unlikely(!__pyx_t_35.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_23); __pyx_t_23 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_24, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_24, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_24); __pyx_t_24 = 0;
-  __pyx_t_36 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_25, PyBUF_WRITABLE); if (unlikely(!__pyx_t_36.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_36 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_25, PyBUF_WRITABLE); if (unlikely(!__pyx_t_36.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_25); __pyx_t_25 = 0;
-  __pyx_t_37 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_26, PyBUF_WRITABLE); if (unlikely(!__pyx_t_37.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_37 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_26, PyBUF_WRITABLE); if (unlikely(!__pyx_t_37.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_26); __pyx_t_26 = 0;
-  __pyx_t_38 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_27, PyBUF_WRITABLE); if (unlikely(!__pyx_t_38.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_38 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_27, PyBUF_WRITABLE); if (unlikely(!__pyx_t_38.memview)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_27); __pyx_t_27 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->E, 0);
   __pyx_v_self->E = __pyx_t_29;
@@ -21232,7 +21232,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_34.memview = NULL;
   __pyx_t_34.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":90
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":83
  *         ## Construct interpolation cache
  *         (self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R,
  *          self.strides_E, self.strides_L, self.strides_C,             # <<<<<<<<<<<<<<
@@ -21252,7 +21252,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_36.memview = NULL;
   __pyx_t_36.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":91
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":84
  *         (self.E, self.Vl, self.Vr, self.CL_L, self.CL_R, self.CH_L, self.CH_R,
  *          self.strides_E, self.strides_L, self.strides_C,
  *          self.first_elements_E, self.first_elements_C) = Create_Sym_Interpolation_Cache(             # <<<<<<<<<<<<<<
@@ -21268,7 +21268,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_38.memview = NULL;
   __pyx_t_38.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":95
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":88
  *          )
  * 
  *         self.ei = &self.E[0, 0]             # <<<<<<<<<<<<<<
@@ -21279,7 +21279,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_13 = 0;
   __pyx_v_self->ei = (&(*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_self->E.data + __pyx_t_11 * __pyx_v_self->E.strides[0]) )) + __pyx_t_13)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":96
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":89
  * 
  *         self.ei = &self.E[0, 0]
  *         self.expe = &self.Es[0]              # Assuming Es is initialized properly elsewhere             # <<<<<<<<<<<<<<
@@ -21289,7 +21289,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_13 = 0;
   __pyx_v_self->expe = (&(*((__pyx_t_double_complex *) ( /* dim=0 */ ((char *) (((__pyx_t_double_complex *) __pyx_v_self->Es.data) + __pyx_t_13)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":97
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":90
  *         self.ei = &self.E[0, 0]
  *         self.expe = &self.Es[0]              # Assuming Es is initialized properly elsewhere
  *         self.vl = &self.Vl[0, 0, 0]             # <<<<<<<<<<<<<<
@@ -21301,7 +21301,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_39 = 0;
   __pyx_v_self->vl = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->Vl.data + __pyx_t_13 * __pyx_v_self->Vl.strides[0]) ) + __pyx_t_11 * __pyx_v_self->Vl.strides[1]) )) + __pyx_t_39)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":98
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":91
  *         self.expe = &self.Es[0]              # Assuming Es is initialized properly elsewhere
  *         self.vl = &self.Vl[0, 0, 0]
  *         self.vr = &self.Vr[0, 0, 0]             # <<<<<<<<<<<<<<
@@ -21313,7 +21313,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_13 = 0;
   __pyx_v_self->vr = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->Vr.data + __pyx_t_39 * __pyx_v_self->Vr.strides[0]) ) + __pyx_t_11 * __pyx_v_self->Vr.strides[1]) )) + __pyx_t_13)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":99
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":92
  *         self.vl = &self.Vl[0, 0, 0]
  *         self.vr = &self.Vr[0, 0, 0]
  *         self.cl = &self.CL_L[0, 0, 0]             # <<<<<<<<<<<<<<
@@ -21325,7 +21325,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_39 = 0;
   __pyx_v_self->cl = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->CL_L.data + __pyx_t_13 * __pyx_v_self->CL_L.strides[0]) ) + __pyx_t_11 * __pyx_v_self->CL_L.strides[1]) )) + __pyx_t_39)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":100
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":93
  *         self.vr = &self.Vr[0, 0, 0]
  *         self.cl = &self.CL_L[0, 0, 0]
  *         self.cr = &self.CL_R[0, 0, 0]             # <<<<<<<<<<<<<<
@@ -21337,52 +21337,52 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   __pyx_t_13 = 0;
   __pyx_v_self->cr = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->CL_R.data + __pyx_t_39 * __pyx_v_self->CL_R.strides[0]) ) + __pyx_t_11 * __pyx_v_self->CL_R.strides[1]) )) + __pyx_t_13)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":101
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":94
  *         self.cl = &self.CL_L[0, 0, 0]
  *         self.cr = &self.CL_R[0, 0, 0]
  *         self.L = np.empty(self.n_dims, dtype=np.intp)   # CHANGED: dtype=np.intp             # <<<<<<<<<<<<<<
  * 
  *     def change_m(self, int m):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_27 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_27 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_27);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_26 = PyTuple_New(1); if (unlikely(!__pyx_t_26)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_26 = PyTuple_New(1); if (unlikely(!__pyx_t_26)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_26);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_26, 0, __pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_26, 0, __pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_25, __pyx_n_s_np); if (unlikely(!__pyx_t_25)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_25, __pyx_n_s_np); if (unlikely(!__pyx_t_25)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_25);
-  __pyx_t_24 = __Pyx_PyObject_GetAttrStr(__pyx_t_25, __pyx_n_s_intp); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_24 = __Pyx_PyObject_GetAttrStr(__pyx_t_25, __pyx_n_s_intp); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_24);
   __Pyx_DECREF(__pyx_t_25); __pyx_t_25 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_24) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_24) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_24); __pyx_t_24 = 0;
-  __pyx_t_24 = __Pyx_PyObject_Call(__pyx_t_27, __pyx_t_26, __pyx_t_4); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_24 = __Pyx_PyObject_Call(__pyx_t_27, __pyx_t_26, __pyx_t_4); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_24);
   __Pyx_DECREF(__pyx_t_27); __pyx_t_27 = 0;
   __Pyx_DECREF(__pyx_t_26); __pyx_t_26 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_38 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_24, PyBUF_WRITABLE); if (unlikely(!__pyx_t_38.memview)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_38 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_24, PyBUF_WRITABLE); if (unlikely(!__pyx_t_38.memview)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_24); __pyx_t_24 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->L, 0);
   __pyx_v_self->L = __pyx_t_38;
   __pyx_t_38.memview = NULL;
   __pyx_t_38.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":39
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":40
  *     cdef npc.intp_t[::1] d_di                    # CHANGED: was long[::1]
  * 
- *     def __cinit__(             # <<<<<<<<<<<<<<
- *         self,
- *         double complex[:,:,::1] H_s,
+ *     def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, npc.intp_t[::1] c_bins, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m = 1):             # <<<<<<<<<<<<<<
+ *         # Construct parameters
+ *         self.n_dims = c_min_s.shape[0]
  */
 
   /* function exit code */
@@ -21430,7 +21430,7 @@ static int __pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":103
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":96
  *         self.L = np.empty(self.n_dims, dtype=np.intp)   # CHANGED: dtype=np.intp
  * 
  *     def change_m(self, int m):             # <<<<<<<<<<<<<<
@@ -21492,23 +21492,23 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "change_m") < 0)) __PYX_ERR(0, 103, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "change_m") < 0)) __PYX_ERR(0, 96, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
     }
-    __pyx_v_m = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_m == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L3_error)
+    __pyx_v_m = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_m == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("change_m", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 103, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("change_m", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 96, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -21553,7 +21553,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("change_m", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":104
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":97
  * 
  *     def change_m(self, int m):
  *         self.m = m             # <<<<<<<<<<<<<<
@@ -21562,7 +21562,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   __pyx_v_self->m = __pyx_v_m;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":105
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":98
  *     def change_m(self, int m):
  *         self.m = m
  *         self.dm = self.d * m             # <<<<<<<<<<<<<<
@@ -21571,57 +21571,57 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   __pyx_v_self->dm = (__pyx_v_self->d * __pyx_v_m);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":107
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":100
  *         self.dm = self.d * m
  *         # also change self.vi's
  *         self.Ur = np.empty([self.d, self.m], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *         self.ur0 = &self.Ur[0, 0]
  *         self.Ur1 = np.empty([self.d, self.m], dtype=np.complex128)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex128); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex128); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->Ur, 0);
   __pyx_v_self->Ur = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":108
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":101
  *         # also change self.vi's
  *         self.Ur = np.empty([self.d, self.m], dtype=np.complex128)
  *         self.ur0 = &self.Ur[0, 0]             # <<<<<<<<<<<<<<
@@ -21632,57 +21632,57 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_8 = 0;
   __pyx_v_self->ur0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_self->Ur.data + __pyx_t_7 * __pyx_v_self->Ur.strides[0]) )) + __pyx_t_8)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":109
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":102
  *         self.Ur = np.empty([self.d, self.m], dtype=np.complex128)
  *         self.ur0 = &self.Ur[0, 0]
  *         self.Ur1 = np.empty([self.d, self.m], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *         self.ur1 = &self.Ur1[0, 0]
  *         #self.dU1 = np.empty([self.n_d_di, self.d, self.m], dtype=np.complex128)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_t_5)) __PYX_ERR(0, 109, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 1, __pyx_t_3)) __PYX_ERR(0, 109, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 1, __pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error);
   __pyx_t_5 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_complex128); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_complex128); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->Ur1, 0);
   __pyx_v_self->Ur1 = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":110
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":103
  *         self.ur0 = &self.Ur[0, 0]
  *         self.Ur1 = np.empty([self.d, self.m], dtype=np.complex128)
  *         self.ur1 = &self.Ur1[0, 0]             # <<<<<<<<<<<<<<
@@ -21693,62 +21693,62 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_7 = 0;
   __pyx_v_self->ur1 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_self->Ur1.data + __pyx_t_8 * __pyx_v_self->Ur1.strides[0]) )) + __pyx_t_7)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":118
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":111
  *         #self.es0 = &self.Es[0]
  *         # Split into left and right side
  *         self.dUl = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *         self.dul = &self.dUl[0, 0, 0]
  *         self.dUr = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyList_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 1, __pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 1, __pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 2, __pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 2, __pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error);
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_complex128); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_complex128); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 118, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->dUl, 0);
   __pyx_v_self->dUl = __pyx_t_9;
   __pyx_t_9.memview = NULL;
   __pyx_t_9.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":119
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":112
  *         # Split into left and right side
  *         self.dUl = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)
  *         self.dul = &self.dUl[0, 0, 0]             # <<<<<<<<<<<<<<
@@ -21760,62 +21760,62 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_10 = 0;
   __pyx_v_self->dul = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->dUl.data + __pyx_t_7 * __pyx_v_self->dUl.strides[0]) ) + __pyx_t_8 * __pyx_v_self->dUl.strides[1]) )) + __pyx_t_10)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":120
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":113
  *         self.dUl = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)
  *         self.dul = &self.dUl[0, 0, 0]
  *         self.dUr = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *         self.dur = &self.dUr[0, 0, 0]
  *         self.dUc = np.empty([self.d, self.m], dtype=np.complex128)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->n_dims); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyList_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 2, __pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 2, __pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_4 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_complex128); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_complex128); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->dUr, 0);
   __pyx_v_self->dUr = __pyx_t_9;
   __pyx_t_9.memview = NULL;
   __pyx_t_9.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":121
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":114
  *         self.dul = &self.dUl[0, 0, 0]
  *         self.dUr = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)
  *         self.dur = &self.dUr[0, 0, 0]             # <<<<<<<<<<<<<<
@@ -21827,57 +21827,57 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_7 = 0;
   __pyx_v_self->dur = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->dUr.data + __pyx_t_10 * __pyx_v_self->dUr.strides[0]) ) + __pyx_t_8 * __pyx_v_self->dUr.strides[1]) )) + __pyx_t_7)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":122
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":115
  *         self.dUr = np.empty([self.n_dims, self.d, self.m], dtype=np.complex128)
  *         self.dur = &self.dUr[0, 0, 0]
  *         self.dUc = np.empty([self.d, self.m], dtype=np.complex128)             # <<<<<<<<<<<<<<
  *         self.duc = &self.dUc[0,0]
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->d); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->m); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 1, __pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 1, __pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error);
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex128); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_complex128); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->dUc, 0);
   __pyx_v_self->dUc = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":123
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":116
  *         self.dur = &self.dUr[0, 0, 0]
  *         self.dUc = np.empty([self.d, self.m], dtype=np.complex128)
  *         self.duc = &self.dUc[0,0]             # <<<<<<<<<<<<<<
@@ -21888,7 +21888,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_8 = 0;
   __pyx_v_self->duc = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_self->dUc.data + __pyx_t_7 * __pyx_v_self->dUc.strides[0]) )) + __pyx_t_8)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":103
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":96
  *         self.L = np.empty(self.n_dims, dtype=np.intp)   # CHANGED: dtype=np.intp
  * 
  *     def change_m(self, int m):             # <<<<<<<<<<<<<<
@@ -21915,7 +21915,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":125
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":118
  *         self.duc = &self.dUc[0,0]
  * 
  *     cdef single_parameters2oddgrid(self, double[::1] c):             # <<<<<<<<<<<<<<
@@ -21948,7 +21948,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("single_parameters2oddgrid", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":126
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":119
  * 
  *     cdef single_parameters2oddgrid(self, double[::1] c):
  *         cdef npc.intp_t sum_location = 0          # CHANGED: long -> npc.intp_t             # <<<<<<<<<<<<<<
@@ -21957,7 +21957,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
   __pyx_v_sum_location = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":127
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":120
  *     cdef single_parameters2oddgrid(self, double[::1] c):
  *         cdef npc.intp_t sum_location = 0          # CHANGED: long -> npc.intp_t
  *         cdef double alpha_max = 0.0             # <<<<<<<<<<<<<<
@@ -21966,7 +21966,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
   __pyx_v_alpha_max = 0.0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":130
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":123
  *         cdef double alpha_rest
  *         cdef npc.intp_t i                        # CHANGED: long -> npc.intp_t
  *         cdef npc.intp_t max_alpha_ind = 0        # CHANGED: long -> npc.intp_t             # <<<<<<<<<<<<<<
@@ -21975,7 +21975,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
   __pyx_v_max_alpha_ind = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":133
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":126
  *         cdef npc.intp_t max_vals                 # CHANGED: long -> npc.intp_t
  * 
  *         for i in range(self.n_dims):             # <<<<<<<<<<<<<<
@@ -21987,7 +21987,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":135
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":128
  *         for i in range(self.n_dims):
  *             # Transform
  *             self.alpha[i] = (c[i] - self.c_mins[i]) / self.dcs[i]             # <<<<<<<<<<<<<<
@@ -22000,7 +22000,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_7 = __pyx_v_i;
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->alpha.data) + __pyx_t_7)) )) = (((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_c.data) + __pyx_t_4)) ))) - (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->c_mins.data) + __pyx_t_5)) )))) / (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->dcs.data) + __pyx_t_6)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":137
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":130
  *             self.alpha[i] = (c[i] - self.c_mins[i]) / self.dcs[i]
  *             # Round
  *             self.location[i] = <npc.intp_t> self.alpha[i]   # CHANGED: <long> -> <npc.intp_t>             # <<<<<<<<<<<<<<
@@ -22011,7 +22011,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_i;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_5)) )) = ((__pyx_t_5numpy_intp_t)(*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->alpha.data) + __pyx_t_6)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":138
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":131
  *             # Round
  *             self.location[i] = <npc.intp_t> self.alpha[i]   # CHANGED: <long> -> <npc.intp_t>
  *             alpha_rest = self.alpha[i] - self.location[i]             # <<<<<<<<<<<<<<
@@ -22022,7 +22022,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_i;
     __pyx_v_alpha_rest = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->alpha.data) + __pyx_t_6)) ))) - (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_5)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":139
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":132
  *             self.location[i] = <npc.intp_t> self.alpha[i]   # CHANGED: <long> -> <npc.intp_t>
  *             alpha_rest = self.alpha[i] - self.location[i]
  *             if alpha_rest > 0.5:             # <<<<<<<<<<<<<<
@@ -22032,7 +22032,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_8 = (__pyx_v_alpha_rest > 0.5);
     if (__pyx_t_8) {
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":140
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":133
  *             alpha_rest = self.alpha[i] - self.location[i]
  *             if alpha_rest > 0.5:
  *                 self.location[i] += 1             # <<<<<<<<<<<<<<
@@ -22042,7 +22042,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
       __pyx_t_5 = __pyx_v_i;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_5)) )) += 1;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":141
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":134
  *             if alpha_rest > 0.5:
  *                 self.location[i] += 1
  *                 alpha_rest -= 1             # <<<<<<<<<<<<<<
@@ -22051,7 +22051,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
       __pyx_v_alpha_rest = (__pyx_v_alpha_rest - 1.0);
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":139
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":132
  *             self.location[i] = <npc.intp_t> self.alpha[i]   # CHANGED: <long> -> <npc.intp_t>
  *             alpha_rest = self.alpha[i] - self.location[i]
  *             if alpha_rest > 0.5:             # <<<<<<<<<<<<<<
@@ -22060,7 +22060,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
     }
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":142
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":135
  *                 self.location[i] += 1
  *                 alpha_rest -= 1
  *             sum_location += self.location[i]             # <<<<<<<<<<<<<<
@@ -22070,7 +22070,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_i;
     __pyx_v_sum_location = (__pyx_v_sum_location + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_5)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":144
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":137
  *             sum_location += self.location[i]
  * 
  *             self.abs_alpha_rest[i] = fabs(alpha_rest)             # <<<<<<<<<<<<<<
@@ -22080,7 +22080,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_i;
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_5)) )) = fabs(__pyx_v_alpha_rest);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":145
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":138
  * 
  *             self.abs_alpha_rest[i] = fabs(alpha_rest)
  *             self.d_location[i] = 1 if alpha_rest >= 0 else -1             # <<<<<<<<<<<<<<
@@ -22096,7 +22096,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_i;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_5)) )) = __pyx_t_9;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":146
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":139
  *             self.abs_alpha_rest[i] = fabs(alpha_rest)
  *             self.d_location[i] = 1 if alpha_rest >= 0 else -1
  *             if self.alpha[i] < 0 or self.alpha[i] > self.c_bins[i]:             # <<<<<<<<<<<<<<
@@ -22117,18 +22117,18 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_8) {
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":147
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":140
  *             self.d_location[i] = 1 if alpha_rest >= 0 else -1
  *             if self.alpha[i] < 0 or self.alpha[i] > self.c_bins[i]:
  *                 print('Warning: These parameters lie outside of interpolation grid!')             # <<<<<<<<<<<<<<
  *                 break
  * 
  */
-      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 147, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 140, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":148
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":141
  *             if self.alpha[i] < 0 or self.alpha[i] > self.c_bins[i]:
  *                 print('Warning: These parameters lie outside of interpolation grid!')
  *                 break             # <<<<<<<<<<<<<<
@@ -22137,7 +22137,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
       goto __pyx_L4_break;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":146
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":139
  *             self.abs_alpha_rest[i] = fabs(alpha_rest)
  *             self.d_location[i] = 1 if alpha_rest >= 0 else -1
  *             if self.alpha[i] < 0 or self.alpha[i] > self.c_bins[i]:             # <<<<<<<<<<<<<<
@@ -22148,7 +22148,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   }
   __pyx_L4_break:;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":150
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":143
  *                 break
  * 
  *         if is_even(sum_location):             # <<<<<<<<<<<<<<
@@ -22158,7 +22158,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   __pyx_t_8 = (__pyx_f_10unipolator_8indexing_is_even(__pyx_v_sum_location, 0) != 0);
   if (__pyx_t_8) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":151
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":144
  * 
  *         if is_even(sum_location):
  *             max_alpha_ind = c_argmax(self.abs_alpha_rest, max_alpha_ind, alpha_max, self.n_dims)             # <<<<<<<<<<<<<<
@@ -22167,7 +22167,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
     __pyx_v_max_alpha_ind = __pyx_f_10unipolator_8indexing_c_argmax(__pyx_v_self->abs_alpha_rest, __pyx_v_max_alpha_ind, __pyx_v_alpha_max, __pyx_v_self->n_dims, 0);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":152
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":145
  *         if is_even(sum_location):
  *             max_alpha_ind = c_argmax(self.abs_alpha_rest, max_alpha_ind, alpha_max, self.n_dims)
  *             if self.location[max_alpha_ind] + self.d_location[max_alpha_ind] > self.c_bins[max_alpha_ind]:             # <<<<<<<<<<<<<<
@@ -22180,7 +22180,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_8 = (((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_6)) ))) + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_5)) )))) > (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->c_bins.data) + __pyx_t_4)) ))));
     if (__pyx_t_8) {
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":153
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":146
  *             max_alpha_ind = c_argmax(self.abs_alpha_rest, max_alpha_ind, alpha_max, self.n_dims)
  *             if self.location[max_alpha_ind] + self.d_location[max_alpha_ind] > self.c_bins[max_alpha_ind]:
  *                 self.d_location[max_alpha_ind] = -1             # <<<<<<<<<<<<<<
@@ -22190,7 +22190,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
       __pyx_t_4 = __pyx_v_max_alpha_ind;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_4)) )) = -1L;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":152
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":145
  *         if is_even(sum_location):
  *             max_alpha_ind = c_argmax(self.abs_alpha_rest, max_alpha_ind, alpha_max, self.n_dims)
  *             if self.location[max_alpha_ind] + self.d_location[max_alpha_ind] > self.c_bins[max_alpha_ind]:             # <<<<<<<<<<<<<<
@@ -22199,7 +22199,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
     }
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":154
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":147
  *             if self.location[max_alpha_ind] + self.d_location[max_alpha_ind] > self.c_bins[max_alpha_ind]:
  *                 self.d_location[max_alpha_ind] = -1
  *             self.location[max_alpha_ind] += self.d_location[max_alpha_ind]             # <<<<<<<<<<<<<<
@@ -22210,7 +22210,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_max_alpha_ind;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_5)) )) += (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_4)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":155
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":148
  *                 self.d_location[max_alpha_ind] = -1
  *             self.location[max_alpha_ind] += self.d_location[max_alpha_ind]
  *             self.d_location[max_alpha_ind] = - self.d_location[max_alpha_ind]             # <<<<<<<<<<<<<<
@@ -22221,7 +22221,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_max_alpha_ind;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_5)) )) = (-(*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_4)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":156
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":149
  *             self.location[max_alpha_ind] += self.d_location[max_alpha_ind]
  *             self.d_location[max_alpha_ind] = - self.d_location[max_alpha_ind]
  *             self.abs_alpha_rest[max_alpha_ind] = 1 - self.abs_alpha_rest[max_alpha_ind]             # <<<<<<<<<<<<<<
@@ -22232,7 +22232,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_max_alpha_ind;
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_5)) )) = (1.0 - (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_4)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":150
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":143
  *                 break
  * 
  *         if is_even(sum_location):             # <<<<<<<<<<<<<<
@@ -22241,7 +22241,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":158
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":151
  *             self.abs_alpha_rest[max_alpha_ind] = 1 - self.abs_alpha_rest[max_alpha_ind]
  * 
  *         for i in range(self.n_dims):             # <<<<<<<<<<<<<<
@@ -22253,7 +22253,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":159
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":152
  * 
  *         for i in range(self.n_dims):
  *             self.d_location[i] -= 1             # <<<<<<<<<<<<<<
@@ -22263,7 +22263,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_4 = __pyx_v_i;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_4)) )) -= 1;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":160
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":153
  *         for i in range(self.n_dims):
  *             self.d_location[i] -= 1
  *             self.d_location[i] >>= 1  # via bitshift operation             # <<<<<<<<<<<<<<
@@ -22274,7 +22274,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_4)) )) >>= 1;
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":163
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":156
  *             #d_location[i] /= 2 #(d_location[i]-1)/2 ### in two steps with optimized in-place operations
  * 
  *         for i in range(self.n_dims):             # <<<<<<<<<<<<<<
@@ -22286,7 +22286,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":164
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":157
  * 
  *         for i in range(self.n_dims):
  *             max_vals = self.location[i] + self.d_location[i]             # <<<<<<<<<<<<<<
@@ -22297,7 +22297,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_5 = __pyx_v_i;
     __pyx_v_max_vals = ((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_4)) ))) + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_5)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":165
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":158
  *         for i in range(self.n_dims):
  *             max_vals = self.location[i] + self.d_location[i]
  *             if max_vals > self.c_bins[i] - 1:             # <<<<<<<<<<<<<<
@@ -22308,7 +22308,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_8 = (__pyx_v_max_vals > ((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->c_bins.data) + __pyx_t_5)) ))) - 1));
     if (__pyx_t_8) {
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":166
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":159
  *             max_vals = self.location[i] + self.d_location[i]
  *             if max_vals > self.c_bins[i] - 1:
  *                 self.d_location[i] = -1             # <<<<<<<<<<<<<<
@@ -22318,7 +22318,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
       __pyx_t_5 = __pyx_v_i;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_5)) )) = -1L;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":165
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":158
  *         for i in range(self.n_dims):
  *             max_vals = self.location[i] + self.d_location[i]
  *             if max_vals > self.c_bins[i] - 1:             # <<<<<<<<<<<<<<
@@ -22328,7 +22328,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     }
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":125
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":118
  *         self.duc = &self.dUc[0,0]
  * 
  *     cdef single_parameters2oddgrid(self, double[::1] c):             # <<<<<<<<<<<<<<
@@ -22349,7 +22349,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":168
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":161
  *                 self.d_location[i] = -1
  * 
  *     def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]             # <<<<<<<<<<<<<<
@@ -22411,23 +22411,23 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "set_which_diffs") < 0)) __PYX_ERR(0, 168, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "set_which_diffs") < 0)) __PYX_ERR(0, 161, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
     }
-    __pyx_v_which_diffs = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_which_diffs.memview)) __PYX_ERR(0, 168, __pyx_L3_error)
+    __pyx_v_which_diffs = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_which_diffs.memview)) __PYX_ERR(0, 161, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_which_diffs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 168, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("set_which_diffs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 161, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -22461,7 +22461,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_which_diffs", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":169
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":162
  * 
  *     def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]
  *         self.d_di = which_diffs             # <<<<<<<<<<<<<<
@@ -22472,7 +22472,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __PYX_INC_MEMVIEW(&__pyx_v_which_diffs, 1);
   __pyx_v_self->d_di = __pyx_v_which_diffs;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":170
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":163
  *     def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]
  *         self.d_di = which_diffs
  *         self.n_d_di_1 = self.d_di.shape[0] - 1             # <<<<<<<<<<<<<<
@@ -22481,7 +22481,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   __pyx_v_self->n_d_di_1 = ((__pyx_v_self->d_di.shape[0]) - 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":171
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":164
  *         self.d_di = which_diffs
  *         self.n_d_di_1 = self.d_di.shape[0] - 1
  *         self.n_d_di = self.d_di.shape[0]             # <<<<<<<<<<<<<<
@@ -22490,7 +22490,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   __pyx_v_self->n_d_di = (__pyx_v_self->d_di.shape[0]);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":168
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":161
  *                 self.d_location[i] = -1
  * 
  *     def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]             # <<<<<<<<<<<<<<
@@ -22505,7 +22505,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":173
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":166
  *         self.n_d_di = self.d_di.shape[0]
  * 
  *     def get_single_param(self, double[::1] c):  # To verify interpolation grid             # <<<<<<<<<<<<<<
@@ -22567,23 +22567,23 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 173, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_single_param") < 0)) __PYX_ERR(0, 173, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_single_param") < 0)) __PYX_ERR(0, 166, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
     }
-    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 173, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_single_param", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 173, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_single_param", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 166, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -22627,18 +22627,18 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_single_param", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":174
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":167
  * 
  *     def get_single_param(self, double[::1] c):  # To verify interpolation grid
  *         self.single_parameters2oddgrid(c)             # <<<<<<<<<<<<<<
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->single_parameters2oddgrid(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->single_parameters2oddgrid(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":175
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":168
  *     def get_single_param(self, double[::1] c):  # To verify interpolation grid
  *         self.single_parameters2oddgrid(c)
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)             # <<<<<<<<<<<<<<
@@ -22646,12 +22646,12 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  *     def get_cache(self): # To verify interpolation grid
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->location, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->location, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -22672,16 +22672,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->d_location, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->d_location, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   __pyx_t_5 = 0;
@@ -22702,16 +22702,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->abs_alpha_rest, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->abs_alpha_rest, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = NULL;
   __pyx_t_5 = 0;
@@ -22732,18 +22732,18 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 175, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
-  __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_4)) __PYX_ERR(0, 175, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -22751,7 +22751,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":173
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":166
  *         self.n_d_di = self.d_di.shape[0]
  * 
  *     def get_single_param(self, double[::1] c):  # To verify interpolation grid             # <<<<<<<<<<<<<<
@@ -22775,7 +22775,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":177
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":170
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  * 
  *     def get_cache(self): # To verify interpolation grid             # <<<<<<<<<<<<<<
@@ -22849,7 +22849,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_cache", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":178
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":171
  * 
  *     def get_cache(self): # To verify interpolation grid
  *         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)             # <<<<<<<<<<<<<<
@@ -22857,12 +22857,12 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  *     cdef interpolate_single_u(self, double complex *u0, double complex *v0):   #u0 => input vectors, v0 => output vectors
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->E, 2, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->E, 2, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -22883,16 +22883,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->Vl, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->Vl, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   __pyx_t_5 = 0;
@@ -22913,16 +22913,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->Vr, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->Vr, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = NULL;
   __pyx_t_5 = 0;
@@ -22943,16 +22943,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CL_L, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CL_L, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_8 = NULL;
   __pyx_t_5 = 0;
@@ -22973,16 +22973,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CL_R, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CL_R, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_9 = NULL;
   __pyx_t_5 = 0;
@@ -23003,16 +23003,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CH_L, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CH_L, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_10 = NULL;
   __pyx_t_5 = 0;
@@ -23033,16 +23033,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_8 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CH_R, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->CH_R, 3, (PyObject *(*)(char *)) __pyx_memview_get___pyx_t_double_complex, (int (*)(char *, PyObject *)) __pyx_memview_set___pyx_t_double_complex, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_11 = NULL;
   __pyx_t_5 = 0;
@@ -23063,16 +23063,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_9 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->strides_E, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->strides_E, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_12 = NULL;
   __pyx_t_5 = 0;
@@ -23093,16 +23093,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_10 = __Pyx_PyObject_FastCall(__pyx_t_11, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->strides_L, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->strides_L, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_13 = NULL;
   __pyx_t_5 = 0;
@@ -23123,16 +23123,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_11 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->strides_C, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->strides_C, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_14 = NULL;
   __pyx_t_5 = 0;
@@ -23153,16 +23153,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_12 = __Pyx_PyObject_FastCall(__pyx_t_13, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->first_elements_E, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->first_elements_E, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_15 = NULL;
   __pyx_t_5 = 0;
@@ -23183,16 +23183,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_13 = __Pyx_PyObject_FastCall(__pyx_t_14, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->first_elements_C, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->first_elements_C, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_intp_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_intp_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_16 = NULL;
   __pyx_t_5 = 0;
@@ -23213,36 +23213,36 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __pyx_t_14 = __Pyx_PyObject_FastCall(__pyx_t_15, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 178, __pyx_L1_error)
+    if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
     __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
   }
-  __pyx_t_15 = PyTuple_New(12); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_15 = PyTuple_New(12); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 0, __pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 0, __pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 1, __pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 1, __pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 2, __pyx_t_4)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 2, __pyx_t_4)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_6);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 3, __pyx_t_6)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 3, __pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_7);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 4, __pyx_t_7)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 4, __pyx_t_7)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_8);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 5, __pyx_t_8)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 5, __pyx_t_8)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_9);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 6, __pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 6, __pyx_t_9)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_10);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 7, __pyx_t_10)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 7, __pyx_t_10)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_11);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 8, __pyx_t_11)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 8, __pyx_t_11)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_12);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 9, __pyx_t_12)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 9, __pyx_t_12)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_13);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 10, __pyx_t_13)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 10, __pyx_t_13)) __PYX_ERR(0, 171, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_14);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 11, __pyx_t_14)) __PYX_ERR(0, 178, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 11, __pyx_t_14)) __PYX_ERR(0, 171, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -23259,7 +23259,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_15 = 0;
   goto __pyx_L0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":177
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":170
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  * 
  *     def get_cache(self): # To verify interpolation grid             # <<<<<<<<<<<<<<
@@ -23292,7 +23292,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":180
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":173
  *         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
  * 
  *     cdef interpolate_single_u(self, double complex *u0, double complex *v0):   #u0 => input vectors, v0 => output vectors             # <<<<<<<<<<<<<<
@@ -23319,7 +23319,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("interpolate_single_u", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":183
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":176
  *         cdef Py_ssize_t i, j
  *         cdef Py_ssize_t ind, indE
  *         if self.n_dims == 1:  # Shouldn't make any difference if you use symmetric 1D or non symmetric 1D interpolation             # <<<<<<<<<<<<<<
@@ -23329,7 +23329,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   __pyx_t_1 = (__pyx_v_self->n_dims == 1);
   if (__pyx_t_1) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":184
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":177
  *         cdef Py_ssize_t ind, indE
  *         if self.n_dims == 1:  # Shouldn't make any difference if you use symmetric 1D or non symmetric 1D interpolation
  *             ind = self.location[0] + self.d_location[0]             # <<<<<<<<<<<<<<
@@ -23340,7 +23340,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_3 = 0;
     __pyx_v_ind = ((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_2)) ))) + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_3)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":185
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":178
  *         if self.n_dims == 1:  # Shouldn't make any difference if you use symmetric 1D or non symmetric 1D interpolation
  *             ind = self.location[0] + self.d_location[0]
  *             self.vr = &self.Vr[ind, 0, 0]  # In 1D strides are 1             # <<<<<<<<<<<<<<
@@ -23352,7 +23352,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_4 = 0;
     __pyx_v_self->vr = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->Vr.data + __pyx_t_3 * __pyx_v_self->Vr.strides[0]) ) + __pyx_t_2 * __pyx_v_self->Vr.strides[1]) )) + __pyx_t_4)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":186
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":179
  *             ind = self.location[0] + self.d_location[0]
  *             self.vr = &self.Vr[ind, 0, 0]  # In 1D strides are 1
  *             self.vl = &self.Vl[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23364,7 +23364,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_3 = 0;
     __pyx_v_self->vl = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->Vl.data + __pyx_t_4 * __pyx_v_self->Vl.strides[0]) ) + __pyx_t_2 * __pyx_v_self->Vl.strides[1]) )) + __pyx_t_3)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":187
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":180
  *             self.vr = &self.Vr[ind, 0, 0]  # In 1D strides are 1
  *             self.vl = &self.Vl[ind, 0, 0]
  *             self.ei = &self.E[ind, 0]             # <<<<<<<<<<<<<<
@@ -23375,7 +23375,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_2 = 0;
     __pyx_v_self->ei = (&(*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_self->E.data + __pyx_t_3 * __pyx_v_self->E.strides[0]) )) + __pyx_t_2)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":189
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":182
  *             self.ei = &self.E[ind, 0]
  *             #V_expE_W_pointer(self.vl, self.vr, self.ei, self.abs_alpha_rest[0], self.ur0, u0, self.d, self.d2)
  *             MM_cdot_pointer_v(self.vr, u0, self.ur0, self.d, self.m)  # u0 --> ur0             # <<<<<<<<<<<<<<
@@ -23384,7 +23384,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
     __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__pyx_v_self->vr, __pyx_v_u0, __pyx_v_self->ur0, __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":190
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":183
  *             #V_expE_W_pointer(self.vl, self.vr, self.ei, self.abs_alpha_rest[0], self.ur0, u0, self.d, self.d2)
  *             MM_cdot_pointer_v(self.vr, u0, self.ur0, self.d, self.m)  # u0 --> ur0
  *             v_exp_pointer_v(self.ei, self.ur0, self.abs_alpha_rest[0], self.d, self.m)             # <<<<<<<<<<<<<<
@@ -23394,7 +23394,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_2 = 0;
     __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(__pyx_v_self->ei, __pyx_v_self->ur0, (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_2)) ))), __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":191
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":184
  *             MM_cdot_pointer_v(self.vr, u0, self.ur0, self.d, self.m)  # u0 --> ur0
  *             v_exp_pointer_v(self.ei, self.ur0, self.abs_alpha_rest[0], self.d, self.m)
  *             MM_cdot_pointer_v(self.vl, self.ur0, v0, self.d, self.m)  # ur0 --> v0             # <<<<<<<<<<<<<<
@@ -23403,7 +23403,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
     __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__pyx_v_self->vl, __pyx_v_self->ur0, __pyx_v_v0, __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":183
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":176
  *         cdef Py_ssize_t i, j
  *         cdef Py_ssize_t ind, indE
  *         if self.n_dims == 1:  # Shouldn't make any difference if you use symmetric 1D or non symmetric 1D interpolation             # <<<<<<<<<<<<<<
@@ -23413,7 +23413,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     goto __pyx_L3;
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":195
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":188
  *             # From right to center to left
  *             # right to center
  *             for i in range(self.n_dims):             # <<<<<<<<<<<<<<
@@ -23426,7 +23426,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_i = __pyx_t_7;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":196
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":189
  *             # right to center
  *             for i in range(self.n_dims):
  *                 self.L[i] = self.location[i]             # <<<<<<<<<<<<<<
@@ -23438,7 +23438,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_3)) )) = (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_2)) )));
     }
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":197
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":190
  *             for i in range(self.n_dims):
  *                 self.L[i] = self.location[i]
  *             self.L[self.n_dims_1] += self.d_location[self.n_dims_1]             # <<<<<<<<<<<<<<
@@ -23449,7 +23449,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
     __pyx_t_3 = __pyx_v_self->n_dims_1;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_3)) )) += (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_2)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":198
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":191
  *                 self.L[i] = self.location[i]
  *             self.L[self.n_dims_1] += self.d_location[self.n_dims_1]
  *             indE = findex_0(self.L, self.strides_E[self.n_dims_1,:], self.n_dims)   + self.first_elements_E[self.n_dims_1]             # <<<<<<<<<<<<<<
@@ -23469,23 +23469,23 @@ __pyx_t_8.shape[0] = __pyx_v_self->strides_E.shape[1];
 __pyx_t_8.strides[0] = __pyx_v_self->strides_E.strides[1];
     __pyx_t_8.suboffsets[0] = -1;
 
-__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 198, __pyx_L1_error)
+__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 191, __pyx_L1_error)
     __PYX_XCLEAR_MEMVIEW(&__pyx_t_8, 1);
     __pyx_t_8.memview = NULL; __pyx_t_8.data = NULL;
     __pyx_t_2 = __pyx_v_self->n_dims_1;
     __pyx_v_indE = (__pyx_t_5 + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->first_elements_E.data) + __pyx_t_2)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":199
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":192
  *             self.L[self.n_dims_1] += self.d_location[self.n_dims_1]
  *             indE = findex_0(self.L, self.strides_E[self.n_dims_1,:], self.n_dims)   + self.first_elements_E[self.n_dims_1]
  *             ind = findex_0(self.L, self.strides_L, self.n_dims)             # <<<<<<<<<<<<<<
  *             self.L[self.n_dims_1] = self.location[self.n_dims_1]
  *             self.vr = &self.Vr[ind, 0, 0]
  */
-    __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_v_self->strides_L, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_v_self->strides_L, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 192, __pyx_L1_error)
     __pyx_v_ind = __pyx_t_5;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":200
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":193
  *             indE = findex_0(self.L, self.strides_E[self.n_dims_1,:], self.n_dims)   + self.first_elements_E[self.n_dims_1]
  *             ind = findex_0(self.L, self.strides_L, self.n_dims)
  *             self.L[self.n_dims_1] = self.location[self.n_dims_1]             # <<<<<<<<<<<<<<
@@ -23496,7 +23496,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_3 = __pyx_v_self->n_dims_1;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_3)) )) = (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_2)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":201
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":194
  *             ind = findex_0(self.L, self.strides_L, self.n_dims)
  *             self.L[self.n_dims_1] = self.location[self.n_dims_1]
  *             self.vr = &self.Vr[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23508,7 +23508,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_4 = 0;
     __pyx_v_self->vr = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->Vr.data + __pyx_t_2 * __pyx_v_self->Vr.strides[0]) ) + __pyx_t_3 * __pyx_v_self->Vr.strides[1]) )) + __pyx_t_4)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":202
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":195
  *             self.L[self.n_dims_1] = self.location[self.n_dims_1]
  *             self.vr = &self.Vr[ind, 0, 0]
  *             MM_cdot_pointer_v(self.vr, u0, self.ur0, self.d, self.m)  # u0 --> ur0             # <<<<<<<<<<<<<<
@@ -23517,7 +23517,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
  */
     __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__pyx_v_self->vr, __pyx_v_u0, __pyx_v_self->ur0, __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":203
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":196
  *             self.vr = &self.Vr[ind, 0, 0]
  *             MM_cdot_pointer_v(self.vr, u0, self.ur0, self.d, self.m)  # u0 --> ur0
  *             self.ei = &self.E[indE, 0]             # <<<<<<<<<<<<<<
@@ -23528,7 +23528,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_3 = 0;
     __pyx_v_self->ei = (&(*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_self->E.data + __pyx_t_4 * __pyx_v_self->E.strides[0]) )) + __pyx_t_3)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":204
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":197
  *             MM_cdot_pointer_v(self.vr, u0, self.ur0, self.d, self.m)  # u0 --> ur0
  *             self.ei = &self.E[indE, 0]
  *             v_exp_pointer_v(self.ei, self.ur0, self.abs_alpha_rest[self.n_dims_1], self.d, self.m)             # <<<<<<<<<<<<<<
@@ -23538,7 +23538,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_3 = __pyx_v_self->n_dims_1;
     __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(__pyx_v_self->ei, __pyx_v_self->ur0, (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_3)) ))), __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":227
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":220
  *             """
  *             # Central element
  *             self.L[0] = self.location[0] + self.d_location[0]             # <<<<<<<<<<<<<<
@@ -23550,7 +23550,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_2 = 0;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_2)) )) = ((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_3)) ))) + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_4)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":228
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":221
  *             # Central element
  *             self.L[0] = self.location[0] + self.d_location[0]
  *             indE = findex_0(self.L, self.strides_E[0,:], self.n_dims)             # <<<<<<<<<<<<<<
@@ -23570,12 +23570,12 @@ __pyx_t_8.shape[0] = __pyx_v_self->strides_E.shape[1];
 __pyx_t_8.strides[0] = __pyx_v_self->strides_E.strides[1];
     __pyx_t_8.suboffsets[0] = -1;
 
-__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 228, __pyx_L1_error)
+__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 221, __pyx_L1_error)
     __PYX_XCLEAR_MEMVIEW(&__pyx_t_8, 1);
     __pyx_t_8.memview = NULL; __pyx_t_8.data = NULL;
     __pyx_v_indE = __pyx_t_5;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":229
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":222
  *             self.L[0] = self.location[0] + self.d_location[0]
  *             indE = findex_0(self.L, self.strides_E[0,:], self.n_dims)
  *             self.L[0] = self.location[0]             # <<<<<<<<<<<<<<
@@ -23586,7 +23586,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_3 = 0;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_3)) )) = (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_4)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":230
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":223
  *             indE = findex_0(self.L, self.strides_E[0,:], self.n_dims)
  *             self.L[0] = self.location[0]
  *             self.ei = &self.E[indE, 0]             # <<<<<<<<<<<<<<
@@ -23597,7 +23597,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_3 = 0;
     __pyx_v_self->ei = (&(*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_self->E.data + __pyx_t_4 * __pyx_v_self->E.strides[0]) )) + __pyx_t_3)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":231
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":224
  *             self.L[0] = self.location[0]
  *             self.ei = &self.E[indE, 0]
  *             self.L[1] += self.d_location[1]             # <<<<<<<<<<<<<<
@@ -23608,7 +23608,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_4 = 1;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_4)) )) += (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_3)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":232
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":225
  *             self.ei = &self.E[indE, 0]
  *             self.L[1] += self.d_location[1]
  *             if self.d_location[0]:  ### Higher             # <<<<<<<<<<<<<<
@@ -23619,7 +23619,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_1 = ((*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_3)) ))) != 0);
     if (__pyx_t_1) {
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":233
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":226
  *             self.L[1] += self.d_location[1]
  *             if self.d_location[0]:  ### Higher
  *                 self.L[0] += -1             # <<<<<<<<<<<<<<
@@ -23629,7 +23629,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
       __pyx_t_3 = 0;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_3)) )) += -1L;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":234
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":227
  *             if self.d_location[0]:  ### Higher
  *                 self.L[0] += -1
  *                 ind = findex_0(self.L, self.strides_C[0, :], self.n_dims)             # <<<<<<<<<<<<<<
@@ -23649,12 +23649,12 @@ __pyx_t_8.shape[0] = __pyx_v_self->strides_C.shape[1];
 __pyx_t_8.strides[0] = __pyx_v_self->strides_C.strides[1];
     __pyx_t_8.suboffsets[0] = -1;
 
-__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 234, __pyx_L1_error)
+__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L1_error)
       __PYX_XCLEAR_MEMVIEW(&__pyx_t_8, 1);
       __pyx_t_8.memview = NULL; __pyx_t_8.data = NULL;
       __pyx_v_ind = __pyx_t_5;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":235
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":228
  *                 self.L[0] += -1
  *                 ind = findex_0(self.L, self.strides_C[0, :], self.n_dims)
  *                 self.cl = &self.CL_L[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23666,7 +23666,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
       __pyx_t_2 = 0;
       __pyx_v_self->cl = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->CL_L.data + __pyx_t_3 * __pyx_v_self->CL_L.strides[0]) ) + __pyx_t_4 * __pyx_v_self->CL_L.strides[1]) )) + __pyx_t_2)) ))));
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":236
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":229
  *                 ind = findex_0(self.L, self.strides_C[0, :], self.n_dims)
  *                 self.cl = &self.CL_L[ind, 0, 0]
  *                 self.cr = &self.CL_R[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23678,7 +23678,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
       __pyx_t_3 = 0;
       __pyx_v_self->cr = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->CL_R.data + __pyx_t_2 * __pyx_v_self->CL_R.strides[0]) ) + __pyx_t_4 * __pyx_v_self->CL_R.strides[1]) )) + __pyx_t_3)) ))));
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":237
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":230
  *                 self.cl = &self.CL_L[ind, 0, 0]
  *                 self.cr = &self.CL_R[ind, 0, 0]
  *                 self.L[0] += 1             # <<<<<<<<<<<<<<
@@ -23688,7 +23688,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
       __pyx_t_3 = 0;
       *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_3)) )) += 1;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":232
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":225
  *             self.ei = &self.E[indE, 0]
  *             self.L[1] += self.d_location[1]
  *             if self.d_location[0]:  ### Higher             # <<<<<<<<<<<<<<
@@ -23698,7 +23698,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
       goto __pyx_L6;
     }
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":239
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":232
  *                 self.L[0] += 1
  *             else:  ### Lower
  *                 ind = findex_0(self.L, self.strides_C[0, :], self.n_dims)             # <<<<<<<<<<<<<<
@@ -23719,12 +23719,12 @@ __pyx_t_8.shape[0] = __pyx_v_self->strides_C.shape[1];
 __pyx_t_8.strides[0] = __pyx_v_self->strides_C.strides[1];
     __pyx_t_8.suboffsets[0] = -1;
 
-__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 239, __pyx_L1_error)
+__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 232, __pyx_L1_error)
       __PYX_XCLEAR_MEMVIEW(&__pyx_t_8, 1);
       __pyx_t_8.memview = NULL; __pyx_t_8.data = NULL;
       __pyx_v_ind = __pyx_t_5;
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":240
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":233
  *             else:  ### Lower
  *                 ind = findex_0(self.L, self.strides_C[0, :], self.n_dims)
  *                 self.cl = &self.CH_L[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23736,7 +23736,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
       __pyx_t_2 = 0;
       __pyx_v_self->cl = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->CH_L.data + __pyx_t_3 * __pyx_v_self->CH_L.strides[0]) ) + __pyx_t_4 * __pyx_v_self->CH_L.strides[1]) )) + __pyx_t_2)) ))));
 
-      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":241
+      /* "unipolator/symmetric_unitary_interpolation_vector.pyx":234
  *                 ind = findex_0(self.L, self.strides_C[0, :], self.n_dims)
  *                 self.cl = &self.CH_L[ind, 0, 0]
  *                 self.cr = &self.CH_R[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23750,7 +23750,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     }
     __pyx_L6:;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":242
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":235
  *                 self.cl = &self.CH_L[ind, 0, 0]
  *                 self.cr = &self.CH_R[ind, 0, 0]
  *             self.L[1] = self.location[1]             # <<<<<<<<<<<<<<
@@ -23761,7 +23761,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_4 = 1;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_4)) )) = (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_3)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":243
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":236
  *                 self.cr = &self.CH_R[ind, 0, 0]
  *             self.L[1] = self.location[1]
  *             self.L[0] = self.location[0]             # <<<<<<<<<<<<<<
@@ -23772,7 +23772,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_4 = 0;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_4)) )) = (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->location.data) + __pyx_t_3)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":244
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":237
  *             self.L[1] = self.location[1]
  *             self.L[0] = self.location[0]
  *             MM_cdot_pointer_v(self.cr, self.ur0, self.ur1, self.d, self.m)  # ur0 --> ur1             # <<<<<<<<<<<<<<
@@ -23781,7 +23781,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
  */
     __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__pyx_v_self->cr, __pyx_v_self->ur0, __pyx_v_self->ur1, __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":245
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":238
  *             self.L[0] = self.location[0]
  *             MM_cdot_pointer_v(self.cr, self.ur0, self.ur1, self.d, self.m)  # ur0 --> ur1
  *             v_exp_pointer_v(self.ei, self.ur1, self.abs_alpha_rest[0], self.d, self.m)             # <<<<<<<<<<<<<<
@@ -23791,7 +23791,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_3 = 0;
     __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(__pyx_v_self->ei, __pyx_v_self->ur1, (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_3)) ))), __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":246
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":239
  *             MM_cdot_pointer_v(self.cr, self.ur0, self.ur1, self.d, self.m)  # ur0 --> ur1
  *             v_exp_pointer_v(self.ei, self.ur1, self.abs_alpha_rest[0], self.d, self.m)
  *             MM_cdot_pointer_v(self.cl, self.ur1, self.ur0, self.d, self.m)  # ur1 --> v0             # <<<<<<<<<<<<<<
@@ -23800,7 +23800,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
  */
     __pyx_f_10unipolator_22blas_functions_vectors_MM_cdot_pointer_v(__pyx_v_self->cl, __pyx_v_self->ur1, __pyx_v_self->ur0, __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":271
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":264
  *             # Last element
  * 
  *             self.L[self.n_dims_1] += self.d_location[self.n_dims_1]             # <<<<<<<<<<<<<<
@@ -23811,7 +23811,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_4 = __pyx_v_self->n_dims_1;
     *((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->L.data) + __pyx_t_4)) )) += (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->d_location.data) + __pyx_t_3)) )));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":272
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":265
  * 
  *             self.L[self.n_dims_1] += self.d_location[self.n_dims_1]
  *             indE = findex_0(self.L, self.strides_E[self.n_dims_1,:], self.n_dims)  + self.first_elements_E[self.n_dims_1]             # <<<<<<<<<<<<<<
@@ -23831,23 +23831,23 @@ __pyx_t_8.shape[0] = __pyx_v_self->strides_E.shape[1];
 __pyx_t_8.strides[0] = __pyx_v_self->strides_E.strides[1];
     __pyx_t_8.suboffsets[0] = -1;
 
-__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 272, __pyx_L1_error)
+__pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 265, __pyx_L1_error)
     __PYX_XCLEAR_MEMVIEW(&__pyx_t_8, 1);
     __pyx_t_8.memview = NULL; __pyx_t_8.data = NULL;
     __pyx_t_3 = __pyx_v_self->n_dims_1;
     __pyx_v_indE = (__pyx_t_5 + (*((__pyx_t_5numpy_intp_t *) ( /* dim=0 */ ((char *) (((__pyx_t_5numpy_intp_t *) __pyx_v_self->first_elements_E.data) + __pyx_t_3)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":273
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":266
  *             self.L[self.n_dims_1] += self.d_location[self.n_dims_1]
  *             indE = findex_0(self.L, self.strides_E[self.n_dims_1,:], self.n_dims)  + self.first_elements_E[self.n_dims_1]
  *             ind = findex_0(self.L, self.strides_L, self.n_dims)             # <<<<<<<<<<<<<<
  *             self.ei = &self.E[indE, 0]
  *             self.vl = &self.Vl[ind, 0, 0]
  */
-    __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_v_self->strides_L, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_v_self->strides_L, __pyx_v_self->n_dims, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 266, __pyx_L1_error)
     __pyx_v_ind = __pyx_t_5;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":274
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":267
  *             indE = findex_0(self.L, self.strides_E[self.n_dims_1,:], self.n_dims)  + self.first_elements_E[self.n_dims_1]
  *             ind = findex_0(self.L, self.strides_L, self.n_dims)
  *             self.ei = &self.E[indE, 0]             # <<<<<<<<<<<<<<
@@ -23858,7 +23858,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_4 = 0;
     __pyx_v_self->ei = (&(*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_self->E.data + __pyx_t_3 * __pyx_v_self->E.strides[0]) )) + __pyx_t_4)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":275
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":268
  *             ind = findex_0(self.L, self.strides_L, self.n_dims)
  *             self.ei = &self.E[indE, 0]
  *             self.vl = &self.Vl[ind, 0, 0]             # <<<<<<<<<<<<<<
@@ -23870,7 +23870,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_2 = 0;
     __pyx_v_self->vl = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->Vl.data + __pyx_t_4 * __pyx_v_self->Vl.strides[0]) ) + __pyx_t_3 * __pyx_v_self->Vl.strides[1]) )) + __pyx_t_2)) ))));
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":276
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":269
  *             self.ei = &self.E[indE, 0]
  *             self.vl = &self.Vl[ind, 0, 0]
  *             v_exp_pointer_v(self.ei, self.ur0, self.abs_alpha_rest[self.n_dims_1], self.d, self.m)             # <<<<<<<<<<<<<<
@@ -23880,7 +23880,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
     __pyx_t_2 = __pyx_v_self->n_dims_1;
     __pyx_f_10unipolator_22blas_functions_vectors_v_exp_pointer_v(__pyx_v_self->ei, __pyx_v_self->ur0, (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_self->abs_alpha_rest.data) + __pyx_t_2)) ))), __pyx_v_self->d, __pyx_v_self->m);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":277
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":270
  *             self.vl = &self.Vl[ind, 0, 0]
  *             v_exp_pointer_v(self.ei, self.ur0, self.abs_alpha_rest[self.n_dims_1], self.d, self.m)
  *             MM_cdot_pointer_v(self.vl, self.ur0, v0, self.d, self.m)  # ur0 --> v0             # <<<<<<<<<<<<<<
@@ -23891,7 +23891,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
   }
   __pyx_L3:;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":180
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":173
  *         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
  * 
  *     cdef interpolate_single_u(self, double complex *u0, double complex *v0):   #u0 => input vectors, v0 => output vectors             # <<<<<<<<<<<<<<
@@ -23912,7 +23912,7 @@ __pyx_t_5 = __pyx_f_10unipolator_8indexing_findex_0(__pyx_v_self->L, __pyx_t_8, 
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":279
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":272
  *             MM_cdot_pointer_v(self.vl, self.ur0, v0, self.d, self.m)  # ur0 --> v0
  * 
  *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double complex *v0):             # <<<<<<<<<<<<<<
@@ -23930,7 +23930,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expmH_pointer", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":280
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":273
  * 
  *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double complex *v0):
  *         if not c.shape[0] == self.n_dims:             # <<<<<<<<<<<<<<
@@ -23940,20 +23940,20 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   __pyx_t_1 = (!((__pyx_v_c.shape[0]) == __pyx_v_self->n_dims));
   if (unlikely(__pyx_t_1)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":281
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":274
  *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double complex *v0):
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')             # <<<<<<<<<<<<<<
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 281, __pyx_L1_error)
+    __PYX_ERR(0, 274, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":280
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":273
  * 
  *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double complex *v0):
  *         if not c.shape[0] == self.n_dims:             # <<<<<<<<<<<<<<
@@ -23962,29 +23962,29 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":282
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":275
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
  *         self.single_parameters2oddgrid(c)             # <<<<<<<<<<<<<<
  *         self.interpolate_single_u(u0, v0)
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->single_parameters2oddgrid(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->single_parameters2oddgrid(__pyx_v_self, __pyx_v_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":283
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":276
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)             # <<<<<<<<<<<<<<
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):
  *         cdef double complex *u0 = &V_in[0, 0]
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->interpolate_single_u(__pyx_v_self, __pyx_v_u0, __pyx_v_v0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->interpolate_single_u(__pyx_v_self, __pyx_v_u0, __pyx_v_v0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":279
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":272
  *             MM_cdot_pointer_v(self.vl, self.ur0, v0, self.d, self.m)  # ur0 --> v0
  * 
  *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double complex *v0):             # <<<<<<<<<<<<<<
@@ -24005,7 +24005,7 @@ static PyObject *__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_1
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":284
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":277
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):             # <<<<<<<<<<<<<<
@@ -24073,7 +24073,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 284, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 277, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -24081,9 +24081,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 284, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 277, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH", 1, 3, 3, 1); __PYX_ERR(0, 284, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH", 1, 3, 3, 1); __PYX_ERR(0, 277, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -24091,14 +24091,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 284, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 277, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH", 1, 3, 3, 2); __PYX_ERR(0, 284, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH", 1, 3, 3, 2); __PYX_ERR(0, 277, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "expmH") < 0)) __PYX_ERR(0, 284, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "expmH") < 0)) __PYX_ERR(0, 277, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -24107,13 +24107,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
     }
-    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 284, __pyx_L3_error)
-    __pyx_v_V_in = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_in.memview)) __PYX_ERR(0, 284, __pyx_L3_error)
-    __pyx_v_V_out = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_out.memview)) __PYX_ERR(0, 284, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_c.memview)) __PYX_ERR(0, 277, __pyx_L3_error)
+    __pyx_v_V_in = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_in.memview)) __PYX_ERR(0, 277, __pyx_L3_error)
+    __pyx_v_V_out = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_out.memview)) __PYX_ERR(0, 277, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("expmH", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 284, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expmH", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 277, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -24164,7 +24164,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expmH", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":285
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":278
  *         self.interpolate_single_u(u0, v0)
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):
  *         cdef double complex *u0 = &V_in[0, 0]             # <<<<<<<<<<<<<<
@@ -24175,7 +24175,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_2 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V_in.data + __pyx_t_1 * __pyx_v_V_in.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":286
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":279
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):
  *         cdef double complex *u0 = &V_in[0, 0]
  *         cdef double complex *v0 = &V_out[0, 0]             # <<<<<<<<<<<<<<
@@ -24186,7 +24186,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_1 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V_out.data + __pyx_t_2 * __pyx_v_V_out.strides[0]) )) + __pyx_t_1)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":287
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":280
  *         cdef double complex *u0 = &V_in[0, 0]
  *         cdef double complex *v0 = &V_out[0, 0]
  *         if self.n_dims > 2:             # <<<<<<<<<<<<<<
@@ -24196,20 +24196,20 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = (__pyx_v_self->n_dims > 2);
   if (unlikely(__pyx_t_3)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":288
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":281
  *         cdef double complex *v0 = &V_out[0, 0]
  *         if self.n_dims > 2:
  *             raise ValueError('This function is only implemented for 1 and 2 dimensions.')             # <<<<<<<<<<<<<<
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 288, __pyx_L1_error)
+    __PYX_ERR(0, 281, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":287
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":280
  *         cdef double complex *u0 = &V_in[0, 0]
  *         cdef double complex *v0 = &V_out[0, 0]
  *         if self.n_dims > 2:             # <<<<<<<<<<<<<<
@@ -24218,7 +24218,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":289
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":282
  *         if self.n_dims > 2:
  *             raise ValueError('This function is only implemented for 1 and 2 dimensions.')
  *         if not c.shape[0] == self.n_dims:             # <<<<<<<<<<<<<<
@@ -24228,20 +24228,20 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = (!((__pyx_v_c.shape[0]) == __pyx_v_self->n_dims));
   if (unlikely(__pyx_t_3)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":290
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":283
  *             raise ValueError('This function is only implemented for 1 and 2 dimensions.')
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')             # <<<<<<<<<<<<<<
  *         # check V_in size
  *         if not V_in.shape[0] == self.d:
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 283, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 290, __pyx_L1_error)
+    __PYX_ERR(0, 283, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":289
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":282
  *         if self.n_dims > 2:
  *             raise ValueError('This function is only implemented for 1 and 2 dimensions.')
  *         if not c.shape[0] == self.n_dims:             # <<<<<<<<<<<<<<
@@ -24250,7 +24250,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":292
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":285
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  *         # check V_in size
  *         if not V_in.shape[0] == self.d:             # <<<<<<<<<<<<<<
@@ -24260,20 +24260,20 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = (!((__pyx_v_V_in.shape[0]) == __pyx_v_self->d));
   if (unlikely(__pyx_t_3)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":293
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":286
  *         # check V_in size
  *         if not V_in.shape[0] == self.d:
  *             raise ValueError('V_in.shape[0] needs to be equal to H_s[0].shape[0].')             # <<<<<<<<<<<<<<
  *         if not V_in.shape[1] == self.m:
  *             # change m
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 293, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 286, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 293, __pyx_L1_error)
+    __PYX_ERR(0, 286, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":292
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":285
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  *         # check V_in size
  *         if not V_in.shape[0] == self.d:             # <<<<<<<<<<<<<<
@@ -24282,7 +24282,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":294
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":287
  *         if not V_in.shape[0] == self.d:
  *             raise ValueError('V_in.shape[0] needs to be equal to H_s[0].shape[0].')
  *         if not V_in.shape[1] == self.m:             # <<<<<<<<<<<<<<
@@ -24292,16 +24292,16 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = (!((__pyx_v_V_in.shape[1]) == __pyx_v_self->m));
   if (__pyx_t_3) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":296
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":289
  *         if not V_in.shape[1] == self.m:
  *             # change m
  *             self.change_m(V_in.shape[1])             # <<<<<<<<<<<<<<
  *         # check V_out size
  *         if not V_out.shape[0] == self.d:
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_change_m); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_change_m); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 289, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyInt_FromSsize_t((__pyx_v_V_in.shape[1])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_6 = PyInt_FromSsize_t((__pyx_v_V_in.shape[1])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 289, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_7 = NULL;
     __pyx_t_8 = 0;
@@ -24322,13 +24322,13 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
       __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_8, 1+__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 296, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 289, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":294
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":287
  *         if not V_in.shape[0] == self.d:
  *             raise ValueError('V_in.shape[0] needs to be equal to H_s[0].shape[0].')
  *         if not V_in.shape[1] == self.m:             # <<<<<<<<<<<<<<
@@ -24337,7 +24337,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":298
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":291
  *             self.change_m(V_in.shape[1])
  *         # check V_out size
  *         if not V_out.shape[0] == self.d:             # <<<<<<<<<<<<<<
@@ -24347,20 +24347,20 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = (!((__pyx_v_V_out.shape[0]) == __pyx_v_self->d));
   if (unlikely(__pyx_t_3)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":299
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":292
  *         # check V_out size
  *         if not V_out.shape[0] == self.d:
  *             raise ValueError('V_out.shape[0] needs to be equal to H_s[0].shape[0].')             # <<<<<<<<<<<<<<
  *         if not V_out.shape[1] == self.m:
  *             raise ValueError('V_out.shape[1] needs to be equal to V_in.shape[1].')
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 299, __pyx_L1_error)
+    __PYX_ERR(0, 292, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":298
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":291
  *             self.change_m(V_in.shape[1])
  *         # check V_out size
  *         if not V_out.shape[0] == self.d:             # <<<<<<<<<<<<<<
@@ -24369,7 +24369,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":300
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":293
  *         if not V_out.shape[0] == self.d:
  *             raise ValueError('V_out.shape[0] needs to be equal to H_s[0].shape[0].')
  *         if not V_out.shape[1] == self.m:             # <<<<<<<<<<<<<<
@@ -24379,20 +24379,20 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = (!((__pyx_v_V_out.shape[1]) == __pyx_v_self->m));
   if (unlikely(__pyx_t_3)) {
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":301
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":294
  *             raise ValueError('V_out.shape[0] needs to be equal to H_s[0].shape[0].')
  *         if not V_out.shape[1] == self.m:
  *             raise ValueError('V_out.shape[1] needs to be equal to V_in.shape[1].')             # <<<<<<<<<<<<<<
  *         self.expmH_pointer(c, u0, v0)
  * 
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 294, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 301, __pyx_L1_error)
+    __PYX_ERR(0, 294, __pyx_L1_error)
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":300
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":293
  *         if not V_out.shape[0] == self.d:
  *             raise ValueError('V_out.shape[0] needs to be equal to H_s[0].shape[0].')
  *         if not V_out.shape[1] == self.m:             # <<<<<<<<<<<<<<
@@ -24401,18 +24401,18 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
  */
   }
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":302
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":295
  *         if not V_out.shape[1] == self.m:
  *             raise ValueError('V_out.shape[1] needs to be equal to V_in.shape[1].')
  *         self.expmH_pointer(c, u0, v0)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0, __pyx_v_v0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_v_c, __pyx_v_u0, __pyx_v_v0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":284
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":277
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):             # <<<<<<<<<<<<<<
@@ -24436,7 +24436,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   return __pyx_r;
 }
 
-/* "unipolator/symmetric_unitary_interpolation_vector.pyx":305
+/* "unipolator/symmetric_unitary_interpolation_vector.pyx":298
  * 
  * 
  *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,::1] V_in, double complex[:,:,::1] V_out):             # <<<<<<<<<<<<<<
@@ -24504,7 +24504,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 305, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 298, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -24512,9 +24512,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 305, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 298, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 3, 3, 1); __PYX_ERR(0, 305, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 3, 3, 1); __PYX_ERR(0, 298, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -24522,14 +24522,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 305, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 298, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 3, 3, 2); __PYX_ERR(0, 305, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 3, 3, 2); __PYX_ERR(0, 298, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "expmH_pulse_no_multiply") < 0)) __PYX_ERR(0, 305, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "expmH_pulse_no_multiply") < 0)) __PYX_ERR(0, 298, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -24538,13 +24538,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
     }
-    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 305, __pyx_L3_error)
-    __pyx_v_V_in = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_in.memview)) __PYX_ERR(0, 305, __pyx_L3_error)
-    __pyx_v_V_out = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_out.memview)) __PYX_ERR(0, 305, __pyx_L3_error)
+    __pyx_v_cs = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_cs.memview)) __PYX_ERR(0, 298, __pyx_L3_error)
+    __pyx_v_V_in = __Pyx_PyObject_to_MemoryviewSlice_d_dc___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_in.memview)) __PYX_ERR(0, 298, __pyx_L3_error)
+    __pyx_v_V_out = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_V_out.memview)) __PYX_ERR(0, 298, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 305, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("expmH_pulse_no_multiply", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 298, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -24598,7 +24598,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expmH_pulse_no_multiply", 1);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":306
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":299
  * 
  *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,::1] V_in, double complex[:,:,::1] V_out):
  *         cdef double complex *u0 = &V_in[0,0]             # <<<<<<<<<<<<<<
@@ -24609,7 +24609,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_2 = 0;
   __pyx_v_u0 = (&(*((__pyx_t_double_complex *) ( /* dim=1 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_V_in.data + __pyx_t_1 * __pyx_v_V_in.strides[0]) )) + __pyx_t_2)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":307
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":300
  *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,::1] V_in, double complex[:,:,::1] V_out):
  *         cdef double complex *u0 = &V_in[0,0]
  *         cdef double complex *v0 = &V_out[0,0,0]             # <<<<<<<<<<<<<<
@@ -24621,35 +24621,35 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
   __pyx_t_3 = 0;
   __pyx_v_v0 = (&(*((__pyx_t_double_complex *) ( /* dim=2 */ ((char *) (((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_V_out.data + __pyx_t_2 * __pyx_v_V_out.strides[0]) ) + __pyx_t_1 * __pyx_v_V_out.strides[1]) )) + __pyx_t_3)) ))));
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":308
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":301
  *         cdef double complex *u0 = &V_in[0,0]
  *         cdef double complex *v0 = &V_out[0,0,0]
  *         cdef n = cs.shape[0]             # <<<<<<<<<<<<<<
  *         for i in range(n):
  *             self.expmH_pointer(cs[i,:], u0, v0)
  */
-  __pyx_t_4 = PyInt_FromSsize_t((__pyx_v_cs.shape[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 308, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t((__pyx_v_cs.shape[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v_n = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":309
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":302
  *         cdef double complex *v0 = &V_out[0,0,0]
  *         cdef n = cs.shape[0]
  *         for i in range(n):             # <<<<<<<<<<<<<<
  *             self.expmH_pointer(cs[i,:], u0, v0)
  *             v0 += self.dm
  */
-  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
     __pyx_t_5 = __pyx_t_4; __Pyx_INCREF(__pyx_t_5);
     __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 302, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 302, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   for (;;) {
@@ -24658,28 +24658,28 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 309, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 302, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely((0 < 0))) __PYX_ERR(0, 309, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely((0 < 0))) __PYX_ERR(0, 302, __pyx_L1_error)
         #else
-        __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 309, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 309, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 302, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely((0 < 0))) __PYX_ERR(0, 309, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely((0 < 0))) __PYX_ERR(0, 302, __pyx_L1_error)
         #else
-        __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 309, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       }
@@ -24689,7 +24689,7 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 309, __pyx_L1_error)
+          else __PYX_ERR(0, 302, __pyx_L1_error)
         }
         break;
       }
@@ -24698,13 +24698,13 @@ static PyObject *__pyx_pf_10unipolator_38symmetric_unitary_interpolation_vector_
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":310
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":303
  *         cdef n = cs.shape[0]
  *         for i in range(n):
  *             self.expmH_pointer(cs[i,:], u0, v0)             # <<<<<<<<<<<<<<
  *             v0 += self.dm
  */
-    __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 310, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 303, __pyx_L1_error)
     __pyx_t_9.data = __pyx_v_cs.data;
     __pyx_t_9.memview = __pyx_v_cs.memview;
     __PYX_INC_MEMVIEW(&__pyx_t_9, 1);
@@ -24718,20 +24718,20 @@ __pyx_t_9.shape[0] = __pyx_v_cs.shape[1];
 __pyx_t_9.strides[0] = __pyx_v_cs.strides[1];
     __pyx_t_9.suboffsets[0] = -1;
 
-__pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_t_9, __pyx_v_u0, __pyx_v_v0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 310, __pyx_L1_error)
+__pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *)__pyx_v_self->__pyx_vtab)->expmH_pointer(__pyx_v_self, __pyx_t_9, __pyx_v_u0, __pyx_v_v0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __PYX_XCLEAR_MEMVIEW(&__pyx_t_9, 1);
     __pyx_t_9.memview = NULL; __pyx_t_9.data = NULL;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":311
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":304
  *         for i in range(n):
  *             self.expmH_pointer(cs[i,:], u0, v0)
  *             v0 += self.dm             # <<<<<<<<<<<<<<
  */
     __pyx_v_v0 = (__pyx_v_v0 + __pyx_v_self->dm);
 
-    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":309
+    /* "unipolator/symmetric_unitary_interpolation_vector.pyx":302
  *         cdef double complex *v0 = &V_out[0,0,0]
  *         cdef n = cs.shape[0]
  *         for i in range(n):             # <<<<<<<<<<<<<<
@@ -24741,7 +24741,7 @@ __pyx_t_4 = ((struct __pyx_vtabstruct_10unipolator_38symmetric_unitary_interpola
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":305
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":298
  * 
  * 
  *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,::1] V_in, double complex[:,:,::1] V_out):             # <<<<<<<<<<<<<<
@@ -26405,9 +26405,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 56, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 57, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 53, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_n_s_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 100, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 156, __pyx_L1_error)
@@ -26485,91 +26485,91 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":56
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":49
  * 
  *         if not H_s.shape[0] == self.n_dims + 1:
  *             print('Requires n+1 Hamiltonians for n dimensional interpolation. Check lengths of Hs, c_mins, c_maxs, c_bins')             # <<<<<<<<<<<<<<
  *             raise ValueError
  * 
  */
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_u_Requires_n_1_Hamiltonians_for_n); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_u_Requires_n_1_Hamiltonians_for_n); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":147
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":140
  *             self.d_location[i] = 1 if alpha_rest >= 0 else -1
  *             if self.alpha[i] < 0 or self.alpha[i] > self.c_bins[i]:
  *                 print('Warning: These parameters lie outside of interpolation grid!')             # <<<<<<<<<<<<<<
  *                 break
  * 
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_u_Warning_These_parameters_lie_out); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_u_Warning_These_parameters_lie_out); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":281
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":274
  *     cdef expmH_pointer(self, double[::1] c, double complex *u0, double complex *v0):
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('The coefficient c must be of size [interpolation_dimensions].')             # <<<<<<<<<<<<<<
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_u_The_coefficient_c_must_be_of_siz); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_u_The_coefficient_c_must_be_of_siz); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":288
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":281
  *         cdef double complex *v0 = &V_out[0, 0]
  *         if self.n_dims > 2:
  *             raise ValueError('This function is only implemented for 1 and 2 dimensions.')             # <<<<<<<<<<<<<<
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')
  */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_u_This_function_is_only_implemente); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_u_This_function_is_only_implemente); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":290
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":283
  *             raise ValueError('This function is only implemented for 1 and 2 dimensions.')
  *         if not c.shape[0] == self.n_dims:
  *             raise ValueError('c.shape[0] needs to be equal to H_s[0].shape[0]-1.')             # <<<<<<<<<<<<<<
  *         # check V_in size
  *         if not V_in.shape[0] == self.d:
  */
-  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_u_c_shape_0_needs_to_be_equal_to_H); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_u_c_shape_0_needs_to_be_equal_to_H); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":293
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":286
  *         # check V_in size
  *         if not V_in.shape[0] == self.d:
  *             raise ValueError('V_in.shape[0] needs to be equal to H_s[0].shape[0].')             # <<<<<<<<<<<<<<
  *         if not V_in.shape[1] == self.m:
  *             # change m
  */
-  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_u_V_in_shape_0_needs_to_be_equal_t); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_u_V_in_shape_0_needs_to_be_equal_t); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":299
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":292
  *         # check V_out size
  *         if not V_out.shape[0] == self.d:
  *             raise ValueError('V_out.shape[0] needs to be equal to H_s[0].shape[0].')             # <<<<<<<<<<<<<<
  *         if not V_out.shape[1] == self.m:
  *             raise ValueError('V_out.shape[1] needs to be equal to V_in.shape[1].')
  */
-  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_u_V_out_shape_0_needs_to_be_equal); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_u_V_out_shape_0_needs_to_be_equal); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":301
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":294
  *             raise ValueError('V_out.shape[0] needs to be equal to H_s[0].shape[0].')
  *         if not V_out.shape[1] == self.m:
  *             raise ValueError('V_out.shape[1] needs to be equal to V_in.shape[1].')             # <<<<<<<<<<<<<<
  *         self.expmH_pointer(c, u0, v0)
  * 
  */
-  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_u_V_out_shape_1_needs_to_be_equal); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 301, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_u_V_out_shape_1_needs_to_be_equal); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
@@ -26674,77 +26674,77 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__29);
   __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(1, 1, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":103
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":96
  *         self.L = np.empty(self.n_dims, dtype=np.intp)   # CHANGED: dtype=np.intp
  * 
  *     def change_m(self, int m):             # <<<<<<<<<<<<<<
  *         self.m = m
  *         self.dm = self.d * m
  */
-  __pyx_tuple__31 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_m); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_tuple__31 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_m); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_change_m, 103, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_change_m, 96, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 96, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":168
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":161
  *                 self.d_location[i] = -1
  * 
  *     def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]             # <<<<<<<<<<<<<<
  *         self.d_di = which_diffs
  *         self.n_d_di_1 = self.d_di.shape[0] - 1
  */
-  __pyx_tuple__33 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_which_diffs); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_which_diffs); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_set_which_diffs, 168, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_set_which_diffs, 161, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 161, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":173
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":166
  *         self.n_d_di = self.d_di.shape[0]
  * 
  *     def get_single_param(self, double[::1] c):  # To verify interpolation grid             # <<<<<<<<<<<<<<
  *         self.single_parameters2oddgrid(c)
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  */
-  __pyx_tuple__35 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_c); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_c); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_get_single_param, 173, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_get_single_param, 166, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 166, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":177
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":170
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  * 
  *     def get_cache(self): # To verify interpolation grid             # <<<<<<<<<<<<<<
  *         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
  * 
  */
-  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_get_cache, 177, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_get_cache, 170, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 170, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":284
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":277
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &V_in[0, 0]
  *         cdef double complex *v0 = &V_out[0, 0]
  */
-  __pyx_tuple__39 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_c, __pyx_n_s_V_in, __pyx_n_s_V_out, __pyx_n_s_u0, __pyx_n_s_v0); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_c, __pyx_n_s_V_in, __pyx_n_s_V_out, __pyx_n_s_u0, __pyx_n_s_v0); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_expmH, 284, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_expmH, 277, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 277, __pyx_L1_error)
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":305
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":298
  * 
  * 
  *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,::1] V_in, double complex[:,:,::1] V_out):             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &V_in[0,0]
  *         cdef double complex *v0 = &V_out[0,0,0]
  */
-  __pyx_tuple__41 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_cs, __pyx_n_s_V_in, __pyx_n_s_V_out, __pyx_n_s_u0, __pyx_n_s_v0, __pyx_n_s_n, __pyx_n_s_i); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_cs, __pyx_n_s_V_in, __pyx_n_s_V_out, __pyx_n_s_u0, __pyx_n_s_v0, __pyx_n_s_n, __pyx_n_s_i); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_expmH_pulse_no_multiply, 305, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_unipolator_symmetric_unitary, __pyx_n_s_expmH_pulse_no_multiply, 298, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 298, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -26868,15 +26868,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector.interpolate_single_u = (PyObject *(*)(struct __pyx_obj_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *, __pyx_t_double_complex *, __pyx_t_double_complex *))__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_interpolate_single_u;
   __pyx_vtable_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector.expmH_pointer = (PyObject *(*)(struct __pyx_obj_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector *, __Pyx_memviewslice, __pyx_t_double_complex *, __pyx_t_double_complex *))__pyx_f_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_expmH_pointer;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector_spec, NULL); if (unlikely(!__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector)) __PYX_ERR(0, 12, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector_spec, __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector_spec, NULL); if (unlikely(!__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector)) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector_spec, __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #else
   __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector = &__pyx_type_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector->tp_print = 0;
@@ -26886,13 +26886,13 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector->tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_vtabptr_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_vtabptr_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Sym_UI_vector, (PyObject *) __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Sym_UI_vector, (PyObject *) __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   #endif
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
@@ -27944,120 +27944,120 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_7) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":45
- *         double[::1] c_max_s,
- *         npc.intp_t[::1] c_bins,                    # CHANGED: was long[::1]
- *         npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED: dtype=np.intp             # <<<<<<<<<<<<<<
- *         int m = 1
- *     ):
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":40
+ *     cdef npc.intp_t[::1] d_di                    # CHANGED: was long[::1]
+ * 
+ *     def __cinit__(self, double complex[:,:,::1] H_s, double[::1] c_min_s, double[::1] c_max_s, npc.intp_t[::1] c_bins, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m = 1):             # <<<<<<<<<<<<<<
+ *         # Construct parameters
+ *         self.n_dims = c_min_s.shape[0]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_7);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error);
   __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_intp); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_intp); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_11 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_10, PyBUF_WRITABLE); if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_intp_t(__pyx_t_10, PyBUF_WRITABLE); if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __pyx_k__11 = __pyx_t_11;
   __pyx_t_11.memview = NULL;
   __pyx_t_11.data = NULL;
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":103
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":96
  *         self.L = np.empty(self.n_dims, dtype=np.intp)   # CHANGED: dtype=np.intp
  * 
  *     def change_m(self, int m):             # <<<<<<<<<<<<<<
  *         self.m = m
  *         self.dm = self.d * m
  */
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_3change_m, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_change_m, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_3change_m, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_change_m, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_change_m, __pyx_t_10) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_change_m, __pyx_t_10) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   PyType_Modified(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":168
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":161
  *                 self.d_location[i] = -1
  * 
  *     def set_which_diffs(self, npc.intp_t[::1] which_diffs):   # CHANGED: was long[::1]             # <<<<<<<<<<<<<<
  *         self.d_di = which_diffs
  *         self.n_d_di_1 = self.d_di.shape[0] - 1
  */
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_5set_which_diffs, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_set_which_diffs, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_5set_which_diffs, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_set_which_diffs, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_set_which_diffs, __pyx_t_10) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_set_which_diffs, __pyx_t_10) < 0) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   PyType_Modified(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":173
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":166
  *         self.n_d_di = self.d_di.shape[0]
  * 
  *     def get_single_param(self, double[::1] c):  # To verify interpolation grid             # <<<<<<<<<<<<<<
  *         self.single_parameters2oddgrid(c)
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  */
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_7get_single_param, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_get_single_param, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_7get_single_param, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_get_single_param, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_get_single_param, __pyx_t_10) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_get_single_param, __pyx_t_10) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   PyType_Modified(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":177
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":170
  *         return np.asarray(self.location), np.asarray(self.d_location), np.asarray(self.abs_alpha_rest)
  * 
  *     def get_cache(self): # To verify interpolation grid             # <<<<<<<<<<<<<<
  *         return np.asarray(self.E), np.asarray(self.Vl), np.asarray(self.Vr), np.asarray(self.CL_L), np.asarray(self.CL_R), np.asarray(self.CH_L), np.asarray(self.CH_R), np.asarray(self.strides_E), np.asarray(self.strides_L), np.asarray(self.strides_C), np.asarray(self.first_elements_E), np.asarray(self.first_elements_C)
  * 
  */
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_9get_cache, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_get_cache, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_9get_cache, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_get_cache, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_get_cache, __pyx_t_10) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_get_cache, __pyx_t_10) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   PyType_Modified(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":284
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":277
  *         self.single_parameters2oddgrid(c)
  *         self.interpolate_single_u(u0, v0)
  *     def expmH(self, double[::1] c, double complex[:,::1] V_in, double complex[:,::1] V_out):             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &V_in[0, 0]
  *         cdef double complex *v0 = &V_out[0, 0]
  */
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_11expmH, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_expmH, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_11expmH, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_expmH, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_expmH, __pyx_t_10) < 0) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_expmH, __pyx_t_10) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   PyType_Modified(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector);
 
-  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":305
+  /* "unipolator/symmetric_unitary_interpolation_vector.pyx":298
  * 
  * 
  *     def expmH_pulse_no_multiply(self, double[:,::1] cs, double complex[:,::1] V_in, double complex[:,:,::1] V_out):             # <<<<<<<<<<<<<<
  *         cdef double complex *u0 = &V_in[0,0]
  *         cdef double complex *v0 = &V_out[0,0,0]
  */
-  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_13expmH_pulse_no_multiply, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_expmH_pulse_no_mul, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_CyFunction_New(&__pyx_mdef_10unipolator_38symmetric_unitary_interpolation_vector_13Sym_UI_vector_13expmH_pulse_no_multiply, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sym_UI_vector_expmH_pulse_no_mul, NULL, __pyx_n_s_unipolator_symmetric_unitary_int, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_expmH_pulse_no_multiply, __pyx_t_10) < 0) __PYX_ERR(0, 305, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector, __pyx_n_s_expmH_pulse_no_multiply, __pyx_t_10) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   PyType_Modified(__pyx_ptype_10unipolator_38symmetric_unitary_interpolation_vector_Sym_UI_vector);
 

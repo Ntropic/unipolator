@@ -41,12 +41,7 @@ cdef class Trotter_System:
     cdef char *uplo
     cdef int info, n_times, m_times
 
-    def __cinit__(
-        self,
-        double complex[:,:,::1] H_s,
-        npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp),  # CHANGED
-        int m_times = 0
-    ):
+    def __cinit__(self, double complex[:,:,::1] H_s, npc.intp_t[::1] which_diffs = np.array([], dtype=np.intp), int m_times = 0):
         # Construct parameters
         self.n_dims = H_s.shape[0]
         self.n_dims_1 = self.n_dims - 1

@@ -28821,6 +28821,7 @@ static int __pyx_f_10unipolator_8indexing_c_argmax(__Pyx_memviewslice __pyx_v_c,
  *             c_max = c[i]
  *             max_ind = i             # <<<<<<<<<<<<<<
  *     return max_ind
+ * 
  */
       __pyx_v_max_ind = __pyx_v_i;
 
@@ -28838,6 +28839,7 @@ static int __pyx_f_10unipolator_8indexing_c_argmax(__Pyx_memviewslice __pyx_v_c,
  *             c_max = c[i]
  *             max_ind = i
  *     return max_ind             # <<<<<<<<<<<<<<
+ * 
  */
   __pyx_r = __pyx_v_max_ind;
   goto __pyx_L0;

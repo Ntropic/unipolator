@@ -302,3 +302,4 @@ cpdef int c_argmax(double[::1] c, int max_ind, double c_max, int n) noexcept nog
             c_max = c[i]
             max_ind = i
     return max_ind
+

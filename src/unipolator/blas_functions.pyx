@@ -5,6 +5,7 @@ import numpy as np
 from scipy.linalg.cython_blas cimport zgemm, zscal, zdscal, zaxpy, zcopy, zdotu
 from scipy.linalg.cython_lapack cimport zheevd
 
+# distutils: define_macros=NPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION
 cdef void AxB_elementwise_pointer(double complex *a0, double complex *b0, double complex *c0, int n2) noexcept nogil :
     cdef int i
     for i in range(n2):

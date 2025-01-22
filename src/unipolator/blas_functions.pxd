@@ -7,6 +7,7 @@ cpdef void MM_cdot(double complex[:,::1] A, double complex[:,::1] B, double comp
 cdef void MMM_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, double complex *d0, double complex *e0, int n) noexcept nogil 
 cdef void MMM_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C, double complex[:,::1] D, double complex[:,::1] E) noexcept nogil 
 
+
 cdef void DagM_M_cdot_pointer(double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil 
 cdef void DagM_M_cdot_scale_pointer(double alpha, double complex *a0, double complex *b0, double complex *c0, int n) noexcept nogil 
 cpdef void DagM_M_cdot(double complex[:,::1] A, double complex[:,::1] B, double complex[:,::1] C) noexcept nogil 
