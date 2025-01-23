@@ -135,7 +135,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Ignore generated C files
-*.c
-*.cpp
-*.h
+## Ignore generated C files
+#*.c
+#*.cpp
+#*.h
