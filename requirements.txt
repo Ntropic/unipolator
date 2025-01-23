@@ -1,3 +1,5 @@
 numpy >= 1.7
 scipy >= 1.0
 Cython >= 0.29
+setuptools>=65
+wheel

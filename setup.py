@@ -5,8 +5,6 @@ import numpy as np
 from Cython.Build import cythonize
 
 name = 'unipolator'
-annotate = False
-
 
 # make a list of the .pyx files in the os.join.path("src",name) directory
 #pyx_files = [os.path.splitext(fn)[0] for fn in os.listdir(os.path.join('src', name)) if fn.endswith(".pyx")] 
@@ -22,13 +20,13 @@ else:  # Windows?
     extra_compile_args = ["/O2", "/openmp"]
     
 include_dirs = [np.get_include()]
-extensions = [Extension(name+'.'+filename, [ os.path.join('src', name, filename+'.pyx')], include_dirs=include_dirs, extra_compile_args=extra_compile_args) for filename in pyx_files]
+extensions = [Extension(name+'.'+filename, [ os.path.join('src', name, filename+'.pyx')], include_dirs=include_dirs, extra_compile_args=extra_compile_args,  extra_link_args=["-lm"]) for filename in pyx_files]
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 compiler_directives = {'emit_code_comments': False, 'initializedcheck': False, 'boundscheck': False, 'wraparound': False, 'language_level': 3, "embedsignature": True, "cdivision": True, "nonecheck" : False, 'profile': False}
-extensions = cythonize(extensions, language_level = "3", annotate=annotate, compiler_directives=compiler_directives ) #gdb_debug=True, 
+extensions = cythonize(extensions, language_level = "3", annotate=False, compiler_directives=compiler_directives ) #gdb_debug=True, 
 
 with open("requirements.txt") as fp:
     install_requires = fp.read().strip().split("\n")
